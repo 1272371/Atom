@@ -21,7 +21,7 @@ git push --set-upstream origin master
 ## Including Bootstrap in HTML files
 Bootstrap has several files that you need to attatch in your `HTML` documents
 * JavaScript files
-```js
+```html
 <body>
     <!--Attach this just before the closing body tag-->
     <script src="jquery/jquery.js"></script>
@@ -30,7 +30,7 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 </body>
 ```
 * CSS files
-```css
+```html
 <head>
     <!--Attach this anywhere in the head tags-->
     <link rel="stylesheet" href="bootstrap/bootstrap.css">

@@ -23,6 +23,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.png">
 </head>
 <body>
+
+    <div class="card card-block d-flex" style="width: 18rem;">
+        <img class="card-img-top" src="/img/view-grades-card.png" alt="Card image cap">
+        <div class="card-body align-items-center justify-content-center">
+            <h5 class="card-title">View grades</h5>
+            <p class="card-text">check your grades</p>
+            <a href="#" class="btn btn-primary btn-block">VIEW</a>
+        </div>
+    </div>
+
     <!--Scripts-->
     <script src="jquery/jquery.js"></script>
     <script src="bootstrap/bootstrap.js"></script>
