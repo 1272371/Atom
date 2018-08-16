@@ -1,4 +1,4 @@
-![Cover photo of project] (/img/cover/github-cover-photo.png)
+![Cover photo of project] (https://github.com/SuliWits/Atom/master/img/cover/github-cover-photo.png)
 
 ## Integrate project with Git and Xampp
 * Navigate to the *htdocs* in your Xampp installation folder
