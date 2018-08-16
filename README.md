@@ -1,7 +1,7 @@
 ![Cover photo of project](/img/cover/github-cover-photo.png)
 
 ## Integrate project with Git and Xampp
-* Navigate to the *htdocs* in your Xampp installation folder
+* Navigate to the **htdocs** in your Xampp installation folder
 * If you haven't configured GitHub globally yet use
 ```
 git config --global user.name "John Doe"
@@ -16,4 +16,23 @@ git pull origin master --allow-unrelated-histories
 fatal: The current branch master has no upstream branch
 To push the current branch and set the remote as upstream, use
 git push --set-upstream origin master
+```
+
+## Including Bootstrap in HTML files
+Bootstrap has several files that you need to attatch in your `HTML` documents
+* JavaScript files
+```js
+<body>
+    <!--Attach this just before the closing body tag-->
+    <script src="jquery/jquery.js"></script>
+    <script src="bootstrap/bootstrap.js"></script>
+    <script src="js/popper.min.js"></script>
+</body>
+```
+* CSS files
+```css
+<head>
+    <!--Attach this anywhere in the head tags-->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+</head>
 ```

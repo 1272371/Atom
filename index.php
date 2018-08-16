@@ -3,7 +3,7 @@
      * if user is authenticated stay on the same page otherwise
      * redirect to login page 
      */
-    header("Location: /dist/login");
+    // header("Location: /dist/login");
 ?>
 
 <!DOCTYPE <!DOCTYPE html>
@@ -18,7 +18,9 @@
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <script src="main.js"></script>
     <!--Title-->
-    <title>@Risk</title>
+    <!--Title & Icon-->
+    <title>Risk - Welcome</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.png">
 </head>
 <body>
     <!--Scripts-->
