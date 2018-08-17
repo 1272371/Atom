@@ -1,21 +1,4 @@
-<?php
-    $db_host = 'localhost';
-    $db_username = 'root';
-    $db_password = '';
-    $db_name = 'risk';
-    $tb_query = 'select  * from student';
-    
-    $link = mysqli_connect($db_host, $db_username, $db_password, $db_name);
-
-    $result = mysqli_query($link, $tb_query);
-    echo mysqli_num_rows($result);
-    /*
-     * if user is authenticated stay on the same page otherwise
-     * redirect to login page 
-     */
-    // header("Location: /dist/login");
-?>
-
+<?php include "php/connect.php";?>
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
