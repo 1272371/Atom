@@ -104,7 +104,10 @@
                 <div class="carousel-item active">
                     <img class="img-fluid w-100" src="img/carousel/slide-0.jpg">
                     <div class="carousel-caption">
-                        <button type="button" class="btn btn-outline-light btn-lg">Read more...</button>
+                        <a href="http://www.wits.ac.za/news/latest-news/research-news/2018/2018-08/wits-signs-memorandum-of-understanding-with-perot-museum.html"
+                            role="button"class="btn btn-outline-light btn-lg">
+                            Read more...
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-item">
