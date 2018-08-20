@@ -1,6 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
 @import "reset";
 @import "variables";
+@import "content-area"
 
 *{
   box-sizing: border-box;
@@ -8,14 +9,14 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: $greyLight;
+  background: $greyBackground;
 
 }
 
 #sideMenu{
-  background: $purpleLight;
+  background: $blueHeader;
   max-width: 280px;
-
+  <img src="../public/img/wits-logo.png">
   nav{
     padding-top: 100px;
     a{
