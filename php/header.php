@@ -14,10 +14,10 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item ml-2 mr-2">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="dist/about/">About</a>
                         </li>
                         <li class="nav-item ml-2 mr-4">
-                            <a class="nav-link" href="#">Team</a>
+                            <a class="nav-link" href="dist/team/">Team</a>
                         </li>
                         <li class="nav-item">
                             <form id="sign-in-form" action="php/login.php" method="POST">
