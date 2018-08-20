@@ -1,5 +1,5 @@
 <?php include_once 'php/header.php'?>
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
