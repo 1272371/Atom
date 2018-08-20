@@ -1,3 +1,4 @@
+<?php include_once 'php/header.php'?>
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +10,18 @@
     <!--CSS-->
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
     <!--Title & Icon-->
-    <title>Welcome</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.png">
+    <title>
+        Welcome
+        <?php
+            if (isset($_SESSION['user_id'])) {
+                echo ", ";
+                echo $_SESSION['user_name'];
+            }
+        ?>
+    </title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
-    <!-- Header -->
-    <?php include_once 'php/header.php'?>
-
     <!-- Jumbotron -->
     <div class="container-fluid">
         <div class="row jumbotron">
