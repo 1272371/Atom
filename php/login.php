@@ -37,7 +37,7 @@
                         // sign in user
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_name'] = $row['user_name'];
-                        header("Location: ../index.php?signin=success");
+                        header("Location: ../dashboard/public/index.html");
                         exit();
                     }
                 }
