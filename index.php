@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="icon" type="image/png" href="img/favicon.png">
 
     <!--CSS-->
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
@@ -19,7 +20,6 @@
             }
         ?>
     </title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
     <!-- Jumbotron -->
