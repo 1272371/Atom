@@ -8,19 +8,18 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: $greyLight;
-
+  background:$greyLight;
 }
 
 #sideMenu{
-  background: $purpleLight;
-  width:280px;
-  position:absolute;
-  top:0;
-  bottom: 0;
-
+  background:$purpleLight;
+  width: 280px;
+  position: absolute;
+  top:0px;
+  bottom:0px;
   nav{
     padding-top: 100px;
+
     a{
       display: block;
       color: $greyDark;
@@ -29,30 +28,93 @@ body {
       font-weight: 300;
       transition: all 0.3s ease-in-out;
       &:hover{
-        background: $purpleDark;
+        background:$purpleDark;
         border-left: 5px solid $greenNeon;
         padding: 15px 30px 15px 25px;
-        
       }
 
-      .fas{
-        color: $greyDark;
+      .fa{
+        color:$greenNeon;
         font-size: 1.4rem;
-        margin-right: .8rem;
+        margin-right: 0.8rem;
         display: inline-block;
         width:30px;
-        position: relative;
+        position:relative;
         top:2px;
       }
       &.active{
         background: $purpleDark;
         border-left: 5px solid $greenNeon;
         padding: 15px 30px 15px 25px;
-        .fas{
-          color: $greenNeon;
-        }
       }
     }
-
   }
+}
+
+#content-area{
+  margin-left: 280px;
+  padding: 15px;
+
+  .heading{
+    h1{
+      color: purple;
+      font-size:3rem;
+      font-weight:400;
+      margin-bottom: 20px;
+    }
+  }
+  .cards{
+    .card{
+      background: white;
+      border-radius: 5px;
+      padding: 20px;
+      .user-img{
+        background:
+        url("https://s3.amazonaws.com/uifaces/faces/twitter/marcosmoralez/128.jpg")
+        no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size:cover;
+        background-size: cover;
+        width:115px;
+        height:115px;
+        border-radius: 50%;
+        margin:0 auto;
+      }
+      .user-name{
+        font-size: 1rem;
+        color: purple;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+      }
+      .student-number{
+        font-size: 1rem;
+        color: purple;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+      }
+      .faculty{
+        font-size: 0.8rem;
+        color: purple;
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+    }
+  }
+}
+
+.col-md-4{
+  width:((4*100)/12) + %;
+  padding: 0 15px;
+  display: inline-block;
+}
+
+.col-md-3{
+  width:((3 *100)/12) + %;
+  padding: 0 15px;
+  display: inline-block;
 }
