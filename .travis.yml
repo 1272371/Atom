@@ -10,6 +10,7 @@ matrix:
         - cd backend/tests
       script:
         - python -m unittest discover
+        #the path to the file to execute the test
 
     - language:java
     jdk:
@@ -18,13 +19,14 @@ matrix:
     - oraclejdk-ea
     - openjdk10
     - openjdk11
-    
+    #the path to the file to execute the test
     -language: node_js
     node_js:
      - "iojs"
      - "7"
-
+    #the path to the file to execute the test
 notifications:
   email:
     - 1272371@students.wits.ac.za
     
+
