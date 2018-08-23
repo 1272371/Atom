@@ -4,14 +4,6 @@ deploy:
   quiet: true
 matrix:
   include:
-    - language: python
-      python: 2.7
-      before_script:
-        - cd backend/tests
-      script:
-        - python -m unittest discover
-        #the path to the file to execute the test
-
     - language:java
     jdk:
     - oraclejdk8
@@ -19,12 +11,23 @@ matrix:
     - oraclejdk-ea
     - openjdk10
     - openjdk11
+    before_install:
+    - cd java
     #the path to the file to execute the test
+    
     -language: node_js
     node_js:
      - "iojs"
      - "7"
     #the path to the file to execute the test
+    -language: php
+      php:
+      - 5.4
+      - 5.5
+      before_install:
+      - cd php
+      script:
+      - phpunit --bootstrap src/autoload.php --debug --coverage-text test
 notifications:
   email:
     - 1272371@students.wits.ac.za
