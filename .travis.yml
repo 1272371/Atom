@@ -4,6 +4,7 @@ deploy:
   quiet: true
 matrix:
   include:
+  #java
     - language:java
     jdk:
     - oraclejdk8
@@ -11,15 +12,18 @@ matrix:
     - oraclejdk-ea
     - openjdk10
     - openjdk11
+    script:
+    - make test
     before_install:
     - cd java
-    #the path to the file to execute the test
     
+    #javascript
     -language: node_js
     node_js:
      - "iojs"
      - "7"
-    #the path to the file to execute the test
+     
+     #php
     -language: php
       php:
       - 5.4
