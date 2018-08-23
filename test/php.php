@@ -1,5 +1,6 @@
+<?php
 /**
- * PHPUnit test class for \Maths\Fibonacci class.
+ * PHPUnit test class for LoginPHP.
  */
 class FibonacciTest extends \PHPUnit_Framework_TestCase
 {
