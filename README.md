@@ -47,7 +47,7 @@ where data represents the different strings for that specific variable,
 And the login api request is accompanied by the {username:data,password:data} json data.
 We can then get a response from the api based on the url and the json data that we have provided
 i.e if we provide a username/student nr that does not exist in the login url i.e in http://localhost/api/login and {username:"1234567":password:"caihfwai"} from the api we'll get a 'user does not exist' json status
-or is the password is incorrect we'll get a 'incorrect password' json response from the database.
+or if the password is incorrect we'll get a 'incorrect password' json response from the api.
 
 These responses can be interpreted by any language that can handle json(almost all languages),and as a result we can edit data,store,analyze data,use unit testing without breaking/modifying any past code.   
 In order to see these request and responses one can install a software called POSTMAN,it is specifically made for api integrations(and it makes is easy for you to send these requests using most common programming language i.e java,python,php,javascript,...etc).
