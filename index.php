@@ -116,26 +116,65 @@
 
     <!-- Image Slider -->
     <div class="row">
-        <div id="img-slider" class="carousel slide mt-5 mb-5 col-12 pl-4 pr-4" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#img-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#img-slider" data-slide-to="1"></li>
-            </ul>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="img-fluid w-100" src="img/carousel/slide-0.jpg">
-                    <div class="carousel-caption">
-                        <a href="http://www.wits.ac.za/news/latest-news/research-news/2018/2018-08/wits-signs-memorandum-of-understanding-with-perot-museum.html"
-                            role="button"class="btn btn-outline-light btn-lg">
-                            Read more...
-                        </a>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div id="img-slider" class="carousel slide mt-5 mb-5 col-12 pl-4 pr-4" data-ride="carousel">
+                <ul class="carousel-indicators">
+                    <li data-target="#img-slider" data-slide-to="0" class="active"></li>
+                    <li data-target="#img-slider" data-slide-to="1"></li>
+                </ul>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="img-fluid w-100" src="img/carousel/slide-0.jpg">
+                        <div class="carousel-caption">
+                            <a href="http://www.wits.ac.za/news/latest-news/research-news/2018/2018-08/wits-signs-memorandum-of-understanding-with-perot-museum.html"
+                                role="button"class="btn btn-outline-light btn-lg">
+                                Read more...
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="img-fluid w-100" src="img/carousel/slide-1.jpg">
+                    <div class="carousel-item">
+                        <img class="img-fluid w-100" src="img/carousel/slide-1.jpg">
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-lg-2"></div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col text-center">
+            <p class="h2">Quick Links</p>
+        </div>
+    </div>
+
+    <div class="row pb-4">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col">
+                    <a href="php/database.html">
+                        <img class="rounded img-fluid" src="img/button/database.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="php/database.html">
+                        <img class="rounded img-fluid" src="img/button/database.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="php/database.html">
+                        <img class="rounded img-fluid" src="img/button/database.png">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="php/database.html">
+                        <img class="rounded img-fluid" src="img/button/database.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
     </div>
 
     <!--Scripts-->
