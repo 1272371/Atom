@@ -1,0 +1,7 @@
+body {
+    /*
+     * hide horizontal html content should content
+     * overlap the browser pages width
+     */
+    overflow-x: hidden;
+}

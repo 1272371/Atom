@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Create entries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Database entries</h1>
+            <p class="lead">Add entries into the database</p>
+        </div>
+    </div>
+    <div class="container-fluid p-5">
+        <div class="row">
+
+            <!-- user form -->
+            <div class="col-md-12 col-lg-6">
+                <form>
+                    <!-- heading -->
+                    <p class="h1">user table</p>
+                    
+                    <!-- user form beginning -->
+                    <div class="form-group">
+
+                        <!-- identity number-->
+                        <label for="userId">User number</label>
+                        <input type="text" class="form-control" id="userId"
+                            aria-describedby="studentIdInfo" placeholder="Enter user number">
+                        <small id="studentIdInfo" class="form-text text-muted">
+                            Used to sign in to student self-services.</small>
+                        
+                        <!-- type      |       name        |      surname -->
+                        <div class="row mt-2">
+                            <div class="col-md-12 col-lg-2">
+                                <select class="custom-select">
+                                    <option selected>Type...</option>
+                                    <option value="1">Student</option>
+                                    <option value="2">Lecturer</option>
+                                    <option value="3">Worker</option>
+                                    <option value="4">Admin</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 col-lg-5">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-md-12 col-lg-5">
+                                <input type="text" class="form-control" placeholder="Surname">
+                            </div>
+                        </div>
+
+                        <!-- password -->
+                        <label for="userPassword">User password</label>
+                        <input type="text" class="form-control" id="userPassword"
+                            aria-describedby="userPasswordInfo" placeholder="Enter user password">
+                        <small id="userPasswordInfo" class="form-text text-muted">
+                            Your password must be 8-20 characters long,
+                            contain letters and numbers, and must not contain spaces,
+                            special characters, or emojis.</small>
+
+                        <!-- couse code |   year of study   |   school -->
+                        <div class="row">
+                            <div class="col-md-12 col-lg-2">
+                                <label for="courseCode">Course code</label>
+                                <select id="courseCode" class="custom-select">
+                                    <option selected>-</option>
+                                    <option value="BSC000">BSC000</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 col-lg-3">
+                                <label for="yearOfStudy">Year of study</label>
+                                <select id="yearOfStudy" class="custom-select">
+                                    <option selected>-</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12 col-lg-7">
+                                <label for="schoolId">School</label>
+                                <select id="schoolId" class="custom-select">
+                                    <option selected value="none">-</option>
+                                    <optgroup label="Science">
+                                        <option value="APESS">Animal Plant and Environmental Sciences</option>
+                                        <option value="CHEMI">Chemistry</option>
+                                    </optgroup>
+                                    <optgroup label="Humanities">
+                                        <option value="ARTSS">Arts</option>
+                                        <option value="EDUCA">Education</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <!-- school form -->
+            <div class="col-lg-6">
+                <form>
+                    <p class="h1">school table</p>
+                    <div class="form-group">
+                        <label for="studentId">Student number</label>
+                        <input type="text" class="form-control" id="studentId"
+                            aria-describedby="studentIdInfo" placeholder="Enter student number">
+                        <small id="studentIdInfo" class="form-text text-muted">Used to sign in to student self-services.</small>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!--Scripts-->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/popper.min.js"></script>
+</body>
+</html>
