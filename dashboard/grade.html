@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Statistics</title>
+	<title>Grade Book</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -57,20 +57,20 @@
                         <p>User Profile</p>
                     </a>
                 </li>
-                <li>
-                    <a href="table.html">
+                <li class="active">
+                    <a href="grade.html">
                         <i class="pe-7s-note2"></i>
                         <p>Grade Book</p>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="table_copy.html">
+                <li>
+                    <a href="stats.html">
                         <i class="pe-7s-graph3"></i>
                         <p>Statistics</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="settings.html">
                         <i class="pe-7s-settings"></i>
                         <p>Settings</p>
                     </a>
@@ -89,7 +89,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Statistics</a>
+                    <a class="navbar-brand" href="#">Grade Book</a>
                 </div>
             </div>
         </nav>
@@ -108,52 +108,80 @@
                                     <thead>
                                         <th>ID</th>
                                     	<th>Name</th>
-                                    	<th>Salary</th>
-                                    	<th>Country</th>
-                                    	<th>City</th>
+                                    	<th>Faculty</th>
+                                    	<th>YOS</th>
+                                    	<th>Current Average</th>
                                     </thead>
                                     <tbody>
                                         <tr>
                                         	<td>1</td>
                                         	<td>Dakota Rice</td>
-                                        	<td>$36,738</td>
-                                        	<td>Niger</td>
-                                        	<td>Oud-Turnhout</td>
+                                        	<td>Science</td>
+                                        	<td>2</td>
+                                        	<td>76%</td>
                                         </tr>
                                         <tr>
                                         	<td>2</td>
                                         	<td>Minerva Hooper</td>
-                                        	<td>$23,789</td>
-                                        	<td>Curaçao</td>
-                                        	<td>Sinaai-Waas</td>
+                                        	<td>Science</td>
+                                        	<td>2</td>
+                                        	<td>50%</td>
                                         </tr>
                                         <tr>
                                         	<td>3</td>
                                         	<td>Sage Rodriguez</td>
-                                        	<td>$56,142</td>
-                                        	<td>Netherlands</td>
-                                        	<td>Baileux</td>
+                                        	<td>Science</td>
+                                        	<td>3</td>
+                                        	<td>87%</td>
                                         </tr>
                                         <tr>
                                         	<td>4</td>
                                         	<td>Philip Chaney</td>
-                                        	<td>$38,735</td>
-                                        	<td>Korea, South</td>
-                                        	<td>Overland Park</td>
+                                        	<td>Science</td>
+                                        	<td>3</td>
+                                        	<td>39%</td>
                                         </tr>
                                         <tr>
                                         	<td>5</td>
                                         	<td>Doris Greene</td>
-                                        	<td>$63,542</td>
-                                        	<td>Malawi</td>
-                                        	<td>Feldkirchen in Kärnten</td>
+                                        	<td>Science</td>
+                                        	<td>3</td>
+                                        	<td>57%</td>
                                         </tr>
                                         <tr>
                                         	<td>6</td>
                                         	<td>Mason Porter</td>
-                                        	<td>$78,615</td>
-                                        	<td>Chile</td>
-                                        	<td>Gloucester</td>
+                                        	<td>Science</td>
+                                        	<td>3</td>
+                                        	<td>38%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Johnny Depp</td>
+                                            <td>Science</td>
+                                            <td>3</td>
+                                            <td>90%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Aretha Franklin</td>
+                                            <td>Humanities</td>
+                                            <td>1</td>
+                                            <td>94%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>James Dunn</td>
+                                            <td>Humanities</td>
+                                            <td>1</td>
+                                            <td>28%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Harry Potter</td>
+                                            <td>Humanities</td>
+                                            <td>1</td>
+                                            <td>80%</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -161,74 +189,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-md-12">
-                        <div class="card card-plain">
-                            <div class="header">
-                                <h4 class="title">Table on Plain Background</h4>
-                                <p class="category">Here is a subtitle for this table</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>ID</th>
-                                    	<th>Name</th>
-                                    	<th>Salary</th>
-                                    	<th>Country</th>
-                                    	<th>City</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>1</td>
-                                        	<td>Dakota Rice</td>
-                                        	<td>$36,738</td>
-                                        	<td>Niger</td>
-                                        	<td>Oud-Turnhout</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2</td>
-                                        	<td>Minerva Hooper</td>
-                                        	<td>$23,789</td>
-                                        	<td>Curaçao</td>
-                                        	<td>Sinaai-Waas</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>3</td>
-                                        	<td>Sage Rodriguez</td>
-                                        	<td>$56,142</td>
-                                        	<td>Netherlands</td>
-                                        	<td>Baileux</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>4</td>
-                                        	<td>Philip Chaney</td>
-                                        	<td>$38,735</td>
-                                        	<td>Korea, South</td>
-                                        	<td>Overland Park</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>5</td>
-                                        	<td>Doris Greene</td>
-                                        	<td>$63,542</td>
-                                        	<td>Malawi</td>
-                                        	<td>Feldkirchen in Kärnten</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>6</td>
-                                        	<td>Mason Porter</td>
-                                        	<td>$78,615</td>
-                                        	<td>Chile</td>
-                                        	<td>Gloucester</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
