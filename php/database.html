@@ -22,7 +22,7 @@
 
             <!-- user form -->
             <div class="col-md-12 col-lg-6">
-                <form>
+                <form id="add-user-form" action="entry.php" method="GET">
                     <!-- heading -->
                     <p class="h1">user table</p>
                     
@@ -31,7 +31,7 @@
 
                         <!-- identity number-->
                         <label for="userId">User number</label>
-                        <input type="text" class="form-control" id="userId"
+                        <input name="user_id" type="text" class="form-control" id="userId"
                             aria-describedby="studentIdInfo" placeholder="Enter user number">
                         <small id="studentIdInfo" class="form-text text-muted">
                             Used to sign in to student self-services.</small>
@@ -39,7 +39,7 @@
                         <!-- type      |       name        |      surname -->
                         <div class="row mt-2">
                             <div class="col-md-12 col-lg-2">
-                                <select class="custom-select">
+                                <select name="user_type" class="custom-select">
                                     <option selected>Type...</option>
                                     <option value="1">Student</option>
                                     <option value="2">Lecturer</option>
@@ -48,16 +48,16 @@
                                 </select>
                             </div>
                             <div class="col-md-12 col-lg-5">
-                                <input type="text" class="form-control" placeholder="Name">
+                                <input name="user_name" type="text" class="form-control" placeholder="Name">
                             </div>
                             <div class="col-md-12 col-lg-5">
-                                <input type="text" class="form-control" placeholder="Surname">
+                                <input name="user_surname" type="text" class="form-control" placeholder="Surname">
                             </div>
                         </div>
 
                         <!-- password -->
                         <label for="userPassword">User password</label>
-                        <input type="text" class="form-control" id="userPassword"
+                        <input name="user_password" type="text" class="form-control" id="userPassword"
                             aria-describedby="userPasswordInfo" placeholder="Enter user password">
                         <small id="userPasswordInfo" class="form-text text-muted">
                             Your password must be 8-20 characters long,
@@ -68,57 +68,102 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-2">
                                 <label for="courseCode">Course code</label>
-                                <select id="courseCode" class="custom-select">
-                                    <option selected>-</option>
+                                <select name="user_coursecode" id="courseCode" class="custom-select">
+                                    <option value="none" selected>-</option>
                                     <option value="BSC000">BSC000</option>
                                 </select>
                             </div>
                             <div class="col-md-12 col-lg-3">
                                 <label for="yearOfStudy">Year of study</label>
-                                <select id="yearOfStudy" class="custom-select">
+                                <select name="user_yearofstudy" id="yearOfStudy" class="custom-select">
                                     <option selected>-</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2018">2018</option>
+                                    <option value="1">YOS 1</option>
+                                    <option value="2">YOS 2</option>
+                                    <option value="3">YOS 3</option>
+                                    <option value="4">YOS 4</option>
+                                    <option value="5">Honours</option>
+                                    <option value="6">Masters</option>
+                                    <option value="7">PhD</option>
                                 </select>
                             </div>
                             <div class="col-md-12 col-lg-7">
-                                <label for="schoolId">School</label>
-                                <select id="schoolId" class="custom-select">
+                                <label for="facultyId">Faculty</label>
+                                <select name="faculty_id" id="facultyId" class="custom-select">
                                     <option selected value="none">-</option>
-                                    <optgroup label="Science">
-                                        <option value="APESS">Animal Plant and Environmental Sciences</option>
-                                        <option value="CHEMI">Chemistry</option>
-                                    </optgroup>
-                                    <optgroup label="Humanities">
-                                        <option value="ARTSS">Arts</option>
-                                        <option value="EDUCA">Education</option>
-                                    </optgroup>
+                                    <option value="EBE">Engineering &amp; the Built Environment</option>
+                                    <option value="CLM">Commerce, Law &amp; Management</option>
+                                    <option value="HTS">Health Sciences</option>
+                                    <option value="HUM">Humanities</option>
+                                    <option value="SCI">Science</option>
                                 </select>
                             </div>
                         </div>
 
+                        <!-- add user button -->
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-dark w-50">ADD USER</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
 
-            <!-- school form -->
             <div class="col-lg-6">
-                <form>
-                    <p class="h1">school table</p>
-                    <div class="form-group">
-                        <label for="studentId">Student number</label>
-                        <input type="text" class="form-control" id="studentId"
-                            aria-describedby="studentIdInfo" placeholder="Enter student number">
-                        <small id="studentIdInfo" class="form-text text-muted">Used to sign in to student self-services.</small>
-                        </div>
-                </form>
+
+                <!-- faculty form-->
+                <div class="row">
+                    <div class="col-12">
+                        <form id="add-faculty-form" action="entry.php" method="GET">
+                            <p class="h1">faculty table</p>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label for="facultyId">Faculty code</label>
+                                        <input name="faculty_id" type="text" class="form-control" id="facultyId" placeholder="Enter school code">
+                                    </div>
+                                    <div class="col-8">
+                                        <label for="facultyName">Faculty name</label>
+                                        <input name="faculty_name" type="text" class="form-control" id="facultyName" placeholder="Enter school name">
+                                    </div>
+                                </div>
+                                <!-- add faculty button -->
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-dark w-50">Add Faculty</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- school form-->
+                <div class="row">
+                    <div class="col-12">
+                        <form id="add-school-form" action="entry.php" method="GET">
+                            <p class="h1">school table</p>
+                            <div class="form-group">
+                                <div class="row">
+                                        <div class="col-4">
+                                            <label for="schoolId">School code</label>
+                                            <input name="school_id" type="text" class="form-control" id="schoolId" placeholder="Enter school code">
+                                        </div>
+                                        <div class="col-8">
+                                            <label for="schoolName">School name</label>
+                                            <input name="school_name" type="text" class="form-control" id="schoolName" placeholder="Enter school name">
+                                        </div>
+                                </div>
+                                <!-- add faculty button -->
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-dark w-50">Add School</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
