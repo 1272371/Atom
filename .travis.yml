@@ -42,6 +42,10 @@ matrix:
     packages:
       - mysql-server
       - mysql-client
+  # blocklist
+  branches:
+   except:
+   - gh-pages
   test:
   adapter: mysql2
   database: risk
