@@ -13,12 +13,12 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-3">Database entries</h1>
-            <p class="lead">Add entries into the database</p>
+            <h1 class="display-3">Database manipulation</h1>
+            <p class="lead">Add and view entries into the database</p>
         </div>
     </div>
     <div class="container-fluid p-5">
-        <div class="row">
+        <div class="row"> <!-- user, faculty, school forms-->
 
             <!-- user form -->
             <div class="col-md-12 col-lg-6">
@@ -102,7 +102,7 @@
                         <!-- add user button -->
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-dark w-50">ADD USER</button>
+                                <button type="submit" class="btn btn-dark w-50">Add User</button>
                             </div>
                         </div>
                     </div>
@@ -120,11 +120,11 @@
                                 <div class="row">
                                     <div class="col-4">
                                         <label for="facultyId">Faculty code</label>
-                                        <input name="faculty_id" type="text" class="form-control" id="facultyId" placeholder="Enter school code">
+                                        <input name="faculty_id" type="text" class="form-control" id="facultyId" placeholder="Faculty code">
                                     </div>
                                     <div class="col-8">
                                         <label for="facultyName">Faculty name</label>
-                                        <input name="faculty_name" type="text" class="form-control" id="facultyName" placeholder="Enter school name">
+                                        <input name="faculty_name" type="text" class="form-control" id="facultyName" placeholder="Faculty name">
                                     </div>
                                 </div>
                                 <!-- add faculty button -->
@@ -147,11 +147,11 @@
                                 <div class="row">
                                         <div class="col-4">
                                             <label for="schoolId">School code</label>
-                                            <input name="school_id" type="text" class="form-control" id="schoolId" placeholder="Enter school code">
+                                            <input name="school_id" type="text" class="form-control" id="schoolId" placeholder="School code">
                                         </div>
                                         <div class="col-8">
                                             <label for="schoolName">School name</label>
-                                            <input name="school_name" type="text" class="form-control" id="schoolName" placeholder="Enter school name">
+                                            <input name="school_name" type="text" class="form-control" id="schoolName" placeholder="School name">
                                         </div>
                                 </div>
                                 <!-- add faculty button -->
@@ -164,6 +164,86 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+
+
+        <div class="row"> <!-- subject, assessment-->
+            <div class="col">
+                <form id="add-assessment-form" action="entry.php" method="GET">
+                    <p class="h1">assessment table</p>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <!-- subject id -->
+                            <div class="col-md-12 col-lg-2">
+                                <label for="assessmentSubjectCode">Subject code</label>
+                                <input name="subject_id" type="text" class="form-control" id="assessmentSubjectCode"
+                                    aria-describedby="assessmentSubjectInfo" placeholder="Subject code">
+                                <small id="assessmentSubjectInfo" class="form-text text-muted">i.e, COMS3000, MATH2012</small>
+                            </div>
+
+                            <!-- type of assessment -->
+                            <div class="col-md-12 col-lg-2">
+                                    <label for="assessmentType">Assessment Type</label>
+                                    <select name="assessment_type" class="custom-select" id="assessmentType"
+                                        aria-describedby="assessmentTypeInfo">
+                                        <option selected value="none">-</option>
+                                        <option value="class">Class test</option>
+                                        <option value="lab">Lab test</option>
+                                        <option value="project">Project</option>
+                                        <option value="homework">Homework</option>
+                                        <option value="tutorial">Tutorial test</option>
+                                        <option value="exam">Exam</option>
+                                    </select>
+                                    <small id="assessmentTypeInfo" class="form-text text-muted">i.e, class test, exam, etc</small>
+                            </div>
+
+                            <!-- assessmen name-->
+                            <div class="col-md-12 col-lg-4">
+                                    <label for="assessmentName">Assessment Name</label>
+                                    <input name="assessment_name" type="text" class="form-control" id="assessmentName"
+                                        aria-describedby="assessmentNameInfo" placeholder="Assessment name">
+                                    <small id="assessmentNameInfo" class="form-text text-muted">i.e, class test 1, software design project</small>
+                            </div>
+
+                            <!-- assessment medium -->
+                            <div class="col-md-12 col-lg-2">
+                                <label for="assessmentMedium">Medium</label>
+                                <select name="assessment_medium" class="custom-select" id="assessmentMedium"
+                                    aria-describedby="assessmentMediumInfo">
+                                    <option selected value="none">-</option>
+                                    <option value="written">Written</option>
+                                    <option value="online">Online</option>
+                                    <option value="vacation">Vacation</option>
+                                    <option value="mcq">Multiple choice</option>
+                                </select>
+                                <small id="assessmentMediumInfo" class="form-text text-muted">i.e, written, online, etcetera</small>
+                            </div>
+
+                            <!-- assessment weight -->
+                            <div class="col-md-12 col-lg-1">
+                                <label for="assessmentWeight">Weight</label>
+                                <input name="subject_id" type="text" class="form-control" id="assessmentWeight"
+                                    aria-describedby="assessmentWeightInfo" placeholder="Weight" maxlength="3">
+                                <small id="assessmentWeightInfo" class="form-text text-muted">0-100% without % symbol</small>
+                            </div>
+
+                            <!-- assessment total marks -->
+                            <div class="col-md-12 col-lg-1">
+                                <label for="assessmentTotal">Total</label>
+                                <input name="assessment_total" type="text" class="form-control" id="assessmentTotal"
+                                    aria-describedby="assessmentTotalInfo" placeholder="Total">
+                                <small id="assessmentTotalInfo" class="form-text text-muted">i.e, total marks</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-dark w-25">Add Assessment</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
