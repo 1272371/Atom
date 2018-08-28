@@ -2,6 +2,9 @@
 .vscode/
 *._*
 *_*
+.idea/
+Atom.iml
+java/Atom.iml
 
 api/*._*
 css/*._*
