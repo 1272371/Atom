@@ -5,11 +5,10 @@
      * Date: 2018/08/29
      * Time: 5:24 PM
      */
-
     use PHPUnit\Framework\TestCase;
     require __DIR__ . "/../php/login.php";
 
-    class loginTest extends TestCase
+    class ploginTest extends TestCase
     {
         var $fvalue   = 0;
         var $pvalue   = 1;

@@ -1,13 +1,24 @@
 <?php
-
+    ob_start();
     include 'connect.php';
     require __DIR__ . "/../php/connect.php";
     require __DIR__ . "/../php/hashed.php";
 
 
     class login{
-    var $connect = "";
+        function link(){
+
+            $db_host = 'localhost';
+            $db_username = 'root';
+            $db_password = '';
+            $db_name = 'risk';
+            $tb_query = 'select  * from user';
+
+            return mysqli_connect($db_host, $db_username, $db_password, $db_name);
+        }
+
         function init(){
+             $connect = $this->link ();
             if (isset($_POST['submit'])) {
                 session_start();
                 /** @var TYPE_NAME $connect */
@@ -23,7 +34,7 @@
 
         function login($user, $pass)
         {
-            $connect =$this->connect ();
+            $connect = $this->link ();
             // check if inputs are empt
             if (empty($user) || empty($pass)) {
                 header("Location: ../index.php?signin=empty");
@@ -58,15 +69,6 @@
             }
             return $check;
         }
-        function connect(){
-
-            $db_host = 'localhost';
-            $db_username = 'root';
-            $db_password = '';
-            $db_name = 'risk';
-            $tb_query = 'select  * from user';
-
-            return mysqli_connect($db_host, $db_username, $db_password, $db_name);
-        }
     }
+    ob_end_flush();
 ?>
