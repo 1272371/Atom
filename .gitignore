@@ -5,7 +5,7 @@
 .idea/
 Atom.iml
 java/Atom.iml
-
+test/JUnitTest
 api/*._*
 css/*._*
 extra/*._*
