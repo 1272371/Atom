@@ -5,7 +5,7 @@
             "php/DataBase"
         ]
     },
-    "require-dev": {
+    "require": {
         "phpunit/phpunit": "^7"
     }
 }
