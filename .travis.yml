@@ -4,6 +4,7 @@ php:
 before_install:
   - travis_retry composer self-update
 script:
+  - composer require --dev phpunit/php-code-coverage 5.2.2
   - composer require --dev phpunit/phpunit 6.4.3
 after_success:
   - bash <(curl -s https://codecov.io/bash)
