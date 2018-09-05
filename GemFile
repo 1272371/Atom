@@ -1,0 +1,5 @@
+source 'http://sptl.org/phpgem'
+
+gem 'rspec'
+gem 'coveralls', require: false
+
