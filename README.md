@@ -1,5 +1,5 @@
 ![Cover photo of project](/img/cover/github-cover-photo.png)
-[![Build Status](https://travis-ci.com/1272371/Atom.svg?token=jGpmHvdtwqtEsabv653A&branch=lamp)](https://travis-ci.com/1272371/Atom)
+[![Build Status](https://travis-ci.com/1272371/Atom.svg?branch=master)](https://travis-ci.com/1272371/Atom)
 [![codecov](https://codecov.io/gh/1272371/Atom/branch/master/graph/badge.svg)](https://codecov.io/gh/1272371/Atom)
 
 ## Integrate project with Git and Xampp
