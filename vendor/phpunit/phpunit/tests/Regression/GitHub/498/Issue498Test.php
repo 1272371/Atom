@@ -1,32 +1,25 @@
 <?php
-/*
- * This file is part of PHPUnit.
- *
- * (c) Sebastian Bergmann <sebastian@phpunit.de>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-use PHPUnit\Framework\TestCase;
 
-class Issue498Test extends TestCase
+class Issue498Test extends PHPUnit_Framework_TestCase
 {
+
     /**
      * @test
      * @dataProvider shouldBeTrueDataProvider
      * @group falseOnly
      */
-    public function shouldBeTrue($testData): void
+    public function shouldBeTrue($testData)
     {
         $this->assertTrue(true);
     }
+
 
     /**
      * @test
      * @dataProvider shouldBeFalseDataProvider
      * @group trueOnly
      */
-    public function shouldBeFalse($testData): void
+    public function shouldBeFalse($testData)
     {
         $this->assertFalse(false);
     }
@@ -35,19 +28,19 @@ class Issue498Test extends TestCase
     {
 
         //throw new Exception("Can't create the data");
-        return [
-            [true],
-            [false]
-        ];
+        return array(
+            array(true),
+            array(false)
+        );
     }
 
     public function shouldBeFalseDataProvider()
     {
-        throw new Exception("Can't create the data");
 
-        return [
-            [true],
-            [false]
-        ];
+        throw new Exception("Can't create the data");
+        return array(
+            array(true),
+            array(false)
+        );
     }
 }

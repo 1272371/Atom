@@ -1,32 +1,19 @@
 --TEST--
-phpunit DataProviderTestDoxTest ../_files/DataProviderTestDoxTest.php
+phpunit --testdox DataProviderTest ../_files/DataProviderTest.php
 --FILE--
 <?php
+define('PHPUNIT_TESTSUITE', TRUE);
+
 $_SERVER['argv'][1] = '--no-configuration';
 $_SERVER['argv'][2] = '--testdox';
-$_SERVER['argv'][3] = 'DataProviderTestDoxTest';
-$_SERVER['argv'][4] = __DIR__ . '/../_files/DataProviderTestDoxTest.php';
+$_SERVER['argv'][3] = 'DataProviderTest';
+$_SERVER['argv'][4] = dirname(dirname(__FILE__)) . '/_files/DataProviderTest.php';
 
-require __DIR__ . '/../bootstrap.php';
-PHPUnit\TextUI\Command::main();
+require_once dirname(dirname(dirname(__FILE__))) . '/PHPUnit/Autoload.php';
+PHPUnit_TextUI_Command::main();
+?>
 --EXPECTF--
-PHPUnit %s by Sebastian Bergmann and contributors.
+PHPUnit %s by Sebastian Bergmann.
 
-DataProviderTestDox
- ✔ Does something with data set "one"
- ✔ Does something with data set "two"
- ✔ Does something else with data set "one"
- ✔ Does something else with data set "two"
- ✔ ... true ...
- ✔ ... 1 ...
- ✔ ... 1.0 ...
- ✔ ... string ...
- ✔ ... array ...
- ✔ ... object ...
- ✔ ... string ...
- ✔ ... resource ...
- ✔ ... NULL ...
-
-Time: %s, Memory: %s
-
-OK (13 tests, 13 assertions)
+DataProvider
+ [ ] Add
