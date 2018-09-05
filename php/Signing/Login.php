@@ -1,5 +1,5 @@
 <?php namespace php\Signing;
-
+/*
     class Login{
         function link(){
 
@@ -16,7 +16,7 @@
              $connect = $this->link ();
             if (isset($_POST['submit'])) {
                 session_start();
-                /** @var TYPE_NAME $connect */
+                /** @var TYPE_NAME $connect 
                 $user = mysqli_real_escape_string($connect, $_POST['user']);
                 $pass = mysqli_real_escape_string($connect, $_POST['pass']);
                 login($user, $pass);
@@ -65,4 +65,5 @@
             return $check;
         }
     }
+    */
 ?>

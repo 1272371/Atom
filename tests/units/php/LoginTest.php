@@ -7,7 +7,7 @@
      */
 
     use \php\Signing\Login;
-
+    /*
     class ploginTest extends PHPUnit_Framework_TestCase
     {
         var $fvalue   = 0;
@@ -41,3 +41,4 @@
             }
         }
     }
+    */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536160948">
-  <project timestamp="1536160948">
+<coverage generated="1536147626">
+  <project timestamp="1536147626">
     <package name="php\Signing">
       <file name="C:\xampp/htdocs/php/Signing/SignIn.php">
         <class name="SignIn" namespace="php\Signing">
@@ -172,20 +172,20 @@
         <metrics loc="445" ncloc="281" classes="1" methods="21" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="132" coveredstatements="29" elements="153" coveredelements="30"/>
       </file>
       <file name="C:\xampp/htdocs/vendor/composer/autoload_static.php">
-        <class name="ComposerStaticInit71bea921d4a3a5daf359a28536a0462c" namespace="Composer\Autoload">
+        <class name="ComposerStaticInit8d900122d14769b59c1a3046d03a3575" namespace="Composer\Autoload">
           <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
         </class>
-        <line num="605" type="method" name="getInitializer" crap="1" count="0"/>
+        <line num="604" type="method" name="getInitializer" crap="1" count="0"/>
+        <line num="607" type="stmt" count="0"/>
         <line num="608" type="stmt" count="0"/>
         <line num="609" type="stmt" count="0"/>
         <line num="610" type="stmt" count="0"/>
-        <line num="611" type="stmt" count="0"/>
-        <line num="613" type="stmt" count="0"/>
-        <metrics loc="615" ncloc="613" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+        <line num="612" type="stmt" count="0"/>
+        <metrics loc="614" ncloc="612" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
       </file>
     </package>
     <file name="C:\xampp/htdocs/vendor/composer/autoload_real.php">
-      <class name="ComposerAutoloaderInit71bea921d4a3a5daf359a28536a0462c" namespace="global">
+      <class name="ComposerAutoloaderInit8d900122d14769b59c1a3046d03a3575" namespace="global">
         <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="30" coveredelements="0"/>
       </class>
       <line num="9" type="method" name="loadClassLoader" crap="6" count="0"/>
@@ -240,6 +240,6 @@
       <line num="64" type="stmt" count="1"/>
       <metrics loc="65" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="6" elements="9" coveredelements="6"/>
     </file>
-    <metrics files="6" loc="1223" ncloc="1004" classes="4" methods="25" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="180" coveredstatements="36" elements="205" coveredelements="38"/>
+    <metrics files="6" loc="1222" ncloc="1003" classes="4" methods="25" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="180" coveredstatements="36" elements="205" coveredelements="38"/>
   </project>
 </coverage>

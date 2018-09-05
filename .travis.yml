@@ -4,8 +4,7 @@ php:
 before_install:
   - travis_retry composer self-update
 before_script:
-  #- curl -sS https://getcomposer.org/installer | php
-  - composer install
+  - curl -sS https://getcomposer.org/installer | php
 script:
   - phpunit --configuration phpunit.xml --coverage-text
   - phpunit --coverage-clover coverage.xml
