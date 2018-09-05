@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1536162991">
-  <project timestamp="1536162991">
+<coverage generated="1536164870">
+  <project timestamp="1536164870">
     <package name="php\Signing">
       <file name="C:\xampp/htdocs/php/Signing/SignIn.php">
         <class name="SignIn" namespace="php\Signing">
@@ -172,20 +172,20 @@
         <metrics loc="445" ncloc="281" classes="1" methods="21" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="132" coveredstatements="29" elements="153" coveredelements="30"/>
       </file>
       <file name="C:\xampp/htdocs/vendor/composer/autoload_static.php">
-        <class name="ComposerStaticInit71bea921d4a3a5daf359a28536a0462c" namespace="Composer\Autoload">
+        <class name="ComposerStaticInit7b8f4c7898a4e9862605bfaa2eb42782" namespace="Composer\Autoload">
           <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="12" coveredelements="0"/>
         </class>
-        <line num="604" type="method" name="getInitializer" crap="1" count="0"/>
-        <line num="607" type="stmt" count="0"/>
-        <line num="608" type="stmt" count="0"/>
-        <line num="609" type="stmt" count="0"/>
+        <line num="607" type="method" name="getInitializer" crap="1" count="0"/>
         <line num="610" type="stmt" count="0"/>
+        <line num="611" type="stmt" count="0"/>
         <line num="612" type="stmt" count="0"/>
-        <metrics loc="614" ncloc="612" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+        <line num="613" type="stmt" count="0"/>
+        <line num="615" type="stmt" count="0"/>
+        <metrics loc="617" ncloc="615" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
       </file>
     </package>
     <file name="C:\xampp/htdocs/vendor/composer/autoload_real.php">
-      <class name="ComposerAutoloaderInit71bea921d4a3a5daf359a28536a0462c" namespace="global">
+      <class name="ComposerAutoloaderInit7b8f4c7898a4e9862605bfaa2eb42782" namespace="global">
         <metrics methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="30" coveredelements="0"/>
       </class>
       <line num="9" type="method" name="loadClassLoader" crap="6" count="0"/>
@@ -228,6 +228,18 @@
       <line num="18" type="stmt" count="0"/>
       <metrics loc="20" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
     </file>
+    <file name="C:\xampp/php/pear/File/Iterator/Autoload.php">
+      <line num="47" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="1"/>
+      <metrics loc="66" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="6" elements="9" coveredelements="6"/>
+    </file>
     <file name="C:\xampp/php/pear/Text/Template/Autoload.php">
       <line num="48" type="stmt" count="1"/>
       <line num="49" type="stmt" count="1"/>
@@ -240,6 +252,6 @@
       <line num="64" type="stmt" count="1"/>
       <metrics loc="65" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="6" elements="9" coveredelements="6"/>
     </file>
-    <metrics files="6" loc="1222" ncloc="1003" classes="4" methods="25" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="180" coveredstatements="36" elements="205" coveredelements="38"/>
+    <metrics files="7" loc="1291" ncloc="1031" classes="4" methods="25" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="189" coveredstatements="42" elements="214" coveredelements="44"/>
   </project>
 </coverage>
