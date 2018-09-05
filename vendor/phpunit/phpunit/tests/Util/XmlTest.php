@@ -1,117 +1,328 @@
 <?php
-/*
- * This file is part of PHPUnit.
+/**
+ * PHPUnit
  *
- * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ * Copyright (c) 2001-2014, Sebastian Bergmann <sebastian@phpunit.de>.
+ * All rights reserved.
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *   * Neither the name of Sebastian Bergmann nor the names of his
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @package    PHPUnit
+ * @author     Mike Naberezny <mike@maintainable.com>
+ * @author     Derek DeVries <derek@maintainable.com>
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://www.phpunit.de/
+ * @since      File available since Release 3.3.0
  */
 
-namespace PHPUnit\Util;
-
-use PHPUnit\Framework\Exception;
-use PHPUnit\Framework\TestCase;
-
-class XmlTest extends TestCase
+/**
+ *
+ *
+ * @package    PHPUnit
+ * @author     Mike Naberezny <mike@maintainable.com>
+ * @author     Derek DeVries <derek@maintainable.com>
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2001-2014 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://www.phpunit.de/
+ * @since      Class available since Release 3.3.0
+ */
+class Util_XMLTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @dataProvider charProvider
-     */
-    public function testPrepareString($char)
+    public function testAssertValidKeysValidKeys()
     {
-        $e = null;
+        $options   = array('testA' => 1, 'testB' => 2, 'testC' => 3);
+        $valid     = array('testA', 'testB', 'testC');
+        $expected  = array('testA' => 1, 'testB' => 2, 'testC' => 3);
+        $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
 
-        $escapedString = Xml::prepareString($char);
-        $xml           = "<?xml version='1.0' encoding='UTF-8' ?><tag>$escapedString</tag>";
-        $dom           = new \DOMDocument('1.0', 'UTF-8');
+        $this->assertEquals($expected, $validated);
+    }
+
+    public function testAssertValidKeysValidKeysEmpty()
+    {
+        $options   = array('testA' => 1, 'testB' => 2);
+        $valid     = array('testA', 'testB', 'testC');
+        $expected  = array('testA' => 1, 'testB' => 2, 'testC' => NULL);
+        $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
+
+        $this->assertEquals($expected, $validated);
+    }
+
+    public function testAssertValidKeysDefaultValuesA()
+    {
+        $options   = array('testA' => 1, 'testB' => 2);
+        $valid     = array('testA' => 23, 'testB' => 24, 'testC' => 25);
+        $expected  = array('testA' => 1, 'testB' => 2, 'testC' => 25);
+        $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
+
+        $this->assertEquals($expected, $validated);
+    }
+
+    public function testAssertValidKeysDefaultValuesB()
+    {
+        $options   = array();
+        $valid     = array('testA' => 23, 'testB' => 24, 'testC' => 25);
+        $expected  = array('testA' => 23, 'testB' => 24, 'testC' => 25);
+        $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
+
+        $this->assertEquals($expected, $validated);
+    }
+
+    public function testAssertValidKeysInvalidKey()
+    {
+        $options = array('testA' => 1, 'testB' => 2, 'testD' => 3);
+        $valid   = array('testA', 'testB', 'testC');
 
         try {
-            $dom->loadXML($xml);
-        } catch (Exception $e) {
+            $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
+            $this->fail();
         }
 
-        $this->assertNull($e, \sprintf(
-            'PHPUnit_Util_XML::prepareString("\x%02x") should not crash DomDocument',
-            \ord($char)
-        ));
+        catch (PHPUnit_Framework_Exception $e) {
+            $this->assertEquals('Unknown key(s): testD', $e->getMessage());
+        }
     }
 
-    public function charProvider()
+    public function testAssertValidKeysInvalidKeys()
     {
-        $data = [];
+        $options = array('testA' => 1, 'testD' => 2, 'testE' => 3);
+        $valid   = array('testA', 'testB', 'testC');
 
-        for ($i = 0; $i < 256; $i++) {
-            $data[] = [\chr($i)];
+        try {
+            $validated = PHPUnit_Util_XML::assertValidKeys($options, $valid);
+            $this->fail();
         }
 
-        return $data;
+        catch (PHPUnit_Framework_Exception $e) {
+            $this->assertEquals('Unknown key(s): testD, testE', $e->getMessage());
+        }
     }
 
-    public function testLoadEmptyString()
+    public function testConvertAssertSelect()
     {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Could not load XML from empty string');
-
-        Xml::load('');
+        $selector  = 'div#folder.open a[href="http://www.xerox.com"][title="xerox"].selected.big > span';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag'   => 'div',
+                           'id'    => 'folder',
+                           'class' => 'open',
+                           'descendant' => array('tag'        => 'a',
+                                                 'class'      => 'selected big',
+                                                 'attributes' => array('href'  => 'http://www.xerox.com',
+                                                                       'title' => 'xerox'),
+                                                 'child'      => array('tag' => 'span')));
+         $this->assertEquals($tag, $converted);
     }
 
-    public function testLoadArray()
+    public function testConvertAssertSelectElt()
     {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Could not load XML from array');
+        $selector  = 'div';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div');
 
-        Xml::load([1, 2, 3]);
+        $this->assertEquals($tag, $converted);
     }
 
-    public function testLoadBoolean()
+    public function testConvertAssertClass()
     {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Could not load XML from boolean');
+        $selector  = '.foo';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('class' => 'foo');
 
-        Xml::load(false);
+        $this->assertEquals($tag, $converted);
     }
 
-    public function testNestedXmlToVariable()
+    public function testConvertAssertId()
     {
-        $xml = '<array><element key="a"><array><element key="b"><string>foo</string></element></array></element><element key="c"><string>bar</string></element></array>';
-        $dom = new \DOMDocument;
-        $dom->loadXML($xml);
+        $selector  = '#foo';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('id' => 'foo');
 
-        $expected = [
-            'a' => [
-                'b' => 'foo',
-            ],
-            'c' => 'bar',
-        ];
-
-        $actual = Xml::xmlToVariable($dom->documentElement);
-
-        $this->assertSame($expected, $actual);
+        $this->assertEquals($tag, $converted);
     }
 
-    public function testXmlToVariableCanHandleMultipleOfTheSameArgumentType()
+    public function testConvertAssertAttribute()
     {
-        $xml = '<object class="SampleClass"><arguments><string>a</string><string>b</string><string>c</string></arguments></object>';
-        $dom = new \DOMDocument();
-        $dom->loadXML($xml);
+        $selector  = '[foo="bar"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('attributes' => array('foo' => 'bar'));
 
-        $expected = ['a' => 'a', 'b' => 'b', 'c' => 'c'];
-
-        $actual = Xml::xmlToVariable($dom->documentElement);
-
-        $this->assertSame($expected, (array) $actual);
+        $this->assertEquals($tag, $converted);
     }
 
-    public function testXmlToVariableCanConstructObjectsWithConstructorArgumentsRecursively()
+    public function testConvertAssertAttributeSpaces()
     {
-        $xml = '<object class="Exception"><arguments><string>one</string><integer>0</integer><object class="Exception"><arguments><string>two</string></arguments></object></arguments></object>';
-        $dom = new \DOMDocument();
-        $dom->loadXML($xml);
+        $selector  = '[foo="bar baz"] div[value="foo bar"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('attributes' => array('foo' => 'bar baz'),
+                           'descendant' => array('tag'        => 'div',
+                                                 'attributes' => array('value' => 'foo bar')));
+        $this->assertEquals($tag, $converted);
+    }
 
-        $actual = Xml::xmlToVariable($dom->documentElement);
+    public function testConvertAssertAttributeMultipleSpaces()
+    {
+        $selector = '[foo="bar baz"] div[value="foo bar baz"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag      = array('attributes' => array('foo' => 'bar baz'),
+                          'descendant' => array('tag' => 'div',
+                                                'attributes' => array('value' => 'foo bar baz')));
+        $this->assertEquals($tag, $converted);
+    }
 
-        $this->assertEquals('one', $actual->getMessage());
-        $this->assertEquals('two', $actual->getPrevious()->getMessage());
+    public function testConvertAssertSelectEltClass()
+    {
+        $selector  = 'div.foo';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'class' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltId()
+    {
+        $selector  = 'div#foo';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'id' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltAttrEqual()
+    {
+        $selector  = 'div[foo="bar"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'attributes' => array('foo' => 'bar'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltMultiAttrEqual()
+    {
+        $selector  = 'div[foo="bar"][baz="fob"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'attributes' => array('foo' => 'bar', 'baz' => 'fob'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltAttrHasOne()
+    {
+        $selector  = 'div[foo~="bar"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'attributes' => array('foo' => 'regexp:/.*\bbar\b.*/'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltAttrContains()
+    {
+        $selector  = 'div[foo*="bar"]';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'attributes' => array('foo' => 'regexp:/.*bar.*/'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltChild()
+    {
+        $selector  = 'div > a';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'child' => array('tag' => 'a'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectEltDescendant()
+    {
+        $selector  = 'div a';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector);
+        $tag       = array('tag' => 'div', 'descendant' => array('tag' => 'a'));
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectContent()
+    {
+        $selector  = '#foo';
+        $content   = 'div contents';
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector, $content);
+        $tag       = array('id' => 'foo', 'content' => 'div contents');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectTrue()
+    {
+        $selector  = '#foo';
+        $content   = TRUE;
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector, $content);
+        $tag       = array('id' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertSelectFalse()
+    {
+        $selector  = '#foo';
+        $content   = FALSE;
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector, $content);
+        $tag       = array('id' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertNumber()
+    {
+        $selector  = '.foo';
+        $content   = 3;
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector, $content);
+        $tag       = array('class' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testConvertAssertRange()
+    {
+        $selector  = '#foo';
+        $content   = array('greater_than' => 5, 'less_than' => 10);
+        $converted = PHPUnit_Util_XML::convertSelectToTag($selector, $content);
+        $tag       = array('id' => 'foo');
+
+        $this->assertEquals($tag, $converted);
+    }
+
+    public function testPrepareStringEscapesChars()
+    {
+        $this->assertEquals('&#x1b;', PHPUnit_Util_XML::prepareString("\033"));
     }
 }

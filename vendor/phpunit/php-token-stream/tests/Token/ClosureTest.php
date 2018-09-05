@@ -1,21 +1,72 @@
 <?php
-/*
- * This file is part of php-token-stream.
+/**
+ * php-token-stream
  *
- * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ * Copyright (c) 2009-2013, Sebastian Bergmann <sebastian@phpunit.de>.
+ * All rights reserved.
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *   * Neither the name of Sebastian Bergmann nor the names of his
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @package    PHP_TokenStream
+ * @subpackage Tests
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2009-2013 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @since      File available since Release 1.0.0
  */
 
-use PHPUnit\Framework\TestCase;
+if (!defined('TEST_FILES_PATH')) {
+    define(
+      'TEST_FILES_PATH',
+      dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR .
+      '_files' . DIRECTORY_SEPARATOR
+    );
+}
 
-class PHP_Token_ClosureTest extends TestCase
+require_once 'PHP/Token/Stream.php';
+
+/**
+ * Tests for the PHP_Token_FUNCTION class.
+ *
+ * @package    PHP_TokenStream
+ * @subpackage Tests
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @copyright  2009-2013 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @version    Release: @package_version@
+ * @link       http://github.com/sebastianbergmann/php-token-stream/
+ * @since      Class available since Release 1.0.0
+ */
+class PHP_Token_ClosureTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @var PHP_Token_FUNCTION[]
-     */
-    private $functions;
+    protected $functions;
 
     protected function setUp()
     {
@@ -33,12 +84,12 @@ class PHP_Token_ClosureTest extends TestCase
      */
     public function testGetArguments()
     {
-        $this->assertEquals(['$foo' => null, '$bar' => null], $this->functions[0]->getArguments());
-        $this->assertEquals(['$foo' => 'Foo', '$bar' => null], $this->functions[1]->getArguments());
-        $this->assertEquals(['$foo' => null, '$bar' => null, '$baz' => null], $this->functions[2]->getArguments());
-        $this->assertEquals(['$foo' => 'Foo', '$bar' => null, '$baz' => null], $this->functions[3]->getArguments());
-        $this->assertEquals([], $this->functions[4]->getArguments());
-        $this->assertEquals([], $this->functions[5]->getArguments());
+        $this->assertEquals(array('$foo' => null, '$bar' => null), $this->functions[0]->getArguments());
+        $this->assertEquals(array('$foo' => 'Foo', '$bar' => null), $this->functions[1]->getArguments());
+        $this->assertEquals(array('$foo' => null, '$bar' => null, '$baz' => null), $this->functions[2]->getArguments());
+        $this->assertEquals(array('$foo' => 'Foo', '$bar' => null, '$baz' => null), $this->functions[3]->getArguments());
+        $this->assertEquals(array(), $this->functions[4]->getArguments());
+        $this->assertEquals(array(), $this->functions[5]->getArguments());
     }
 
     /**
@@ -46,12 +97,12 @@ class PHP_Token_ClosureTest extends TestCase
      */
     public function testGetName()
     {
-        $this->assertEquals('anonymousFunction:2#5', $this->functions[0]->getName());
-        $this->assertEquals('anonymousFunction:3#27', $this->functions[1]->getName());
-        $this->assertEquals('anonymousFunction:4#51', $this->functions[2]->getName());
-        $this->assertEquals('anonymousFunction:5#71', $this->functions[3]->getName());
-        $this->assertEquals('anonymousFunction:6#93', $this->functions[4]->getName());
-        $this->assertEquals('anonymousFunction:7#106', $this->functions[5]->getName());
+        $this->assertEquals('anonymous function', $this->functions[0]->getName());
+        $this->assertEquals('anonymous function', $this->functions[1]->getName());
+        $this->assertEquals('anonymous function', $this->functions[2]->getName());
+        $this->assertEquals('anonymous function', $this->functions[3]->getName());
+        $this->assertEquals('anonymous function', $this->functions[4]->getName());
+        $this->assertEquals('anonymous function', $this->functions[5]->getName());
     }
 
     /**
