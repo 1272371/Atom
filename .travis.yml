@@ -4,7 +4,6 @@ php:
 before_install:
   - travis_retry composer self-update
 before_script:
-  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
   - composer update
 script:
   - phpunit --configuration=phpunit.xml --coverage-text
