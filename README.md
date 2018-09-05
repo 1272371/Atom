@@ -1,4 +1,3 @@
-![Cover photo of project](/img/cover/github-cover-photo.png)
 [![Build Status](https://travis-ci.org/1272371/Atom.svg?branch=master)](https://travis-ci.org/1272371/Atom)
 [![Coverage Status](https://coveralls.io/repos/1272371/Atom/badge.svg?branch=master&service=github)](https://coveralls.io/github/1272371/Atom?branch=master)
 
