@@ -1,11 +1,6 @@
 <?php
-    ob_start();
-    include 'connect.php';
-    require __DIR__ . "/../php/connect.php";
-    require __DIR__ . "/../php/hashed.php";
 
-
-    class login{
+    class Login{
         function link(){
 
             $db_host = 'localhost';
