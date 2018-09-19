@@ -81,7 +81,7 @@
 
 			if($db->query('SELECT * FROM user WHERE student_nr=:s_nr',array(':s_nr'=>$username)))
 			{
-				if(password_verify($password,$db->query('SELECT password FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['password']))
+				if(password_verify($password,$db->query('SELECT user_password FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['user_password']))
 				{
 					$cryptstrong=True;
 		  			$token=bin2hex(openssl_random_pseudo_bytes(64,$cryptstrong));
@@ -106,6 +106,27 @@
 			{
 				http_response_code(200);
 				echo '{"status":"This user does not exist"}';
+			}
+		}
+		if($_GET['url']=='add_module')
+		{
+			$data=file_get_contents("php://input");
+			$data=json_decode($data);
+
+			$name=strtoupper($data->name);
+			$code=strtoupper($data->code);
+			$school=strtoupper($data->school);
+
+			if($db->query('SELECT * FROM module WHERE module_code=:code',array(':code'=>$code)))
+			{
+				http_response_code(200);
+				echo '{"status":"Module Already Already Exists!"}';
+			}
+			else
+			{
+				$db->query('INSERT INTO module VALUES(\'\',:name,:school,:code)',array(':name'=>$name,':school'=>$school,':code'=>$code));
+				http_response_code(200);
+				echo '{"status":"Module Added!"}';
 			}
 		}
 	}
