@@ -9,7 +9,7 @@ function Login()
 			if(res.data.status==="Success")
 			{
 				//redirect to the dashboard
-				window.location.href="apiDashboard.html"
+				window.location.href="api_dashboard.html"
 				
 			}
 			else
@@ -52,7 +52,7 @@ function DashboardRedirect()
 	axios.get('api/logged').then(function(res){
 		if(res.data.status==='True')
 		{
-			window.location.href="apiDashboard.html"
+			window.location.href="api_dashboard.html"
 		}
 	})
 }
@@ -1017,7 +1017,7 @@ function Dashboard()
 		$('#settings_view').hide()
 		$('#profile_view').hide()
 		$('#dashboard_view').hide()
-		$('#profile_view').hide()
+		$('#grade_view').hide()
 		$('#stats_view').show()
 	})
 
