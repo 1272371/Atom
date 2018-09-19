@@ -159,6 +159,18 @@
 	{
 		if($_GET['url']=='logout')
 		{
+			if(isset($_COOKIE['WITS']))
+			{
+				$db->query('DELETE FROM login_tokens WHERE token=:token',array(':token'=>sha1($_COOKIE['WITS'])));
+          		setcookie('WITS','2',time()-3600);
+          		setcookie('SNID_','2',time()-3600);
+          		http_response_code(200);
+          		echo '{"status":"Success"}';	
+			}
+			else
+			{
+				die();
+			}
 
 		}
 	}
