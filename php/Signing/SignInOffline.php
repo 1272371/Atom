@@ -1,4 +1,5 @@
 <?php namespace php\Signing;
+echo 'sure man';
 /*
     class Login{
         function link(){
