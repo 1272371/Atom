@@ -9,7 +9,7 @@ function Login()
 			if(res.data.status==="Success")
 			{
 				//redirect to the dashboard
-				window.location.href="api_dashboard.html"
+				window.location.href="apiDashboard.html"
 				
 			}
 			else
@@ -52,7 +52,7 @@ function DashboardRedirect()
 	axios.get('api/logged').then(function(res){
 		if(res.data.status==='True')
 		{
-			window.location.href="api_dashboard.html"
+			window.location.href="apiDashboard.html"
 		}
 	})
 }
