@@ -55,6 +55,8 @@
         </nav>
     </header>
 
+    <div id="response"></div>
+
     <!-- Jumbotron -->
     <div class="container-fluid mt-5">
         <div class="row jumbotron">
