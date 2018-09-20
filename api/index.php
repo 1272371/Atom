@@ -27,7 +27,7 @@
 	/*
 		We basically create a database instance,using the DB class 
 	*/
-	$db=new DB('127.0.0.1','api_risk','root','');
+	$db=new DB('localhost','d815108','s815108','random123');
 
 	/*
 		We are mainly going to get and send GET and POST requests,the DELETE(optional) method is mainly used
@@ -79,17 +79,17 @@
 			$username=$data->username;
 			$password=$data->password;
 
-			if($db->query('SELECT * FROM user WHERE student_nr=:s_nr',array(':s_nr'=>$username)))
+			if($db->query('SELECT * FROM user WHERE user_id=:user_id',array(':user_id'=>$username)))
 			{
-				if(password_verify($password,$db->query('SELECT user_password FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['user_password']))
+				if(password_verify($password,$db->query('SELECT user_password FROM user WHERE user_id=:user_id',array(':user_id'=>$username))[0]['user_password']))
 				{
 					$cryptstrong=True;
 		  			$token=bin2hex(openssl_random_pseudo_bytes(64,$cryptstrong));
 
-		  			$user_id=$db->query('SELECT id FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['id'];
-		           	$name=$db->query('SELECT user_name FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['user_name'];
-		           	$surname=$db->query('SELECT user_surname FROM user WHERE student_nr=:student',array(':student'=>$username))[0]['user_surname'];
-		  			$db->query('INSERT INTO login_tokens VALUES (\'\',:token, :user_id)',array(':token'=>sha1($token),':user_id'=>$user_id));
+		  			$user_id=$db->query('SELECT user_id FROM user WHERE user_id=:user_id',array(':user_id'=>$username))[0]['user_id'];
+		           	$name=$db->query('SELECT user_name FROM user WHERE user_id=:student',array(':student'=>$username))[0]['user_name'];
+		           	$surname=$db->query('SELECT user_surname FROM user WHERE user_id=:student',array(':student'=>$username))[0]['user_surname'];
+		  			$db->query('INSERT INTO token VALUES (\'\',:token, :user_id)',array(':token'=>sha1($token),':user_id'=>$user_id));
 
 		           	setcookie("WITS",$token,time()+60*60*24*7,'/',NULL,NULL,TRUE);
 		           	setcookie("SNID_",'1',time()+60*60*24*3,'/',NULL,NULL,TRUE);
@@ -99,7 +99,7 @@
 				else
 				{
 					http_response_code(200);
-					echo '{"status":"Incorrect Password"}';
+					echo '{"status":"Incorrect Credentials"}';
 				}
 			}
 			else
@@ -137,21 +137,21 @@
 			if(isset($_COOKIE['WITS']))
 			{
 				$token=sha1($_COOKIE['WITS']);
-				if($db->query('SELECT user_id FROM login_tokens WHERE token=:token',array(':token'=>$token)))
+				if($db->query('SELECT user_id FROM token WHERE token=:token',array(':token'=>sha1($token))))
 				{
 					http_response_code(200);
-					echo '{"status":"True"}';
+					echo '{"status":"1"}';
 				}
 				else
 				{
 					http_response_code(200);
-					echo '{"status":"False"}';
+					echo '{"status":"0"}';
 				}
 			}
 			else
 			{
 				http_response_code(200);
-				echo '{"status":"False"}';
+				echo '{"status":"0"}';
 			}
 		}
 	}
@@ -161,7 +161,7 @@
 		{
 			if(isset($_COOKIE['WITS']))
 			{
-				$db->query('DELETE FROM login_tokens WHERE token=:token',array(':token'=>sha1($_COOKIE['WITS'])));
+				$db->query('DELETE FROM token WHERE token=:token',array(':token'=>sha1($_COOKIE['WITS'])));
           		setcookie('WITS','2',time()-3600);
           		setcookie('SNID_','2',time()-3600);
           		http_response_code(200);
