@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2018 at 03:42 PM
+-- Generation Time: Sep 19, 2018 at 08:06 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -97,20 +97,6 @@ CREATE TABLE `login_tokens` (
   `token` varchar(65) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `login_tokens`
---
-
-INSERT INTO `login_tokens` (`id`, `token`, `user_id`) VALUES
-(1, 'dfea83452bd8389f35b1cca32ff98c629bb87ee7', 2),
-(2, 'da9f034987ccc64151e04b276a3e1f080f64ee07', 2),
-(3, '9a67112ffe736a3e3d8bfb5c5998e6cd04b12495', 2),
-(4, 'cd7d2125e4a31e13bcc9c09bbe12cc7008b7bf28', 2),
-(5, '86a6877497ba0453e312545153a80a2454235d7c', 2),
-(6, '954189eb3f2fe75b2455fdbc899776da130c1f84', 2),
-(7, '6f2620fcdcc22a5a579d6327e91f9cd57e69fe21', 2),
-(8, '8f4a4b01f674e07df70071c6599b7855b90a0552', 2);
 
 -- --------------------------------------------------------
 
@@ -268,7 +254,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `login_tokens`
 --
 ALTER TABLE `login_tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `module`

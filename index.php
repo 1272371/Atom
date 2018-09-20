@@ -42,7 +42,7 @@
                             <a class="nav-link" href="dist/team/">Team</a>
                         </li>
                         <li class="nav-item">
-                            <form id="sign-in-form" method="POST">
+                            <form id="sign-in-form" action="php/login.php" method="POST">
                                 <input class="form-module ml-2 mr-2" style="width: 10vw" type="text" name="user" placeholder="Username">
                                 <input class="form-module ml-2 mr-2" style="width: 10vw" type="password" name="pass" placeholder="Password">
                                 <button class="btn btn-outline-secondary ml-2 mr-2"
@@ -78,8 +78,7 @@
                     <img class="card-img-top" src="img/card/view-grades-card.png">
                     <div class="card-body">
                         <div class="text-center">
-                            <a href="https://elearn.wits.ac.za/home/default/AboutSakai/training/"
-                                class="btn btn-primary w-100">Staff Training</a> <!--submit button-->
+                            <a href="#" class="btn btn-primary w-100">Staff Training</a> <!--submit button-->
                         </div>
                     </div>
                 </div>
@@ -89,8 +88,7 @@
                     <img class="card-img-top" src="img/card/view-grades-card.png">
                     <div class="card-body">
                         <div class="text-center">
-                            <a href="https://elearn.wits.ac.za/help/"
-                                class="btn btn-danger w-100">Help</a> <!--submit button-->
+                            <a href="#" class="btn btn-danger w-100">Help</a> <!--submit button-->
                         </div>
                     </div>
                 </div>
@@ -100,8 +98,7 @@
                     <img class="card-img-top" src="img/card/view-grades-card.png">
                     <div class="card-body">
                         <div class="text-center">
-                            <a href="https://cle.wits.ac.za/access/content/group/6638cfcd-057f-42dd-8c23-efd176bea2a6/Getting%20Started/"
-                                class="btn btn-warning w-100">Getting Started</a> <!--submit button-->
+                            <a href="#" class="btn btn-warning w-100">Getting Started</a> <!--submit button-->
                         </div>
                     </div>
                 </div>
@@ -111,8 +108,7 @@
                     <img class="card-img-top" src="img/card/view-grades-card.png">
                     <div class="card-body">
                         <div class="text-center">
-                            <a href="https://elearn.wits.ac.za/home/default/ELSI/"
-                                class="btn btn-success w-100">About Us</a> <!--submit button-->
+                            <a href="#" class="btn btn-success w-100">About Us</a> <!--submit button-->
                         </div>
                     </div>
                 </div>
@@ -187,6 +183,5 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/home.js"></script>
 </body>
 </html>

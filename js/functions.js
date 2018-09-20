@@ -36,19 +36,23 @@ function Login()
 function IsLogged()
 {
 	axios.get('api/logged').then(function(res){
-		if(res.data.status==='Logged')
+		if(res.data.status==='True')
 		{
-			/*
-				Allow user to be on the current page
-				if the page is not a login page
-
-				if the page is a login page,we should direct the user 
-				to the dashboard
-			*/
+			//stay on the dashboard
 		}
 		else
 		{
-			//redirect to the login page
+			window.location.href="testing_login.html"
+		}
+	})
+}
+
+function DashboardRedirect()
+{
+	axios.get('api/logged').then(function(res){
+		if(res.data.status==='True')
+		{
+			window.location.href="api_dashboard.html"
 		}
 	})
 }
@@ -406,6 +410,12 @@ function Dashboard()
 		                	<a>
 	                        	<i class="pe-7s-settings"></i>
 	                        	<p>Settings</p>
+	                        </a>
+		                </li>
+		                <li id="settings">
+		                	<a onclick="LogoutModal()">
+	                        	<i class="pe-7s-power"></i>
+	                        	<p>Logout</p>
 	                        </a>
 		                </li>
 		            </ul>
@@ -1007,7 +1017,7 @@ function Dashboard()
 		$('#settings_view').hide()
 		$('#profile_view').hide()
 		$('#dashboard_view').hide()
-		$('#profile_view').hide()
+		$('#grade_view').hide()
 		$('#stats_view').show()
 	})
 
@@ -1140,4 +1150,49 @@ function AdminHeader()
             </div>
         </nav>
     </header>`)
+}
+
+function Logout()
+{
+	axios.delete('api/logout').then(function(res){
+		if(res.data.status==="Success")
+		{
+			window.location.href="testing_login.html"
+		}
+		else
+		{
+			//do something later
+		}
+	})
+}
+
+function LogoutModal()
+{
+	$('#response').html(`
+	<div class="modal" id="responseModal">
+		<div class="modal-dialog">
+		    <div class="modal-content">
+
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title"><center></center></h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        	<h5><center>Are you sure you want to logout?</center></h5>
+		      </div>
+
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">No</button>
+		        <button type="button" class="btn btn-outline-primary pull-left" data-dismiss="modal" onclick="Logout()">Yes</button>
+		      </div>
+
+		    </div>
+	  	</div>
+	</div>`)
+
+	$('#responseModal').modal('show')
 }

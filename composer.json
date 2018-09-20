@@ -1,6 +1,10 @@
 {
-    "name": "atom/risk",
-    "description": "Visual front-end and early-warning system.",
+    "autoload": {
+        "classmap": [
+            "php/Signing",
+            "php/DataBase"
+        ]
+    },
     "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",
         "phpunit/phpunit": "3.7.*"
