@@ -2,10 +2,11 @@ function Login()
 {
 	var username=$('#username').val()
 	var password=$('#password').val()
-
+	console.log(username)
 	if(username.length>0 && password.length>0)
 	{
 		axios.post('api/login',{username:username,password:password}).then(function(res){
+			console.log(res);
 			if(res.data.status==="Success")
 			{
 				//redirect to the dashboard
