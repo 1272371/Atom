@@ -5,7 +5,8 @@
 public class Algo {
 
     public static void main(String[]args){
-        algo();
+        int pass = algo();
+
     }
     private static int algo(){
         int a = 0;
