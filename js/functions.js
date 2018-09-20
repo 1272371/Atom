@@ -9,7 +9,7 @@ function Login()
 			if(res.data.status==="Success")
 			{
 				//redirect to the dashboard
-				window.location.href="api_dashboard.html"
+				window.location.href="apiDashboard.html"
 				
 			}
 			else
@@ -205,7 +205,8 @@ function RegisterView()
 	  <button onclick="Register()" class="btn btn-primary">Submit</button>
 	</div> `)
 }
-
+/**
+ * code is now in index.php
 function LoginHeader()
 {
 	$('#content').append(`
@@ -242,6 +243,7 @@ function LoginHeader()
         </nav>
     </header>`)
 }
+*/
 
 function LoginPageContent()
 {
@@ -374,7 +376,7 @@ function Dashboard()
 {
 	$('#content').append(`
 		<div class="wrapper">
-		    <div class="sidebar" data-color="purple">
+		    <div class="sidebar" data-color="blue">
 		    	<div class="sidebar-wrapper">
 		            <div class="logo">
 		                <a href="http://www.wits.ac.za" class="simple-text">
@@ -382,7 +384,7 @@ function Dashboard()
 		                </a>
 		            </div>
 		            <ul class="nav">
-		                <li class="active" id="dashboard">
+						<li class="active" id="dashboard">
 		                	<a>
 		                        <i class="pe-7s-graph active"></i>
 		                        <p>Dashboard</p>
