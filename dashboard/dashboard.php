@@ -175,7 +175,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Current Average</th>
+                                        <th>Surname</th>
                                     </tr>
                                 
                                     <tbody>
