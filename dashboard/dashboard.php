@@ -172,65 +172,37 @@
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">
                                 <table class="table table-hover">
                                 
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Surname</th>
-                                    </tr>
-                                
-                                    <tbody>
-                                        <tr> 
-                                            <td>2000000</td>
-                                            <td>Dakota Rice</td>
-                                            <td>76%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2000578</td>
-                                            <td>Minerva Hooper</td>
-                                            <td>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2000999</td>
-                                            <td>Sage Rodriguez</td>
-                                            <td>87%</td>
-                                        </tr>
-                                        <tr class="active">
-                                            <td>2005890</td>
-                                            <td>Philip Chaney</td>
-                                            <td>39%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2008293</td>
-                                            <td>Doris Greene</td>
-                                            <td>57%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2009637</td>
-                                            <td>Mason Porter</td>
-                                            <td>38%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2004785</td>
-                                            <td>Johnny Depp</td>
-                                            <td>90%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2046759</td>
-                                            <td>Aretha Franklin</td>
-                                            <td>94%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2138904</td>
-                                            <td>James Dunn</td>
-                                            <td>28%</td>    
-                                        </tr>
-                                        <tr>
-                                            <td>2289304</td>
-                                            <td>Harry Potter</td>
-                                            <td>80%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                   <?php
+
+                                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                    if (mysqli_connect_error()){
+                                      die ("Error!");
+                                    }
+
+                                    $query = "SELECT * FROM user";
+
+                                    echo "<table class='table table-hover'>";
+
+                                    echo "<thead>";
+                                                    echo        "<th>Student Number</th>";
+                                                    echo      "<th>Name</th>";
+                                                    echo      "<th>Surname</th>";
+                                                    echo      "<th>Faculty</th>";
+                                                    echo "</thead>";
+
+                                    if ($result = mysqli_query($link, $query)){
+                                      while ($row = mysqli_fetch_array($result)){
+                                        //print_r($row);
+
+                                        echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row['user_coursecode']."</td></tr>";
+                                      }
+                                    }
+
+                                    echo "</table>";
+                                    
+
+                                  ?>
 
                             </div>
                         </div>
