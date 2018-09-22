@@ -101,7 +101,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">COMS1000</h4>
+                                <h4 class="title">COMS1001</h4>
                                 
                             </div>
                             <div class="content table-responsive table-full-width">
