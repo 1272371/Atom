@@ -106,97 +106,39 @@
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
-                                    <thead>
-                                        <th>Student Number</th>
-                                    	<th>Name</th>
-                                    	<th>Faculty</th>
-                                    	<th>YOS</th>
-                                    	<th>Current Average</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>2000000</td>
-                                        	<td>Dakota Rice</td>
-                                        	<td>Science</td>
-                                        	<td>2</td>
-                                        	<td>76%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2000578</td>
-                                        	<td>Minerva Hooper</td>
-                                        	<td>Science</td>
-                                        	<td>2</td>
-                                        	<td>50%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2000999</td>
-                                        	<td>Sage Rodriguez</td>
-                                        	<td>Science</td>
-                                        	<td>3</td>
-                                        	<td>87%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr class="active">
-                                        	<td>2005890</td>
-                                        	<td>Philip Chaney</td>
-                                        	<td>Science</td>
-                                        	<td>3</td>
-                                        	<td>39%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2008293</td>
-                                        	<td>Doris Greene</td>
-                                        	<td>Science</td>
-                                        	<td>3</td>
-                                        	<td>57%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2009637</td>
-                                        	<td>Mason Porter</td>
-                                        	<td>Science</td>
-                                        	<td>3</td>
-                                        	<td>38%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2004785</td>
-                                            <td>Johnny Depp</td>
-                                            <td>Science</td>
-                                            <td>3</td>
-                                            <td>90%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2046759</td>
-                                            <td>Aretha Franklin</td>
-                                            <td>Humanities</td>
-                                            <td>1</td>
-                                            <td>94%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2138904</td>
-                                            <td>James Dunn</td>
-                                            <td>Humanities</td>
-                                            <td>1</td>
-                                            <td>28%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2289304</td>
-                                            <td>Harry Potter</td>
-                                            <td>Humanities</td>
-                                            <td>1</td>
-                                            <td>80%</td>
-                                            <td><a href="dashboard.html" type="button" class="btn btn-light btn-sm">More Info</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <?php
 
+                                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                    if (mysqli_connect_error()){
+                                        die ("Error!");
+                                    }
+
+                                    $query = "SELECT * FROM user";
+                                    $query2 = "SELECT percentage FROM grades";
+
+                                    echo "<table class='table table-hover'>";
+
+                                    echo "<thead>";
+                                    echo        "<th>Student Number</th>";
+                                    echo        "<th>Name</th>";
+                                    echo        "<th>Faculty</th>";
+                                    echo        "<th>YOS</th>";
+                                    echo        "<th>Current Average (%)</th>";
+                                    echo "</thead>";
+
+                                    $result = mysqli_query($link, $query);
+                                    $result2= mysqli_query($link, $query2);
+
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        if ($row2 = mysqli_fetch_array($result2)){
+                                        
+                                        echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['percentage']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+                                    }
+                                }
+                                    echo "</table>";
+                                ?>
+                            </table>
                             </div>
                         </div>
                     </div>

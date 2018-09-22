@@ -172,7 +172,7 @@
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">
                                 <table class="table table-hover">
                                 
-                                   <?php
+                                <?php
 
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
@@ -195,20 +195,13 @@
                                 $result = mysqli_query($link, $query);
                                 $result2= mysqli_query($link, $query2);
 
-                                
                                 while ($row = mysqli_fetch_array($result)) {
                                     if ($row2 = mysqli_fetch_array($result2)){
                                     
                                     echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
                                 }
                             }
-                            
-
-                                
-
                                 echo "</table>";
-                                
-
                             ?>
 
                             </div>
