@@ -174,35 +174,42 @@
                                 
                                    <?php
 
-                                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
-                                    if (mysqli_connect_error()){
-                                      die ("Error!");
-                                    }
+                                if (mysqli_connect_error()){
+                                    die ("Error!");
+                                }
 
-                                    $query = "SELECT * FROM user";
+                                $query = "SELECT * FROM user";
+                                $query2 = "SELECT percentage FROM grades";
 
-                                    echo "<table class='table table-hover'>";
+                                echo "<table class='table table-hover'>";
 
-                                    echo "<thead>";
-                                                    echo        "<th>Student Number</th>";
-                                                    echo      "<th>Name</th>";
-                                                    echo      "<th>Surname</th>";
-                                                    echo      "<th>Faculty</th>";
-                                                    echo "</thead>";
+                                echo "<thead>";
+                                echo        "<th>Student Number</th>";
+                                echo        "<th>Name</th>";
+                                echo        "<th>Surname</th>";
+                                echo        "<th>Latest Mark (%)</th>";
+                                echo "</thead>";
 
-                                    if ($result = mysqli_query($link, $query)){
-                                      while ($row = mysqli_fetch_array($result)){
-                                        //print_r($row);
+                                $result = mysqli_query($link, $query);
+                                $result2= mysqli_query($link, $query2);
 
-                                        echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row['user_coursecode']."</td></tr>";
-                                      }
-                                    }
-
-                                    echo "</table>";
+                                
+                                while ($row = mysqli_fetch_array($result)) {
+                                    if ($row2 = mysqli_fetch_array($result2)){
                                     
+                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
+                                }
+                            }
+                            
 
-                                  ?>
+                                
+
+                                echo "</table>";
+                                
+
+                            ?>
 
                             </div>
                         </div>
