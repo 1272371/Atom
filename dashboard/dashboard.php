@@ -52,13 +52,13 @@
                 </li>
                 
                 <li>
-                    <a href="grade.html">
+                    <a href="grade.php">
                         <i class="pe-7s-note2"></i>
                         <p>Grade Book</p>
                     </a>
                 </li>
                 <li>
-                    <a href="stats.html">
+                    <a href="stats.php">
                         <i class="pe-7s-graph3"></i>
                         <p>Statistics</p>
                     </a>

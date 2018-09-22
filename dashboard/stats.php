@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="grade.html">
+                    <a href="grade.php">
                         <i class="pe-7s-note2"></i>
                         <p>Grade Book</p>
                     </a>
