@@ -115,7 +115,7 @@
                                     }
 
                                     $query = "SELECT * FROM user";
-                                    //$query2 = "SELECT AVG(percentage) FROM grades";
+                                    
 
                                     echo "<table class='table table-hover'>";
 
@@ -128,22 +128,23 @@
                                     echo "</thead>";
 
                                     $result = mysqli_query($link, $query);
-                                    //$result2= mysqli_query($link, $query2);
+                                    
 
                                     while ($row = mysqli_fetch_array($result)) {
                                         
                                         $person=$row['student_nr'];
                                         $query2 = "SELECT AVG(percentage) FROM grades where user_id=".$person;
                                         $result2= mysqli_query($link, $query2);
-                                         
-                                        if ($row2 = mysqli_fetch_array($result2)){
-                                        
+                                        $row2 = mysqli_fetch_array($result2);
+
+                                       //while ($row2 = mysqli_fetch_array($result2)){
                                         echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['AVG(percentage)']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
-                                    }
-                                   // "</td><td><a href='#'>.Load.</a></td><td>" to make cell a link
+                                    //}
+                                   
                                 }
                                     echo "</table>";
-
+                                    error_reporting(0);
+                                    @ini_set('display_errors', 0);
                                 ?>
                             </table>
                             </div>
