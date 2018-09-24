@@ -143,7 +143,7 @@
                                 }
 
                               
-                               	$query2 = "SELECT percentage FROM grades WHERE user_id='1234567'"; 
+                               	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
                                 $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
 
                                 echo "<table class='table table-hover'>";
@@ -197,7 +197,7 @@
                                 }
 
                                 $query = "SELECT * FROM user";
-                                $query2 = "SELECT percentage FROM grades";
+                                //$query2 = "SELECT percentage FROM grades";
 
                                 echo "<table class='table table-hover'>";
 
@@ -209,13 +209,16 @@
                                 echo "</thead>";
 
                                 $result = mysqli_query($link, $query);
-                                $result2= mysqli_query($link, $query2);
+                                //$result2= mysqli_query($link, $query2);
 
                                 while ($row = mysqli_fetch_array($result)) {
-                                    if ($row2 = mysqli_fetch_array($result2)){
+
+                                        $person=$row['student_nr'];
+                                        $query2 = "SELECT ROUND(AVG(percentage)) FROM grades WHERE user_id=".$person;
+                                        $result2= mysqli_query($link, $query2);
+                                        $row2 = mysqli_fetch_array($result2);
                                     
-                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
-                                }
+                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
                             }
                                 echo "</table>";
                             ?>
