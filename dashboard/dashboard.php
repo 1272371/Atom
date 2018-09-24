@@ -98,8 +98,11 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
 
-                                //$student = "1234567";
-                                $student = $_GET['student'];
+                                if (empty($_GET)){
+                                    $student = "1234567";
+                                } else {
+                                    $student = $_GET['student'];
+                                }
 
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
