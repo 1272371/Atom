@@ -98,13 +98,15 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
 
+                                $student = "1234567";
+
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
                                 if (mysqli_connect_error()){
                                     die ("Error!");
                                 }
 
-                                $query = "SELECT * FROM user";
+                                $query = "SELECT * FROM user WHERE student_nr=".$student;
                                 $result = mysqli_query($link, $query);
 
                                 if ($row = mysqli_fetch_array($result)) {
