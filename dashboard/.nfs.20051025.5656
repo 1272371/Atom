@@ -98,15 +98,13 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
 
-                                $student = "1234567";
-
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
                                 if (mysqli_connect_error()){
                                     die ("Error!");
                                 }
 
-                                $query = "SELECT * FROM user WHERE student_nr=".$student;
+                                $query = "SELECT * FROM user";
                                 $result = mysqli_query($link, $query);
 
                                 if ($row = mysqli_fetch_array($result)) {
@@ -143,7 +141,7 @@
                                 }
 
                               
-                               	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
+                               	$query2 = "SELECT percentage FROM grades WHERE user_id='1234567'"; 
                                 $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
 
                                 echo "<table class='table table-hover'>";
@@ -197,7 +195,7 @@
                                 }
 
                                 $query = "SELECT * FROM user";
-                                //$query2 = "SELECT percentage FROM grades";
+                                $query2 = "SELECT percentage FROM grades";
 
                                 echo "<table class='table table-hover'>";
 
@@ -209,16 +207,13 @@
                                 echo "</thead>";
 
                                 $result = mysqli_query($link, $query);
-                                //$result2= mysqli_query($link, $query2);
+                                $result2= mysqli_query($link, $query2);
 
                                 while ($row = mysqli_fetch_array($result)) {
-
-                                        $person=$row['student_nr'];
-                                        $query2 = "SELECT ROUND(AVG(percentage)) FROM grades WHERE user_id=".$person;
-                                        $result2= mysqli_query($link, $query2);
-                                        $row2 = mysqli_fetch_array($result2);
+                                    if ($row2 = mysqli_fetch_array($result2)){
                                     
-                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
+                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
+                                }
                             }
                                 echo "</table>";
                             ?>
