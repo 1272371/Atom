@@ -130,8 +130,9 @@
                                     die ("Error!");
                                 }
 
-                                $query = "SELECT * FROM user";
-                                $query2 = "SELECT percentage FROM grades";
+                              
+                               	$query2 = "SELECT percentage FROM grades WHERE user_id='1234567'"; 
+                                $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
 
                                 echo "<table class='table table-hover'>";
 
@@ -141,15 +142,17 @@
                                 echo        "<th>Current Mark (%)</th>";
                                 echo "</thead>";
 
-                                $result = mysqli_query($link, $query);
+                                
                                 $result2= mysqli_query($link, $query2);
+                                $result3= mysqli_query($link, $query3);
 
-                                while ($row = mysqli_fetch_array($result)) {
-                                    if ($row2 = mysqli_fetch_array($result2)){
+                                while ($row2 = mysqli_fetch_array($result2)) {
                                     
-                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
-                                }
-                            }
+                                    	if ($row3 = mysqli_fetch_array($result3)){
+                                    
+                                    echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
+                                	}
+                            	}
                                 echo "</table>";
                             ?>
 
