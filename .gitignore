@@ -16,6 +16,7 @@ php/*._*
 test/*._*
 
 vendor/
+local/
 
 api/*_*
 css/*_*

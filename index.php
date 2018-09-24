@@ -142,23 +142,24 @@
         <div class="col-lg-2"></div>
     </div>
 
+    <!-- Quick Links-->
     <div class="row mb-4">
         <div class="col text-center">
             <p class="h2">Quick Links</p>
         </div>
     </div>
 
-    <div class="row pb-4">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-            <div class="row">
+    <div class="row mb-4">
+        <div class="col-lg-4 col-md-0"></div>
+        <div class="col-lg-4 col-md-12">
+            <div class="row text-center">
                 <div class="col">
-                    <a href="php/database.html">
+                    <a class="col" href="php/database.html">
                         <img class="rounded img-fluid" src="img/button/database.png">
                     </a>
                 </div>
                 <div class="col">
-                    <a href="php/database.html">
+                    <a href="console.html">
                         <img class="rounded img-fluid" src="img/button/database.png">
                     </a>
                 </div>
@@ -174,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-lg-4 col-md-0"></div>
     </div>
 
     <!--Scripts-->
