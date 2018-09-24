@@ -1,8 +1,19 @@
 {
     "name": "atom/risk",
     "description": "Visual front-end and early-warning system for prediction",
-    "require-dev": {
+  "require": {
+    "ext-mysqli":"*",
+    "php":"^7.2",
+    "ext-pdo":"*"
+  },
+  "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",
-        "phpunit/phpunit": "3.7.*"
-    }
+        "phpunit/phpunit": "3.7.*",
+    "phpunit/dbunit":"*"
+
+    },
+  "autoload": {
+    "exclude-from-classmap": ["/phpunit/"]
+  },
+  "include-path":["/Atom/"]
 }

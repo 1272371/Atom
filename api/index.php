@@ -27,7 +27,8 @@
 	/*
 		We basically create a database instance,using the DB class 
 	*/
-	$db=new DB('127.0.0.1', 'd815108','s815108','random123');
+	$db=new DB('127.0.0.1', ' 	api_risk','123456','123456');
+#$db=new DB('127.0.0.1', 'd815108','123456','123456');
 
 	/*
 		We are mainly going to get and send GET and POST requests,the DELETE(optional) method is mainly used

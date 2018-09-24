@@ -1,0 +1,11 @@
+guestbook:
+-
+  id: 1
+  content: "Hello buddy!"
+  user: "joe"
+  created: "2016-12-11 09:30:50"
+-
+  id: 2
+  content: "I like it!"
+  user: "jane"
+  created: "2016-12-10 11:20:15"

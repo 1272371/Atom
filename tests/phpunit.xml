@@ -1,0 +1,16 @@
+<phpunit colors="true" verbose="true">
+    <php>
+        <includePath>src</includePath>
+
+        <var name="DB_DSN" value="mysql:dbname=api_risk;host=localhost"/>
+        <var name="DB_NAME" value="guestbook"/>
+        <var name="DB_USER" value="root"/>
+        <var name="DB_PASSWD" value=""/>
+    </php>
+
+    <testsuites>
+        <testsuite name="GuestBook">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
