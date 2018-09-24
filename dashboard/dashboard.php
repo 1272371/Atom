@@ -88,6 +88,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4" style="max-height: 400px;overflow:scroll">
+                        
+
+
+
+
                         <div class="card card-user">
                             <div class="image">
                                 <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
@@ -113,6 +118,46 @@
                             <hr>
                             
                         </div>
+
+                        <?php
+
+                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                if (mysqli_connect_error()){
+                                    die ("Error!");
+                                }
+
+                                echo    "<div class='card card-user'>";
+                            	echo    "<div class='image'>";
+                                echo    "<img src='https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400' alt='...'/>";
+                            	echo    "</div>";
+                            	echo 	"<div class='content'>";
+                                echo 	"<div class='author'>";
+                                echo    "<a href='#''>";
+                                echo    "<img class='avatar border-gray' src='assets/img/faces/face-0.jpg' alt='...'/>";
+
+                                $query = "SELECT * FROM user";
+                                $result = mysqli_query($link, $query);
+
+                                if ($row = mysqli_fetch_array($result)) {
+                                echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
+                                echo         "<small>".$row['student_nr']."</small>";
+                                echo      "</h4>";
+                                echo    "</a>";
+                                echo "</div>";
+                                echo "<p class='description text-center'>" ;
+                                echo    $row['user_coursecode'];
+                                echo    "<br>";
+                                //echo        BSc Gen 
+                                //echo    "<br>"
+                                }
+
+                                echo "</p>";
+                                echo "</div>";
+                                echo "<hr>";
+                                echo "</div>";
+                            ?>
+
                     </div>
                     <div class="col-md-4" style="max-height: 400px;overflow:scroll">
                         <div class="card">
