@@ -121,6 +121,41 @@
                                 
                             </div>
                             <div class="content table-responsive table-full-width">
+                                
+                            	<?php
+
+                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                if (mysqli_connect_error()){
+                                    die ("Error!");
+                                }
+
+                                $query = "SELECT * FROM user";
+                                $query2 = "SELECT percentage FROM grades";
+
+                                echo "<table class='table table-hover'>";
+
+                                echo "<thead>";
+                                echo        "<th>Subject</th>";
+                                echo        "<th>Subject Code</th>";
+                                echo        "<th>Current Mark (%)</th>";
+                                echo "</thead>";
+
+                                $result = mysqli_query($link, $query);
+                                $result2= mysqli_query($link, $query2);
+
+                                while ($row = mysqli_fetch_array($result)) {
+                                    if ($row2 = mysqli_fetch_array($result2)){
+                                    
+                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
+                                }
+                            }
+                                echo "</table>";
+                            ?>
+
+
+
+
                                 <table class="table table-hover">
                                     <tr>
                                         <th>Subject</th>

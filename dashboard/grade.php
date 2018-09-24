@@ -135,8 +135,10 @@
                                         
                                         echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['percentage']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
                                     }
+                                   // "</td><td><a href='#'>.Load.</a></td><td>" to make cell a link
                                 }
                                     echo "</table>";
+
                                 ?>
                             </table>
                             </div>
