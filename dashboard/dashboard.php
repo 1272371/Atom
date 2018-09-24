@@ -98,7 +98,8 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
 
-                                $student = "1234567";
+                                //$student = "1234567";
+                                $student = $_GET['student'];
 
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
@@ -197,7 +198,7 @@
                                 }
 
                                 $query = "SELECT * FROM user";
-                                //$query2 = "SELECT percentage FROM grades";
+                                
 
                                 echo "<table class='table table-hover'>";
 
@@ -209,7 +210,7 @@
                                 echo "</thead>";
 
                                 $result = mysqli_query($link, $query);
-                                //$result2= mysqli_query($link, $query2);
+                                
 
                                 while ($row = mysqli_fetch_array($result)) {
 

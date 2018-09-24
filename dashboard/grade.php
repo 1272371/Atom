@@ -138,14 +138,14 @@
                                         $result2= mysqli_query($link, $query2);
                                         $row2 = mysqli_fetch_array($result2);
 
+                                        $student = $person;
                                        
-                                        echo "<tr class='clickable-row' data-href='dashboard.php'><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+                                        echo "<tr class='clickable-row' data-href='dashboard.php?student=$student'<td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
 
                                    
                                 }
                                     echo "</table>";
-                                    error_reporting(0);
-                                    @ini_set('display_errors', 0);
+                                    
                                 ?>
 
                                 <script>
