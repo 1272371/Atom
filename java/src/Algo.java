@@ -31,3 +31,10 @@ public class Algo extends Applet {
 //        JOptionPane.showMessageDialog(null,"worked");
 //    }
 }
+/* This is from an eairly version of the wiki will be removed at a later date
+### User profile
+
+(going to be changed to be a direct link from the dashboard student info block)
+ This page is designed in a block view format
+
+this page contains more details on the student*/
