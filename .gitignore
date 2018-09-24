@@ -18,6 +18,13 @@ test/*._*
 vendor/
 local/
 
+dashboard/*._*
+dashboard/js/*._*
+dashboard/css/*._*
+dashboard/img/*._*
+dashboard/fonts/*._*
+dashboard/assets/*._*
+
 api/*_*
 css/*_*
 extra/*_*
