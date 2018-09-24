@@ -154,7 +154,7 @@
                                                 window.location = $(this).data("href");
                                             });
                                         });
-                                        </script>
+                                </script>
 
                             </table>
                             </div>
