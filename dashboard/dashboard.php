@@ -155,40 +155,6 @@
                             	}
                                 echo "</table>";
                             ?>
-
-
-
-
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Subject Code</th>
-                                        <th>Mark (%)</th>
-                                    </tr>
-                                    <tbody>
-                                        <tr>
-                                            <td>Physics</td>
-                                            <td>PHYS1002</td>
-                                            <td>67</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Applied Mathematics</td>
-                                            <td>APPM1001</td>
-                                            <td>76</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Computer Science</td>
-                                            <td>COMS1006</td>
-                                            <td>92</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mathematics</td>
-                                            <td>MATH1010</td>
-                                            <td>78</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
                             </div>
                         </div>
                     </div>
