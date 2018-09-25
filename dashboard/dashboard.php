@@ -202,7 +202,7 @@
                             	?>
 
                                 </ul>
-                                <span style="padding-left:30px;font-size:large">COMS1001</span>
+                                <span style="padding-left:30px;font-size:large">COMS2002</span>
                              </div>    
                             </div>
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">

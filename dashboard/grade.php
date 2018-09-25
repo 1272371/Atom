@@ -89,9 +89,23 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">COMS1000</a></li>
-                    <li><a href="#">COMS2000</a></li>
-                    <li><a href="#">COMS3000</a></li>
+                   <?php
+
+                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                    if (mysqli_connect_error()){
+                        die ("Error!");
+                    }
+
+                    $query2 = "SELECT module_code FROM module";
+                    
+                    $result2= mysqli_query($link, $query2);
+
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                        echo "<li><a href='#'>".$row2['module_code']."</a></li>";
+                    }
+                    
+                    ?>
                 </ul>
         </div> 
 
@@ -102,7 +116,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">COMS1001</h4>
+                                <h4 class="title">COMS2002</h4>
                                 
                             </div>
                             <div class="content table-responsive table-full-width">
