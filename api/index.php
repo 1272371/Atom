@@ -121,7 +121,7 @@
 			if($db->query('SELECT * FROM module WHERE module_code=:code',array(':code'=>$code)))
 			{
 				http_response_code(200);
-				echo '{"status":"Module Already Already Exists!"}';
+				echo '{"status":"Module  Already Exists!"}';
 			}
 			else
 			{
