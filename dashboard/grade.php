@@ -119,7 +119,6 @@
                                     
 
                                     echo "<table class='table table-hover'>";
-
                                     echo "<thead>";
                                     echo        "<th>Student Number</th>";
                                     echo        "<th>Name</th>";
