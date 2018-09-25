@@ -5,6 +5,7 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="icon" type="image/png" href="../img/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<title>Grade Book</title>
 
@@ -88,9 +89,23 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">COMS1000</a></li>
-                    <li><a href="#">COMS2000</a></li>
-                    <li><a href="#">COMS3000</a></li>
+                   <?php
+
+                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                    if (mysqli_connect_error()){
+                        die ("Error!");
+                    }
+
+                    $query2 = "SELECT module_code FROM module";
+                    
+                    $result2= mysqli_query($link, $query2);
+
+                    while ($row2 = mysqli_fetch_array($result2)) {
+                        echo "<li><a href='#'>".$row2['module_code']."</a></li>";
+                    }
+                    
+                    ?>
                 </ul>
         </div> 
 
@@ -101,7 +116,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">COMS1001</h4>
+                                <h4 class="title">COMS2002</h4>
                                 
                             </div>
                             <div class="content table-responsive table-full-width">
@@ -118,7 +133,6 @@
                                     
 
                                     echo "<table class='table table-hover'>";
-
                                     echo "<thead>";
                                     echo        "<th>Student Number</th>";
                                     echo        "<th>Name</th>";
@@ -137,15 +151,24 @@
                                         $result2= mysqli_query($link, $query2);
                                         $row2 = mysqli_fetch_array($result2);
 
-                                       //while ($row2 = mysqli_fetch_array($result2)){
-                                        echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
-                                    //}
+                                        $student = $person;
+                                       
+                                        echo "<tr class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+
                                    
                                 }
                                     echo "</table>";
-                                    error_reporting(0);
-                                    @ini_set('display_errors', 0);
+                                    
                                 ?>
+
+                                <script>
+                                            jQuery(document).ready(function($) {
+                                            $(".clickable-row").click(function() {
+                                                window.location = $(this).data("href");
+                                            });
+                                        });
+                                </script>
+
                             </table>
                             </div>
                         </div>

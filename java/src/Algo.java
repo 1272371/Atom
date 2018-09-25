@@ -31,6 +31,7 @@ public class Algo extends Applet {
 //        JOptionPane.showMessageDialog(null,"worked");
 //    }
 }
+
 /* This is from an eairly version of the wiki will be removed at a later date
 ### User profile
 
