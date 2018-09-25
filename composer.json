@@ -4,7 +4,9 @@
   "require": {
     "ext-mysqli":"*",
     "php":"^7.2",
-    "ext-pdo":"*"
+    "ext-pdo":"*",
+    "ext-json":"*",
+    "ext-openssl":"*"
   },
   "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",
@@ -12,8 +14,5 @@
     "phpunit/dbunit":"*"
 
     },
-  "autoload": {
-    "exclude-from-classmap": ["/phpunit/"]
-  },
   "include-path":["/Atom/"]
 }
