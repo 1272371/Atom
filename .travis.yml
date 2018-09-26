@@ -3,9 +3,7 @@ php:
   - '7.2'
 before_install:
   - travis_retry composer self-update
-  #try to install php_xdebug for codecover and clover files
-  - phpenv config-rm xdebug.ini
-script:
+ script:
   - composer install -n --prefer-dist
   -phpunit
 after_success:
