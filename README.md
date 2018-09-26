@@ -57,4 +57,6 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 
 6.NB! Since we're temporarily running everything locally you should store the Atom folder in your htdocs so that the apache server can locate it when you call it via localhost/Atom/...(this will vary due to the fact that some users will store Atom project in a different folder or in a sub folder)
 --->
-## Technologies/Softwares that we'll be using
+## Technologies/Softwares that are using
+1.Apache server
+
