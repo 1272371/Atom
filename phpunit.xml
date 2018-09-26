@@ -19,7 +19,7 @@
     </logging>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory>./</directory>
+            <directory suffix =".php">./</directory>
         </whitelist>
     </filter>
 
