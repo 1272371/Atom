@@ -22,7 +22,7 @@
 
     // create array
     $userArray = array(
-        'user_id' => $user_id,
+        'user_id' => $user->user_id,
     );
 
     // make json
