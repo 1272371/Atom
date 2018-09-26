@@ -72,6 +72,31 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Statistics</a>
+                     <div class="dropdown" style="padding-left:10px;padding-top:10px;margin-bottom: 30px;">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                
+                                <?php
+
+                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                if (mysqli_connect_error()){
+                                    die ("Error!");
+                                }
+
+                                $query2 = "SELECT module_code FROM module";
+                                
+                                $result2= mysqli_query($link, $query2);
+
+                                while ($row2 = mysqli_fetch_array($result2)) {
+                                    echo "<li><a href='#'>".$row2['module_code']."</a></li>";
+                                }
+                                
+                                ?>
+
+                                </ul>
                 </div>
             </div>
         </nav>
@@ -85,7 +110,7 @@
 
                             <div class="header">
                                 <h4 class="title">Class Statistics</h4>
-                                <p class="category">COMS1000</p>
+                                <p class="category">COMS2002</p>
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
@@ -106,7 +131,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Student Performance</h4>
-                                <p class="category">COMS1000</p>
+                                <p class="category">COMS2002</p>
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
