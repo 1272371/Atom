@@ -5,7 +5,6 @@
 .idea/
 Atom.iml
 java/Atom.iml
-test/JUnitTest
 api/*._*
 css/*._*
 extra/*._*
@@ -13,8 +12,6 @@ img/*._*
 java/*._*
 js/*._*
 php/*._*
-test/*._*
-
 vendor/
 local/
 
@@ -32,4 +29,3 @@ img/*_*
 java/*_*
 js/*_*
 php/*_*
-test/*_*
