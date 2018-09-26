@@ -15,7 +15,7 @@
     $user = new User($db);
 
     // user post query
-    $result = $user->read();
+    $result = $user->get();
 
     // get user count
     $num = $result->rowCount();
