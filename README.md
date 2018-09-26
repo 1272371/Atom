@@ -48,7 +48,7 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 3.Click the api_risk database tab/tag that you've just created on the left side of the navigation screen(it will probably be below the "new" tag that you clicked earlier) then click on import which is usually top navigation screen(contains a red arrow that is facing leftward)
 ![Alt text](img/apiInstruction/3.png "Title")
 
-4.Now click on the browse button and navigate to the Atom(our SD project resides in this folder) folder then inside the Atom folder navigate into api then you'll find the risk.sql(this is the folder that you'll import into the api_risk database) file,then once you've selected the risk.sql file you can click on the go button at the bottom of the screen on phpmyadmin
+4.Now click on the browse button and navigate to the Atom(our SD project resides in this folder) folder then inside the Atom folder navigate into api then you'll find the api_risk.sql(this is the folder that you'll import into the api_risk database) file,then once you've selected the api_risk.sql file you can click on the go button at the bottom of the screen on phpmyadmin
 ![Alt text](img/apiInstruction/4.png "Title")
 
 5.On the browser,type localhost/Atom/testing_login.html(this will vary due to the fact that some users will store Atom project in a different folder or in a sub folder) and then press *ENTER*,it should now send you to the login page that communicates with the restful api  the username and password is 123456.You can you can also test it with incorrect information,so that you can get a response from the backend i.e Incorrect password or user does not exist responses

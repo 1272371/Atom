@@ -98,7 +98,11 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
 
-                                $student = "1234567";
+                                if (empty($_GET)){
+                                    $student = "1234567";
+                                } else {
+                                    $student = $_GET['student'];
+                                }
 
                                 $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
@@ -143,7 +147,7 @@
                                 }
 
                               
-                               	$query2 = "SELECT percentage FROM grades WHERE user_id='1234567'"; 
+                               	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
                                 $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
 
                                 echo "<table class='table table-hover'>";
@@ -178,11 +182,27 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">COMS1000</a></li>
-                                    <li><a href="#">COMS2000</a></li>
-                                    <li><a href="#">COMS3000</a></li>
+                                
+                                <?php
+
+                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                if (mysqli_connect_error()){
+                                    die ("Error!");
+                                }
+
+                               	$query2 = "SELECT module_code FROM module";
+                                
+                                $result2= mysqli_query($link, $query2);
+
+                                while ($row2 = mysqli_fetch_array($result2)) {
+                                    echo "<li><a href='#'>".$row2['module_code']."</a></li>";
+                            	}
+                                
+                            	?>
+
                                 </ul>
-                                <span style="padding-left:30px;font-size:large">COMS1001</span>
+                                <span style="padding-left:30px;font-size:large">COMS2002</span>
                              </div>    
                             </div>
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">
@@ -197,7 +217,7 @@
                                 }
 
                                 $query = "SELECT * FROM user";
-                                $query2 = "SELECT percentage FROM grades";
+                                
 
                                 echo "<table class='table table-hover'>";
 
@@ -209,16 +229,27 @@
                                 echo "</thead>";
 
                                 $result = mysqli_query($link, $query);
-                                $result2= mysqli_query($link, $query2);
+                                
 
                                 while ($row = mysqli_fetch_array($result)) {
-                                    if ($row2 = mysqli_fetch_array($result2)){
+
+                                        $person=$row['student_nr'];
+                                        $query2 = "SELECT ROUND(AVG(percentage)) FROM grades WHERE user_id=".$person;
+                                        $result2= mysqli_query($link, $query2);
+                                        $row2 = mysqli_fetch_array($result2);
                                     
-                                    echo "<tr><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['percentage']."</td></tr>";
-                                }
+                                    echo "<tr class='clickable-row' data-href='dashboard.php'><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
                             }
                                 echo "</table>";
                             ?>
+
+                            <script>
+                                            jQuery(document).ready(function($) {
+                                            $(".clickable-row").click(function() {
+                                                window.location = $(this).data("href");
+                                            });
+                                        });
+                            </script>
 
                             </div>
                         </div>
@@ -259,9 +290,6 @@
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>

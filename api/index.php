@@ -27,7 +27,8 @@
 	/*
 		We basically create a database instance,using the DB class 
 	*/
-	$db=new DB('127.0.0.1', 'd815108','s815108','random123');
+	$db=new DB('localhost', 'api_risk','root','');
+#$db=new DB('127.0.0.1', 'd815108','123456','123456');
 
 	/*
 		We are mainly going to get and send GET and POST requests,the DELETE(optional) method is mainly used
@@ -120,7 +121,7 @@
 			if($db->query('SELECT * FROM module WHERE module_code=:code',array(':code'=>$code)))
 			{
 				http_response_code(200);
-				echo '{"status":"Module Already Already Exists!"}';
+				echo '{"status":"Module  Already Exists!"}';
 			}
 			else
 			{
