@@ -62,4 +62,4 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 2.PHP programming language
 3.Mysql Database
 
-Locally we'll be using the XAMPP 
+Locally we'll be using the XAMPP software which consists of the LAMP/WAMP stack
