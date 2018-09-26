@@ -10,14 +10,24 @@ $username = "1234567";
 $password = "password";
 $dbname = "risk";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
 $link = mysqli_connect("localhost","1234567","password", "risk");
 if ($link->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $link->connect_error);
 }
+$query = "SELECT * FROM user WHERE student_nr=".$student;
+$result = mysqli_query($link, $query);
 
-$sql = "SELECT user_id, user_name, User_surname FROM "user";
-$result = $conn->query($sql);
+if ($row = mysqli_fetch_array($result)) {
+    echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
+    echo         "<small>".$row['student_nr']."</small>";
+    echo      "</h4>";
+    echo    "</a>";
+    echo "</div>";
+    echo "<p class='description text-center'>" ;
+    echo    $row['user_coursecode'];
+/*$sql = "SELECT user_id, user_name, User_surname FROM "user";
+$result = $link->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -25,6 +35,6 @@ if ($result->num_rows > 0) {
     }
 } else {
     echo "0 results";
-}
-$conn->close();
+}*/
+$link->close();
 ?>
