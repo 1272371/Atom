@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/home.css" />
+
+    <!--Title & Icon-->
+    <title>Console</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row mt-2 mb-2">
+            <div class="col-12">
+                <img id="add-table" class="roundness p-2 mr-4" src="img/button/add.svg">
+                <img id="remove-table" class="roundness p-2" src="img/button/delete.svg">
+            </div>
+        </div>
+
+        <!-- Upload button
+        <div class="row ml-auto">
+                <div class="col">
+                    <button id="upload" class="btn mt-2 mb-2"
+                        style="border-radius:50%; background-color: #003b5c; color: white;"
+                        type="button" name="upload">&oplus;</button>
+                </div>
+        </div>-->
+
+        <!-- Used to append tables-->
+        <div id="record"></div>
+
+        <div class="custom-file">
+                <input id="upload" type="file" class="custom-file-input" id="upload" accept=".csv">
+                <label id="uploadLabel" class="custom-file-label" for="upload">Choose file</label>
+        </div>
+
+        <!-- Table -->
+        <div class="row">
+            <div class="col">
+                <div>
+                    <div id="tables"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
