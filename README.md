@@ -60,3 +60,6 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 ## Technologies/Softwares that are using
 1.Apache server
 2.PHP programming language
+3.Mysql Database
+
+Locally we'll be using the XAMPP 
