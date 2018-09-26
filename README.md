@@ -38,6 +38,7 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
     <link rel="stylesheet" href="bootstrap/bootstrap.css">
 </head>
 ```
+<!---
 ## Restful API integration
 1.Using Xampp login to phpmyadmin using your browser and navigate to the "new" tag on the left side of the screen(where your databases lie)
 ![Alt text](img/apiInstruction/1.png "Title")
@@ -55,3 +56,4 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 ![Alt text](img/apiInstruction/8.png "Title")
 
 6.NB! Since we're temporarily running everything locally you should store the Atom folder in your htdocs so that the apache server can locate it when you call it via localhost/Atom/...(this will vary due to the fact that some users will store Atom project in a different folder or in a sub folder)
+--->
