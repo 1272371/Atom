@@ -76,7 +76,6 @@
             $row = $statement->fetch(PDO::FETCH_ASSOC);
 
             // set properties
-            echo $row['user_id'];
             $this->user_id = $row['user_id'];
             $this->user_name = $row['user_name'];
         }
