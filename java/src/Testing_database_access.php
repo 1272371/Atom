@@ -16,7 +16,7 @@ if ($link->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$sql = "SELECT user_id, user_name, User_surname FROM "user";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
