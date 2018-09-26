@@ -7,6 +7,7 @@ before_install:
   - phpenv config-rm xdebug.ini
 script:
   - composer install -n --prefer-dist
+  -phpunit
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
