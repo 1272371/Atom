@@ -73,12 +73,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Grade Book</a>
-                </div>
-            </div>
-        </nav>
-
-        
-         <div class="dropdown" style="padding-left:30px;padding-top:10px">
+                    <div class="dropdown" style="padding-left:10px;padding-top:10px">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
                     <span class="caret"></span>
                 </button>
@@ -102,6 +97,9 @@
                     ?>
                 </ul>
         </div> 
+                </div>
+            </div>
+        </nav>
 
 
         <div class="content">
