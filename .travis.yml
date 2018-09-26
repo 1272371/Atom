@@ -9,6 +9,6 @@ before_install:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
-    on_success: never
-    on_failure: always
-  email: 1272371@students.wits.ac.za
+  on_success: never
+  on_failure: never
+  email: false
