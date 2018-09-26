@@ -230,7 +230,7 @@
                                         $result2= mysqli_query($link, $query2);
                                         $row2 = mysqli_fetch_array($result2);
                                     
-                                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
+                                    echo "<tr class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
                             }
                                 echo "</table>";
                             ?>
