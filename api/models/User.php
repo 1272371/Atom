@@ -27,7 +27,7 @@
                 u.user_id,
                 f.faculty_name as faculty_name,
                 u.user_name,
-                u.user_surname,
+                u.user_surname
                 FROM
                 user u
                 LEFT JOIN

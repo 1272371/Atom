@@ -31,7 +31,7 @@
 
             $userItem = array(
                 'user_id' => $user_id,
-                'user_name' => $user_name,
+                'user_name' => $user_name
             );
 
             // push to data value in array
@@ -43,6 +43,5 @@
     else {
 
         // no users exist
-        echo json_encode(
-            array('message' => 'no users found'));
+        echo json_encode(array('message' => 'no users found'));
     }
