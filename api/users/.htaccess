@@ -1,3 +1,4 @@
+<IfModule mod_rewrite.c>
 RewriteEngine On
 
 # .htaccess redirects to understand goto
@@ -10,3 +11,4 @@ RewriteRule ^user?$ index.php
 # example.com/user.php?id=1 to example.com/user/1
 # ^name/([0-9]+) redirects to name.php?id=$
 RewriteRule ^user/([0-9]+) index.php?id=
+</IfModule>
