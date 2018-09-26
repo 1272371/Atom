@@ -6,7 +6,11 @@
     "php":"^7.2",
     "ext-pdo":"*",
     "ext-json":"*",
-    "ext-openssl":"*"
+    "ext-openssl":"*",
+    "phpunit/php-code-coverage":"*",
+    "ext-xdebug":"*",
+    "ext-dom":"*",
+    "ext-xmlwriter":"*"
   },
   "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",

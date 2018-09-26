@@ -1,6 +1,14 @@
 <?php
-# $ php -f db-connect-test.php
+#php -f db-connect-test.php
+function include_all_php($folder){
+    foreach (glob("{$folder}/*.php") as $filename) {
+        include $filename;
+    }
+}
+set_include_path('api/');
 
+class db_testCase{
+    function db_Test(){
 $dbname = 'api_risk';
 $dbuser = 'root';
 $dbpass = '';
@@ -18,4 +26,6 @@ while($tbl = mysqli_fetch_array($result)) {
     }
 #the table is not empty
 $this->assertNotEquals($tblCnt,0);
+    }
+}
 ?>

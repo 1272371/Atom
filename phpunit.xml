@@ -11,7 +11,7 @@
          syntaxCheck="false">
     <testsuites>
         <testsuite name="tests">
-            <directory suffix=".php">./tests/</directory>
+            <directory suffix=".php">./tests/phpunit</directory>
         </testsuite>
     </testsuites>
     <logging>
@@ -22,5 +22,4 @@
             <directory suffix =".php">./</directory>
         </whitelist>
     </filter>
-
 </phpunit>
