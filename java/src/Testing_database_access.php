@@ -3,7 +3,9 @@
     <title>PHP Test</title>
 </head>
 <body>
-<?php echo '<p>Hello World</p>'; ?>
+<?php class testing {
+
+} echo '<p>Hello World</p>'; ?>
 </body>
 </html>
 
