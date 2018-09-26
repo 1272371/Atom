@@ -10,8 +10,8 @@ $username = "1234567";
 $password = "password";
 $dbname = "risk";
 
-//$conn = new mysqli($servername, $username, $password, $dbname);
-$link = mysqli_connect("localhost","1234567","password", "risk");
+$conn = new mysqli($servername, $username, $password, $dbname);
+$link = mysqli_connect("localhost","","", "risk");
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 }
