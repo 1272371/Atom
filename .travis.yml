@@ -5,8 +5,10 @@ before_install:
   - travis_retry composer self-update
  script:
   - composer install -n --prefer-dist
-  -phpunit
+  - phpunit
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
-  email: false
+    on_success: never
+    on_failure: always
+  email: 1272371@students.wits.ac.za
