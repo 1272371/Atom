@@ -64,7 +64,8 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 <br/>
 3.Mysql Database
 <br/>
-Locally(offline) we'll be using the XAMPP software which consists of the LAMP(Linux Apache MYSQL and PHP/PERL)/WAMP(WINDOWS Apache MYSQL and PHP/PERL) stack.
-
+<ul>
+<li>Locally(offline) we'll be using the XAMPP software which consists of the LAMP(Linux Apache MYSQL and PHP/PERL)/WAMP(WINDOWS Apache MYSQL and PHP/PERL) stack.</li>
+</ul>
 
 
