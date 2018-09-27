@@ -58,11 +58,13 @@ Bootstrap has several files that you need to attatch in your `HTML` documents
 6.NB! Since we're temporarily running everything locally you should store the Atom folder in your htdocs so that the apache server can locate it when you call it via localhost/Atom/...(this will vary due to the fact that some users will store Atom project in a different folder or in a sub folder)
 --->
 ## Technologies/Softwares that are using
-1.Apache server
+1.Apache server.
 <br/>
-2.PHP programming language(version 7.x locally and 5.x on the wits server)
+2.PHP programming language(version 7.x locally and 5.x on the wits server).
 <br/>
-3.Mysql Database
+3.Mysql Database.
+<br/>
+4.The External Prediction Algorithm is implimented in Python.
 <br/>
 <ul>
 <li>Locally(offline) we'll be using the XAMPP software which consists of the LAMP(Linux Apache MYSQL and PHP/PERL)/WAMP(WINDOWS Apache MYSQL and PHP/PERL) stack.</li>
