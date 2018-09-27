@@ -44,8 +44,8 @@
                         <li class="nav-item">
                             <input id="username" class="form-module ml-2 mr-2" style="width: 10vw" type="text" name="user" placeholder="Username">
                             <input id="password" class="form-module ml-2 mr-2" style="width: 10vw" type="password" name="pass" placeholder="Password">
-                            <button class="btn btn-outline-secondary ml-2 mr-2"
-                                style="color: #fff" type="submit" name="login" onclick="Login()">Sign In</button>
+                            <button id="sign-in-button" class="btn btn-outline-secondary ml-2 mr-2"
+                                style="color: #fff" type="submit" name="login">Sign In</button>
                         </li>
                     </ul>
                 </div>
@@ -184,5 +184,6 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

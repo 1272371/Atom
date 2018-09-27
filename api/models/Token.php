@@ -93,10 +93,6 @@
                         $this->user_name = $row['user_name'];
                         $this->user_surname = $row['user_surname'];
                     }
-                    else {
-                        // bad gateway
-                        http_response_code(502);
-                    }
                 }
             }
         }

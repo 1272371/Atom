@@ -5,7 +5,7 @@ function Login()
 	console.log(username)
 	if(username.length>0 && password.length>0)
 	{
-		/*
+		
 		axios.post('api/login',{username:username,password:password}).then(function(res){
 			console.log(res)
 			if(res.data.status==="Success")
@@ -19,11 +19,10 @@ function Login()
 				/*
 					Show an error modal
 					and reset the inputs
-			
+				*/
 				ResponseModal(res.data.status)
 			}
 		})
-		*/
 		$.ajax({
 			url:'api/login',
 			contentType:'application/json',

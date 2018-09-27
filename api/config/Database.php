@@ -4,9 +4,9 @@
 
         // database parameters
         private $host = 'localhost';
-        private $name = 'risk';
-        private $user = 'root';
-        private $pass = '';
+        private $name = 'd815108';
+        private $user = 's815108';
+        private $pass = 'random123';
         private $conn;
 
         // connection function
