@@ -132,37 +132,48 @@
                             <div class="content table-responsive table-full-width">
                                 
                             	<?php
+                                class Dashboard{
+                                    public function getLatestMarks(){
 
-                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
-                                if (mysqli_connect_error()){
-                                    die ("Error!");
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
+
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
+
+                                      
+                                       	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
+                                        $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
+
+                                        echo "<table class='table table-hover'>";
+
+                                        echo "<thead>";
+                                        echo        "<th>Subject</th>";
+                                        echo        "<th>Subject Code</th>";
+                                        echo        "<th>Current Mark (%)</th>";
+                                        echo "</thead>";
+
+                                        
+                                        $result2= mysqli_query($link, $query2);
+                                        $result3= mysqli_query($link, $query3);
+
+                                        while ($row2 = mysqli_fetch_array($result2)) {
+                                            
+                                            	if ($row3 = mysqli_fetch_array($result3)){
+                                            
+                                            echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
+                                        	}
+                                    	}
+                                        echo "</table>";
+                                    }
                                 }
-
-                              
-                               	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
-                                $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
-
-                                echo "<table class='table table-hover'>";
-
-                                echo "<thead>";
-                                echo        "<th>Subject</th>";
-                                echo        "<th>Subject Code</th>";
-                                echo        "<th>Current Mark (%)</th>";
-                                echo "</thead>";
-
-                                
-                                $result2= mysqli_query($link, $query2);
-                                $result3= mysqli_query($link, $query3);
-
-                                while ($row2 = mysqli_fetch_array($result2)) {
-                                    
-                                    	if ($row3 = mysqli_fetch_array($result3)){
-                                    
-                                    echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
-                                	}
-                            	}
-                                echo "</table>";
+                                Dashboard::getLatestMarks();
                             ?>
                             </div>
                         </div>
