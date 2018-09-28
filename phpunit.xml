@@ -14,8 +14,8 @@
             <directory suffix=".php">./tests/phpunit</directory>
         </testsuite>
     </testsuites>
-    <logging>
-        <log type="coverage-clover" target="./build/logs/clover.xml"/>
+     <logging>
+        <log type="coverage-clover" target="clover.xml"/>
     </logging>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
