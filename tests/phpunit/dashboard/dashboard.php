@@ -4,6 +4,7 @@
  * @covers dashboard
  * @covers Dashboard::getStudentMarks
  * @covers Dashboard::getStudentDetails
+ * @covers grade
  */
 class Dashboard{
 
