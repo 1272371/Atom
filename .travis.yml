@@ -6,7 +6,7 @@ before_install:
   - composer install -n --prefer-dist
   - travis_retry composer self-update
 install: 
-  - php vendor/vendors.php
+  #- php vendor/vendors.php
   - composer require symfony/framework-bundle:${SYMFONY_VERSION}
 env:
   - SYMFONY_VERSION="2.0.*" DB=api_risk
