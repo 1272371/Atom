@@ -6,6 +6,9 @@
  * @covers Dashboard::getStudentDetails
  * @covers grade
  */
+/**
+ * @test
+ */
 class Dashboard extends TestCase{
 
 
