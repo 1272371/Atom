@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @covers Dashboard::listClasses
+ * @covers dashboard
  * @covers Dashboard::getStudentMarks
  * @covers Dashboard::getStudentDetails
  */
