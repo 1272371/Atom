@@ -13,10 +13,15 @@
     <title>
         Welcome
         <?php
-            if (isset($_SESSION['user_id'])) {
-                echo ", ";
-                echo $_SESSION['user_name'];
+            class Welcome{
+                public function showWelcome(){
+                    if (isset($_SESSION['user_id'])) {
+                        echo ", ";
+                        echo $_SESSION['user_name'];
+                    }
+                }
             }
+            Welcome::showWelcome();
         ?>
     </title>
 </head>
