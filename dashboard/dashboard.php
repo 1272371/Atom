@@ -90,32 +90,7 @@
                                      <a href="#">
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
-
-                                if (empty($_GET)){
-                                    $student = "1234567";
-                                } else {
-                                    $student = $_GET['student'];
-                                }
-
-                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
-
-                                if (mysqli_connect_error()){
-                                    die ("Error!");
-                                }
-
-                                $query = "SELECT * FROM user WHERE student_nr=".$student;
-                                $result = mysqli_query($link, $query);
-
-                                if ($row = mysqli_fetch_array($result)) {
-                                echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
-                                echo         "<small>".$row['student_nr']."</small>";
-                                echo      "</h4>";
-                                echo    "</a>";
-                                echo "</div>";
-                                echo "<p class='description text-center'>" ;
-                                echo    $row['user_coursecode'];
-                                }
-  
+                                Dashboard::getStudentDetails();
                             ?>
                             <br>
                             </p>
@@ -172,6 +147,34 @@
                                     	}
                                         echo "</table>";
                                     }
+
+                                    public function getStudentDetails(){
+
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
+
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
+
+                                        $query = "SELECT * FROM user WHERE student_nr=".$student;
+                                        $result = mysqli_query($link, $query);
+
+                                        if ($row = mysqli_fetch_array($result)) {
+                                        echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
+                                        echo         "<small>".$row['student_nr']."</small>";
+                                        echo      "</h4>";
+                                        echo    "</a>";
+                                        echo "</div>";
+                                        echo "<p class='description text-center'>" ;
+                                        echo    $row['user_coursecode'];
+                                        }
+                                    }
                                 }
                                 Dashboard::getLatestMarks();
                             ?>
@@ -227,6 +230,12 @@
                                 if (mysqli_connect_error()){
                                     die ("Error!");
                                 }
+
+                                if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
 
                                 $query = "SELECT * FROM user";
                                 
