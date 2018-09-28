@@ -23,18 +23,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<p>Click the button to create a File Upload Button.</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<script>
-    function myFunction() {
-        var x = document.createElement("INPUT");
-        x.setAttribute("type", "file");
-        document.body.appendChild(x);
-    }
-</script>
-
+<script type="text/javascript" src="static/js/read-csv.js"></script>
+<input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
+       accept=".csv">
 </body>
 </html>
