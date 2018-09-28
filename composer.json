@@ -22,6 +22,6 @@
         "psr-0": { 
             "Example": "api/"
         }
-    }
+    },
   "include-path":["/Atom/"]
 }
