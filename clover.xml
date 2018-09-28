@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538129910">
-  <project timestamp="1538129910">
+<coverage generated="1538131203">
+  <project timestamp="1538131203">
     <file name="/opt/lampp/htdocs/Atom/tests/phpunit/WelcomeTest.php">
       <class name="WelcomeTest" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
