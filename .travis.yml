@@ -6,8 +6,8 @@ before_install:
   - travis_retry composer install --no-interaction --prefer-source --dev
 script:
   - composer install -n --prefer-dist
-# - vendor/bin/phpunit --coverage-clover=coverage.xml
-# - phpunit
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - phpunit
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
