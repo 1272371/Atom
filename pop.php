@@ -1,9 +1,6 @@
 <?php
 
-    include_once 'api/config/Database.php';
-
-    $db = new Database();
-    $conn = $db->connect();
+    $conn = new mysqli('localhost', 's815108', 'random123', 'd815108');
 
     if ($conn) {
 
@@ -16,21 +13,17 @@
 
             //
             $id = chop($column[0]);
+            $cid = 1;
+            $year = 2013;
 
             $query = 'INSERT INTO
             subject
-            SET
-            course_id = :course_id,
-            subject_enrollmentyear = :subject_enrollmentyear,
-            user_id = :user_id';
+            (course_id, subject_enrollmentyear, user_id)
+            VALUES (1, 2013, ' . $id . ')';
 
-            $state = $conn->prepare($query);
-
-            $state->bindParam(':course_id', 1);
-            $state->bindParam(':subject_enrollmentyear', 2013);
-            $state->bindParam(':user_id', $id);
-
-            $state->execute();
+            if ($conn->query($query)) {
+                echo 'success <br>';
+            };
 
             sleep(0.5);
     }
