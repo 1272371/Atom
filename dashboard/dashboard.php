@@ -93,7 +93,7 @@
                                 Dashboard::getStudentDetails();
                             ?>
                             <br>
-                            </p>
+                            </a>
                                 </div>
                             <hr>
                         </div>
