@@ -136,7 +136,7 @@ function Register()
 function ResponseModal(res)
 {
 	$('#response').html(`
-	<div class="modal" id="responseModal">
+	<div class="modal container-fluid" id="responseModal">
 		<div class="modal-dialog">
 		    <div class="modal-content">
 

@@ -1,4 +1,9 @@
 /**
+ * cosmetics
+ */
+$('body,html').css('overflow-x','hidden');
+
+/**
  * functions
  */
 function SignIn(username, password) {

@@ -4,8 +4,8 @@
 
         private $name;
         private $surname;
-        private $username;
-        private $usersurname;
+        public $username;
+        public $usersurname;
         private $filesLoaded;
 
         function __construct($csvname, $csvsurname) {
@@ -44,6 +44,5 @@
                 $this->username = $this->name[$this->getRandomRowIndex($this->name)];
                 $this->usersurname = $this->surname[$this->getRandomRowIndex($this->surname)];
             }
-            echo $this->username . ", " . $this->usersurname;
         }
     }

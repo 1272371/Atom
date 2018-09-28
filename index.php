@@ -21,6 +21,7 @@
     </title>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <header>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
@@ -52,7 +53,8 @@
             </div>
         </nav>
     </header>
-
+    
+    <!-- Response Modal -->
     <div id="response"></div>
 
     <!-- Jumbotron -->
