@@ -20,8 +20,9 @@
         class WelcomeTest extends TestCase{
             function showWelcomeTest(){
                 $this->assertTrue();
+                print 'pass';
         }
-        
+
             class Welcome{
                 public function showWelcome(){
                     if (isset($_SESSION['user_id'])) {
