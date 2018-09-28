@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @covers dashboard
+ * @covers dashboard.php
  * @covers Dashboard::getStudentMarks
  * @covers Dashboard::getStudentDetails
  * @covers grade
  */
-class Dashboard{
+class Dashboard extends TestCase{
 
 
     function getStudentMarksTests(){
