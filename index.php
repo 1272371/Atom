@@ -16,6 +16,12 @@
         /**
         *@covers Welcome::showWelcome
         */
+
+        class WelcomeTest extends TestCase{
+            function showWelcomeTest(){
+                $this->assertTrue();
+        }
+        
             class Welcome{
                 public function showWelcome(){
                     if (isset($_SESSION['user_id'])) {
