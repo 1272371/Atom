@@ -13,6 +13,9 @@
     <title>
         Welcome
         <?php
+        /**
+        *@covers Welcome::showWelcome
+        */
             class Welcome{
                 public function showWelcome(){
                     if (isset($_SESSION['user_id'])) {
