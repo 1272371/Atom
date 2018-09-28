@@ -7,7 +7,7 @@
 
     if ($conn) {
 
-        $row = file('csv/random-user.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1015-BCO-2013.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -16,30 +16,19 @@
 
             //
             $id = chop($column[0]);
-            $name = chop($column[1]);
-            $surname = chop($column[2]);
-            $password = password_hash('password', PASSWORD_DEFAULT);
-            $fid = 5;
-            $tid = 1;
 
             $query = 'INSERT INTO
-            user
+            subject
             SET
-            user_id = :user_id,
-            user_name = :user_name,
-            user_surname = :user_surname,
-            user_password = :user_password,
-            faculty_id = :faculty_id,
-            utl_id = :utl_id';
+            course_id = :course_id,
+            subject_enrollmentyear = :subject_enrollmentyear,
+            user_id = :user_id';
 
             $state = $conn->prepare($query);
 
+            $state->bindParam(':course_id', 1);
+            $state->bindParam(':subject_enrollmentyear', 2013);
             $state->bindParam(':user_id', $id);
-            $state->bindParam(':user_name', $name);
-            $state->bindParam(':user_surname', $surname);
-            $state->bindParam(':user_password', $password);
-            $state->bindParam(':faculty_id', $fid);
-            $state->bindParam(':utl_id', $tid);
 
             $state->execute();
 
