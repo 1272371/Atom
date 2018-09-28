@@ -6,7 +6,7 @@ before_install:
   - composer install -n --prefer-dist
   - travis_retry composer self-update
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - travis_retry phpunit --coverage-clover=coverage.xml
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
