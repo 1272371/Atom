@@ -12,7 +12,7 @@ env:
   - SYMFONY_VERSION="2.0.*" DB=api_risk
   - SYMFONY_VERSION="dev-master" DB=api_risk
 before_script: 
-  - phpenv config-add myconfig.ini
+  #- phpenv config-add myconfig.ini
   - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
