@@ -91,7 +91,7 @@
                                     <img class="avatar border-gray" src="assets/img/faces/face-0.jpg" alt="..."/>
                                 <?php
                                 Dashboard::getStudentDetails();
-                            ?>
+                                ?>
                             <br>
                             </a>
                                 </div>
@@ -105,79 +105,10 @@
                                 
                             </div>
                             <div class="content table-responsive table-full-width">
-                                
-                            	<?php
-                                class Dashboard{
-                                    public function getLatestMarks(){
-
-                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
-
-                                        if (mysqli_connect_error()){
-                                            die ("Error!");
-                                        }
-
-                                        if (empty($_GET)){
-                                            $student = "1234567";
-                                        } else {
-                                            $student = $_GET['student'];
-                                        }
-
-                                      
-                                       	$query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
-                                        $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
-
-                                        echo "<table class='table table-hover'>";
-
-                                        echo "<thead>";
-                                        echo        "<th>Subject</th>";
-                                        echo        "<th>Subject Code</th>";
-                                        echo        "<th>Current Mark (%)</th>";
-                                        echo "</thead>";
-
-                                        
-                                        $result2= mysqli_query($link, $query2);
-                                        $result3= mysqli_query($link, $query3);
-
-                                        while ($row2 = mysqli_fetch_array($result2)) {
-                                            
-                                            	if ($row3 = mysqli_fetch_array($result3)){
-                                            
-                                            echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
-                                        	}
-                                    	}
-                                        echo "</table>";
-                                    }
-
-                                    public function getStudentDetails(){
-
-                                        if (empty($_GET)){
-                                            $student = "1234567";
-                                        } else {
-                                            $student = $_GET['student'];
-                                        }
-
-                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
-
-                                        if (mysqli_connect_error()){
-                                            die ("Error!");
-                                        }
-
-                                        $query = "SELECT * FROM user WHERE student_nr=".$student;
-                                        $result = mysqli_query($link, $query);
-
-                                        if ($row = mysqli_fetch_array($result)) {
-                                        echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
-                                        echo         "<small>".$row['student_nr']."</small>";
-                                        echo      "</h4>";
-                                        echo    "</a>";
-                                        echo "</div>";
-                                        echo "<p class='description text-center'>" ;
-                                        echo    $row['user_coursecode'];
-                                        }
-                                    }
-                                }
-                                Dashboard::getLatestMarks();
-                            ?>
+                                <?php
+                                     Dashboard::getLatestMarks();
+                                ?>
+                            	
                             </div>
                         </div>
                     </div>
@@ -300,6 +231,79 @@
                 </div>
  
 </body>
+
+<?php
+                                class Dashboard{
+                                    public function getLatestMarks(){
+
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
+
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
+
+                                      
+                                        $query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
+                                        $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
+
+                                        echo "<table class='table table-hover'>";
+
+                                        echo "<thead>";
+                                        echo        "<th>Subject</th>";
+                                        echo        "<th>Subject Code</th>";
+                                        echo        "<th>Current Mark (%)</th>";
+                                        echo "</thead>";
+
+                                        
+                                        $result2= mysqli_query($link, $query2);
+                                        $result3= mysqli_query($link, $query3);
+
+                                        while ($row2 = mysqli_fetch_array($result2)) {
+                                            
+                                                if ($row3 = mysqli_fetch_array($result3)){
+                                            
+                                            echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
+                                            }
+                                        }
+                                        echo "</table>";
+                                    }
+
+                                    public function getStudentDetails(){
+
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
+
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
+
+                                        $query = "SELECT * FROM user WHERE student_nr=".$student;
+                                        $result = mysqli_query($link, $query);
+
+                                        if ($row = mysqli_fetch_array($result)) {
+                                        echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
+                                        echo         "<small>".$row['student_nr']."</small>";
+                                        echo      "</h4>";
+                                        echo    "</a>";
+                                        echo "</div>";
+                                        echo "<p class='description text-center'>" ;
+                                        echo    $row['user_coursecode'];
+                                        }
+                                    }
+                                }
+                                
+                            ?>
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
