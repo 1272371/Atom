@@ -18,7 +18,7 @@
         <log type="coverage-clover" target="clover.xml"/>
     </logging>
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
+        <whitelist addUncoveredFilesFromWhitelist="false">
             <directory suffix =".php">./</directory>
         </whitelist>
     </filter>

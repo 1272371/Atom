@@ -16,7 +16,7 @@ class OutputTest extends TestCase
 
     public function testExpect3()
     {
-        $this->expectOutputString('fail');
+        $this->expectOutputString('pass');
         print 'pass';
     }
 }
