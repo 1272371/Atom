@@ -5,7 +5,7 @@
 	*/
 	class buttonDropdownTest{
 		function listClassesTest(){
-
+			$this->assertTrue();
 		}
 	}
 
