@@ -19,7 +19,7 @@
             $query = 'INSERT INTO
             subject
             (course_id, subject_enrollmentyear, user_id)
-            VALUES (1, ' . $year . ', ' . $id . ')';
+            VALUES (2, ' . $year . ', ' . $id . ')';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
