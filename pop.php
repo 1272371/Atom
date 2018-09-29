@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1015-BCO-2018.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1018-IAP-2014.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -14,12 +14,12 @@
             //
             $id = chop($column[0]);
             $cid = 1;
-            $year = 2018;
+            $year = 2014;
 
             $query = 'INSERT INTO
             subject
             (course_id, subject_enrollmentyear, user_id)
-            VALUES (1, ' . $year . ', ' . $id . ')';
+            VALUES (2, ' . $year . ', ' . $id . ')';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
