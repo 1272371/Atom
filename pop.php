@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1018-BCO-2014.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1015-BCO-2014.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
