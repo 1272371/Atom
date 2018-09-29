@@ -25,7 +25,7 @@
                 echo 'success ' . $id . ' <br>';
             }
             else {
-                echo mysqli_error($conn);
+                echo mysqli_error($conn) . '<br>';
             }
 
             sleep(0.5);
