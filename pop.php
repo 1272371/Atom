@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1015-BCO-2014.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1015-BCO-2015.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -14,7 +14,7 @@
             //
             $id = chop($column[0]);
             $cid = 1;
-            $year = 2014;
+            $year = 2015;
 
             $query = 'INSERT INTO
             subject
