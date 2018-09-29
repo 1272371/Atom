@@ -23,7 +23,10 @@
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
-            };
+            }
+            else {
+                echo mysqli_error($conn);
+            }
 
             sleep(0.5);
         }
