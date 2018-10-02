@@ -62,7 +62,7 @@
     	</div>
     </div>
 
-    <div class="main-panel">
+    <div class="main-panel" style="background-color: white">
 		<nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -109,7 +109,7 @@
         </nav>
 
 
-        <div class="content">
+        <div class="content" style="overflow:scroll;">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">

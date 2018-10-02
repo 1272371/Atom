@@ -60,7 +60,7 @@
     	</div>
     </div>
 
-    <div class="main-panel">
+    <div class="main-panel" style="background-color: white">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
