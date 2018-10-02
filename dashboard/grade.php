@@ -121,8 +121,8 @@
         </nav>
 
 
-        <div class="content" style="overflow:scroll;">
-            <div class="container-fluid">
+        <div class="content" style="background-color: white">
+            <div class="container-fluid" >
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -134,7 +134,7 @@
                                 <table class="table table-hover">
                                     <?php
 
-                                    $link = mysqli_connect("localhost","root","", "database");
+                                    $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
                                     if (mysqli_connect_error()){
                                         die ("Error!");
@@ -157,18 +157,18 @@
 
                                     while ($row = mysqli_fetch_array($result)) {
                                         
-                                        $person=$row['user_id'];
+                                        $person=$row['student_nr'];
                                         $query2 = "SELECT ROUND(AVG(percentage)) FROM grades where user_id=".$person;
-                                        //$result2= mysqli_query($link, $query2);
-                                        //$row2 = mysqli_fetch_array($result2);
+                                        $result2= mysqli_query($link, $query2);
+                                        $row2 = mysqli_fetch_array($result2);
 
                                         $student = $person;
                                        
-                                        echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+                                        /* FOR LIVE DATABASEecho "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";*/
 
-                                        /*
-											echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
-                                        */
+                                        
+											echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['student_nr']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row['user_coursecode']."</td><td>"."2018 - ".$row['user_enrollmentyear']."</td><td>".$row2['ROUND(AVG(percentage))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+                                        
 
                                    
                                 }
