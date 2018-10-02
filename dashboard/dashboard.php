@@ -62,6 +62,12 @@
                         <p>Upload Marks</p>
                     </a>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-power"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
