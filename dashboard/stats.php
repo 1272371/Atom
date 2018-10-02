@@ -57,6 +57,12 @@
                         <p>Statistics</p>
                     </a>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-cloud-upload"></i>
+                        <p>Upload Marks</p>
+                    </a>
+                </li>
                 
             </ul>
         </div>
