@@ -59,7 +59,7 @@
                 <li>
                     <a href="#">
                         <i class="pe-7s-cloud-upload"></i>
-                        <p>Upload</p>
+                        <p>Upload Marks</p>
                     </a>
                 </li>
                 <li>
@@ -245,77 +245,77 @@
 </body>
 
 <?php
-    class Dashboard {
-        public function getLatestMarks(){
+                                class Dashboard{
+                                    public function getLatestMarks(){
 
-            $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
-            if (mysqli_connect_error()){
-                die ("Error!");
-            }
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
 
-            if (empty($_GET)){
-                $student = "1234567";
-            } else {
-                $student = $_GET['student'];
-            }
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
 
-            
-            $query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
-            $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
+                                      
+                                        $query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
+                                        $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
 
-            echo "<table class='table table-hover'>";
+                                        echo "<table class='table table-hover'>";
 
-            echo "<thead>";
-            echo        "<th>Subject</th>";
-            echo        "<th>Subject Code</th>";
-            echo        "<th>Current Mark (%)</th>";
-            echo "</thead>";
+                                        echo "<thead>";
+                                        echo        "<th>Subject</th>";
+                                        echo        "<th>Subject Code</th>";
+                                        echo        "<th>Current Mark (%)</th>";
+                                        echo "</thead>";
 
-            
-            $result2= mysqli_query($link, $query2);
-            $result3= mysqli_query($link, $query3);
+                                        
+                                        $result2= mysqli_query($link, $query2);
+                                        $result3= mysqli_query($link, $query3);
 
-            while ($row2 = mysqli_fetch_array($result2)) {
-                
-                    if ($row3 = mysqli_fetch_array($result3)){
-                
-                echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
-                }
-            }
-            echo "</table>";
-        }
+                                        while ($row2 = mysqli_fetch_array($result2)) {
+                                            
+                                                if ($row3 = mysqli_fetch_array($result3)){
+                                            
+                                            echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
+                                            }
+                                        }
+                                        echo "</table>";
+                                    }
 
-        public function getStudentDetails(){
+                                    public function getStudentDetails(){
 
-            if (empty($_GET)){
-                $student = "1234567";
-            } else {
-                $student = $_GET['student'];
-            }
+                                        if (empty($_GET)){
+                                            $student = "1234567";
+                                        } else {
+                                            $student = $_GET['student'];
+                                        }
 
-            $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
 
-            if (mysqli_connect_error()){
-                die ("Error!");
-            }
+                                        if (mysqli_connect_error()){
+                                            die ("Error!");
+                                        }
 
-            $query = "SELECT * FROM user WHERE student_nr=".$student;
-            $result = mysqli_query($link, $query);
+                                        $query = "SELECT * FROM user WHERE student_nr=".$student;
+                                        $result = mysqli_query($link, $query);
 
-            if ($row = mysqli_fetch_array($result)) {
-            echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
-            echo         "<small>".$row['student_nr']."</small>";
-            echo      "</h4>";
-            echo    "</a>";
-            echo "</div>";
-            echo "<p class='description text-center'>" ;
-            echo    $row['user_coursecode'];
-            }
-        }
-    }
-    
-    
+                                        if ($row = mysqli_fetch_array($result)) {
+                                        echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
+                                        echo         "<small>".$row['student_nr']."</small>";
+                                        echo      "</h4>";
+                                        echo    "</a>";
+                                        echo "</div>";
+                                        echo "<p class='description text-center'>" ;
+                                        echo    $row['user_coursecode'];
+                                        }
+                                    }
+                                }
+                                
+                                
                             ?>
 
     <!--   Core JS Files   -->
