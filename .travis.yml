@@ -1,38 +1,38 @@
 language: php
+
+sudo: false
+
 php:
-  - '7.2'
-before_install:
-  - travis_retry composer install --no-interaction --prefer-source --dev
-  - composer install -n --prefer-dist
-  - travis_retry composer self-update
-install: 
-  - php vendor/vendors.php
-  - composer require symfony/framework-bundle:${SYMFONY_VERSION}
+- 7.1
+- 7.2
+- master
+
+matrix:
+  allow_failures:
+  - php: master
+  fast_finish: true
+
 env:
- # - SYMFONY_VERSION="2.0.*" DB=api_risk
-  - SYMFONY_VERSION="dev-master" DB=risk
-before_script: 
-  - sudo pear channel-discover pear.phpunit.de
-  - sudo pear install --alldeps --force phpunit/phpunit
-  - phpenv config-add myconfig.ini
-  - sudo apt-get update
-  - sudo apt-get install apache2 libapache2-mod-fastcgi
-   enable php-fpm
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo a2enmod rewrite actions fastcgi alias
-  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars
-  - sudo chown -R travis:travis /var/lib/apache2/fastcgi
-  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
-   configure apache virtual hosts
-  - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/000-default.conf
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
-  - sudo service apache2 restart
+  matrix:
+  - DEPENDENCIES="high"
+  - DEPENDENCIES="low"
+  global:
+  - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
+
+before_install:
+- composer self-update
+- composer clear-cache
+
+install:
+- if [[ "$DEPENDENCIES" = 'high' ]]; then travis_retry composer update $DEFAULT_COMPOSER_FLAGS; fi
+- if [[ "$DEPENDENCIES" = 'low' ]]; then travis_retry composer update $DEFAULT_COMPOSER_FLAGS --prefer-lowest; fi
+
 script:
-  #- travis_retry phpunit --coverage-clover=clover.xml
-  - if [[ "$DRIVER" = 'phpdbg' ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
-  - if [[ "$DRIVER" = 'xdebug' ]]; then vendor/bin/phpunit --coverage-clover=coverage.xml; fi
+- if [[ "$DRIVER" = 'phpdbg' ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
+- if [[ "$DRIVER" = 'xdebug' ]]; then vendor/bin/phpunit --coverage-clover=coverage.xml; fi
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+
 notifications:
   email: false
