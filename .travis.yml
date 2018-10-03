@@ -29,7 +29,9 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
   - sudo service apache2 restart
 script:
-  - travis_retry phpunit --coverage-clover=clover.xml
+  #- travis_retry phpunit --coverage-clover=clover.xml
+  - if [[ "$DRIVER" = 'phpdbg' ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
+  - if [[ "$DRIVER" = 'xdebug' ]]; then vendor/bin/phpunit --coverage-clover=coverage.xml; fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 notifications:
