@@ -24,6 +24,7 @@
 
         // marks exist
         $markArray = array();
+        
         $markArray['data'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
