@@ -22,12 +22,13 @@
         "psr-0": { 
             "config": "api/",
           "general":"api/",
-          "marks":"/api",
-          "models":"/api",
-          "signing":"/api",
-          "users":"/api",
-          "dashboard":"*",
-
+          "marks":"api/",
+          "models":"api/",
+          "signing":"api/",
+          "users":"api/",
+          "gradeTest":"dashboard/",
+          "dashboard":"dashboard/",
+          "Population":"php/"
         }
     },
   "include-path":["/Atom/"],
