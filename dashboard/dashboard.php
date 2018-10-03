@@ -245,21 +245,21 @@
                                 class Dashboard{
                                     public function getLatestMarks(){
 
-                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                        $link = mysqli_connect("localhost","root","", "risk");
 
                                         if (mysqli_connect_error()){
                                             die ("Error!");
                                         }
 
                                         if (empty($_GET)){
-                                            $student = "1234567";
+                                            $student = "500594";
                                         } else {
                                             $student = $_GET['student'];
                                         }
 
                                       
-                                        $query2 = "SELECT percentage FROM grades WHERE user_id=".$student; 
-                                        $query3 = "SELECT module_name,module_code FROM module";// WHERE grades.module = module.id";
+                                        $query2 = "SELECT mark_total FROM mark WHERE user_id=".$student; 
+                                        $query3 = "SELECT course_name,course_code FROM course";// WHERE grades.module = module.id";
 
                                         echo "<table class='table table-hover'>";
 
@@ -277,7 +277,7 @@
                                             
                                                 if ($row3 = mysqli_fetch_array($result3)){
                                             
-                                            echo "<tr><td>".$row3['module_name']."</td><td>".$row3['module_code']."</td><td>".$row2['percentage']."</td></tr>";
+                                            echo "<tr><td>".$row3['course_name']."</td><td>".$row3['course_code']."</td><td>".$row2['mark_total']."</td></tr>";
                                             }
                                         }
                                         echo "</table>";
@@ -286,28 +286,28 @@
                                     public function getStudentDetails(){
 
                                         if (empty($_GET)){
-                                            $student = "1234567";
+                                            $student = "500594";
                                         } else {
                                             $student = $_GET['student'];
                                         }
 
-                                        $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                        $link = mysqli_connect("localhost","root","", "risk");
 
                                         if (mysqli_connect_error()){
                                             die ("Error!");
                                         }
 
-                                        $query = "SELECT * FROM user WHERE student_nr=".$student;
+                                        $query = "SELECT * FROM user WHERE user_id=".$student;
                                         $result = mysqli_query($link, $query);
 
                                         if ($row = mysqli_fetch_array($result)) {
                                         echo "<h4 class='title'>".$row['user_name']." ".$row['user_surname']."<br />";
-                                        echo         "<small>".$row['student_nr']."</small>";
+                                        echo         "<small>".$row['user_id']."</small>";
                                         echo      "</h4>";
                                         echo    "</a>";
                                         echo "</div>";
                                         echo "<p class='description text-center'>" ;
-                                        echo    $row['user_coursecode'];
+                                        echo    "Science";
                                         }
                                     }
                                 }
