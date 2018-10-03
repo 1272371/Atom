@@ -10,7 +10,7 @@ install:
   - composer require symfony/framework-bundle:${SYMFONY_VERSION}
 env:
  # - SYMFONY_VERSION="2.0.*" DB=api_risk
-  - SYMFONY_VERSION="dev-master" DB=api_risk
+  - SYMFONY_VERSION="dev-master" DB=risk
 before_script: 
   - sudo pear channel-discover pear.phpunit.de
   - sudo pear install --alldeps --force phpunit/phpunit
