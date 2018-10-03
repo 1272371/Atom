@@ -30,7 +30,12 @@
             extract($row);
 
             $markItem = array(
-                'user_id' => $user_id
+                'user_id' => $user_id,
+                'user_name' => $user_name,
+                'user_surname' => $user_surname,
+                'assessment_name' => $assessment_name,
+                'mark_total' => $mark_total,
+                'course_name' => $course_total 
             );
 
             // push to data value in array
