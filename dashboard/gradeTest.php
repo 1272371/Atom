@@ -1,7 +1,6 @@
 <?php
-class Testing{
-
-     	public function getStudentList(){
+    class TestingGrade{
+        public function getStudentList(){
             $link = mysqli_connect("localhost","root","", "risk");
 
                 if (mysqli_connect_error()){
@@ -33,10 +32,26 @@ class Testing{
                     $student = $person;
                    
                     echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>Science</td><td>2</td><td>".$row2['ROUND(AVG(mark_total))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
-  
             }
                 echo "</table>";
 
         }
-	}  
+
+        public function listClasses(){
+
+            $link = mysqli_connect("localhost","1234567","password", "api_risk");
+
+            if (mysqli_connect_error()){
+                die ("Error!");
+            }
+
+            $query2 = "SELECT module_code FROM module";
+            
+            $result2= mysqli_query($link, $query2);
+
+            while ($row2 = mysqli_fetch_array($result2)) {
+                echo "<li><a href='#'>".$row2['module_code']."</a></li>";
+            }
+        }
+    }
 ?>
