@@ -168,43 +168,40 @@
                                 
                                 <?php
 
-                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
+                                $link = mysqli_connect("localhost","root","", "risk");
 
-                                if (mysqli_connect_error()){
-                                    die ("Error!");
-                                }
+                                    if (mysqli_connect_error()){
+                                        die ("Error!");
+                                    }
 
-                                if (empty($_GET)){
-                                            $student = "1234567";
-                                        } else {
-                                            $student = $_GET['student'];
-                                        }
+                                    $query = "SELECT * FROM user";
+                                    
 
-                                $query = "SELECT * FROM user";
-                                
+                                    echo "<table class='table table-hover'>";
+                                    echo "<thead>";
+                                    echo        "<th>Student Number</th>";
+                                    echo        "<th>Name</th>";
+                                    echo        "<th>Current Average (%)</th>";
+                                    echo "</thead>";
 
-                                echo "<table class='table table-hover'>";
+                                    $result = mysqli_query($link, $query);
+                                    
 
-                                echo "<thead>";
-                                echo        "<th>Student Number</th>";
-                                echo        "<th>Name</th>";
-                                echo        "<th>Surname</th>";
-                                echo        "<th>Latest Mark (%)</th>";
-                                echo "</thead>";
-
-                                $result = mysqli_query($link, $query);
-
-                                while ($row = mysqli_fetch_array($result)) {
-
-                                        $person=$row['student_nr'];
-                                        $query2 = "SELECT ROUND(AVG(percentage)) FROM grades WHERE user_id=".$person;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        
+                                        $person=$row['user_id'];
+                                        $query2 = "SELECT ROUND(AVG(mark_total)) FROM mark where user_id=".$person;
                                         $result2= mysqli_query($link, $query2);
                                         $row2 = mysqli_fetch_array($result2);
+
+                                        $student = $person;
+                                       
+                                        echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+  
+                                }
+                                    echo "</table>";
                                     
-                                    echo "<tr class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['student_nr']."</td><td>".$row['user_name']."</td><td>".$row['user_surname']."</td><td>".$row2['ROUND(AVG(percentage))']."</td></tr>"; 
-                            }
-                                echo "</table>";
-                            ?>
+                                ?>
 
                             <script>
                                             jQuery(document).ready(function($) {
