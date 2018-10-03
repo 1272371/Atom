@@ -60,7 +60,7 @@
                 <li>
                     <a href="#">
                         <i class="pe-7s-cloud-upload"></i>
-                        <p>Upload Marks</p>
+                        <p>Upload</p>
                     </a>
                 </li>
                 <li>

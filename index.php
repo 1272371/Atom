@@ -5,35 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/home.css" />
-    <link rel="icon" type="image/png" href="img/favicon.png">
 
     <!--CSS-->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!--Title & Icon-->
-    <title>
-        Welcome
-        <?php
-        /**
-        *@covers Welcome::showWelcome
-        */
-
-        class WelcomeTest extends TestCase{
-            function showWelcomeTest(){
-                $this->assertTrue();
-                print 'pass';
-        }
-
-            class Welcome{
-                public function showWelcome(){
-                    if (isset($_SESSION['user_id'])) {
-                        echo ", ";
-                        echo $_SESSION['user_name'];
-                    }
-                }
-            }
-            Welcome::showWelcome();
-        ?>
-    </title>
+    <title>Welcome</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
     <!-- Navigation Bar -->
