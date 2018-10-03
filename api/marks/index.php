@@ -35,7 +35,7 @@
                 'user_surname' => $user_surname,
                 'assessment_name' => $assessment_name,
                 'mark_total' => $mark_total,
-                'course_name' => $course_total 
+                'course_name' => $course_name
             );
 
             // push to data value in array
