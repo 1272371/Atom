@@ -1,12 +1,6 @@
 <?php
 #php -f db-connect-test.php
-function include_all_php($folder){
-    foreach (glob("{$folder}/*.php") as $filename) {
-        include $filename;
-    }
-}
-set_include_path('api/');
-
+require __DIR__ .'/../../vendor/autoload.php';
 class db_testCase{
     function db_Test(){
 $dbname = 'api_risk';

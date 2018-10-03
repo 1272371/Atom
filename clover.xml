@@ -1,113 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538605652">
-  <project timestamp="1538605652">
-    <file name="/opt/lampp/htdocs/Atom_Origin/tests/phpunit/WelcomeTest.php">
+<coverage generated="1538606958">
+  <project timestamp="1538606958">
+    <file name="/opt/lampp/htdocs/Atom/tests/phpunit/WelcomeTest.php">
       <class name="WelcomeTest" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
       </class>
-      <line num="8" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="10" type="stmt" count="1"/>
+      <line num="9" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="11" type="stmt" count="1"/>
       <line num="12" type="stmt" count="1"/>
-      <line num="14" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="16" type="stmt" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="15" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="17" type="stmt" count="1"/>
       <line num="18" type="stmt" count="1"/>
-      <line num="20" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="22" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="1"/>
+      <line num="21" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="23" type="stmt" count="1"/>
       <line num="24" type="stmt" count="1"/>
-      <metrics loc="26" ncloc="23" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
+      <line num="25" type="stmt" count="1"/>
+      <metrics loc="27" ncloc="24" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
     </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/tests/phpunit/dashboard/dashboard.php">
+    <file name="/opt/lampp/htdocs/Atom/tests/phpunit/dashboard/dashboard.php">
       <class name="Dashboard" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="18" coveredelements="12"/>
       </class>
-      <line num="13" type="method" name="getStudentMarksTests" complexity="1" crap="2" count="0"/>
-      <line num="14" type="stmt" count="0"/>
+      <line num="14" type="method" name="getStudentMarksTests" complexity="1" crap="2" count="0"/>
       <line num="15" type="stmt" count="0"/>
-      <line num="16" type="method" name="getStudentDetails" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="17" type="method" name="getStudentDetails" complexity="1" crap="2" count="0"/>
       <line num="18" type="stmt" count="0"/>
-      <line num="19" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="21" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="22" type="stmt" count="1"/>
       <line num="23" type="stmt" count="1"/>
-      <line num="25" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="27" type="stmt" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="26" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="28" type="stmt" count="1"/>
       <line num="29" type="stmt" count="1"/>
-      <line num="31" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="33" type="stmt" count="1"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="32" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="34" type="stmt" count="1"/>
       <line num="35" type="stmt" count="1"/>
-      <metrics loc="38" ncloc="29" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="18" coveredelements="12"/>
+      <line num="36" type="stmt" count="1"/>
+      <metrics loc="39" ncloc="30" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="9" elements="18" coveredelements="12"/>
     </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/tests/phpunit/dashboard/gradeTest.php">
+    <file name="/opt/lampp/htdocs/Atom/tests/phpunit/dashboard/gradeTest.php">
       <class name="gradeTest" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="9" elements="15" coveredelements="12"/>
       </class>
-      <line num="7" type="method" name="buttonDropdown" complexity="1" crap="2" count="0"/>
-      <line num="8" type="stmt" count="0"/>
+      <line num="8" type="method" name="buttonDropdown" complexity="1" crap="2" count="0"/>
       <line num="9" type="stmt" count="0"/>
-      <line num="10" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="12" type="stmt" count="1"/>
-      <line num="13" type="stmt" count="1"/>
-      <line num="14" type="stmt" count="1"/>
-      <line num="16" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="18" type="stmt" count="1"/>
-      <line num="19" type="stmt" count="1"/>
-      <line num="20" type="stmt" count="1"/>
-      <line num="22" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="24" type="stmt" count="1"/>
-      <line num="25" type="stmt" count="1"/>
-      <line num="26" type="stmt" count="1"/>
-      <metrics loc="28" ncloc="25" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="9" elements="15" coveredelements="12"/>
-    </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/tests/phpunit/db-connect-test.php">
-      <class name="db_testCase" namespace="global" fullPackage="db">
-        <metrics complexity="4" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="15" coveredelements="0"/>
-      </class>
-      <line num="4" type="stmt" count="0"/>
-      <line num="5" type="stmt" count="0"/>
-      <line num="7" type="stmt" count="0"/>
-      <line num="11" type="method" name="db_Test" complexity="4" crap="20" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <metrics loc="30" ncloc="26" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="0" elements="18" coveredelements="0"/>
-    </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/tests/phpunit/php_login.php">
-      <class name="OutputTest" namespace="global">
-        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
-      </class>
-      <line num="5" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="7" type="stmt" count="1"/>
-      <line num="8" type="stmt" count="1"/>
-      <line num="9" type="stmt" count="1"/>
-      <line num="11" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="10" type="stmt" count="0"/>
+      <line num="11" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="13" type="stmt" count="1"/>
       <line num="14" type="stmt" count="1"/>
       <line num="15" type="stmt" count="1"/>
-      <line num="17" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="19" type="stmt" count="1"/>
       <line num="20" type="stmt" count="1"/>
       <line num="21" type="stmt" count="1"/>
-      <metrics loc="23" ncloc="23" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
+      <line num="23" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <metrics loc="29" ncloc="26" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="9" elements="15" coveredelements="12"/>
+    </file>
+    <file name="/opt/lampp/htdocs/Atom/tests/phpunit/db-connect-test.php">
+      <class name="db_testCase" namespace="global" fullPackage="db">
+        <metrics complexity="4" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="15" coveredelements="0"/>
+      </class>
+      <line num="5" type="method" name="db_Test" complexity="4" crap="20" count="0"/>
+      <line num="6" type="stmt" count="0"/>
+      <line num="7" type="stmt" count="0"/>
+      <line num="8" type="stmt" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="10" type="stmt" count="0"/>
+      <line num="11" type="stmt" count="0"/>
+      <line num="12" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="18" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <metrics loc="24" ncloc="20" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="15" coveredelements="0"/>
+    </file>
+    <file name="/opt/lampp/htdocs/Atom/tests/phpunit/php_login.php">
+      <class name="OutputTest" namespace="global">
+        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
+      </class>
+      <line num="6" type="method" name="testExpect1" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="8" type="stmt" count="1"/>
+      <line num="9" type="stmt" count="1"/>
+      <line num="10" type="stmt" count="1"/>
+      <line num="12" type="method" name="testExpect2" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="18" type="method" name="testExpect3" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="20" type="stmt" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <metrics loc="24" ncloc="24" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
     </file>
     <package name="Composer\Autoload">
-      <file name="/opt/lampp/htdocs/Atom_Origin/vendor/composer/ClassLoader.php">
+      <file name="/opt/lampp/htdocs/Atom/vendor/composer/ClassLoader.php">
         <class name="Composer\Autoload\ClassLoader" namespace="Composer\Autoload">
           <metrics complexity="64" methods="21" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="130" coveredstatements="22" elements="151" coveredelements="22"/>
         </class>
@@ -266,7 +263,7 @@
         <line num="445" type="stmt" count="0"/>
         <metrics loc="445" ncloc="281" classes="1" methods="21" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="132" coveredstatements="22" elements="153" coveredelements="22"/>
       </file>
-      <file name="/opt/lampp/htdocs/Atom_Origin/vendor/composer/autoload_static.php">
+      <file name="/opt/lampp/htdocs/Atom/vendor/composer/autoload_static.php">
         <class name="Composer\Autoload\ComposerStaticInit5711dd18fd472e01c7aff1a04d9c2c83" namespace="Composer\Autoload">
           <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
         </class>
@@ -279,7 +276,7 @@
         <metrics loc="483" ncloc="481" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
       </file>
     </package>
-    <file name="/opt/lampp/htdocs/Atom_Origin/vendor/composer/autoload_real.php">
+    <file name="/opt/lampp/htdocs/Atom/vendor/composer/autoload_real.php">
       <class name="ComposerAutoloaderInit5711dd18fd472e01c7aff1a04d9c2c83" namespace="global">
         <metrics complexity="13" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="0" elements="33" coveredelements="0"/>
       </class>
@@ -322,7 +319,7 @@
       <line num="74" type="stmt" count="0"/>
       <metrics loc="74" ncloc="72" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="0" elements="37" coveredelements="0"/>
     </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/vendor/phpunit/php-code-coverage/PHP/CodeCoverage/Autoload.php">
+    <file name="/opt/lampp/htdocs/Atom/vendor/phpunit/php-code-coverage/PHP/CodeCoverage/Autoload.php">
       <line num="51" type="stmt" count="3"/>
       <line num="52" type="stmt" count="3"/>
       <line num="54" type="stmt" count="3"/>
@@ -339,9 +336,9 @@
       <line num="96" type="stmt" count="3"/>
       <metrics loc="98" ncloc="55" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="9" elements="14" coveredelements="9"/>
     </file>
-    <file name="/opt/lampp/htdocs/Atom_Origin/vendor/symfony/polyfill-ctype/bootstrap.php">
+    <file name="/opt/lampp/htdocs/Atom/vendor/symfony/polyfill-ctype/bootstrap.php">
       <metrics loc="26" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="10" loc="1271" ncloc="1033" classes="8" methods="40" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="245" coveredstatements="67" elements="285" coveredelements="79"/>
+    <metrics files="10" loc="1269" ncloc="1031" classes="8" methods="40" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="242" coveredstatements="67" elements="282" coveredelements="79"/>
   </project>
 </coverage>

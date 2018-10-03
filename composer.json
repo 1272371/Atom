@@ -20,7 +20,12 @@
     },
     "autoload": {
         "psr-0": { 
-            "Example": "api/"
+            "config": "api/",
+          "general":"api/",
+          "marks":"/api",
+          "models":"/api",
+          "signing":"/api",
+          "users":"/api"
         }
     },
   "include-path":["/Atom/"]
