@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538606958">
-  <project timestamp="1538606958">
+<coverage generated="1538609009">
+  <project timestamp="1538609009">
     <file name="/opt/lampp/htdocs/Atom/tests/phpunit/WelcomeTest.php">
       <class name="WelcomeTest" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
@@ -267,13 +267,13 @@
         <class name="Composer\Autoload\ComposerStaticInit5711dd18fd472e01c7aff1a04d9c2c83" namespace="Composer\Autoload">
           <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
         </class>
-        <line num="475" type="method" name="anonymousFunction:475#6663" complexity="1" crap="2" count="0"/>
-        <line num="476" type="stmt" count="0"/>
-        <line num="477" type="stmt" count="0"/>
-        <line num="478" type="stmt" count="0"/>
-        <line num="479" type="stmt" count="0"/>
-        <line num="481" type="stmt" count="0"/>
-        <metrics loc="483" ncloc="481" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
+        <line num="507" type="method" name="anonymousFunction:507#6805" complexity="1" crap="2" count="0"/>
+        <line num="508" type="stmt" count="0"/>
+        <line num="509" type="stmt" count="0"/>
+        <line num="510" type="stmt" count="0"/>
+        <line num="511" type="stmt" count="0"/>
+        <line num="513" type="stmt" count="0"/>
+        <metrics loc="515" ncloc="513" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="6" coveredelements="0"/>
       </file>
     </package>
     <file name="/opt/lampp/htdocs/Atom/vendor/composer/autoload_real.php">
@@ -339,6 +339,6 @@
     <file name="/opt/lampp/htdocs/Atom/vendor/symfony/polyfill-ctype/bootstrap.php">
       <metrics loc="26" ncloc="18" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="10" loc="1269" ncloc="1031" classes="8" methods="40" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="242" coveredstatements="67" elements="282" coveredelements="79"/>
+    <metrics files="10" loc="1301" ncloc="1063" classes="8" methods="40" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="242" coveredstatements="67" elements="282" coveredelements="79"/>
   </project>
 </coverage>

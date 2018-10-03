@@ -25,8 +25,16 @@
           "marks":"/api",
           "models":"/api",
           "signing":"/api",
-          "users":"/api"
+          "users":"/api",
+          "dashboard":"*",
+
         }
     },
-  "include-path":["/Atom/"]
+  "include-path":["/Atom/"],
+  "authors": [
+    {
+      "name": "Harmony Peace Shezi Mncube",
+      "email": "mncubeharmony@gmail.com"
+    }
+  ]
 }

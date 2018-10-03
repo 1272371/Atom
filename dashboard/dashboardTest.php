@@ -1,5 +1,8 @@
 <?php
     class TestingDashboard{
+        /**
+         *
+         */
         public function getLatestMarks(){
 
             $link = mysqli_connect("localhost","root","", "risk");
