@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS2002-DBF-2017.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1015-BCO-2013.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -13,13 +13,19 @@
 
             //
             $id = chop($column[0]);
-            $cid = 1;
-            $year = 2017;
+            $total = 1;
+            $mark1 = (double) chop($column[1]);
+            $mark2 = (double) chop($column[2]);
+            $mark3 = (double) chop($column[3]);
+
 
             $query = 'INSERT INTO
-            subject
-            (course_id, subject_enrollmentyear, user_id)
-            VALUES (4, ' . $year . ', ' . $id . ')';
+            mark
+            (mark_total, user_id, assessment_id)
+            VALUES
+            (' . $mark1 . ', ' . $id . ', 1),
+            (' . $mark2 . ', ' . $id . ', 2),
+            (' . $mark3 . ', ' . $id . ', 3)';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
