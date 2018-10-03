@@ -95,6 +95,16 @@
                         echo TestingGrade::listClasses();
                     ?>
                 </ul>
+
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                   <?php
+                        include_once( 'gradeTest.php');
+                        echo TestingGrade::listClasses();
+                    ?>
+                </ul>
         </div> 
                 </div>
             </div>
