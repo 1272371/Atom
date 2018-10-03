@@ -231,66 +231,6 @@ LOCK TABLES `mark` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `municipality`
---
-
-DROP TABLE IF EXISTS `municipality`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `municipality` (
-  `mun_id` int(2) NOT NULL DEFAULT '0',
-  `mun_name` varchar(20) DEFAULT NULL,
-  `latitude` varchar(55) DEFAULT NULL,
-  `longitude` varchar(55) DEFAULT NULL,
-  PRIMARY KEY (`mun_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `municipality`
---
-
-LOCK TABLES `municipality` WRITE;
-/*!40000 ALTER TABLE `municipality` DISABLE KEYS */;
-INSERT INTO `municipality` VALUES (1,'city of joburg','37.22006','-122.08409'),(2,'mangaung','2','2'),(3,'ethikwini','3','3'),(4,'city of cape town','4','4'),(5,'polokwane','5','5'),(6,'nelson mandela','6','6'),(7,'sol plaatje','7','7'),(8,'mahikeng','8','8'),(9,'mbombela','9','9');
-/*!40000 ALTER TABLE `municipality` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `potholes`
---
-
-DROP TABLE IF EXISTS `potholes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `potholes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `latitude` varchar(11) DEFAULT '8',
-  `longitude` varchar(11) DEFAULT '8',
-  `name` varchar(50) DEFAULT NULL,
-  `path` varchar(50) DEFAULT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `users_email` varchar(50) DEFAULT NULL,
-  `captions` varchar(55) DEFAULT NULL,
-  `flag` tinyint(1) DEFAULT '0',
-  `vote` int(11) DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `users_email` (`users_email`),
-  CONSTRAINT `potholes_ibfk_1` FOREIGN KEY (`users_email`) REFERENCES `users` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `potholes`
---
-
-LOCK TABLES `potholes` WRITE;
-/*!40000 ALTER TABLE `potholes` DISABLE KEYS */;
-INSERT INTO `potholes` VALUES (1,'7','7','pothole1.jpg','/home/s815108/public_html/images/pothole.jpg','2016-05-20 06:08:50','kat@gmail.com','This is pothole is very dangerous',0,1),(2,'3','3','pothole3.jpg','/home/s815108/public_html/images/pothole3.jpg','2016-05-20 10:44:49','app@me.com','I cant get to work because of this pothole',0,1),(3,'9','9','pothole4.jpg','/home/s815108/public_html/images/pothole4.jpg','2016-05-20 06:10:35','app@gmail.com','The government needs to fix this urgently',0,1),(4,'6','6','pothole5.jpg','/home/s815108/public_html/images/pothole5.jpg','2016-05-20 08:14:04','kat@gmail.com','These are hurting my car',0,1),(5,NULL,NULL,'pothole7.jpg','/home/s815108/public_html/images/pothole7.jpg','2016-05-20 08:15:34','app@gmail.com','This one might caurse an accident',0,1),(6,'5','5','pothole9.jpg','/home/s815108/public_html/images/pothole9.jpg','2016-05-20 08:17:39','kat@gmail.com','This must be taken care of',0,1),(13,'8','8','testing123.jpg','/home/s815108/public_html/images/testing123.jpg','2016-05-20 10:28:58','app@me.com',NULL,0,1),(14,'8','8','testing123.jpg','/home/s815108/public_html/images/testing123.jpg','2016-05-20 10:39:25','app@me.com',NULL,0,1),(15,'8','8','testing123.jpg','/home/s815108/public_html/images/testing123.jpg','2016-05-20 10:48:16','Pravesh@gmail.com',NULL,0,1);
-/*!40000 ALTER TABLE `potholes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `school`
 --
 
@@ -432,36 +372,6 @@ LOCK TABLES `user_type_lookup` WRITE;
 INSERT INTO `user_type_lookup` VALUES (3,'developer'),(2,'lecturer'),(1,'student');
 /*!40000 ALTER TABLE `user_type_lookup` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `town` varchar(10) DEFAULT NULL,
-  `username` varchar(10) DEFAULT NULL,
-  `f_name` varchar(10) DEFAULT NULL,
-  `l_name` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (4,'app@me.com','c4ca4238a0b923820dcc509a6f75849b','Jozi','NiQi','Ni','Qi'),(5,'app@gmail.com','c4ca4238a0b923820dcc509a6f75849b','Calvas','Nope','Black','Nxo'),(7,'kat@gmail.com','b146a357c57fddd450f6b5c446108672',NULL,NULL,NULL,NULL),(8,'nj@i.co','c20ad4d76fe97759aa27a0c99bff6710','','','',''),(9,'Pravesh@gmail.com','202cb962ac59075b964b07152d234b70','Wits','Pravy','Pravesh','R');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -472,4 +382,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-29 16:25:48
+-- Dump completed on 2018-10-03 14:50:24
