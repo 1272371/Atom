@@ -61,8 +61,11 @@
                 'percent' => $percent
             );
 
+            // user entry
+            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id] = array();
+
             // push to data value in array
-            array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'], $markItem);
+            array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id], $markItem);
         }
 
         echo json_encode($markArray);
