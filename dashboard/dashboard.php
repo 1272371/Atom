@@ -143,13 +143,14 @@
                                 ?>
 
                                 </ul>
+
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
                                    <?php
                                         include_once( 'gradeTest.php');
-                                        echo TestingGrade::listClasses();
+                                        TestingDashboard::listClasses();
                                     ?>
                                 </ul>
                                 <span style="padding-left:30px;font-size:large">COMS2002</span>

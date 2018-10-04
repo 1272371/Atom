@@ -115,7 +115,7 @@
                     $student = $person;
                    
                    if (in_array($student, $classItems)){
-                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student&course_id=$course_id'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
                     }
 
             }
@@ -129,12 +129,22 @@
                 die ("Error!");
             }
 
-            $query2 = "SELECT course_code FROM course";
+            if (empty($_GET)){
+                $course_id = "1";
+                $student = "500594";
+            } else {
+                $course_id = $_GET['course_id'];
+                $student = $_GET['student'];
+            }
+
+            $query2 = "SELECT course_code,course_id FROM course";
             
             $result2= mysqli_query($link, $query2);
 
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='#'>".$row2['course_code']."</a></li>";
+                echo "<li><a href='dashboard.php?student=$student&course_id=".$row2['course_id']."'>".$row2['course_code']."</a></li>";
+
+                
             }
         }
     }
