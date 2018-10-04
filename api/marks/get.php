@@ -37,35 +37,45 @@
                 'course_name' => $course_name,
             );
 
-            $markArray['content'][$course_id]['assessments'] = array();
+            if (!is_array($markArray['content'][$course_id]['assessments'])) {
+                $markArray['content'][$course_id]['assessments'] = array();
+            }
+            else {
 
-            $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
-                'assessment_id' => $assessment_id,
-                'assessment_name' => $assessment_name,
-                'assessment_date' => $assessment_date,
-                'assessment_weight' => $assessment_weight,
-                'assessment_total' => $assessment_total
-            );
+                if (!is_array( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
+                    $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
+                        'assessment_id' => $assessment_id,
+                        'assessment_name' => $assessment_name,
+                        'assessment_date' => $assessment_date,
+                        'assessment_weight' => $assessment_weight,
+                        'assessment_total' => $assessment_total
+                    );
+                }
+                else {
+                    if (!is_array($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
+                        $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
+                    }
+                    else {
+                        // calculate percent
+                        $percent = (float) $mark_total/$assessment_total;
+                        $percent = $percent * 100;
 
-            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
+                        $markItem = array(
+                            'user_id' => $user_id,
+                            'user_name' => $user_name,
+                            'user_surname' => $user_surname,
+                            'mark_total' => $mark_total,
+                            'percent' => $percent
+                        );
 
-            // calculate percent
-            $percent = (float) $mark_total/$assessment_total;
-            $percent = $percent * 100;
+                        // user entry
+                        $markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id] = array();
 
-            $markItem = array(
-                'user_id' => $user_id,
-                'user_name' => $user_name,
-                'user_surname' => $user_surname,
-                'mark_total' => $mark_total,
-                'percent' => $percent
-            );
-
-            // user entry
-            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id] = array();
-
-            // push to data value in array
-            array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id], $markItem);
+                        // push to data value in array
+                        array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id], $markItem);
+                    }
+                }
+            }
         }
 
         echo json_encode($markArray);
