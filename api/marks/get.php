@@ -47,7 +47,6 @@
                 }
                 else {
                     if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
-                        echo 'assessment id empty <br>';
                         $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
                             'assessment_id' => $assessment_id,
                             'assessment_name' => $assessment_name,
@@ -58,7 +57,9 @@
                     }
                     else {
                         if (empty($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
-                            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
+                            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array(
+                                'description' => 'Student marks for assignment in student number order'
+                            );
                         }
                         else {
                             // calculate percent
