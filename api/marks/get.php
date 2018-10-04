@@ -32,48 +32,53 @@
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
-            $markArray['content'][$course_id] = array(
-                'course_id' => $course_id,
-                'course_name' => $course_name,
-            );
+            if (empty($markArray['content'][$course_id])) {
 
-            // assessments go in course here
-            if (empty($markArray['content'][$course_id]['assessments'])) {
-                $markArray['content'][$course_id]['assessments'] = array();
+                $markArray['content'][$course_id] = array(
+                    'course_id' => $course_id,
+                    'course_name' => $course_name,
+                );
+                
             }
             else {
-
-                if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
-                    $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
-                        'assessment_id' => $assessment_id,
-                        'assessment_name' => $assessment_name,
-                        'assessment_date' => $assessment_date,
-                        'assessment_weight' => $assessment_weight,
-                        'assessment_total' => $assessment_total
-                    );
+                    // assessments go in course here
+                if (empty($markArray['content'][$course_id]['assessments'])) {
+                    $markArray['content'][$course_id]['assessments'] = array();
                 }
                 else {
-                    if (empty($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
-                        $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
+
+                    if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
+                        $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
+                            'assessment_id' => $assessment_id,
+                            'assessment_name' => $assessment_name,
+                            'assessment_date' => $assessment_date,
+                            'assessment_weight' => $assessment_weight,
+                            'assessment_total' => $assessment_total
+                        );
                     }
                     else {
-                        // calculate percent
-                        $percent = (float) $mark_total/$assessment_total;
-                        $percent = $percent * 100;
+                        if (empty($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
+                            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
+                        }
+                        else {
+                            // calculate percent
+                            $percent = (float) $mark_total/$assessment_total;
+                            $percent = $percent * 100;
 
-                        $markItem = array(
-                            'user_id' => $user_id,
-                            'user_name' => $user_name,
-                            'user_surname' => $user_surname,
-                            'mark_total' => $mark_total,
-                            'percent' => $percent
-                        );
+                            $markItem = array(
+                                'user_id' => $user_id,
+                                'user_name' => $user_name,
+                                'user_surname' => $user_surname,
+                                'mark_total' => $mark_total,
+                                'percent' => $percent
+                            );
 
-                        // user entry
-                        $markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id] = array();
+                            // user entry
+                            $markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id] = array();
 
-                        // push to data value in array
-                        array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id], $markItem);
+                            // push to data value in array
+                            array_push($markArray['content'][$course_id]['assessments'][$assessment_id]['data'][$user_id], $markItem);
+                        }
                     }
                 }
             }
