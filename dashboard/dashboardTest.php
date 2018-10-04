@@ -79,6 +79,12 @@
                 }
 
                 $query = "SELECT * FROM user";
+
+                if (empty($_GET)){
+                        $course_id = "1";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                    }
                 
 
                 echo "<table class='table table-hover'>";
@@ -89,6 +95,14 @@
                 echo "</thead>";
 
                 $result = mysqli_query($link, $query);
+
+
+                $query3 = "SELECT user_id FROM subject WHERE course_id =".$course_id ;
+                $result3= mysqli_query($link, $query3);
+                $classItems = array();
+                while ($row3 = mysqli_fetch_array($result3)){
+                    $classItems[] = $row3['user_id'];
+                }
                 
 
                 while ($row = mysqli_fetch_array($result)) {
@@ -100,7 +114,9 @@
 
                     $student = $person;
                    
+                   if (in_array($student, $classItems)){
                     echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+                    }
 
             }
                 echo "</table>";
