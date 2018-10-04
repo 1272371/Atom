@@ -46,8 +46,8 @@
                     );
                 }
                 else {
-                    echo 'assessment not empty';
                     if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
+                        echo 'assessment id empty <br>';
                         $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
                             'assessment_id' => $assessment_id,
                             'assessment_name' => $assessment_name,
