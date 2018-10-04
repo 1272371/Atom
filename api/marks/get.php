@@ -1,8 +1,8 @@
 <?php
 
     // headers
-    // header('Access-Control-Allow-Origin: *');
-    // header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
 
     include_once '../config/Database.php';
     include_once '../models/Mark.php';
@@ -33,7 +33,6 @@
             extract($row);
 
             if (empty($markArray['content'][$course_id])) {
-
                 $markArray['content'][$course_id] = array(
                     'course_id' => $course_id,
                     'course_name' => $course_name,
@@ -42,11 +41,11 @@
             else {
                     // assessments go in course here
                 if (empty($markArray['content'][$course_id]['assessments'])) {
-                    $markArray['content'][$course_id]['assessments'] = array();
-                    echo 'empty assessment' . '<br>';
+                    $markArray['content'][$course_id]['assessments'] = array(
+                        'description' => 'Assessment data by assessment_id'
+                    );
                 }
                 else {
-                    echo 'assessment not empty' . '<br>';
                     if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
                         $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
                             'assessment_id' => $assessment_id,
