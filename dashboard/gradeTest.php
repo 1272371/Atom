@@ -7,6 +7,12 @@
                     die ("Error!");
                 }
 
+                if (empty($_GET)){
+                        $course_id = "1";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                    }
+
                 $query = "SELECT * FROM user";
                 
 
@@ -20,18 +26,31 @@
                 echo "</thead>";
 
                 $result = mysqli_query($link, $query);
+
+                $query3 = "SELECT user_id FROM subject WHERE course_id =".$course_id ;
+                $result3= mysqli_query($link, $query3);
+                $classItems = array();
+                while ($row3 = mysqli_fetch_array($result3)){
+                    $classItems[] = $row3['user_id'];
+                }
+                    
                 
 
                 while ($row = mysqli_fetch_array($result)) {
                     
                     $person=$row['user_id'];
+
                     $query2 = "SELECT ROUND(AVG(mark_total)) FROM mark where user_id=".$person;
                     $result2= mysqli_query($link, $query2);
                     $row2 = mysqli_fetch_array($result2);
 
                     $student = $person;
-                   
+
+                    
+
+                   if (in_array($student, $classItems)){
                     echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>Science</td><td>2</td><td>".$row2['ROUND(AVG(mark_total))']."</td><td>"."<a href='dashboard.php' type='button' class='btn btn-light btn-sm'>More Info</a>"."</td></tr>";
+                    }
             }
                 echo "</table>";
 
@@ -45,12 +64,12 @@
                 die ("Error!");
             }
 
-            $query2 = "SELECT course_code FROM course";
+            $query2 = "SELECT course_code,course_id FROM course";
             
             $result2= mysqli_query($link, $query2);
 
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='grade.php?course=".$row2['course_code']."'>".$row2['course_code']."</a></li>";
+                echo "<li><a href='grade.php?course_id=".$row2['course_id']."'>".$row2['course_code']."</a></li>";
             }
         }
     }
