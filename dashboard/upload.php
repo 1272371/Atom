@@ -52,7 +52,7 @@
                 </li>
                 
                 <li>
-                    <a>
+                    <a href="stats.php">
                         <i class="pe-7s-graph3"></i>
                         <p>Statistics</p>
                     </a>
