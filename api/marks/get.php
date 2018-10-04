@@ -37,12 +37,13 @@
                 'course_name' => $course_name,
             );
 
-            if (!is_array($markArray['content'][$course_id]['assessments'])) {
+            // assessments go in course here
+            if (empty($markArray['content'][$course_id]['assessments'])) {
                 $markArray['content'][$course_id]['assessments'] = array();
             }
             else {
 
-                if (!is_array( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
+                if (empty( $markArray['content'][$course_id]['assessments'][$assessment_id])) {
                     $markArray['content'][$course_id]['assessments'][$assessment_id] = array(
                         'assessment_id' => $assessment_id,
                         'assessment_name' => $assessment_name,
@@ -52,7 +53,7 @@
                     );
                 }
                 else {
-                    if (!is_array($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
+                    if (empty($markArray['content'][$course_id]['assessments'][$assessment_id]['data'])) {
                         $markArray['content'][$course_id]['assessments'][$assessment_id]['data'] = array();
                     }
                     else {
