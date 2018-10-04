@@ -51,13 +51,13 @@
                     </a>
                 </li>
                 
-                <li class="active">
+                <li>
                     <a>
                         <i class="pe-7s-graph3"></i>
                         <p>Statistics</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="#">
                         <i class="pe-7s-cloud-upload"></i>
                         <p>Upload</p>
@@ -84,42 +84,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Statistics</a>
-                     <div class="dropdown" style="padding-left:10px;padding-top:10px;margin-bottom: 30px;">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-
-
-                                
-                                <?php
-                                class buttonDropdown{
-
-	                             	public function listClasses(){
-
-		                                $link = mysqli_connect("localhost","1234567","password", "api_risk");
-
-		                                if (mysqli_connect_error()){
-		                                    die ("Error!");
-		                                }
-
-		                                $query2 = "SELECT module_code FROM module";
-		                                
-		                                $result2= mysqli_query($link, $query2);
-
-		                                while ($row2 = mysqli_fetch_array($result2)) {
-		                                    echo "<li><a href='#'>".$row2['module_code']."</a></li>";
-		                                }
-	                            	}
-                            }
-
-                            buttonDropdown::listClasses();
-                                
-                                ?>
-
-                                </ul>
-                </div>
+                    <a class="navbar-brand" href="#">Upload Marks</a>
+                     
             </div>
         </nav>
 
@@ -131,20 +97,11 @@
                         <div class="card">
 
                             <div class="header">
-                                <h4 class="title">Class Statistics</h4>
-                                <p class="category">COMS2002</p>
+                                <h4 class="title">File Selector</h4>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Passed
-                                        <i class="fa fa-circle text-danger"></i> Failed
-                                        <i class="fa fa-circle text-warning"></i> Risky
-                                    </div>
-                                   
-                                </div>
+                                <button>Select File</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -152,18 +109,13 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Student Performance</h4>
-                                <p class="category">COMS2002</p>
+                                <h4 class="title">File Preview</h4>
+                                
                             </div>
                             <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
+                                
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Passed
-                                        <i class="fa fa-circle text-danger"></i> Failed
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
