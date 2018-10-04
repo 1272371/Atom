@@ -35,7 +35,7 @@
                 ON
                 u.faculty_id = f.faculty_id
                 ORDER BY
-                u.user_id DESC';
+                u.user_id ASC';
 
             // prepare query
             $statement = $this->conn->prepare($query);
@@ -78,6 +78,38 @@
             // set properties
             $this->user_id = $row['user_id'];
             $this->user_name = $row['user_name'];
+            $this->user_surname = $row['user_surname'];
+            $this->faculty_name = $row['faculty_name'];
+        }
+
+        public function getUsersByName() {
+
+            $query = 'SELECT
+                u.user_id,
+                f.faculty_name as faculty_name,
+                u.user_name,
+                u.user_surname
+                FROM
+                user u
+                LEFT JOIN
+                faculty f
+                ON
+                u.faculty_id = f.faculty_id
+                WHERE
+                u.user_name LIKE ?
+                ORDER BY
+                u.user_id ASC';
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // bind id
+            $statement->bindParam(1, $this->user_name);
+
+            // execute query
+            $statement->execute();
+
+            return $statement;
         }
 
     }
