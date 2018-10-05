@@ -86,12 +86,12 @@
                     $course_id = $_GET['course_id'];
                 }
 
-            $query2 = "SELECT DISTINCT subject_enrollmentyear FROM subject";
+            $query4 = "SELECT DISTINCT subject_enrollmentyear FROM subject";
             
-            $result2= mysqli_query($link, $query2);
+            $result4= mysqli_query($link, $query4);
 
-            while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='grade.php?course_id=$course_id&date=".$row2['subject_enrollmentyear']."'>".$row2['subject_enrollmentyear']."</a></li>";
+            while ($row4 = mysqli_fetch_array($result4)) {
+                echo "<li><a href='grade.php?course_id=$course_id&date=".$row4['subject_enrollmentyear']."'>".$row4['subject_enrollmentyear']."</a></li>";
             }
 
         }

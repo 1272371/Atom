@@ -89,7 +89,7 @@
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="classes">
                    <?php
                         include_once( 'gradeTest.php');
                         echo TestingGrade::listClasses();
@@ -99,7 +99,7 @@
                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="dates">
                    <?php
                         include_once( 'gradeTest.php');
                         echo TestingGrade::listDates();

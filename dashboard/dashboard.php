@@ -149,8 +149,8 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                    <?php
-                                        include_once( 'gradeTest.php');
-                                        TestingDashboard::listClasses();
+                                        include_once( 'dashboardTest.php');
+                                        TestingDashboard::listDates();
                                     ?>
                                 </ul>
                                 <span style="padding-left:30px;font-size:large">COMS2002</span>
