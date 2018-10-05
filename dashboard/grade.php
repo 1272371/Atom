@@ -58,7 +58,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="upload.php">
                         <i class="pe-7s-cloud-upload"></i>
                         <p>Upload</p>
                     </a>
