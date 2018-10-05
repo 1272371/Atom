@@ -174,7 +174,7 @@
                             <div class="content">
                                  <pre id="fileDisplayArea"></pre>
 
-                                
+                                <button>Upload</button>
                             </div>
                         </div>
                     </div>
