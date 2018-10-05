@@ -90,7 +90,7 @@
         </nav>
 
 
-        <div class="content">
+        <div class="content" style="background-color: white">
             <div class="container-fluid">
                 <div class="row">
 
@@ -130,6 +130,10 @@
                                 echo TestingGrade::listDates();
                             ?>
                         </ul>
+
+                        <textarea id="name">Name of Assignment</textarea>
+                        <textarea id="weight">Weight</textarea>
+                        <textarea id="total">Total</textarea>
                     </div>
                     </div>
 
@@ -149,10 +153,11 @@
                                     height: 200px;
                                     padding: 8px;
                                     font-size: 18px;
+                                    
                                 }
                             </style>
 
-                            <h1>File Upload Drop Zone</h1>
+                            
                             <div  id="drop_zone" ondrop="drag_drop(event)" ondragover="return false" ></div>
                             <input type="file"  id="fileInput">
                             <script src="assets/js/uploadFunctions.js"></script>
