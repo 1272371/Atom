@@ -156,7 +156,6 @@
                             <div  id="drop_zone" ondrop="drag_drop(event)" ondragover="return false" ></div>
                             <input type="file"  id="fileInput">
                             <script src="assets/js/uploadFunctions.js"></script>
-                                
                             </div>
                         </div>
                     </div>
