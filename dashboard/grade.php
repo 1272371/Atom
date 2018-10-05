@@ -102,7 +102,7 @@
                 <ul class="dropdown-menu">
                    <?php
                         include_once( 'gradeTest.php');
-                        echo TestingGrade::listClasses();
+                        echo TestingGrade::listDates();
                     ?>
                 </ul>
         </div> 
