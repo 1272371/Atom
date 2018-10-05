@@ -143,6 +143,9 @@
                                 ?>
 
                                 </ul>
+                            </div>
+
+                            <div class="dropdown" style="padding-left:17px;padding-top:10px">
 
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
                                     <span class="caret"></span>

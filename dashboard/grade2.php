@@ -91,7 +91,7 @@
                 </button>
                 <ul class="dropdown-menu" id="classes">
                    <?php
-                        include_once( 'gradeTest.php');
+                        include_once( 'grade2Test.php');
                         TestingGrade::listClasses();
                     ?>
                 </ul>
@@ -103,7 +103,7 @@
                 </button>
                 <ul class="dropdown-menu" id="dates">
                    <?php
-                        include_once( 'gradeTest.php');
+                        include_once( 'grade2Test.php');
                         TestingGrade::listDates();
                     ?>
                 </ul>
@@ -127,7 +127,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     <?php
-                                        include_once( 'gradeTest.php');
+                                        include_once( 'grade2Test.php');
                                         echo TestingGrade::getStudentList();
                                     ?>
 

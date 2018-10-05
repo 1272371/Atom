@@ -139,9 +139,9 @@
 
             $query4 = "SELECT course_code,course_id FROM course";
             
-            $result4= mysqli_query($link, $query2);
+            $result4= mysqli_query($link, $query4);
 
-            while ($row4 = mysqli_fetch_array($result2)) {
+            while ($row4 = mysqli_fetch_array($result4)) {
                 echo "<li><a href='dashboard.php?student=$student&course_id=".$row4['course_id']."'>".$row4['course_code']."</a></li>";
 
                 
