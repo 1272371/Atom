@@ -93,27 +93,82 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
+
+                    <div class="col-md-12">
+                        <div class="card">
+
+                        <div class="header">
+                                <h4 class="title">Configurations</h4>
+                            </div>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Assignment Type
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Course
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Medium Lookup
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="card">
 
                             <div class="header">
                                 <h4 class="title">File Selector</h4>
                             </div>
                             <div class="content">
-                                <button>Select File</button>
+                                <style>
+                                #drop_zone {
+
+                                    background-color: #EEE;
+                                    border: #999 5px dotted;
+                                    width: 290px;
+                                    height: 200px;
+                                    padding: 8px;
+                                    font-size: 18px;
+                                }
+                            </style>
+
+                            <h1>File Upload Drop Zone</h1>
+                            <div  id="drop_zone" ondrop="drag_drop(event)" ondragover="return false" ></div>
+                            <input type="file"  id="fileInput">
+                            <script src="assets/js/uploadFunctions.js"></script>
                                 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">File Preview</h4>
                                 
                             </div>
                             <div class="content">
-                                
+                                 <pre id="fileDisplayArea"></pre>
 
                                 
                             </div>
