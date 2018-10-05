@@ -6,6 +6,7 @@ window.onload = function() {
     });
 }
 
+
 function drag_drop(event) {
     event.preventDefault();
     var file = event.dataTransfer.files[0];
