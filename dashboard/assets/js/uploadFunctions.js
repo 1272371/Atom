@@ -3,7 +3,9 @@ window.onload = function() {
     fileInput.addEventListener('change', function(e) {
         var file = fileInput.files[0];
         preview(file)
+        document.getElementById('UploadButton').onclick = function () {preview(file)};
     });
+
 }
 
 
