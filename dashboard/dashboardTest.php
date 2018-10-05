@@ -161,12 +161,18 @@
                     $course_id = $_GET['course_id'];
                 }
 
+            if (empty($_GET)){
+                $student = "500594";
+            } else {
+                $student = $_GET['student'];
+            }
+
             $query2 = "SELECT DISTINCT subject_enrollmentyear FROM subject";
             
             $result2= mysqli_query($link, $query2);
 
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='dashboard.php?course_id=$course_id&date=".$row2['subject_enrollmentyear']."'>".$row2['subject_enrollmentyear']."</a></li>";
+                echo "<li><a href='dashboard.php?student=$student&course_id=$course_id&date=".$row2['subject_enrollmentyear']."'>".$row2['subject_enrollmentyear']."</a></li>";
             }
 
         }
