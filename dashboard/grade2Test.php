@@ -1,7 +1,7 @@
 <?php
     class TestingGrade{
         public function getStudentList(){
-            $link = mysqli_connect("localhost","root","", "risk");
+            $link = mysqli_connect("http://lamp.ms.wits.ac.za/~s815108/risk/","s815108","random123", "d815108");
 
                 if (mysqli_connect_error()){
                     die ("Error!");

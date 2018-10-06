@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `faculty` (
   `faculty_id` int(1) NOT NULL AUTO_INCREMENT,
-  `faculty_name` varchar(5) NOT NULL,
+  `faculty_name` varchar(50) NOT NULL,
   PRIMARY KEY (`faculty_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -202,7 +202,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'Comme'),(2,'Engin'),(3,'Healt'),(4,'Human'),(5,'Scien');
+INSERT INTO `faculty` VALUES (1,'Commerce, Law and Management'),(2,'Engineering and the Built Environment'),(3,'Health Sciences'),(4,'Humanities'),(5,'Science');
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -388,4 +388,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-03 19:58:45
+-- Dump completed on 2018-10-04 14:06:12

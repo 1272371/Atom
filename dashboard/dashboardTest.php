@@ -79,6 +79,12 @@
                 }
 
                 $query = "SELECT * FROM user";
+
+                if (empty($_GET)){
+                        $course_id = "1";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                    }
                 
 
                 echo "<table class='table table-hover'>";
@@ -89,6 +95,14 @@
                 echo "</thead>";
 
                 $result = mysqli_query($link, $query);
+
+
+                $query3 = "SELECT user_id FROM subject WHERE course_id =".$course_id ;
+                $result3= mysqli_query($link, $query3);
+                $classItems = array();
+                while ($row3 = mysqli_fetch_array($result3)){
+                    $classItems[] = $row3['user_id'];
+                }
                 
 
                 while ($row = mysqli_fetch_array($result)) {
@@ -100,7 +114,9 @@
 
                     $student = $person;
                    
-                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+                   if (in_array($student, $classItems)){
+                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student&course_id=$course_id'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+                    }
 
             }
                 echo "</table>";
@@ -113,13 +129,52 @@
                 die ("Error!");
             }
 
-            $query2 = "SELECT course_code FROM course";
+            if (empty($_GET)){
+                $course_id = "1";
+                $student = "500594";
+            } else {
+                $course_id = $_GET['course_id'];
+                $student = $_GET['student'];
+            }
+
+            $query4 = "SELECT course_code,course_id FROM course";
+            
+            $result4= mysqli_query($link, $query4);
+
+            while ($row4 = mysqli_fetch_array($result4)) {
+                echo "<li><a href='dashboard.php?student=$student&course_id=".$row4['course_id']."'>".$row4['course_code']."</a></li>";
+
+                
+            }
+        }
+
+        public function listDates(){
+            $link = mysqli_connect("localhost","root","", "risk");
+
+            if (mysqli_connect_error()){
+                die ("Error!");
+            }
+
+            if (empty($_GET)){
+                    $course_id = "1";
+                } else {
+                    $course_id = $_GET['course_id'];
+                }
+
+            if (empty($_GET)){
+                $student = "500594";
+            } else {
+                $student = $_GET['student'];
+            }
+
+            $query2 = "SELECT DISTINCT subject_enrollmentyear FROM subject";
             
             $result2= mysqli_query($link, $query2);
 
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='#'>".$row2['course_code']."</a></li>";
+                echo "<li><a href='dashboard.php?student=$student&course_id=$course_id&date=".$row2['subject_enrollmentyear']."'>".$row2['subject_enrollmentyear']."</a></li>";
             }
+
         }
     }
     

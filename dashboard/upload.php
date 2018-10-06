@@ -51,14 +51,14 @@
                     </a>
                 </li>
                 
-                <li class="active">
-                    <a>
+                <li>
+                    <a href="stats.php">
                         <i class="pe-7s-graph3"></i>
                         <p>Statistics</p>
                     </a>
                 </li>
-                <li>
-                    <a href="upload.php">
+                <li class="active">
+                    <a href="#">
                         <i class="pe-7s-cloud-upload"></i>
                         <p>Upload</p>
                     </a>
@@ -84,65 +84,97 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Statistics</a>
-                     <div class="dropdown" style="padding-left:10px;padding-top:10px;margin-bottom: 30px;">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-
-                                
-                                <?php
-                                    include_once('statsTest.php');
-                                    echo StatsTesting::listClasses();
-                                ?>
-
-                                </ul>
-                </div>
+                    <a class="navbar-brand" href="#">Upload Marks</a>
+                     
             </div>
         </nav>
 
 
-        <div class="content">
+        <div class="content" style="background-color: white">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
+
+                    <div class="col-md-12">
+                        <div class="card">
+
+                        <div class="header">
+                                <h4 class="title">Configurations</h4>
+                            </div>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Assignment Type
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Course
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Medium Lookup
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                echo TestingGrade::listDates();
+                            ?>
+                        </ul>
+
+                        <textarea id="name">Name of Assignment</textarea>
+                        <textarea id="weight">Weight</textarea>
+                        <textarea id="total">Total</textarea>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="card">
 
                             <div class="header">
-                                <h4 class="title">Class Statistics</h4>
-                                <p class="category">COMS2002</p>
+                                <h4 class="title">File Selector</h4>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                <style>
+                                #drop_zone {
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Passed
-                                        <i class="fa fa-circle text-danger"></i> Failed
-                                        <i class="fa fa-circle text-warning"></i> Risky
-                                    </div>
-                                   
-                                </div>
+                                    background-color: #EEE;
+                                    border: #999 5px dotted;
+                                    width: 290px;
+                                    height: 200px;
+                                    padding: 8px;
+                                    font-size: 18px;
+                                    
+                                }
+                            </style>
+
+                            
+                            <div  id="drop_zone" ondrop="drag_drop(event)" ondragover="return false" ></div>
+                            <input type="file"  id="fileInput">
+                            <script src="assets/js/uploadFunctions.js"></script>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Student Performance</h4>
-                                <p class="category">COMS2002</p>
+                                <h4 class="title">File Preview</h4>
+                                
                             </div>
                             <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
+                                 <pre id="fileDisplayArea"></pre>
 
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Passed
-                                        <i class="fa fa-circle text-danger"></i> Failed
-                                    </div>
-                                </div>
+                                <button id="UploadButton">Upload</button>
                             </div>
                         </div>
                     </div>

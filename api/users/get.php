@@ -23,22 +23,29 @@
     if ($num > 0) {
 
         // users exist
-        $userArray = array();
-        $userArray['data'] = array();
+        $userArray = array(
+            'name' => 'users',
+            'description' => 'All users in database'
+        );
+        $userArray['content'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
 
             $userItem = array(
                 'user_id' => $user_id,
-                'user_name' => $user_name
+                'user_name' => $user_name,
+                'user_surname' => $user_surname,
+                'faculty_name' => $faculty_name
             );
 
-            // push to data value in array
-            array_push($userArray['data'], $userItem);
+            // create id array
+            $userArray['content'][$user_id] = array();
 
-            echo json_encode($userArray);
+            // push to content and id value in array
+            array_push($userArray['content'][$user_id], $userItem);
         }
+        echo json_encode($userArray);
     }
     else {
 

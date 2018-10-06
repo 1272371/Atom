@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="upload.php">
                         <i class="pe-7s-cloud-upload"></i>
                         <p>Upload Marks</p>
                     </a>
@@ -143,13 +143,17 @@
                                 ?>
 
                                 </ul>
+                            </div>
+
+                            <div class="dropdown" style="padding-left:17px;padding-top:10px">
+
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
                                    <?php
-                                        include_once( 'gradeTest.php');
-                                        echo TestingGrade::listClasses();
+                                        include_once( 'dashboardTest.php');
+                                        TestingDashboard::listDates();
                                     ?>
                                 </ul>
                                 <span style="padding-left:30px;font-size:large">COMS2002</span>

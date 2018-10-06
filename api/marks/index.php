@@ -1,52 +1,23 @@
 <?php
 
-    // headers
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+    $query = explode("&", $_SERVER['QUERY_STRING']);
+    $count = count($query);
 
-    include_once '../config/Database.php';
-    include_once '../models/Mark.php';
+    if ($count == 1) {
 
-    // instanciate database and connect
-    $database = new Database();
-    $db = $database->connect();
+        if (strlen($query[0]) == 0) {
 
-    // instantiate mark object
-    $mark = new Mark($db);
-
-    // mark post query
-    $result = $mark->get();
-
-    // get mark count
-    $num = $result->rowCount();
-
-    if ($num > 0) {
-
-        // marks exist
-        $markArray = array();
-        
-        $markArray['data'] = array();
-
-        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
-
-            $markItem = array(
-                'user_id' => $user_id,
-                'user_name' => $user_name,
-                'user_surname' => $user_surname,
-                'assessment_name' => $assessment_name,
-                'mark_total' => $mark_total,
-                'course_name' => $course_name
-            );
-
-            // push to data value in array
-            array_push($markArray['data'], $markItem);
-
-            echo json_encode($markArray);
+            // no query string get all users
+            header("Location: get.php");
         }
-    }
-    else {
+        else {
 
-        // no marks exist
-        echo json_encode(array('message' => 'no marks found'));
+            /**
+             * single query string
+             * get user with same id
+             * get users with same name
+             * get users with same surname
+             */
+            header("Location: user.php?" . $query[0] . '&redirect=' . password_hash('1', PASSWORD_DEFAULT));
+        }
     }
