@@ -6,7 +6,7 @@
  * Time: 11:30 PM
  */
 
-
+require __DIR__ .'/../../../vendor/autoload.php';
 class buttonDropdownTest extends PHPUnit_Framework_TestCase
 {
 

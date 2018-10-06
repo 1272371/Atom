@@ -6,7 +6,7 @@
  * Time: 11:29 PM
  */
 
-
+require __DIR__ .'/../../../vendor/autoload.php';
 class TestingGradeTest extends PHPUnit_Framework_TestCase
 {
 

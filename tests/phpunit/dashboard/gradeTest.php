@@ -1,12 +1,13 @@
 <?php
 require __DIR__ .'/../../../vendor/autoload.php';
-use PHPUnit\Framework\TestCase;
 /**
  * @covers dashboard::listClasses
  */
-class gradeTest extends TestCase{
+class gradeTest extends PHPUnit_Framework_TestCase{
+
     function buttonDropdown(){
-        $this->assertTrue();
+        $this->expectOutputString('pass');
+        print 'pass';
     }
     public function testExpect1()
     {

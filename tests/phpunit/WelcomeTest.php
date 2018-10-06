@@ -3,8 +3,8 @@ require __DIR__ .'/../../vendor/autoload.php';
 /**
  * @covers index::Welcome
  */
-use PHPUnit\Framework\TestCase;
-class WelcomeTest extends TestCase
+
+class WelcomeTest extends \PHPUnit_Framework_TestCase
 {
     public function testExpect1()
     {

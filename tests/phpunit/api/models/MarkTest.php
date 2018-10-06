@@ -6,7 +6,7 @@
  * Time: 11:36 PM
  */
 
-
+require __DIR__ .'/../../../../vendor/autoload.php';
 class MarkTest extends PHPUnit_Framework_TestCase
 {
 

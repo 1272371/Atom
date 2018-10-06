@@ -9,7 +9,7 @@
 namespace general;
 
 use Errors;
-
+require __DIR__ .'/../../../../api/autoload.php';
 class ErrorsTest extends \PHPUnit_Framework_TestCase
 {
 
