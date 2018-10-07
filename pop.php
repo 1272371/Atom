@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1018-IAP-2016.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1018-IAP-2017.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -19,17 +19,21 @@
             $mark3 = (double) chop($column[3]);
             $mark4 = (double) chop($column[4]);
             $mark5 = (double) chop($column[5]);
+            $mark6 = (double) chop($column[6]);
+            $mark7 = (double) chop($column[7]);
 
 
             $query = 'INSERT INTO
             mark
             (mark_total, user_id, assessment_id)
             VALUES
-            (' . $mark1 . ', ' . $id . ', 27),
-            (' . $mark2 . ', ' . $id . ', 28),
-            (' . $mark3 . ', ' . $id . ', 29),
-            (' . $mark4 . ', ' . $id . ', 30),
-            (' . $mark5 . ', ' . $id . ', 31)';
+            (' . $mark1 . ', ' . $id . ', 32),
+            (' . $mark2 . ', ' . $id . ', 33),
+            (' . $mark3 . ', ' . $id . ', 34),
+            (' . $mark4 . ', ' . $id . ', 35),
+            (' . $mark5 . ', ' . $id . ', 36),
+            (' . $mark6 . ', ' . $id . ', 37),
+            (' . $mark7 . ', ' . $id . ', 38)';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
