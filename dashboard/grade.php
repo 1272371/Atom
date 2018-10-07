@@ -97,8 +97,8 @@
                 </ul>
                 </div>
 
-                <div class="dropdown" style="padding-left:10px;padding-top:10px">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
+                <div class="dropdown" style="float:left;padding-left:10px;padding-top:10px" >
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Year
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" id="dates">

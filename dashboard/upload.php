@@ -99,41 +99,50 @@
 
                         <div class="header">
                                 <h4 class="title">Configurations</h4>
-                            </div>
+                        </div>
 
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Assignment Type
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="dates">
-                           <?php
-                                include_once( 'gradeTest.php');
-                                echo TestingGrade::listDates();
-                            ?>
-                        </ul>
+                        <div style="margin:10px">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Assignment Type
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="dates">
+                               <?php
+                                    include_once( 'gradeTest.php');
+                                    echo TestingGrade::listDates();
+                                ?>
+                            </ul>
 
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Course
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="dates">
-                           <?php
-                                include_once( 'gradeTest.php');
-                                echo TestingGrade::listDates();
-                            ?>
-                        </ul>
+                            <input  placeholder="Name of Assignmnet" id="name" type="text" class="form-control" style="width:40%;float: right;">
+                        </div>
 
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Medium Lookup
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="dates">
-                           <?php
-                                include_once( 'gradeTest.php');
-                                echo TestingGrade::listDates();
-                            ?>
-                        </ul>
+                        <div style="margin:10px">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Course
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="dates">
+                               <?php
+                                    include_once( 'gradeTest.php');
+                                    echo TestingGrade::listDates();
+                                ?>
+                            </ul>
 
-                        <textarea id="name">Name of Assignment</textarea>
-                        <textarea id="weight">Weight</textarea>
-                        <textarea id="total">Total</textarea>
+                            <input  placeholder="Assignment Weight" id="weight" type="text" class="form-control" style="width:40%;float: right;">
+                        </div>
+
+                        <div style="margin:10px">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Medium Lookup
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="dates">
+                               <?php
+                                    include_once( 'gradeTest.php');
+                                    echo TestingGrade::listDates();
+                                ?>
+                            </ul>
+
+                            <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;">
+                        </div>
+
                     </div>
                     </div>
 
