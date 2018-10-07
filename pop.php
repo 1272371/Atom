@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1015-BCO-2015.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1015-BCO-2016.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -23,9 +23,9 @@
             mark
             (mark_total, user_id, assessment_id)
             VALUES
-            (' . $mark1 . ', ' . $id . ', 7),
-            (' . $mark2 . ', ' . $id . ', 8),
-            (' . $mark3 . ', ' . $id . ', 9)';
+            (' . $mark1 . ', ' . $id . ', 10),
+            (' . $mark2 . ', ' . $id . ', 11),
+            (' . $mark3 . ', ' . $id . ', 12)';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
