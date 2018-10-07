@@ -4,7 +4,7 @@
 
     if ($conn) {
 
-        $row = file('csv/COMS1018-IAP-2017.csv', FILE_SKIP_EMPTY_LINES);
+        $row = file('csv/COMS1018-IAP-2018.csv', FILE_SKIP_EMPTY_LINES);
         $length = count($row);
 
         for ($i = 1; $i < $length; $i++) {
@@ -27,13 +27,13 @@
             mark
             (mark_total, user_id, assessment_id)
             VALUES
-            (' . $mark1 . ', ' . $id . ', 32),
-            (' . $mark2 . ', ' . $id . ', 33),
-            (' . $mark3 . ', ' . $id . ', 34),
-            (' . $mark4 . ', ' . $id . ', 35),
-            (' . $mark5 . ', ' . $id . ', 36),
-            (' . $mark6 . ', ' . $id . ', 37),
-            (' . $mark7 . ', ' . $id . ', 38)';
+            (' . $mark1 . ', ' . $id . ', 39),
+            (' . $mark2 . ', ' . $id . ', 40),
+            (' . $mark3 . ', ' . $id . ', 41),
+            (' . $mark4 . ', ' . $id . ', 42),
+            (' . $mark5 . ', ' . $id . ', 43),
+            (' . $mark6 . ', ' . $id . ', 44),
+            (' . $mark7 . ', ' . $id . ', 45)';
 
             if ($conn->query($query)) {
                 echo 'success ' . $id . ' <br>';
