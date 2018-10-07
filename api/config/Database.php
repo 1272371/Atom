@@ -2,21 +2,27 @@
 
     class Database {
 
-        // database parameters
+        /**
+         * database parameters
+         * live variables
+         */
         private $host = 'localhost';
-        private $name = 'risk';
-        //private $user = 's815108';
-        private $user ="root";
-        //private $pass = 'random123';
-        private $pass = "";
-        private $conn;
+        private $name = 'd815108';
+        private $user = 's815108';
+        private $pass = 'random123';
 
         /**
-         * Database constructor.
+         * uncomment to connect locally
+         * then comment live variables
          */
-/**
-     * @param string $host
-     */
+        // private $host = 'localhost';
+        // private $name = 'risk';
+        // private $user = 'root';
+        // private $pass = '';
+
+        // database connection
+        private $conn;
+
         public function setHost(string $host): void
         {
             $this->host = $host;
@@ -32,16 +38,6 @@
             $this->pass = $pass;
             $this->conn = $conn;
         }
-        /**
-         * Database constructor.
-         * @param string $host
-         * @param string $name
-         * @param string $user
-         * @param string $pass
-         * @param $conn
-         */
-
-
         // connection function
         public function connect() {
             $this->conn = null;
