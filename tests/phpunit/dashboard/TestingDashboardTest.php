@@ -9,12 +9,11 @@
  * @covers dashboard.php
  * @covers Dashboard::getStudentMarks
  * @covers Dashboard::getStudentDetails
- * @covers grade
  */
 /**
  * @test
  */
-require __DIR__ .'/../../../vendor/autoload.php';
+require __DIR__ .'/../../../dashboard/autoload.php';
 class TestingDashboardTest extends PHPUnit_Framework_TestCase
 {
 
@@ -35,6 +34,7 @@ class TestingDashboardTest extends PHPUnit_Framework_TestCase
         $this->expectOutputString('pass');
         print 'pass';
     }
+
 
     public function testGetStudentDetails()
     {

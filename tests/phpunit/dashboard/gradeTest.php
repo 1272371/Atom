@@ -1,12 +1,20 @@
 <?php
 require __DIR__ .'/../../../dashboard/autoload.php';
 /**
- * @covers dashboard::listClasses
+ * @covers gradeTest::TestingGrade
  */
 class gradeTest extends PHPUnit_Framework_TestCase{
 
-    function buttonDropdown(){
+    function listClasses(){
         $this->expectOutputString('pass');
+        print 'pass';
+    }
+    function listDates(){
+    	$this->expectOutputString('pass');
+        print 'pass';
+    }
+    function getStudentList(){
+    	$this->expectOutputString('pass');
         print 'pass';
     }
     public function testExpect1()
