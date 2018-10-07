@@ -128,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="max-height: 400px;overflow:scroll">
+                    <div class="col-md-4" style="max-height: 360px;overflow:scroll">
                         <div class="card">
                             <div class="header">
                                 <div class="dropdown" style="padding-left:17px;padding-top:10px">
