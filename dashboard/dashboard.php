@@ -89,7 +89,7 @@
         </nav>
 
 
-        <div class="content">
+        <div class="content" style="background-color: white">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4" style="max-height: 400px;overflow:scroll">
