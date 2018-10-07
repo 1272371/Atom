@@ -1,5 +1,5 @@
 <?php
-require __DIR__ .'/../../../vendor/autoload.php';
+require __DIR__ .'/../../../dashboard/autoload.php';
 /**
  * @covers dashboard::listClasses
  */
