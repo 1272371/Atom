@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../img/favicon.png">
 
 
-    <title>Statistics</title>
+    <title>Upload</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -94,8 +94,8 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="card">
+                    <div class="col-md-6">
+                        <div class="card" style="height:291px">
 
                         <div class="header">
                                 <h4 class="title">Configurations</h4>
@@ -129,7 +129,7 @@
                             <input  placeholder="Assignment Weight" id="weight" type="text" class="form-control" style="width:40%;float: right;">
                         </div>
 
-                        <div style="margin:10px">
+                        <div style="margin:10px;padding-bottom: 10px">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Medium Lookup
                                 <span class="caret"></span>
                             </button>
@@ -146,7 +146,7 @@
                     </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="card">
 
                             <div class="header">
@@ -158,7 +158,7 @@
 
                                     background-color: #EEE;
                                     border: #999 5px dotted;
-                                    width: 290px;
+                                   
                                     height: 200px;
                                     padding: 8px;
                                     font-size: 18px;
@@ -183,7 +183,7 @@
                             <div class="content">
                                  <pre id="fileDisplayArea"></pre>
 
-                                <button id="UploadButton">Upload</button>
+                                <button type="button" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton">Upload</button>
                             </div>
                         </div>
                     </div>
