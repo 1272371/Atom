@@ -33,9 +33,11 @@ $(window).on('resize', function() {
         }
     }
 
+    Welcome();
+
 })();
 $(document).ready(function() {
-    Welcome();
+
 });
 
 /**
