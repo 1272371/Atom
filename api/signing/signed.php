@@ -23,7 +23,7 @@
 
             $token->getToken();
 
-            if ($this->ok) {
+            if ($token->ok) {
                 http_response_code(200);
                 echo json_encode(array('message' => 'success'));
             }
