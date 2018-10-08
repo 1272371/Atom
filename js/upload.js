@@ -1,15 +1,46 @@
 $(document).ready(function() {
 
     // file input
-    var fileInput = document.getElementById('file-input');
+    var input = document.getElementById('file-input');
 
-    fileInput.addEventListener('change', function(e) {
-        var file = fileInput.files[0];
-        readFile(file)
+    input.addEventListener('change', function(e) {
+
+        // get files
+        var file = input.files[0];
+
+        // display file name
+        var name = $('#file-input').val();
+        var name = name.split('\\');
+
+        $('#file-input-label').html(name[name.length - 1]);
+
+        // read file
+        readFile(file);
+
         document.getElementById('UploadButton').onclick = function () {readFile(file)};
     });
 
 });
+
+document.ondragover = function(event) {
+
+    $('body').css('background-color', '#000');
+}
+
+document.ondragleave = function(event) {
+    $('body').css('background-color', '#fff');
+}
+
+document.ondrop = function(event) {
+
+    event.preventDefault();
+
+    // get file
+    var file = event.dataTransfer.files[0];
+
+    // read file
+    readFile(file);
+}
 
 function drag_drop(event) {
     event.preventDefault();
