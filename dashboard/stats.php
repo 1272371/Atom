@@ -148,9 +148,12 @@
                     </div>
                 </div>
             </div>
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
         </div>
     </div>
+
 </div>
+
 
 
 </body>
@@ -164,14 +167,39 @@
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
+    <script src="../js/axios.js"></script>
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            demo.initChartist();
-        });
-    </script>
+      var  pass=0
+      var  fail=0
+      var course_id="<?php echo $_GET['course_id']; ?>";
+      console.log(course_id)
+          axios.get('../api/getgrades.php?course='+course_id+'').then(function(res){
+            this.pass=res.data.pass
+            this.fail=res.data.fail
+      })
 
+      $(document).ready(function(){
+          demo.initChartist();
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+              ['Pass',     pass],
+              ['Fail',      fail],
+            ]);
+
+            var options = {
+              title: 'Course Name'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+          }
+      });
+    </script>
 </html>
