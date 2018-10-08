@@ -117,7 +117,7 @@
             $statement = $this->conn->prepare($query);
 
             // bind id
-            $statement->bindParam(1, $this->user_id);
+            $statement->bindParam(1, $this->token);
 
             // execute query
             $this->ok = $statement->execute();
