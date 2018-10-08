@@ -2,8 +2,8 @@
 
     if ($_SERVER['REQUEST_METHOD']=='POST') {
         // headers
-        //header('Access-Control-Allow-Origin: *');
-        //header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
 
         if (isset($_COOKIE['atom_risk'])) {
 
