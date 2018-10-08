@@ -82,8 +82,12 @@
 
                 if (empty($_GET)){
                         $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
                     } else {
                         $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
                     }
                 
 
@@ -97,11 +101,13 @@
                 $result = mysqli_query($link, $query);
 
 
-                $query3 = "SELECT user_id FROM subject WHERE course_id =".$course_id ;
+                $query3 = "SELECT user_id,subject_enrollmentyear FROM subject WHERE course_id =".$course_id ;
                 $result3= mysqli_query($link, $query3);
                 $classItems = array();
                 while ($row3 = mysqli_fetch_array($result3)){
-                    $classItems[] = $row3['user_id'];
+                    if ($row3['subject_enrollmentyear'] == $date){
+                        $classItems[] = $row3['user_id'];
+                    }
                 }
                 
 
