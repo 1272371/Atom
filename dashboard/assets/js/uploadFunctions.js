@@ -1,17 +1,17 @@
 window.onload = function() {
     var fileInput = document.getElementById('fileInput');
     fileInput.addEventListener('change', function(e) {
-        var file = fileInput.files[0];
+        file = fileInput.files[0];
         preview(file)
-        document.getElementById('UploadButton').onclick = function () {preview(file)};
+
     });
-
+    document.getElementById('UploadButton').onclick = function () {Upload_to_db()};
 }
-
+var file;
 
 function drag_drop(event) {
     event.preventDefault();
-    var file = event.dataTransfer.files[0];
+    file = event.dataTransfer.files[0];
     preview(file);
 }
 
@@ -30,3 +30,4 @@ function preview(file){
         fileDisplayArea.innerText = "File not supported!";
     }
 }
+
