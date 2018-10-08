@@ -103,7 +103,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Statistics</a>
-                     <div class="dropdown" style="padding-left:10px;padding-top:10px;margin-bottom: 30px;">
+                     <div class="dropdown" style="padding-left:10px;padding-top:10px">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
                                     <span class="caret"></span>
                                 </button>
@@ -116,7 +116,19 @@
                                 ?>
 
                                 </ul>
-                </div>
+                        </div>
+
+                        <div class="dropdown" style="float:left;padding-left:10px" >
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Year
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="dates">
+                           <?php
+                                include_once( 'gradeTest.php');
+                                StatsTesting::listDates();
+                            ?>
+                        </ul>
+                        </div> 
             </div>
         </nav>
 
