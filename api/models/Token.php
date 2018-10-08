@@ -17,6 +17,7 @@
         // user constructor
         public function __construct($db) {
             $this->conn = $db;
+            $this->ok = false;
         }
 
         /**
@@ -119,12 +120,13 @@
             $statement->bindParam(1, $this->user_id);
 
             // execute query
-            $statement->execute();
+            $this->ok = $state->execute();
 
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-
-            // set properties
-            $this->token = $row['token'];
-            $this->user_password = $row['user_password'];
+            if ($this->ok) {
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                // set properties
+                $this->token = $row['token'];
+                $this->user_password = $row['user_password'];
+            }
         }
     }

@@ -1,9 +1,10 @@
 <?php
 
-    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // headers
-        //header('Access-Control-Allow-Origin: *');
-        //header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+
         if (isset($_COOKIE['atom_risk'])) {
 
             // include database files
@@ -18,15 +19,19 @@
             $token = new Token($db);
 
             // get token
-            $tokenString = sha1($_COOKIE['atom_risk']);
+            $token->token = sha1($_COOKIE['atom_risk']);
 
-            http_response_code(200);
-            echo json_encode(array('message' => $tokenString));
+            $token->getToken();
+
+            if ($this->ok) {
+                http_response_code(200);
+                echo json_encode(array('message' => 'success'));
+            }
         }
-        //else {
-          //  http_response_code(200);
-            //echo json_encode(array('message' => 'success'));
-        //}
+        else {
+            http_response_code(200);
+            echo json_encode(array('message' => 'fail'));
+        }
         /*
         // get id from url
         $token->user_id = isset($_POST['username']) ? $_POST['username'] : die();
@@ -51,10 +56,10 @@
             echo json_encode(array('message' => 'error'));
         }
         */
-    //}
-    //else {
+    }
+    else {
 
-      //  // bad request
-        //header("HTTP/1.0 400 Bad Request");
-        //http_response_code(400);
-    //}
+        // bad request
+        header("HTTP/1.0 400 Bad Request");
+        http_response_code(400);
+    }
