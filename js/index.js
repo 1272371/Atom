@@ -33,10 +33,11 @@ $(window).on('resize', function() {
         }
     }
 
-    Welcome();
-
 })();
 $(document).ready(function() {
+
+    // set title
+    Welcome();
 
 });
 
@@ -49,7 +50,20 @@ $('body,html').css('overflow-x','hidden');
  * functions
  */
 function Welcome() {
-    console.log('welcome');
+
+    $.ajax({
+        url : 'api/signing/signed.php', // url
+        method : 'POST', // method
+        dataType : 'JSON',
+        success : function(data) {
+            
+            if (data.message === 'success') {
+                // redirect to dashboard
+                window.location.href = 'dashboard/dashboard.php';
+            }
+        }
+    });
+
 }
 
 function SignIn(username, password) {

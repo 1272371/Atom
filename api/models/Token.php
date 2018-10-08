@@ -101,32 +101,46 @@
         public function getToken() {
 
             $query = 'SELECT
-                t.token,
-                u.user_password as user_password
+                t.user_id,
+                u.user_name as user_name,
+                utl.utl_name as user_type,
+                u.user_surname as user_surname
                 FROM
                 token t
                 LEFT JOIN
                 user u
                 ON
                 t.user_id = u.user_id
+                LEFT JOIN
+                user_type_lookup utl
+                ON
+                u.utl_id = utl.utl_id
                 WHERE
-                t.user_id = ?
+                t.token = ?
                 LIMIT 0, 1';
 
             // prepare query
             $statement = $this->conn->prepare($query);
 
             // bind id
-            $statement->bindParam(1, $this->user_id);
+            $statement->bindParam(1, $this->token);
 
             // execute query
-            $this->ok = $state->execute();
+            $statement->execute();
 
-            if ($this->ok) {
+            if ($statement && $statement->rowCount() > 0) {
+
+                // statement executed properly with results
+                $this->ok = true;
+
+                // database array
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
+
                 // set properties
-                $this->token = $row['token'];
-                $this->user_password = $row['user_password'];
+                $this->user_id = $row['user_id'];
+                $this->user_name = $row['user_name'];
+                $this->user_surname = $row['user_surname'];
+                $this->user_type = $row['user_type'];
             }
         }
     }

@@ -12,14 +12,14 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body style="overflow-x:hidden">
+<body>
     
     <!-- main container -->
     <div class="container-fluid"></div>
 
         <div class="row">
             <!-- side panel -->
-            <div class="col-lg-3 col-md-4 col-sm-4" style="background-color: #242424;">
+            <div id="side-nav-bar" class="col-lg-3 col-md-4 col-sm-4">
                 <!-- title -->
                 <div class="row">
                     <div class="col text-center mt-4">
@@ -50,13 +50,6 @@
                             id="upload-button">UPDATE</button>
                     </div>
                 </div>
-                <div class="row"> <!-- insert -->
-                    <div class="col text-center">
-                        <button class="btn btn-outline-secondary w-100 m-2 p-3"
-                            style="color: #fff; font-weight: 100" type="button" 
-                            id="insert-button">INSERT</button>
-                    </div>
-                </div>
                 <div class="row"> <!-- docs -->
                     <div class="col text-center">
                         <button class="btn btn-outline-secondary w-100 m-2 p-3"
@@ -71,6 +64,13 @@
                             id="insert-button">ARCHITECTURE</button>
                     </div>
                 </div>
+                <div class="row"> <!-- schema -->
+                    <div class="col text-center">
+                        <button class="btn btn-outline-secondary w-100 m-2 p-3"
+                            style="color: #fff; font-weight: 100" type="button" 
+                            id="insert-button">DATABASE</button>
+                    </div>
+                </div>
                 <div class="row"> <!-- exit -->
                     <div class="col text-center">
                         <button class="btn btn-outline-secondary w-100 m-2 p-3"
@@ -80,8 +80,8 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="ml-2" style="font-weight:100; color: #fff">
-                            >>> Signed in as, John Doe
+                        <p id="dev-id" class="ml-2" style="font-weight:100; color: #fff">
+                            >>>
                         </p>
                     </div>
                 </div>
@@ -98,5 +98,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/popper.min.js"></script>
+    <script src="js/console.js"></script>
 </body>
 </html>
