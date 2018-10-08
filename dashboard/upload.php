@@ -122,7 +122,7 @@
             </div>
         </nav>
 
-
+        <form action="Uploader.php" method="post">
         <div class="content" style="background-color: white">
             <div class="container-fluid">
                 <div class="row">
@@ -135,17 +135,17 @@
                         </div>
 
                         <div style="margin:10px">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Assignment Type
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%" name="Assignment_Type">Assignment Type
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                    TestingUpload::getAssignmentType();
                                 ?>
                             </ul>
 
-                            <input  placeholder="Name of Assignmnet" id="name" type="text" class="form-control" style="width:40%;float: right;">
+                            <input  placeholder="Name of Assignmnet" id="name" type="text" class="form-control" style="width:40%;float: right;" name="Name_of_Assignmnet">
                         </div>
 
                         <div style="margin:10px">
@@ -154,12 +154,13 @@
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                   TestingUpload::listClasses();
                                 ?>
                             </ul>
 
-                            <input  placeholder="Assignment Weight" id="weight" type="text" class="form-control" style="width:40%;float: right;">
+                            <input  placeholder="Assignment Weight" id="weight" type="text" class="form-control" style="width:40%;float: right;" name="Assignment_Weight">
+
                         </div>
 
                         <div style="margin:10px;padding-bottom: 10px">
@@ -168,12 +169,12 @@
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                    TestingUpload::getMedium();
                                 ?>
                             </ul>
 
-                            <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;">
+                            <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;" name="Total_Available_Marks">
                         </div>
 
                     </div>
@@ -214,8 +215,8 @@
                                 
                             </div>
                             <div class="content">
-                                <form action="Uploader.php" method="post">
-                                <textarea cols="140" rows="10" name="comment" id="fileDisplayArea" ><?php $comment;?></textarea>
+
+                                <textarea cols="140" rows="10" name="mark" id="fileDisplayArea" ><?php $mark;?></textarea>
                                 <input type="submit" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton"  value="Upload">
                                 </form>
 
