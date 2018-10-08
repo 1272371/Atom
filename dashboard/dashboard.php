@@ -35,6 +35,15 @@
                     <img src="assets/img/wits-logo.png">
                 </a>
             </div>
+            <?php
+                if (empty($_GET)){
+                        $course_id = "1";
+                         $student = "500594";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                    }
+            ?>
 
             <ul class="nav">
                 <li class="active">
@@ -45,16 +54,34 @@
                 </li>
                 
                 <li>
-                    <a href="grade.php">
-                        <i class="pe-7s-note2"></i>
-                        <p>Grade Book</p>
-                    </a>
+                    <?php
+                    if (empty($_GET)){
+                        $course_id = "1";
+                         $student = "500594";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                    }
+                    echo "<a href='grade.php?course_id=".$course_id."&student=".$student."'>";
+                    echo "<i class='pe-7s-note2'></i>";
+                    echo "<p>Grade Book</p>";
+                    echo "</a>";
+                    ?>
                 </li>
                 <li>
-                    <a href="stats.php">
-                        <i class="pe-7s-graph3"></i>
-                        <p>Statistics</p>
-                    </a>
+                    <?php
+                    if (empty($_GET)){
+                        $course_id = "1";
+                         $student = "500594";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                    }
+                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."'>";
+                    echo     "<i class='pe-7s-graph3'></i>";
+                    echo    "<p>Statistics</p>";
+                    echo "</a>";
+                    ?>
                 </li>
                 <li>
                     <a href="upload.php">
