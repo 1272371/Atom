@@ -140,8 +140,8 @@
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                    TestingUpload::getAssignmentType();
                                 ?>
                             </ul>
 
@@ -154,8 +154,8 @@
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                   TestingUpload::listClasses();
                                 ?>
                             </ul>
 
@@ -169,8 +169,8 @@
                             </button>
                             <ul class="dropdown-menu" id="dates">
                                <?php
-                                    include_once( 'gradeTest.php');
-                                    echo TestingGrade::listDates();
+                                    include_once( 'uploadTest.php');
+                                    TestingUpload::getMedium();
                                 ?>
                             </ul>
 
