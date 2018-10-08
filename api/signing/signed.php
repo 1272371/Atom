@@ -1,6 +1,6 @@
 <?php
 
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // headers
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');
@@ -23,6 +23,10 @@
 
             http_response_code(200);
             echo json_encode(array('message' => $tokenString));
+        }
+        else {
+            http_response_code(200);
+            echo json_encode(array('message' => 'success'));
         }
         /*
         // get id from url
