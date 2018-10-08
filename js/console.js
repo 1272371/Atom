@@ -30,7 +30,10 @@ function Welcome() {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                $('#dev-id').html('>>> Signed in as, ' + data.contents.user_name);
+                $('#dev-id').html(
+                    '>>> Signed in as, ' + 
+                    data.contents.user_name + ' ' +
+                    data.contents.user_surname + data.contents.user_type);
             }
         }
     });

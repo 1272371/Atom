@@ -103,6 +103,7 @@
             $query = 'SELECT
                 t.user_id,
                 u.user_name as user_name,
+                utl.utl_name as user_type,
                 u.user_surname as user_surname
                 FROM
                 token t
@@ -110,6 +111,10 @@
                 user u
                 ON
                 t.user_id = u.user_id
+                LEFT JOIN
+                user_type_lookup utl
+                ON
+                u.utl_id = utl.utl_id
                 WHERE
                 t.token = ?
                 LIMIT 0, 1';
@@ -135,6 +140,7 @@
                 $this->user_id = $row['user_id'];
                 $this->user_name = $row['user_name'];
                 $this->user_surname = $row['user_surname'];
+                $this->user_type = $row['user_type'];
             }
         }
     }

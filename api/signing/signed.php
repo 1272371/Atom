@@ -34,7 +34,8 @@
                 $tokenArray['contents'] = array(
                     'user_id' => $token->user_id,
                     'user_name' => $token->user_name,
-                    'user_surname' => $token->user_surname
+                    'user_surname' => $token->user_surname,
+                    'user_type' => $token->user_type
                 );
 
                 echo json_encode($tokenArray);
