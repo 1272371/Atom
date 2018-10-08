@@ -1,10 +1,10 @@
 <?php
 
-    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // headers
-        //header('Access-Control-Allow-Origin: *');
-        //header('Content-Type: application/json');
-        echo $_COOKIE['atom_risk'];
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
+
         if (isset($_COOKIE['atom_risk'])) {
 
             // include database files
@@ -24,10 +24,10 @@
             http_response_code(200);
             echo json_encode(array('message' => $tokenString));
         }
-        //else {
-          //  http_response_code(200);
-            //echo json_encode(array('message' => 'success'));
-        //}
+        else {
+            http_response_code(200);
+            echo json_encode(array('message' => 'success'));
+        }
         /*
         // get id from url
         $token->user_id = isset($_POST['username']) ? $_POST['username'] : die();
@@ -52,10 +52,10 @@
             echo json_encode(array('message' => 'error'));
         }
         */
-    //}
-    //else {
+    }
+    else {
 
-      //  // bad request
-        //header("HTTP/1.0 400 Bad Request");
-        //http_response_code(400);
-    //}
+        // bad request
+        header("HTTP/1.0 400 Bad Request");
+        http_response_code(400);
+    }

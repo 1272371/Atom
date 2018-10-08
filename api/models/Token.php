@@ -72,8 +72,8 @@
                         token = :token,
                         user_id = :user_id';
 
-                    setcookie('atom_risk', $token, time() + 60 * 60 * 24 * 7, '/', null, false, false);
-                    setcookie('risk_snid', '1', time()+ 60 * 60 * 24 * 3, '/', null, false, false);
+                    setcookie('atom_risk', $token, time() + 60 * 60 * 24 * 7, '/', null, false, true);
+                    setcookie('risk_snid', '1', time()+ 60 * 60 * 24 * 3, '/', null, false, true);
 
                     // prepare statement
                     $state = $this->conn->prepare($tokenQuery);
