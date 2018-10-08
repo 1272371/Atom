@@ -25,7 +25,11 @@
 
             if ($token->ok) {
                 http_response_code(200);
-                echo json_encode(array('message' => 'success'));
+
+                echo json_encode(array(
+                    'message' => 'success',
+                    'username' => $token->user_name
+                ));
             }
         }
         else {

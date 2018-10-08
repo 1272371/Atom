@@ -56,7 +56,7 @@ function Welcome() {
         method : 'POST', // method
         dataType : 'JSON',
         success : function(data) {
-            console.log(data.message);
+            console.log(data.username);
         },
         error : function(xhr) {
             console.log(xhr.responseText);

@@ -101,8 +101,8 @@
         public function getToken() {
 
             $query = 'SELECT
-                t.token,
-                u.user_password as user_password
+                t.user_id,
+                u.user_name as user_name
                 FROM
                 token t
                 LEFT JOIN
@@ -110,7 +110,7 @@
                 ON
                 t.user_id = u.user_id
                 WHERE
-                t.user_id = ?
+                t.token = ?
                 LIMIT 0, 1';
 
             // prepare query
@@ -125,8 +125,8 @@
             if ($this->ok) {
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 // set properties
-                $this->token = $row['token'];
-                $this->user_password = $row['user_password'];
+                $this->user_id = $row['user_id'];
+                $this->user_name = $row['user_name'];
             }
         }
     }
