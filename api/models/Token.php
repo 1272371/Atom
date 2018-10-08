@@ -120,7 +120,7 @@
             $statement->bindParam(1, $this->user_id);
 
             // execute query
-            $this->ok = $state->execute();
+            $this->ok = $statement->execute();
 
             if ($this->ok) {
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
