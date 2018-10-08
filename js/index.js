@@ -42,7 +42,7 @@ $(document).ready(function() {
         method : 'POST', // method
         dataType : 'JSON',
         success : function(data) {
-
+            console.log(data.message);
         }
     });
 

@@ -21,7 +21,8 @@
             // get token
             $tokenString = sha1($_COOKIE['atom_risk']);
 
-            echo $tokenString;
+            http_response_code(200);
+            echo json_encode(array('message' => $tokenString));
         }
         /*
         // get id from url
