@@ -35,15 +35,7 @@
                     <img src="assets/img/wits-logo.png">
                 </a>
             </div>
-            <?php
-                if (empty($_GET)){
-                        $course_id = "1";
-                         $student = "500594";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                    }
-            ?>
+            
 
             <ul class="nav">
                 <li class="active">
@@ -57,12 +49,14 @@
                     <?php
                     if (empty($_GET)){
                         $course_id = "1";
-                         $student = "500594";
+                        $student = "500594";
+                        $date = "2018";
                     } else {
                         $course_id = $_GET['course_id'];
                         $student = $_GET['student'];
+                        $date = $_GET['date'];
                     }
-                    echo "<a href='grade.php?course_id=".$course_id."&student=".$student."'>";
+                    echo "<a href='grade.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo "<i class='pe-7s-note2'></i>";
                     echo "<p>Grade Book</p>";
                     echo "</a>";
@@ -72,22 +66,36 @@
                     <?php
                     if (empty($_GET)){
                         $course_id = "1";
-                         $student = "500594";
+                        $student = "500594";
+                        $date = "2018";
                     } else {
                         $course_id = $_GET['course_id'];
                         $student = $_GET['student'];
+                        $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."'>";
+                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
                     ?>
                 </li>
                 <li>
-                    <a href="upload.php">
-                        <i class="pe-7s-cloud-upload"></i>
-                        <p>Upload Marks</p>
-                    </a>
+                    <?php
+                    if (empty($_GET)){
+                        $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
+                    }
+
+                    echo "<a href='upload.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
+                    echo     "<i class='pe-7s-cloud-upload'></i>";
+                    echo     "<p>Upload Marks</p>";
+                    echo "</a>";
+                    ?>
                 </li>
                 <li>
                     <a href="#">
