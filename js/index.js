@@ -36,6 +36,8 @@ $(window).on('resize', function() {
 })();
 $(document).ready(function() {
 
+    console.log('ready');
+
     // set title to user
     $.ajax({
         url : 'api/signing/signed.php', // url

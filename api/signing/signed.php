@@ -1,6 +1,6 @@
 <?php
 
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
+    //if ($_SERVER['REQUEST_METHOD']=='POST') {
         // headers
         //header('Access-Control-Allow-Origin: *');
         //header('Content-Type: application/json');
@@ -48,10 +48,10 @@
             echo json_encode(array('message' => 'error'));
         }
         */
-    }
-    else {
+    //}
+    //else {
 
         // bad request
-        header("HTTP/1.0 400 Bad Request");
-        http_response_code(400);
-    }
+      //  header("HTTP/1.0 400 Bad Request");
+        //http_response_code(400);
+    //}
