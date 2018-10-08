@@ -25,6 +25,12 @@ function SignIn(username, password) {
             else if (data.message === 'error') {
                 ResponseModal('Incorrect username or password, please try again');
             }
+        },
+        error : function(xhr, data, errorThrown) {
+            console.log('something went wrong');
+            console.log(xhr);
+            console.log(data);
+            console.log(errorThrown);
         }
     });
 }
