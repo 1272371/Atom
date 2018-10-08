@@ -39,17 +39,8 @@
         }
     }
     else {
-        include_once '../general/Error.php';
-
-        // instantiate error object
-        $error = new Errors();
 
         // bad request
         header("HTTP/1.0 400 Bad Request");
         http_response_code(400);
-        $response = 'The server cannot or will not process the request due to an apparent client error </br> ' .
-        '(e.g., malformed request syntax, size too large, invalid request message framing, or deceptive request routing).';
-        $string = $error->getErrorPage(400, 'Bad Request', $response);
-
-        echo $string;
     }
