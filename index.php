@@ -53,7 +53,7 @@
     <div class="container-fluid mt-5">
         <div class="row jumbotron">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                <h1 style="font-size:5rem;">teach, learn, collaborate</h1>
+                <h1 id="jumbotron-heading" style="font-size:5rem;">teach, learn, collaborate</h1>
                 <p class="lead">
                     Wits-e is an open source, interoperable, enterprise ready platform for e-learning
                     and collaboration at Wits. It is built on Sakai.
