@@ -13,6 +13,12 @@
         <testsuite name="tests">
             <directory suffix="Test.php">./tests/phpunit/</directory>
         </testsuite>
+	<testsuite name="gradeTest">
+		<file>./tests/phpunit/dashboard/gradeTest.php</file>
+	</testsuite>
+	<testsuite name="dashboardTest">
+		<file>./tests/phpunit/dashboard/TestingDashboardTest.php</file>
+	</testsuite>
     </testsuites>
      <logging>
         <log type="coverage-clover" target="clover.xml"/>

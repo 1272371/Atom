@@ -12,10 +12,13 @@
     "ext-dom":"*",
     "ext-xmlwriter":"*"
   },
+  "require": {
+        "php": ">=5.0.0"
+    },
   "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",
         "phpunit/phpunit": "3.7.*",
-    "phpunit/dbunit":"*"
+        "phpunit/dbunit":"*"
 
     },
     "autoload": {
@@ -27,7 +30,8 @@
           "signing":"api/",
           "users":"api/",
           "gradeTest":"dashboard/",
-          "dashboard":"dashboard/",
+          "dashboardTest":"dashboard/",
+          "statsTest":"dashboard/",
           "Population":"php/"
         }
     },
