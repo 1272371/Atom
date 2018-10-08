@@ -4,7 +4,6 @@
         // headers
         //header('Access-Control-Allow-Origin: *');
         //header('Content-Type: application/json');
-        echo $_COOKIE['atom_risk'];
         if (isset($_COOKIE['atom_risk'])) {
 
             // include database files

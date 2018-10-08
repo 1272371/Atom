@@ -43,6 +43,9 @@ $(document).ready(function() {
         dataType : 'JSON',
         success : function(data) {
             console.log(data.message);
+        },
+        error : function(xhr) {
+            console.log(xhr.responseText);
         }
     });
 
