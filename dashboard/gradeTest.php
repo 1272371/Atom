@@ -58,6 +58,14 @@
 
         public function listClasses(){
 
+            if (empty($_GET)){
+                        $course_id = "1";
+                         $student = "500594";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                    }
+
             $link = mysqli_connect("localhost","root","", "risk");
 
             if (mysqli_connect_error()){
@@ -69,7 +77,7 @@
             $result2= mysqli_query($link, $query2);
 
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='grade.php?course_id=".$row2['course_id']."'>".$row2['course_code']."</a></li>";
+                echo "<li><a href='grade.php?course_id=".$row2['course_id']."&student=".$student."'>".$row2['course_code']."</a></li>";
             }
         }
 
@@ -81,17 +89,19 @@
             }
 
             if (empty($_GET)){
-                    $course_id = "1";
-                } else {
-                    $course_id = $_GET['course_id'];
-                }
+                        $course_id = "1";
+                        $student = "500594";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                    }
 
             $query4 = "SELECT DISTINCT subject_enrollmentyear FROM subject";
             
             $result4= mysqli_query($link, $query4);
 
             while ($row4 = mysqli_fetch_array($result4)) {
-                echo "<li><a href='grade.php?course_id=$course_id&date=".$row4['subject_enrollmentyear']."'>".$row4['subject_enrollmentyear']."</a></li>";
+                echo "<li><a href='grade.php?course_id=$course_id&student=$student&date=".$row4['subject_enrollmentyear']."'>".$row4['subject_enrollmentyear']."</a></li>";
             }
 
         }
