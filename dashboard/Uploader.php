@@ -6,7 +6,9 @@
  * Time: 16:31
  */
 
-$comment = $_POST['comment'];
-echo $comment;
+$mark = $_POST['mark'];
+$weight = $_POST['Assignment_Weight'];
+$name = $_POST['Name_of_Assignmnet'];
+$tot = $_POST['Total_Available_Marks'];
 
 ?>
