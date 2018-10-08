@@ -214,9 +214,11 @@
                                 
                             </div>
                             <div class="content">
-                                 <pre id="fileDisplayArea"></pre>
+                                <form action="Uploader.php" method="post">
+                                <textarea cols="140" rows="10" name="comment" id="fileDisplayArea" ><?php $comment;?></textarea>
+                                <input type="submit" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton"  value="Upload">
+                                </form>
 
-                                <button type="button" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton">Upload</button>
                             </div>
                         </div>
                     </div>
@@ -228,7 +230,7 @@
 
 
 </body>
-
+    <script src="C:\xampp\htdocs\java\src\testing.php"></script>
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
