@@ -1,3 +1,42 @@
+<?php
+    include("DB.php");
+
+    $grades=DB::query("SELECT m.user_id, u.user_name as user_name, u.user_surname as user_surname, m.assessment_id, a.assessment_weight as assessment_weight, a.assessment_total as assessment_total, a.assessment_date as assessment_date, a.assessment_name as assessment_name, m.mark_total, a.course_id as course_id, c.course_name as course_name from mark m left join assessment a on m.assessment_id=a.assessment_id left join user u on m.user_id=u.user_id left join course c on a.course_id=c.course_id ORDER BY m.user_id ASC");
+       //echo json_encode($grades);
+       $pass=0;
+       $fail=0;
+       $count=0;
+       $total=0;
+       $course_id=$_GET['course_id'];
+       //echo $course_id;
+       foreach ($grades as $g) 
+       {
+            if($g['course_id']==$course_id)
+            {
+                $course_name=$g['course_name'];
+                if($count<3)
+                {
+                    $total=$total+$g['assessment_total'];
+                    $count=$count+1;
+                }
+                if($count==3)
+                {
+                    $mark=($total/300)*100;
+                    if($mark<50)
+                    {
+                        $fail=$fail+1;
+                    }
+                    else
+                    {
+                        $pass=$pass+1;
+                    }
+                    $count=0;
+                    $total=0;
+                }
+            } 
+
+       }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,38 +78,16 @@
 
             <ul class="nav">
                 <li>
-                	<?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-                    echo "<a href='dashboard.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo    "<i class='pe-7s-graph'></i>";
-                    echo     "<p>Dashboard</p>";
-                    echo "</a>";
-                    ?>
+                    <a href="dashboard.php">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
                 </li>
                 <li>
-                	<?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-                    echo "<a href='grade.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo "<i class='pe-7s-note2'></i>";
-                    echo "<p>Grade Book</p>";
-                    echo "</a>";
-                    ?>
+                    <a href="grade.php">
+                        <i class="pe-7s-note2"></i>
+                        <p>Grade Book</p>
+                    </a>
                 </li>
                 
                 <li class="active">
@@ -80,22 +97,10 @@
                     </a>
                 </li>
                 <li>
-                    <?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-
-                    echo "<a href='upload.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo     "<i class='pe-7s-cloud-upload'></i>";
-                    echo     "<p>Upload Marks</p>";
-                    echo "</a>";
-                    ?>
+                    <a href="upload.php">
+                        <i class="pe-7s-cloud-upload"></i>
+                        <p>Upload</p>
+                    </a>
                 </li>
                 <li>
                     <a href="#">
@@ -119,7 +124,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Statistics</a>
-                     <div class="dropdown" style="padding-left:10px;padding-top:10px">
+                     <div class="dropdown" style="padding-left:10px;padding-top:10px;margin-bottom: 30px;">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Class
                                     <span class="caret"></span>
                                 </button>
@@ -132,24 +137,13 @@
                                 ?>
 
                                 </ul>
-                        </div>
-
-                        <div class="dropdown" style="float:left;padding-left:10px" >
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Year
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="dates">
-                           <?php
-                                include_once( 'gradeTest.php');
-                                StatsTesting::listDates();
-                            ?>
-                        </ul>
-                        </div> 
+                </div>
             </div>
         </nav>
 
 
         <div class="content" style="background-color: white">
+            <!--
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
@@ -194,6 +188,7 @@
                     </div>
                 </div>
             </div>
+            -->
             <div id="piechart" style="width: 900px; height: 500px;"></div>
         </div>
     </div>
@@ -218,30 +213,33 @@
     <script src="assets/js/demo.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      var  pass=0
-      var  fail=0
-      var course_id="<?php echo $_GET['course_id']; ?>";
-      console.log(course_id)
+      var  pass="<?php echo $pass; ?>"
+      var  fail="<?php echo $fail; ?>"
+      pass=Math.floor(parseInt(pass)/3)
+      fail=Math.floor(parseInt(fail)/3)
+      console.log(pass)
+      console.log(fail)
+      /*
           axios.get('../api/getgrades.php?course='+course_id+'').then(function(res){
             this.pass=res.data.pass
             this.fail=res.data.fail
       })
-
+       */
       $(document).ready(function(){
           demo.initChartist();
           google.charts.load('current', {'packages':['corechart']});
           google.charts.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Task', 'Hours per Day'],
-              ['Pass',     pass],
-              ['Fail',      fail],
+              ['Task','Pass vs Fail'],  
+              ['Pass',fail],
+              ['Fail',pass]
             ]);
 
             var options = {
-              title: 'Course Name'
+              title: '<?php echo $course_name; ?>'
             };
-
+            console.log(data)
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
             chart.draw(data, options);
