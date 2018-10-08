@@ -102,7 +102,8 @@
 
             $query = 'SELECT
                 t.user_id,
-                u.user_name as user_name
+                u.user_name as user_name,
+                u.user_surname as user_surname
                 FROM
                 token t
                 LEFT JOIN
@@ -120,13 +121,20 @@
             $statement->bindParam(1, $this->token);
 
             // execute query
-            $this->ok = $statement->execute();
+            $statement->execute();
 
-            if ($this->ok) {
+            if ($statement && $statement->rowCount() > 0) {
+
+                // statement executed properly with results
+                $this->ok = true;
+
+                // database array
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
+
                 // set properties
                 $this->user_id = $row['user_id'];
                 $this->user_name = $row['user_name'];
+                $this->user_surname = $row['user_surname'];
             }
         }
     }

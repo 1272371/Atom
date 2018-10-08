@@ -26,10 +26,18 @@
             if ($token->ok) {
                 http_response_code(200);
 
-                echo json_encode(array(
-                    'message' => 'success',
-                    'username' => $token->user_name
-                ));
+                $tokenArray = array(
+                    'name' => 'Token',
+                    'description' => 'Gets a user from database based on cookie in browser',
+                    'message' => 'success'
+                );
+                $tokenArray['contents'] = array(
+                    'user_id' => $token->user_id,
+                    'user_name' => $token->user_name,
+                    'user_surname' => $token->user_surname
+                );
+
+                echo json_encode($tokenArray);
             }
         }
         else {
