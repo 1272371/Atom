@@ -1,4 +1,54 @@
 /**
+ * functions running continuously
+ */
+$(window).on('resize', function() {
+
+    if ($(window).width() < 460) {
+        // set word collaboration to collab
+        $('#jumbotron-heading').html('teach, learn, collabo');
+    }
+    else {
+        // set word collaboration to collab
+        $('#jumbotron-heading').html('teach, learn, collaborate');
+    }
+
+});
+
+/**
+ * function runs immediately
+ */
+(function() {
+
+    // checks if we're on mobile
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+        // set word collaboration to collab
+        $('#jumbotron-heading').html('teach, learn, collabo');
+
+    }
+    else {
+        if ($(window).width() < 460) {
+            // set word collaboration to collab
+            $('#jumbotron-heading').html('teach, learn, collabo');
+        }
+    }
+
+})();
+$(document).ready(function() {
+
+    // set title to user
+    $.ajax({
+        url : 'api/signing/signed.php', // url
+        method : 'POST', // method
+        dataType : 'JSON',
+        success : function(data) {
+            console.log(data.message);
+        }
+    });
+
+});
+
+/**
  * cosmetics
  */
 $('body,html').css('overflow-x','hidden');
@@ -12,10 +62,10 @@ function SignIn(username, password) {
     var password = $('#password').val();
 
     $.ajax({
-        url : "api/signing/login.php", // url
-        method : "POST", // method
+        url : 'api/signing/login.php', // url
+        method : 'POST', // method
         data:{username : username, password : password},
-        dataType : "JSON",
+        dataType : 'JSON',
         success : function(data) {
             
             if (data.message === 'success') {
