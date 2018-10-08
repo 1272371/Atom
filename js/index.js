@@ -35,14 +35,14 @@ $(window).on('resize', function() {
 
 })();
 $(document).ready(function() {
-
+    console.log('ready');
     // set title to user
     $.ajax({
         url : 'api/signing/signed.php', // url
         method : 'POST', // method
         dataType : 'JSON',
         success : function(data) {
-            console.log(data.message);
+            console.log(data);
         },
         error : function(xhr) {
             console.log(xhr.responseText);
