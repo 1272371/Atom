@@ -6,8 +6,8 @@
  * Time: 9:00 PM
  */
 
-require_once __DIR__ .'/../../../../api/autoload.php';
-class TestingGradeTest extends PHPUnit_Framework_TestCase
+require_once __DIR__ .'/../../../api/autoload.php';
+class TestingGradeTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @covers TestingGrade::getStudentList

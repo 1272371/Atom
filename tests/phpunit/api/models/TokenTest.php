@@ -5,8 +5,8 @@
  * Date: 2018/10/03
  * Time: 11:37 PM
  */
-require __DIR__ .'/../../../../vendor/autoload.php';
-class TokenTest extends PHPUnit_Framework_TestCase
+require __DIR__ .'/../../../../api/autoload.php';
+class TokenTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @covers Token::setToken

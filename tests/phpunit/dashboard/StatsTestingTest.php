@@ -6,8 +6,8 @@
  * Time: 2:24 PM
  */
 
-require_once __DIR__ .'/../../../../api/autoload.php';
-class StatsTestingTest extends PHPUnit_Framework_TestCase
+require_once __DIR__ .'/../../../api/autoload.php';
+class StatsTestingTest extends PHPUnit\Framework\TestCase
 {
 
     /**

@@ -6,8 +6,8 @@
  * Time: 11:36 PM
  */
 
-require __DIR__ .'/../../../../vendor/autoload.php';
-class MarkTest extends PHPUnit_Framework_TestCase
+require __DIR__ .'/../../../../api/autoload.php';
+class MarkTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers Mark::get

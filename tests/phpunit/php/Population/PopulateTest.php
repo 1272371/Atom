@@ -7,9 +7,7 @@
  */
 
 require_once __DIR__ .'/../../../../api/autoload.php';
-
-require_once 'PHPUnit/Autoload.php';
-class PopulateTest extends PHPUnit_Framework_TestCase
+class PopulateTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @covers Populate::getRandomRowIndex
