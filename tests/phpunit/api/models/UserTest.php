@@ -8,17 +8,23 @@
 require __DIR__ .'/../../../../vendor/autoload.php';
 class UserTest extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * @covers User::getUser
+     */
     public function testGetUser()
     {
 
     }
-
+    /**
+     * @covers User::get
+     */
     public function testGet()
     {
 
     }
-
+    /**
+     * @covers User
+     */
     public function test__construct()
     {
 

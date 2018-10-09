@@ -2,41 +2,32 @@
 /**
  * Created by PhpStorm.
  * User: root
- * Date: 2018/10/03
- * Time: 11:29 PM
+ * Date: 2018/10/07
+ * Time: 9:00 PM
  */
 
-require __DIR__ .'/../../../dashboard/autoload.php';
+require_once __DIR__ .'/../../../../api/autoload.php';
 class TestingGradeTest extends PHPUnit_Framework_TestCase
 {
-
-    function listClasses(){
-        $this->expectOutputString('pass');
-        print 'pass';
-    }
-    function listDates(){
-    	$this->expectOutputString('pass');
-        print 'pass';
-    }
-    function getStudentList(){
-    	$this->expectOutputString('pass');
-        print 'pass';
-    }
-    public function testExpect1()
+    /**
+     * @covers TestingGrade::getStudentList
+     */
+    public function testGetStudentList()
     {
-        $this->expectOutputString('pass');
-        print 'pass';
-    }
 
-    public function testExpect2()
-    {
-        $this->expectOutputString('fail');
-        print 'fail';
     }
-
-    public function testExpect3()
+    /**
+     * @covers TestingGrade::listDates
+     */
+    public function testListDates()
     {
-        $this->expectOutputString('pass');
-        print 'pass';
+
+    }
+    /**
+     * @covers TestingGrade::listClasses
+     */
+    public function testListClasses()
+    {
+
     }
 }
