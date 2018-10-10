@@ -50,7 +50,7 @@
                         .card:hover{
                             width: 105%;
                             height: 105%;
-                            border: 2px solid ;
+                            border: 5px solid red;
                         }
                     </style>
                     
