@@ -31,7 +31,7 @@
 <body>
 
 <div style="background-color: white">
-    <div  style="background-color: white">
+    <div  style="background-color: #003b5c">
         <nav class="navbar navbar-default navbar-fixed" >
             <div class="container-fluid" >
                 <div class="navbar-header" align="center" >
@@ -42,7 +42,7 @@
         </nav>
 
 
-        <div class="content" style="background-color: white;">
+        <div class="content" style="background-color: #003b5c;">
             <div class="container-fluid">
                 <div class="row">
 
