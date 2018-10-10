@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card" style="height: 300px">
+                        <div  style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title"></h4>
                                 
@@ -131,7 +131,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Logout</h4>
-                                <a href="#">
+                                <a href="../index.php">
                                     <img style="height:250px" src="../img/logout.svg">
                                 </a> 
                             </div>

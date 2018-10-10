@@ -97,7 +97,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <i class="pe-7s-power"></i>
                         <p>Logout</p>
                     </a>
