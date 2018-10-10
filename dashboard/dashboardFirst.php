@@ -30,11 +30,10 @@
 
 <div style="background-color: white">
     <div  style="background-color: white">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Dashboard</a>
-                   
+        <nav class="navbar navbar-default navbar-fixed" >
+            <div class="container-fluid" >
+                <div class="navbar-header" align="center">
+                    <h3>Welcome to the Student Risk Analysis Dashboard</h3>
                 </div>
                 
             </div>
@@ -45,11 +44,13 @@
             <div class="container-fluid">
                 <div class="row">
                     
-                    <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                    <div class="col-md-4" style="max-height:300px">
+                        <div class="card" style="height: 300px;">
+                            <div class="header" align="center">
                                 <h4 class="title">Home</h4>
+                                <img style="height:250px" src="../img/web-page-home.svg">
                                 
+
                             </div>
                             <div class="content">
                                 
@@ -59,8 +60,8 @@
                     </div>
                     
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                        <div class="card" style="height: 300px">
+                            <div class="header" align="center">
                                 <h4 class="title">Grade Book</h4>
                                 
                             </div>
@@ -72,8 +73,8 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                        <div class="card" style="height: 300px">
+                            <div class="header" align="center">
                                 <h4 class="title">Statistics</h4>
                                 
                             </div>
@@ -85,8 +86,8 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                        <div class="card" style="height: 300px">
+                            <div class="header" align="center">
                                 <h4 class="title">Upload Marks</h4>
                                 
                             </div>
@@ -98,8 +99,8 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                        <div class="card" style="height: 300px">
+                            <div class="header" align="center">
                                 <h4 class="title"></h4>
                                 
                             </div>
@@ -111,8 +112,8 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 30%;">
-                            <div class="header">
+                        <div class="card" style="height: 300px">
+                            <div class="header" align="center">
                                 <h4 class="title">Logout</h4>
                                 
                             </div>
