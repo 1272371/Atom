@@ -19,10 +19,11 @@
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
 
-    <!--     Fonts and icons     -->
+    <!--     Fonts and icons     
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+-->
 
 </head>
 <body>
@@ -33,6 +34,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Dashboard</a>
+                   
                 </div>
                 
             </div>
@@ -44,9 +46,9 @@
                 <div class="row">
                     
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title">Home</h4>
                                 
                             </div>
                             <div class="content">
@@ -57,9 +59,9 @@
                     </div>
                     
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title">Grade Book</h4>
                                 
                             </div>
                             <div class="content">
@@ -70,9 +72,9 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title">Statistics</h4>
                                 
                             </div>
                             <div class="content">
@@ -83,9 +85,9 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title">Upload Marks</h4>
                                 
                             </div>
                             <div class="content">
@@ -96,9 +98,9 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title"></h4>
                                 
                             </div>
                             <div class="content">
@@ -109,9 +111,9 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card card-user" style="height: 300px;">
+                        <div class="card card-user" style="height: 30%;">
                             <div class="header">
-                                <h4 class="title">Card</h4>
+                                <h4 class="title">Logout</h4>
                                 
                             </div>
                             <div class="content">
