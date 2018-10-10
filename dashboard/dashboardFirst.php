@@ -59,7 +59,7 @@
                             <div class="header" align="center">
                                 <h4 class="title">Home</h4>
                                 <a href="dashboard.php">
-                                    <img style="height:250px" src="../img/house.svg">
+                                    <img style="height:230px" src="../img/house.svg">
                                 </a>
                             </div>
                             <div class="content">
@@ -74,7 +74,7 @@
                             <div class="header" align="center">
                                 <h4 class="title">Grade Book</h4>
                                 <a href="grade.php">
-                                    <img style="height:250px" src="../img/books.svg">
+                                    <img style="height:230px" src="../img/books.svg">
                                 </a>
                             </div>
                             <div class="content">
@@ -89,7 +89,7 @@
                             <div class="header" align="center">
                                 <h4 class="title">Statistics</h4>
                                 <a href="stats.php">
-                                <img style="height:250px" src="../img/pie-chart.svg">
+                                <img style="height:230px" src="../img/pie-chart.svg">
                                 </a>
                             </div>
                             <div class="content">
@@ -104,7 +104,7 @@
                             <div class="header" align="center">
                                 <h4 class="title">Upload Marks</h4>
                                 <a href="upload.php">
-                                    <img style="height:250px" src="../img/upload.svg">
+                                    <img style="height:230px" src="../img/upload.svg">
                                 </a>
                             </div>
                             <div class="content">
@@ -132,7 +132,7 @@
                             <div class="header" align="center">
                                 <h4 class="title">Logout</h4>
                                 <a href="../index.php">
-                                    <img style="height:250px" src="../img/logout.svg">
+                                    <img style="height:230px" src="../img/logout.svg">
                                 </a> 
                             </div>
                             <div class="content">
