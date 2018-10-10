@@ -32,7 +32,7 @@
     <div  style="background-color: white">
         <nav class="navbar navbar-default navbar-fixed" >
             <div class="container-fluid" >
-                <div class="navbar-header" align="center">
+                <div class="navbar-header" align="center" >
                     <h3>Welcome to the Student Risk Analysis Dashboard</h3>
                 </div>
                 
@@ -48,9 +48,7 @@
                         <div class="card" style="height: 300px;">
                             <div class="header" align="center">
                                 <h4 class="title">Home</h4>
-                                <img style="height:250px" src="../img/web-page-home.svg">
-                                
-
+                                <img style="height:250px" src="../img/house.svg">
                             </div>
                             <div class="content">
                                 
@@ -63,7 +61,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Grade Book</h4>
-                                
+                                <img style="height:250px" src="../img/books.svg">
                             </div>
                             <div class="content">
                                 
@@ -76,7 +74,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Statistics</h4>
-                                
+                                <img style="height:250px" src="../img/pie-chart.svg">
                             </div>
                             <div class="content">
                                 
@@ -89,7 +87,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Upload Marks</h4>
-                                
+                                <img style="height:250px" src="../img/upload.svg">
                             </div>
                             <div class="content">
                                 
@@ -115,7 +113,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Logout</h4>
-                                
+                                <img style="height:250px" src="../img/logout.svg">
                             </div>
                             <div class="content">
                                 
