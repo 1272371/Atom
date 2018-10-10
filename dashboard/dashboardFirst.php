@@ -27,96 +27,11 @@
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="sidebar" data-color="blue">
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.wits.ac.za" class="simple-text">
-                    <img src="assets/img/wits-logo.png">
-                </a>
-            </div>
-            
-
-            <ul class="nav">
-                <li class="active">
-                    <a>
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                
-                <li>
-                    <?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-                    echo "<a href='grade.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo "<i class='pe-7s-note2'></i>";
-                    echo "<p>Grade Book</p>";
-                    echo "</a>";
-                    ?>
-                </li>
-                <li>
-                    <?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo     "<i class='pe-7s-graph3'></i>";
-                    echo    "<p>Statistics</p>";
-                    echo "</a>";
-                    ?>
-                </li>
-                <li>
-                    <?php
-                    if (empty($_GET)){
-                        $course_id = "1";
-                        $student = "500594";
-                        $date = "2018";
-                    } else {
-                        $course_id = $_GET['course_id'];
-                        $student = $_GET['student'];
-                        $date = $_GET['date'];
-                    }
-
-                    echo "<a href='upload.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
-                    echo     "<i class='pe-7s-cloud-upload'></i>";
-                    echo     "<p>Upload Marks</p>";
-                    echo "</a>";
-                    ?>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-power"></i>
-                        <p>Logout</p>
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
-
-    <div class="main-panel" style="background-color: white">
+<div style="background-color: white">
+    <div  style="background-color: white">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 
@@ -124,61 +39,95 @@
         </nav>
 
 
-        <div class="content" style="background-color: white">
+        <div class="content" style="background-color: white;">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4" style="max-height: 400px;overflow:scroll">
-                        <div class="card card-user">
-                            
-                        </div>
-                    <div class="col-md-4" style="max-height: 360px;overflow:scroll">
-                        <div class="card">
+                    
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
                             <div class="header">
                                 <h4 class="title">Card</h4>
                                 
                             </div>
-                            <div class="content table-responsive table-full-width">
+                            <div class="content">
                                 
-                            	
+                                    
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="max-height: 360px;overflow:scroll">
-                        <div class="card">
+                    
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
                             <div class="header">
+                                <h4 class="title">Card</h4>
                                 
-                             </div>    
-                            </div>
-                            <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">
-                                
-
-                            </div>
-                        </div>
-                    </div>
-                            
-                </div>
-            </div>
-
-                
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">Predictor</h4>
                             </div>
                             <div class="content">
-                                <div class="ct-chart" style="width:100%">
-                                    <img src="assets/img/trendline.png">
-                                </div>
+                                
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
+                            <div class="header">
+                                <h4 class="title">Card</h4>
+                                
+                            </div>
+                            <div class="content">
+                                
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
+                            <div class="header">
+                                <h4 class="title">Card</h4>
+                                
+                            </div>
+                            <div class="content">
+                                
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
+                            <div class="header">
+                                <h4 class="title">Card</h4>
+                                
+                            </div>
+                            <div class="content">
+                                
+                                    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user" style="height: 300px;">
+                            <div class="header">
+                                <h4 class="title">Card</h4>
+                                
+                            </div>
+                            <div class="content">
+                                
+                                    
                             </div>
                         </div>
                     </div>
 
                 </div>
-                        </div>
-                    </div>
-                </div>
+                            
+            </div>
+        </div>                
+    </div>
+</div>
+                
  
 </body>
 
