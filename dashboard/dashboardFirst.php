@@ -58,7 +58,7 @@
                         <div class="card" style="height: 300px;">
                             <div class="header" align="center">
                                 <h4 class="title">Home</h4>
-                                <a href="dashboard.php">
+                                <a href="dashboard.php?course_id=1&student=500594&date=2018">
                                     <img style="height:230px" src="../img/house.svg">
                                 </a>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Grade Book</h4>
-                                <a href="grade.php">
+                                <a href="grade.php?course_id=1&student=500594&date=2018">
                                     <img style="height:230px" src="../img/books.svg">
                                 </a>
                             </div>
@@ -88,7 +88,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Statistics</h4>
-                                <a href="stats.php">
+                                <a href="stats.php?course_id=1&student=500594&date=2018">
                                 <img style="height:230px" src="../img/pie-chart.svg">
                                 </a>
                             </div>
@@ -103,7 +103,7 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Upload Marks</h4>
-                                <a href="upload.php">
+                                <a href="upload.php?course_id=1&student=500594&date=2018">
                                     <img style="height:230px" src="../img/upload.svg">
                                 </a>
                             </div>
