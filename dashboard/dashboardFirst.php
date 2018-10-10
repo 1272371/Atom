@@ -18,6 +18,8 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
+    <script src="assets/js/jquery.3.3.1.min.js" type="text/javascript"></script>
+
 
     <!--     Fonts and icons     
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -43,12 +45,22 @@
         <div class="content" style="background-color: white;">
             <div class="container-fluid">
                 <div class="row">
+
+                    <style>
+                        .card:hover{
+                            width: 105%;
+                            height: 105%;
+                            border: 2px solid ;
+                        }
+                    </style>
                     
                     <div class="col-md-4" style="max-height:300px">
                         <div class="card" style="height: 300px;">
                             <div class="header" align="center">
                                 <h4 class="title">Home</h4>
-                                <img style="height:250px" src="../img/house.svg">
+                                <a href="dashboard.php">
+                                    <img style="height:250px" src="../img/house.svg">
+                                </a>
                             </div>
                             <div class="content">
                                 
@@ -61,7 +73,9 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Grade Book</h4>
-                                <img style="height:250px" src="../img/books.svg">
+                                <a href="grade.php">
+                                    <img style="height:250px" src="../img/books.svg">
+                                </a>
                             </div>
                             <div class="content">
                                 
@@ -74,7 +88,9 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Statistics</h4>
+                                <a href="stats.php">
                                 <img style="height:250px" src="../img/pie-chart.svg">
+                                </a>
                             </div>
                             <div class="content">
                                 
@@ -87,7 +103,9 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Upload Marks</h4>
-                                <img style="height:250px" src="../img/upload.svg">
+                                <a href="upload.php">
+                                    <img style="height:250px" src="../img/upload.svg">
+                                </a>
                             </div>
                             <div class="content">
                                 
@@ -113,7 +131,9 @@
                         <div class="card" style="height: 300px">
                             <div class="header" align="center">
                                 <h4 class="title">Logout</h4>
-                                <img style="height:250px" src="../img/logout.svg">
+                                <a href="#">
+                                    <img style="height:250px" src="../img/logout.svg">
+                                </a> 
                             </div>
                             <div class="content">
                                 
@@ -121,6 +141,8 @@
                             </div>
                         </div>
                     </div>
+
+                    
 
                 </div>
                             
@@ -132,12 +154,11 @@
  
 </body>
 
-
-
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
+    
     
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
