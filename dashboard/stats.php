@@ -80,7 +80,7 @@
                 <li>
                     <a href="dashboard.php">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Home</p>
                     </a>
                 </li>
                 <li>

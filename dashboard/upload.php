@@ -51,7 +51,7 @@
                     }
                     echo "<a href='dashboard.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo    "<i class='pe-7s-graph'></i>";
-                    echo     "<p>Dashboard</p>";
+                    echo     "<p>Home</p>";
                     echo "</a>";
                     ?>
                 </li>
