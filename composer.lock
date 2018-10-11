@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eb3979f5c85dc06b448140e361dff4f",
+    "content-hash": "54b3e9db4e1581a773edc53d8187fe43",
     "packages": [
         {
             "name": "phpunit/php-code-coverage",
@@ -546,7 +546,7 @@
     "prefer-lowest": false,
     "platform": {
         "ext-mysqli": "*",
-        "php": "^7.2",
+        "php": ">=5.0.0",
         "ext-pdo": "*",
         "ext-json": "*",
         "ext-openssl": "*",

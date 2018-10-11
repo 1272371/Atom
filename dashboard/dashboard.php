@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<link rel="icon" type="image/png" href="../img/favicon.png">
 
-	<title>Dashboard</title>
+	<title>Home</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -41,7 +41,7 @@
                 <li class="active">
                     <a>
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Home</p>
                     </a>
                 </li>
                 
@@ -73,7 +73,7 @@
                         $student = $_GET['student'];
                         $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
+                    echo "<a href='stats.php'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
@@ -98,7 +98,7 @@
                     ?>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <i class="pe-7s-power"></i>
                         <p>Logout</p>
                     </a>

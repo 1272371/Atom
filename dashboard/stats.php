@@ -7,10 +7,11 @@
        $fail=0;
        $count=0;
        $total=0;
-       $course_id=$_GET['course_id'];
-       //echo $course_id;
-       foreach ($grades as $g) 
+       if(isset($_GET['course_id']))
        {
+         $course_id=$_GET['course_id'];
+         foreach ($grades as $g) 
+         {
             if($g['course_id']==$course_id)
             {
                 $course_name=$g['course_name'];
@@ -35,7 +36,10 @@
                 }
             } 
 
+          }      
        }
+       //echo $course_id;
+       
 ?>
 <!doctype html>
 <html lang="en">
@@ -80,7 +84,7 @@
                 <li>
                     <a href="dashboard.php">
                         <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
+                        <p>Home</p>
                     </a>
                 </li>
                 <li>
@@ -103,7 +107,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <i class="pe-7s-power"></i>
                         <p>Logout</p>
                     </a>
@@ -211,7 +215,7 @@
     <script src="../js/axios.js"></script>
     <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="assets/js/demo.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="../js/plot.js"></script>
     <script type="text/javascript">
       var  pass="<?php echo $pass; ?>"
       var  fail="<?php echo $fail; ?>"
@@ -232,8 +236,8 @@
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ['Task','Pass vs Fail'],  
-              ['Pass',fail],
-              ['Fail',pass]
+              ['Pass',pass],
+              ['Fail',fail]
             ]);
 
             var options = {

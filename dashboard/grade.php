@@ -51,7 +51,7 @@
                     }                    
                     echo "<a href='dashboard.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo    "<i class='pe-7s-graph'></i>";
-                    echo     "<p>Dashboard</p>";
+                    echo     "<p>Home</p>";
                     echo "</a>";
                     ?>
                 </li>
@@ -73,7 +73,7 @@
                         $student = $_GET['student'];
                         $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
+                    echo "<a href='stats.php'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
@@ -98,7 +98,7 @@
                     ?>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../index.php">
                         <i class="pe-7s-power"></i>
                         <p>Logout</p>
                     </a>
