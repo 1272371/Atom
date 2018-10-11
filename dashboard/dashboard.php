@@ -73,7 +73,7 @@
                         $student = $_GET['student'];
                         $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php'>";
+                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
