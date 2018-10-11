@@ -134,45 +134,34 @@
                                 <h4 class="title">Configurations</h4>
                         </div>
 
-                        <div style="margin:10px">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%" name="Assignment_Type">Assignment Type
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" id="dates">
+                        <div style="margin:30px">
+                            <select>
                                <?php
                                     include_once( 'uploadTest.php');
-                                    TestingUpload::getAssignmentType();
+                                    TestingUpload::listAssignmentType();
                                 ?>
-                            </ul>
+                            </select>
 
                             <input  placeholder="Name of Assignmnet" id="name" type="text" class="form-control" style="width:40%;float: right;" name="Name_of_Assignmnet">
                         </div>
 
-                        <div style="margin:10px">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Course
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" id="dates">
+                        <div style="margin:30px">
+                            <select>
                                <?php
                                     include_once( 'uploadTest.php');
                                    TestingUpload::listClasses();
                                 ?>
-                            </ul>
-
+                            </select>
+                            
                             <input  placeholder="Assignment Weight" id="weight" type="text" class="form-control" style="width:40%;float: right;" name="Assignment_Weight">
 
                         </div>
 
-                        <div style="margin:10px;padding-bottom: 10px">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:40%">Medium Lookup
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" id="dates">
-                               <?php
-                                    include_once( 'uploadTest.php');
-                                    TestingUpload::getMedium();
-                                ?>
-                            </ul>
+                        <div style="margin:30px;padding-bottom: 10px">
+                            <select>
+                            	<option value="medium1">Medium 1</option>
+                            	<option value="medium2">Medium 2</option>
+                            </select>
 
                             <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;" name="Total_Available_Marks">
                         </div>
