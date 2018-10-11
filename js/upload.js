@@ -22,21 +22,38 @@ $(document).ready(function() {
 
 });
 
-document.ondragover = function(event) {
+document.ondragend = function(event) {
 
-    $('body').css('background-color', '#000');
+    $('body').css('filter', 'blur(0px)');
+
+    return false;
 }
 
 document.ondragleave = function(event) {
-    $('body').css('background-color', '#fff');
+
+    $('body').css('filter', 'blur(0px)');
+
+    return false;
+}
+
+document.ondragover = function(event) {
+
+    $('body').css('filter', 'blur(1px)');
+
+    return false;
 }
 
 document.ondrop = function(event) {
+
+    $('body').css('filter', 'blur(0px)');
 
     event.preventDefault();
 
     // get file
     var file = event.dataTransfer.files[0];
+
+    // set name
+    $('#file-input-label').html(file.name);
 
     // read file
     readFile(file);
