@@ -3,7 +3,7 @@
     "description": "Visual front-end and early-warning system for prediction",
   "require": {
     "ext-mysqli":"*",
-    "php":"^7.2",
+    "php": ">=5.0.0",
     "ext-pdo":"*",
     "ext-json":"*",
     "ext-openssl":"*",
@@ -12,9 +12,6 @@
     "ext-dom":"*",
     "ext-xmlwriter":"*"
   },
-  "require": {
-        "php": ">=5.0.0"
-    },
   "require-dev": {
         "phpunit/php-code-coverage": "1.2.0",
         "phpunit/phpunit": "3.7.*",

@@ -59,7 +59,7 @@ function Welcome() {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboard.php';
+                window.location.href = 'dashboard/dashboardFirst.php';
             }
         }
     });
@@ -80,7 +80,7 @@ function SignIn(username, password) {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboard.php';
+                window.location.href = 'dashboard/dashboardFirst.php';
             }
             else if (data.message === 'error') {
                 ResponseModal('Incorrect username or password, please try again');

@@ -96,9 +96,10 @@
             $query2 = "SELECT course_code,course_id FROM course";
             
             $result2= mysqli_query($link, $query2);
-
+            $count = 0;
             while ($row2 = mysqli_fetch_array($result2)) {
-                echo "<li><a href='grade.php?course_id=".$row2['course_id']."&student=".$student."&date=".$date."'>".$row2['course_code']."</a></li>";
+                echo "<option value='course".$count."'>".$row2['course_code']."</option>";
+                $count = $count+1;
             }
         }
 
@@ -145,5 +146,22 @@
             }*/
 
         }
+
+        public function listAssignmentType(){
+        	$link = mysqli_connect("localhost","root","", "risk");
+
+            if (mysqli_connect_error()){
+                die ("Error!");
+            }
+
+            $query2 = "SELECT atl_name, atl_id FROM assessment_type_lookup";
+            
+            $result2= mysqli_query($link, $query2);
+            
+            while ($row2 = mysqli_fetch_array($result2)) {
+                echo "<option value='".$row2['atl_id']."'>".$row2['atl_name']."</option>";
+            }
+        }
+        
     }
 ?>
