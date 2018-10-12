@@ -167,8 +167,11 @@
 
                     $student = $person;
                    
+                   /*
+                        style='cursor:pointer;'
+                   */
                    if (in_array($student, $classItems)){
-                    echo "<tr style='cursor:pointer;' class='clickable-row' data-href='dashboard.php?student=$student&course_id=$course_id&date=$date'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
+                    echo "<tr class='clickable-row' data-href='dashboard.php?student=$student&course_id=$course_id&date=$date'><td>".$row['user_id']."</td><td>".$row['user_name']." ".$row['user_surname']."</td><td>".$row2['ROUND(AVG(mark_total))']."</td></tr>";
                     }
 
             }
