@@ -21,6 +21,21 @@
 
         /**
          * Database constructor.
+         * @param string $host
+         * @param string $name
+         * @param string $user
+         * @param string $pass
+         */
+        public function __construct(string $host, string $name, string $user, string $pass)
+        {
+            $this->host = $host;
+            $this->name = $name;
+            $this->user = $user;
+            $this->pass = $pass;
+        }
+
+        /**
+         * Database constructor.
          * @param $conn
          * @param string $host
          * @param string $name

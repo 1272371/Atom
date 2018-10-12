@@ -23,24 +23,8 @@
          <log type="coverage-html" target="coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
      </logging>
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <exclude>
-                <directory>ExternalLibraries</directory>
-                <directory>/api/</directory>
-                <directory>/build/</directory>
-                <directory>/css/</directory>
-                <directory>/csv/</directory>
-                <directory>/dashboard/</directory>
-                <directory>/data/</directory>
-                <directory>/extra/</directory>
-                <directory>/fonts/</directory>
-                <directory>/img/</directory>
-                <directory>/java/</directory>
-                <directory>/js/</directory>
-                <directory>/php/</directory>
-                <directory>/sass/</directory>
-                <file>/pop.php/</file>
-            </exclude>
+        <whitelist>
+                <directory suffix=".php">./api</directory>
         </whitelist>
     </filter>
 </phpunit>

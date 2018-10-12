@@ -6,13 +6,18 @@
  * Time: 11:35 PM
  */
 require __DIR__ .'/../../../../api/autoload.php';
+include_once __DIR__ .'../../../../../api/general/Error.php';
 class ErrorsTest extends PHPUnit\Framework\TestCase
 {
+
     /**
      * @covers Errors::getErrorPage
      */
     public function testGetErrorPage()
     {
-
+        $err=new Errors();
+        /**
+         * @codeCoverIgnore
+         */
     }
 }
