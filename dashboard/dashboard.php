@@ -178,7 +178,14 @@
                                 ?>
 
                                 </ul>
+
+                                <?php
+                                    include_once('dashboardTest.php');
+                                    TestingDashboard::getCourseName(); 
+                                ?>
                             </div>
+
+                            
 
                             <div class="dropdown" style="padding-left:17px;padding-top:10px">
 
@@ -191,7 +198,12 @@
                                         TestingDashboard::listDates();
                                     ?>
                                 </ul>
-                                <!--<span style="padding-left:30px;font-size:large">COMS2002</span>-->
+
+                                <?php
+                                    include_once('dashboardTest.php');
+                                    TestingDashboard::getDate(); 
+                                ?>
+                                
                              </div>    
                             </div>
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">

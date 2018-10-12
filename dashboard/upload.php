@@ -211,6 +211,7 @@
 
                                 <textarea cols="140" rows="10" name="mark" id="fileDisplayArea" style="width:100%"><?php $mark;?></textarea>
                                 <input type="submit" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton"  value="Upload">
+                                
                                 </form>
 
                             </div>

@@ -186,6 +186,10 @@
                                 ?>
 
                                 </ul>
+                                <?php
+                                    include_once('statsTest.php');
+                                    StatsTesting::getCourseName(); 
+                                ?>
                 </div>
             </div>
         </nav>

@@ -3,6 +3,45 @@
         /**
          *
          */
+
+        public function getDate(){
+            
+            if (empty($_GET)){
+                        $date = "2018";
+                    } else {
+                        $date = $_GET['date'];
+                    }
+                echo $date;
+        }
+
+        public function getCourseName(){
+            $link = mysqli_connect("localhost","root","", "risk");
+
+            if (mysqli_connect_error()){
+                die ("Error!");
+            }
+
+            if (empty($_GET)){
+                        $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
+                    }
+
+            $query2 = "SELECT course_id,course_code FROM course WHERE course_id=".$course_id; 
+        
+            $result2= mysqli_query($link, $query2);
+            
+            while ($row2 = mysqli_fetch_array($result2)) {
+                
+                echo $row2['course_code'];
+                
+            }
+        }
+
         public function getLatestMarks(){
 
             $link = mysqli_connect("localhost","root","", "risk");
@@ -12,10 +51,14 @@
             }
 
             if (empty($_GET)){
-                $student = "500594";
-            } else {
-                $student = $_GET['student'];
-            }
+                        $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
+                    }
 
           
             $query2 = "SELECT mark_total FROM mark WHERE user_id=".$student; 
@@ -46,10 +89,14 @@
         public function getStudentDetails(){
 
             if (empty($_GET)){
-                $student = "500594";
-            } else {
-                $student = $_GET['student'];
-            }
+                        $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
+                    }
 
             $link = mysqli_connect("localhost","root","", "risk");
 
