@@ -38,19 +38,21 @@
             }
 
             if (empty($_GET)){
-                $course_id = "1";
-                $student = "500594";
-            } else {
-                $course_id = $_GET['course_id'];
-                $student = $_GET['student'];
-            }
+                        $course_id = "1";
+                        $student = "500594";
+                        $date = "2018";
+                    } else {
+                        $course_id = $_GET['course_id'];
+                        $student = $_GET['student'];
+                        $date = $_GET['date'];
+                    }
 
             $query4 = "SELECT course_code,course_id FROM course";
             
             $result4= mysqli_query($link, $query4);
 
             while ($row4 = mysqli_fetch_array($result4)) {
-                echo "<li><a href='stats.php?student=$student&course_id=".$row4['course_id']."'>".$row4['course_code']."</a></li>";
+                echo "<li><a href='stats.php?student=$student&course_id=".$row4['course_id']."&date=".$date."'>".$row4['course_code']."</a></li>";
 
                 
             }
