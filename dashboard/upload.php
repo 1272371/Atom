@@ -161,8 +161,10 @@
 
                         <div style="margin:30px;padding-bottom: 10px">
                             <select style="width:40%;">
-                            	<option value="medium1">Medium 1</option>
-                            	<option value="medium2">Medium 2</option>
+                            	 <?php
+                                    include_once( 'uploadTest.php');
+                                    TestingUpload::getMediums();
+                                ?>
                             </select>
 
                             <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;" name="Total_Available_Marks">
