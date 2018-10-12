@@ -7,7 +7,7 @@
  */
 
 require __DIR__ .'/../../../../api/autoload.php';
-class MarkTest extends \PHPUnit\Framework\TestCase
+class MarkTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @covers Mark::get

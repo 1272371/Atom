@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="api/autoload.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -13,9 +13,9 @@
 
     <testsuites>
         <testsuite name="phptests">
-            <directory>tests/phpunit/api/</directory>
-            <directory>tests/phpunit/dashboard</directory>
-            <directory>tests/phpunit/php/</directory>
+            <directory>tests/phpunit/api/*</directory>
+            <directory>tests/phpunit/dashboard/*</directory>
+            <directory>tests/phpunit/php/*</directory>
         </testsuite>
     </testsuites>
      <logging>
@@ -24,9 +24,6 @@
      </logging>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./api</directory>
-            <directory suffix=".php">./dashboard</directory>
-            <directory suffix=".php">./php</directory>
             <exclude>
                 <directory>ExternalLibraries</directory>
                 <directory>/api/</directory>

@@ -5,10 +5,8 @@
  * Date: 2018/10/03
  * Time: 11:32 PM
  */
-
 require_once __DIR__ .'/../../../../api/autoload.php';
-
-class DatabaseTest extends \PHPUnit\Framework\TestCase
+class DatabaseTest extends PHPUnit\Framework\TestCase
 {
     // database parameters
     private $host = 'localhost';
@@ -23,6 +21,7 @@ class DatabaseTest extends \PHPUnit\Framework\TestCase
     {
 #       $database = new Database($this->host,$this->name,$this->user,$this->pass,$this->conn);
  #      assertNotEmpty($database->connect());
+        $this->assertTrue(false);
     }
     /**
      * @covers Database::connect

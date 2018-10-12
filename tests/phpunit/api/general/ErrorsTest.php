@@ -6,8 +6,7 @@
  * Time: 11:35 PM
  */
 require __DIR__ .'/../../../../api/autoload.php';
-use PHPUnit\Framework\TestCase;
-class ErrorsTest extends TestCase
+class ErrorsTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @covers Errors::getErrorPage

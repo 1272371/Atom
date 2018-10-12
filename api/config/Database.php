@@ -19,6 +19,14 @@
         private $user = 'root';
         private $pass = '';
 
+        /**
+         * Database constructor.
+         * @param $conn
+         * @param string $host
+         * @param string $name
+         * @param string $user
+         * @param string $pass
+         */
         // connection function
         public function connect() {
 
