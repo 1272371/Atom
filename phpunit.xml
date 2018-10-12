@@ -28,6 +28,9 @@
                 <directory suffix=".php">./dashboard</directory>
             <directory suffix=".php">./php</directory>
         </whitelist>
+        <blacklist>
+            <directory suffix=".css">./css</directory>
+        </blacklist>
     </filter>
 </phpunit>
 
