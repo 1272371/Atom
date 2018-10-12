@@ -25,6 +25,8 @@
     <filter>
         <whitelist>
                 <directory suffix=".php">./api</directory>
+                <directory suffix=".php">./dashboard</directory>
+            <directory suffix=".php">./php</directory>
         </whitelist>
     </filter>
 </phpunit>

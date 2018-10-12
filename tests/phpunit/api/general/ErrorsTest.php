@@ -13,11 +13,14 @@ class ErrorsTest extends PHPUnit\Framework\TestCase
     /**
      * @covers Errors::getErrorPage
      */
+    /**
+     * @codeCoverIgnore Errors
+     */
     public function testGetErrorPage()
     {
         $err=new Errors();
         /**
-         * @codeCoverIgnore
+         * @codeCoverIgnore Error
          */
     }
 }
