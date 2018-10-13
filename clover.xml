@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1539339290">
-  <project timestamp="1539339290">
+<coverage generated="1539474725">
+  <project timestamp="1539474725">
     <file name="/opt/lampp/htdocs/Atom/api/autoload.php">
       <line num="10" type="stmt" count="0"/>
       <line num="11" type="stmt" count="0"/>
@@ -506,8 +506,8 @@
       <line num="19" type="stmt" count="0"/>
       <line num="20" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <metrics loc="24" ncloc="22" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <metrics loc="23" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
     <file name="/opt/lampp/htdocs/Atom/dashboard/Uploader.php">
       <line num="9" type="stmt" count="0"/>
@@ -2038,6 +2038,6 @@
     <file name="/opt/lampp/htdocs/Atom/php/hash.php">
       <metrics loc="0" ncloc="0" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="32" loc="2979" ncloc="2545" classes="12" methods="34" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1863" coveredstatements="8" elements="1897" coveredelements="9"/>
+    <metrics files="32" loc="2978" ncloc="2544" classes="12" methods="34" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1863" coveredstatements="8" elements="1897" coveredelements="9"/>
   </project>
 </coverage>
