@@ -73,7 +73,7 @@
                         $student = $_GET['student'];
                         $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php'>";
+                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
@@ -129,6 +129,11 @@
                         TestingGrade::listClasses();
                     ?>
                 </ul>
+
+                <?php
+                        include_once('gradeTest.php');
+                        TestingGrade::getCourseName(); 
+                ?>
                 </div>
 
                 <div class="dropdown" style="float:left;padding-left:10px;padding-top:10px" >
@@ -141,6 +146,11 @@
                         TestingGrade::listDates();
                     ?>
                 </ul>
+
+                <?php
+                    include_once('gradeTest.php');
+                    TestingGrade::getDate(); 
+                ?>
                 </div> 
 
 
