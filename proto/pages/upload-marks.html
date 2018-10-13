@@ -1,0 +1,11 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- toggle button -->
+    <!-- onmousedown="event.preventDefault()" prevents button from staying clicked -->
+    <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
+        <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand ml-3">{{ title }}</a>
+    <button id="outline-button" type="button" class="ml-auto" type="button"
+        onmousedown="event.preventDefault()">Publish</button>
+</nav>
