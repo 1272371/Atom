@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1539474725">
-  <project timestamp="1539474725">
+<coverage generated="1539628147">
+  <project timestamp="1539628147">
     <file name="/opt/lampp/htdocs/Atom/api/autoload.php">
       <line num="10" type="stmt" count="0"/>
       <line num="11" type="stmt" count="0"/>
