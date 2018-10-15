@@ -13,8 +13,8 @@
     "ext-xmlwriter":"*"
   },
   "require-dev": {
-        "phpunit/php-code-coverage": "1.2.0",
-        "phpunit/phpunit": "3.7.*",
+        "phpunit/php-code-coverage": "^5.3",
+        "phpunit/phpunit": "6.5.*",
         "phpunit/dbunit":"*"
 
     },
