@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- css -->
+    <link href="../api/basic/subject.php">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css">
@@ -59,13 +60,13 @@
             </ul>
         </nav>
 
+        <!-- loader -->
+        <div id="dashboard-spinner"></div>
+
         <!-- content area-->
         <div id="content">
-
             <!-- dashboard content -->
-            <div class="container-fluid p-0">
-                <div ng-view></div>
-            </div>
+            <div ng-view style="height: 100vh; max-height: 100vh"></div>
         </div>
     </div>
     

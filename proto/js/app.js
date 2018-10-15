@@ -22,7 +22,16 @@ app
     .otherwise({redirectTo: '/'})
 })
 .run(function($rootScope, $location, $routeParams) {
+
+    // after page loaded successfully
     $rootScope.$on('$routeChangeSuccess', function() {
+
+        // stop spinner
+        $('#dashboard-spinner').animate({
+            opacity: 'toggle'   
+        }, 500, function() {
+            $('#dashboard-spinner').attr('class', '')
+        })
 
         // visual change change active tab
         var path = $location.path().substr(1)
@@ -40,9 +49,22 @@ app
             $('#statistics-tab').attr('class', 'active')
         }
         else if (path === 'upload-marks') {
+            // set active tab
             $('li').attr('class', '')
             $('#upload-marks-tab').attr('class', 'active')
         }
+    })
+    //
+    $rootScope.$on('$routeChangeStart', function() {
+
+        // if sidebar is hidden spin in the middle of content
+        if ($('#sidebar').css('margin-left') == '-260px') {
+            $('#dashboard-spinner').css('left', ($(window).width()/2) -32)
+        }
+        else {
+            $('#dashboard-spinner').css('left', 'calc((100vw - 260px)/2 + 260px - 32px)')
+        }
+        $('#dashboard-spinner').attr('class', 'lds-dual-ring')
     })
 })
 // controls and binds data for the home page
@@ -71,11 +93,438 @@ app
         $('#sidebar').toggleClass('active')
     }
 })
-.controller('UploadMarksController', function($scope) {
-    $scope.title = 'Upload Marks'
+.controller('UploadMarksController', function($scope, $http, $rootScope) {
 
-    // toggle sidebar on click
+    /**
+     * set up user interface
+     */
+    $scope.title = 'Upload Marks'
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
+    // file preview border-bottom to bottom of window
+    var card = $('#config-card')
+    var height = $(window).height() - card.offset().top - 10;
+    card.css('height', height)
+    // display area border-bottom to bottom of file preview
+    var area = $('#display-area')
+    var areaHeight = $(window).height() - area.offset().top - 20;
+    area.css('height', areaHeight)
+
+    // local variables
+    var csv = ''
+
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+            
+            // get subjects
+            $http.get('../api/basic/subject.php?user_id=' +
+                response.data.contents.user_id)
+            .then(function(responses) {
+                // subjects
+                $scope.subjects = responses.data.contents
+            })
+
+            // get lookup table data
+            $http.get('../api/basic/lookup.php')
+            .then(function(responsible) {
+                // lookups
+                $scope.utl = responsible.data.contents.user_type_lookup
+                $scope.ail = responsible.data.contents.assessment_info_lookup
+                $scope.aml = responsible.data.contents.assessment_medium_lookup
+                $scope.atl = responsible.data.contents.assessment_type_lookup
+            })
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
+//-----------------------------------------------------------------------------
+    /**
+     * form handling
+     */
+    // user clicks publish
+    $scope.publish = function() {
+
+        // form variables
+        var name = $('#assessment-name').val()
+        var date = $('#assessment-date').val()
+        var weight = $('#assessment-weight').val()
+        var total = $('#assessment-total').val()
+        var course = $('#course-id').val()
+        var ail = $('#ail-id').val();
+        var aml = $('#aml-id').val()
+        var atl = $('#atl-id').val();
+
+        if (name.length === 0 || total.length === 0 || weight.length === 0 || csv.length === 0 || date.length === 0
+            || !(ail > 0) || !(aml > 0) || !(atl > 0) || !(course > 0)) {
+                // fill in all fields show pop up
+                $('#drop-pop').css('color', 'red')
+                $('#drop-pop').css('border-color', 'red')
+                // position in middle
+                if ($('#sidebar').css('margin-left') == '-260px') {
+                    var left = $(window).width()/2 - 128
+                    $('#drop-pop').css('left', left)
+                }
+                else {
+                    var left = $(window).width() - 260
+                    left = left/2 + 260 - 128
+                    $('#drop-pop').css('left', left)
+                }
+                $('#drop-pop').html('FILL IN ALL FIELDS')
+                $('#drop-pop').animate({
+                    opacity: '1'   
+                }, 100, function() {
+                    $('#drop-pop').animate({
+                        opacity: '1'   
+                    }, 2500, function() {
+                        $('#drop-pop').animate({
+                            opacity: '0'   
+                        }, 250, function() {
+                            $('#drop-pop').css('color', '#3472F7')
+                            $('#drop-pop').css('border-color', '#3472F7')
+                            $('#drop-pop').html('DROP FILE HERE')
+                        })
+                    })
+                })
+
+        }
+        else {
+            // publish results
+            var url = `
+                ../api/assessments/add.php?
+                assessment_name=` + name + `&
+                assessment_weight=` + weight + `&
+                assessment_total=` + total + `&
+                assessment_date=` + date + `&
+                ail_id=` + ail + `&
+                aml_id=` + aml + `&
+                atl_id=` + atl + `&
+                course_id=` + course + `&
+                csv=` + csv + `
+                `
+            $http({
+                method : 'POST',
+                url : url
+            }).then(function(response) {
+
+                if (response.message === 'success') {
+                    window.location.href = './#!/upload-marks'
+                }
+
+            }, function(response) {
+                console.log(response.message)
+            });
+        }
+
+        // add success or danger borders
+        if (name.length === 0) {
+            $('#assessment-name').removeClass('border-success')
+            $('#assessment-name').addClass('border-danger')
+        }
+        else {
+            $('#assessment-name').removeClass('border-danger')
+            $('#assessment-name').addClass('border-success')
+        }
+
+        // assessment date
+        if (date.length === 0) {
+            $('#assessment-date').removeClass('border-success')
+            $('#assessment-date').addClass('border-danger')
+        }
+        else {
+            $('#assessment-date').removeClass('border-danger')
+            $('#assessment-date').addClass('border-success')
+        }
+
+        // assessment weight
+        if (weight.length === 0) {
+            $('#assessment-weight').removeClass('border-success')
+            $('#assessment-weight').addClass('border-danger')
+        }
+        else {
+            $('#assessment-weight').removeClass('border-danger')
+            $('#assessment-weight').addClass('border-success')
+        }
+
+        // assessment total
+        if (total.length === 0) {
+            $('#assessment-total').removeClass('border-success')
+            $('#assessment-total').addClass('border-danger')
+        }
+        else {
+            $('#assessment-total').removeClass('border-danger')
+            $('#assessment-total').addClass('border-success')
+        }
+
+        // file
+        if (csv.length === 0) {
+            $('#display-area').removeClass('border-success')
+            $('#file-input-label').removeClass('border-success')
+            $('#display-area').addClass('border-danger')
+            $('#file-input-label').addClass('border-danger')
+        }
+        else {
+            $('#display-area').removeClass('border-danger')
+            $('#file-input-label').removeClass('border-danger')
+            $('#display-area').addClass('border-success')
+            $('#file-input-label').addClass('border-success')
+        }
+
+        // assessment info lookup
+        if (!(ail > 0)) {
+            $('#ail-id').removeClass('border-success')
+            $('#ail-id').addClass('border-danger')
+        }
+        else {
+            $('#ail-id').removeClass('border-danger')
+            $('#ail-id').addClass('border-success')
+        }
+
+        // assessment medium lookup
+        if (!(aml > 0)) {
+            $('#aml-id').removeClass('border-success')
+            $('#aml-id').addClass('border-danger')
+        }
+        else {
+            $('#aml-id').removeClass('border-danger')
+            $('#aml-id').addClass('border-success')
+        }
+
+        // assessment type lookup
+        if (!(atl > 0)) {
+            $('#atl-id').removeClass('border-success')
+            $('#atl-id').addClass('border-danger')
+        }
+        else {
+            $('#atl-id').removeClass('border-danger')
+            $('#atl-id').addClass('border-success')
+        }
+
+        // course
+        if (!(course > 0)) {
+            $('#course-id').removeClass('border-success')
+            $('#course-id').addClass('border-danger')
+        }
+        else {
+            $('#course-id').removeClass('border-danger')
+            $('#course-id').addClass('border-success')
+        }
+    }
+    $('#assessment-name').focusout(function() {
+
+        // form variables
+        var name = $('#assessment-name').val()
+
+        if (name.length === 0) {
+            $('#assessment-name').removeClass('border-success')
+            $('#assessment-name').addClass('border-danger')
+        }
+        else {
+            $('#assessment-name').removeClass('border-danger')
+            $('#assessment-name').addClass('border-success')
+        }
+    })
+    $('#assessment-date').focusout(function() {
+
+        // form variables
+        var date = $('#assessment-name').val()
+
+        if (date.length === 0) {
+            $('#assessment-date').removeClass('border-success')
+            $('#assessment-date').addClass('border-danger')
+        }
+        else {
+            $('#assessment-date').removeClass('border-danger')
+            $('#assessment-date').addClass('border-success')
+        }
+    })
+    $('#assessment-weight').focusout(function() {
+
+        var weight = $('#assessment-weight').val()
+
+        if (weight.length === 0 || isNaN(weight)) {
+            $('#assessment-weight').removeClass('border-success')
+            $('#assessment-weight').addClass('border-danger')
+        }
+        else {
+            $('#assessment-weight').removeClass('border-danger')
+            $('#assessment-weight').addClass('border-success')
+        }
+    })
+    $('#assessment-total').focusout(function() {
+
+        var total = $('#assessment-total').val()
+
+        if (total.length === 0 || isNaN(total)) {
+            $('#assessment-total').removeClass('border-success')
+            $('#assessment-total').addClass('border-danger')
+        }
+        else {
+            $('#assessment-total').removeClass('border-danger')
+            $('#assessment-total').addClass('border-success')
+        }
+    })
+//-----------------------------------------------------------------------------
+    /**
+     * uploading file by browser
+     */
+    var input = document.getElementById('file-input');
+
+    input.addEventListener('change', function(e) {
+
+        // get files
+        var file = input.files[0];
+
+        // display file name
+        var name = $('#file-input').val();
+        var name = name.split('\\');
+
+        $('#file-input-label').html(name[name.length - 1]);
+
+        // read file
+        readFile(file);
+    });
+//-----------------------------------------------------------------------------
+    /**
+     * dropping files will be done here
+     */
+    // pop up css for dragging file into window
+    $('#drop-pop').attr('style', `
+            opacity: 0;
+            color: #3472F7;
+            font-weight: 900;
+            padding: 10px 0px;
+            margin: 0px;
+            background: transparent;
+            display: inline-block;
+            width: 256px;
+            top: 80px;
+            z-index: 10;
+            position: absolute;
+            border-radius: 4px;
+            border-width: 2px;
+            border-color: #3472F7;
+            border-style: solid;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        `)
+    var target = document.getElementById('target')
+    // user drags outside of drop area
+    target.ondragleave = function(event) {
+
+        // unblur page
+        $('#target').css('filter', 'blur(0px)');
+
+        // remove pop up
+        $('#drop-pop').css('opacity', '0')
+    
+        return false;
+    }
+    // user drags into drop area
+    target.ondragover = function(event) {
+
+        // blur page
+        $('#target').css('filter', 'blur(1px)');
+
+        // show pop up notification
+        if ($('#sidebar').css('margin-left') == '-260px') {
+            var left = $(window).width()/2 - 128
+            $('#drop-pop').css('left', left)
+        }
+        else {
+            var left = $(window).width() - 260
+            left = left/2 + 260 - 128
+            $('#drop-pop').css('left', left)
+        }
+        $('#drop-pop').css('opacity', '1')
+    
+        return false;
+    }
+    // user drops the file start parsing
+    target.ondrop = function(event) {
+
+        $('#target').css('filter', 'blur(0px)');
+
+        // remove pop up
+        $('#drop-pop').css('opacity', '0')
+    
+        event.preventDefault();
+    
+        // get file
+        var file = event.dataTransfer.files[0];
+    
+        // set name
+        $('#file-input-label').html(file.name);
+    
+        // read file
+        readFile(file);
+    }
+    // read files
+    function readFile(file){
+
+        var textType = file.type;
+
+        // get display area
+        var area = document.getElementById('display-area')
+
+
+        if (file.type.match(textType)) {
+
+            // create file reader
+            var reader = new FileReader();
+    
+            reader.onload = function(e) {
+                // display results
+                var upload = reader.result
+                displayFile(upload)
+
+                var split = upload.split('\n')
+                var length = split.length
+                for (i = 0; i < length; i++) {
+
+                    if (split[i].length !== 0) {
+                        var column = split[i].split(',')
+                        var append = column[0] + ',' + column[1] + ';'
+                        csv = csv + append
+                    }
+                }
+            }
+            reader.readAsText(file)
+        }
+        else {
+            area.innerText = "File not supported!"
+        }
+    }
+    // display contents
+    function displayFile(upload) {
+
+        var splitted = upload.split('\n')
+        var length = splitted.length
+
+        // split rows
+        for (i = 1; i < length; i++) {
+
+            // split columns
+            var column = splitted[i].split(',')
+
+            // for empty lines
+            if (column.length > 1) {
+                $('#table-body').append(`
+                    <tr>
+                        <th scope="row">` + column[0] + `</th>
+                        <td>` + column[1] + `</td>
+                    </tr>
+                `);
+            }
+        }
+    }
+    /**
+     * end of dragging functions
+     */
+//-----------------------------------------------------------------------------
 })
