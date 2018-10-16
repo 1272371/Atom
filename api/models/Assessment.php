@@ -33,11 +33,16 @@
             ', ' . $this->assessment_total . ', "' . $this->assessment_date  .'", ' . $this->ail_id . 
             ', ' . $this->aml_id . ', ' . $this->atl_id . ', ' . $this->course_id . ')';
 
-            // prepare statement
-            $statement = $this->conn->prepare($query);
+            try {
 
-            // execute statement
-            $this->ok = $statement->execute();
+                // prepare statement
+                $statement = $this->conn->prepare($query);
+                // execute statement
+                $this->ok = $statement->execute();
+
+            } catch (PDOException $e) {
+                $this->ok = false;
+            }
 
             if ($this->ok) {
                 $this->ok = false;
@@ -50,11 +55,16 @@
                 'assessment_date="' . $this->assessment_date . '" AND ' .
                 'atl_id=' . $this->atl_id . ' AND ' . 'course_id=' . $this->course_id . ' LIMIT 0, 1';
 
-                // prepare second statement
-                $statement = $this->conn->prepare($query);
+                try {
 
-                // execute statment
-                $this->ok = $statement->execute();
+                    // prepare statement
+                    $statement = $this->conn->prepare($query);
+                    // execute statement
+                    $this->ok = $statement->execute();
+    
+                } catch (PDOException $e) {
+                    $this->ok = false;
+                }
 
                 if ($this->ok) {
 
@@ -84,12 +94,30 @@
 
                     }
 
-                    // prepare last statement
-                    $statement = $this->conn->prepare($query);
+                    try {
 
-                    // execute statment
-                    $this->ok = $statement->execute();
+                        // prepare statement
+                        $statement = $this->conn->prepare($query);
+                        // execute statement
+                        $this->ok = $statement->execute();
+        
+                    } catch (PDOException $e) {
+                        $this->ok = false;
+                    }
+
+                    if ($this->ok) {
+                        $this->ok = true;
+                    }
+                    else {
+                        $this->ok = false;
+                    }
                 }
+                else {
+                    $this->ok = false;
+                }
+            }
+            else {
+                $this->ok = false;
             }
         }
     }

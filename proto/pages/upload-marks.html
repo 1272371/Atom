@@ -58,25 +58,33 @@
                                         </div>
                                         <!-- from database-->
                                         <div class="row mt-3">
-                                            <div id="dropdown-menu" class="col">
-                                                <select ng-model="selectedSubject" id="course-id" class="form-control">
-                                                    <option id="dropdown-option" ng-repeat="x in subjects" value="{{ x.course_id }}">{{ x.course_name }}</option>
-                                                </select>
+                                            <div class="col mb-3">
+                                                <div id="drop-course-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedSubject" id="course-id">
+                                                            <option ng-repeat="x in subjects" value="{{ x.course_id }}">{{ x.course_name }}</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <select ng-model="selectedAIL" id="ail-id" class="form-control">
-                                                    <option ng-repeat="x in ail" value="{{ x.ail_id }}">{{ x.ail_name }}</option>
-                                                </select>
+                                            <div class="col mb-3">
+                                                <div id="drop-ail-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedAIL" id="ail-id" class="form-control">
+                                                        <option ng-repeat="x in ail" value="{{ x.ail_id }}">{{ x.ail_name }}</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <select ng-model="selectedAML" id="aml-id" class="form-control">
-                                                    <option ng-repeat="x in aml" value="{{ x.aml_id }}">{{ x.aml_name }}</option>
-                                                </select>
+                                            <div class="col mb-3">
+                                                <div id="drop-aml-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedAML" id="aml-id" class="form-control">
+                                                        <option ng-repeat="x in aml" value="{{ x.aml_id }}">{{ x.aml_name }}</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col">
-                                                <select ng-model="selectedATL" id="atl-id" class="form-control">
-                                                    <option ng-repeat="x in atl" value="{{ x.atl_id }}">{{ x.atl_name }}</option>
-                                                </select>
+                                            <div class="col mb-3">
+                                                <div id="drop-atl-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedATL" id="atl-id" class="form-control">
+                                                        <option ng-repeat="x in atl" value="{{ x.atl_id }}">{{ x.atl_name }}</option>
+                                                    </select>
+                                                </div>
                                             </div>                                          
                                         </div>
                                     </div>
