@@ -88,9 +88,10 @@ function SignIn(username, password) {
         },
         error : function(xhr, data, errorThrown) {
             console.log('something went wrong');
-            console.log(xhr);
-            console.log(data);
-            console.log(errorThrown);
+            console.log(xhr)
+            console.log(data)
+            console.log(errorThrown)
+            ResponseModal(errorThrown)
         }
     });
 }
@@ -99,5 +100,5 @@ function SignIn(username, password) {
  * events
  */
 $('#sign-in-button').click(function() {
-    SignIn();
+    SignIn()
 });
