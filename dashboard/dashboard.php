@@ -73,7 +73,7 @@
                         $student = $_GET['student'];
                         $date = $_GET['date'];
                     }
-                    echo "<a href='stats.php?course_id=".$course_id."&student=".$student."&date=".$date."'>";
+                    echo "<a href='stats.php'>";
                     echo     "<i class='pe-7s-graph3'></i>";
                     echo    "<p>Statistics</p>";
                     echo "</a>";
@@ -117,7 +117,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Home</a>
+                    <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 
             </div>
@@ -178,14 +178,7 @@
                                 ?>
 
                                 </ul>
-
-                                <?php
-                                    include_once('dashboardTest.php');
-                                    TestingDashboard::getCourseName(); 
-                                ?>
                             </div>
-
-                            
 
                             <div class="dropdown" style="padding-left:17px;padding-top:10px">
 
@@ -198,12 +191,7 @@
                                         TestingDashboard::listDates();
                                     ?>
                                 </ul>
-
-                                <?php
-                                    include_once('dashboardTest.php');
-                                    TestingDashboard::getDate(); 
-                                ?>
-                                
+                                <!--<span style="padding-left:30px;font-size:large">COMS2002</span>-->
                              </div>    
                             </div>
                             <div class="content table-responsive table-full-width" style="max-height:290px;overflow:scroll">

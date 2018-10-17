@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="api/autoload.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -13,9 +13,9 @@
 
     <testsuites>
         <testsuite name="phptests">
-            <directory>tests/phpunit/api/</directory>
-            <directory>tests/phpunit/dashboard</directory>
-            <directory>tests/phpunit/php/</directory>
+            <directory>tests/phpunit/api/*</directory>
+            <directory>tests/phpunit/dashboard/*</directory>
+            <directory>tests/phpunit/php/*</directory>
         </testsuite>
     </testsuites>
      <logging>
@@ -23,28 +23,14 @@
          <log type="coverage-html" target="coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
      </logging>
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./api</directory>
-            <directory suffix=".php">./dashboard</directory>
+        <whitelist>
+                <directory suffix=".php">./api</directory>
+                <directory suffix=".php">./dashboard</directory>
             <directory suffix=".php">./php</directory>
-            <exclude>
-                <directory>ExternalLibraries</directory>
-                <directory>/api/</directory>
-                <directory>/build/</directory>
-                <directory>/css/</directory>
-                <directory>/csv/</directory>
-                <directory>/dashboard/</directory>
-                <directory>/data/</directory>
-                <directory>/extra/</directory>
-                <directory>/fonts/</directory>
-                <directory>/img/</directory>
-                <directory>/java/</directory>
-                <directory>/js/</directory>
-                <directory>/php/</directory>
-                <directory>/sass/</directory>
-                <file>/pop.php/</file>
-            </exclude>
         </whitelist>
+        <blacklist>
+            <directory suffix=".css">./css</directory>
+        </blacklist>
     </filter>
 </phpunit>
 

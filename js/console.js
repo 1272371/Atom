@@ -13,7 +13,7 @@ $('#side-nav-bar').attr('style', 'background-color: #242424;min-height: 100vh; h
 $(document).ready(function() {
 
     // set title
-    // Welcome();
+    Welcome();
 
 });
 
@@ -33,10 +33,7 @@ function Welcome() {
                 $('#dev-id').html(
                     '>>> Signed in as, ' + 
                     data.contents.user_name + ' ' +
-                    data.contents.user_surname);
-            }
-            else {
-                window.location.href = 'index.php';
+                    data.contents.user_surname + data.contents.user_type);
             }
         }
     });

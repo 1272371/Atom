@@ -18,7 +18,7 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-    <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.3.3.1.min.js" type="text/javascript"></script>
 
 
     <!--     Fonts and icons     
