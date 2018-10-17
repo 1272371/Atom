@@ -104,7 +104,7 @@ app
 /**
  * upload marks view
  */
-.controller('UploadMarksController', function($scope, $http, $rootScope, $timeout) {
+.controller('UploadMarksController', function($scope, $http, $timeout) {
 
     /**
      * set up user interface
@@ -270,7 +270,7 @@ app
             // if the user clicks anywhere outside the select box,
             //then close all select boxes
             document.addEventListener('click', closeAllSelect)
-        }, 400)
+        }, 500)
     })
     $(window).on('resize', function() {
 
