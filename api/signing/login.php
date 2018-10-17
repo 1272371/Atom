@@ -9,7 +9,7 @@
         include_once '../models/Token.php';
 
         // instanciate database and connect
-        $database = new Database();
+        $database = new Database('127.0.0.1','risk','root','');
         $db = $database->connect();
 
         // instantiate user object

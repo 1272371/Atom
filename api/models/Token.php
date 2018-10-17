@@ -13,6 +13,7 @@
         public $user_type;
         public $user_surname;
         public $user_password;
+        public $utl_id;
 
         // user constructor
         public function __construct($db) {
@@ -103,6 +104,7 @@
             $query = 'SELECT
                 t.user_id,
                 u.user_name as user_name,
+                u.utl_id as utl_id,
                 utl.utl_name as user_type,
                 u.user_surname as user_surname
                 FROM
@@ -141,6 +143,7 @@
                 $this->user_name = $row['user_name'];
                 $this->user_surname = $row['user_surname'];
                 $this->user_type = $row['user_type'];
+                $this->utl_id = $row['utl_id'];
             }
         }
     }
