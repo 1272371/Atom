@@ -8,9 +8,9 @@
     if (isset($_COOKIE['atom_risk'])) {
 
         // include database files
-        include_once '../config/Database.php';
-        include_once '../models/Token.php';
-        include_once '../models/Assessment.php';
+        include_once __DIR__ .'../../config/Database.php';
+        include_once __DIR__ .'../../models/Token.php';
+        include_once __DIR__ .'../../models/Assessment.php';
 
         // instanciate database and connect
         $database = new Database('127.0.0.1','risk','root','');

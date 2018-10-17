@@ -4,8 +4,8 @@
     header('Content-Type: application/json');
 
     // get by id
-    include_once '../config/Database.php';
-    include_once '../models/Basic.php';
+    include_once __DIR__ .'../../config/Database.php';
+    include_once __DIR__ .'../../models/Basic.php';
 
     // instanciate database and connect
     $database = new Database('127.0.0.1','risk','root','');
