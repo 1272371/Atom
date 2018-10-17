@@ -14,16 +14,12 @@ js/*._*
 php/*._*
 vendor/
 local/
-
 dashboard/*._*
 dashboard/js/*._*
 dashboard/css/*._*
 dashboard/img/*._*
 dashboard/fonts/*._*
 dashboard/assets/*._*
-dashboard/*.nfs*
-
-api/*_*
 css/*_*
 extra/*_*
 img/*_*
