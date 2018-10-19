@@ -33,10 +33,26 @@
             <div class="col pr-0 mr-1">
                 <!-- profile -->
                 <div id="profile-card" class="card">
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <div class="row">
                             <div class="col">
-                                <h4 id="profile-heading" style="font-weight:100">Welcome</h4>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <img class="img-fluid" src="../../img/cover/profile.jpg">
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <img style="border-radius:50%; border: 4px solid white; width: 128px; height: 128px;
+                                            margin-top: -64px" 
+                                            class="img-fluid" src="../../img/faces/face-7.jpg">
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <h4 id="profile-name" class="m-3" style="font-weight:300">Welcome</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,10 +61,24 @@
             <div class="col pl-0 ml-1 mr-1">
                 <!-- summary -->
                 <div id="recent-card" class="card">
-                    <div class="card-body">
+                    <div class="card-body p-0" style="overflow-y:auto; overflow-x:hidden">
                         <div class="row">
                             <div class="col">
-                                <h4 style="font-weight:100">Assessments</h4>
+                                <h4 style="font-weight:100; padding: 20px 20px 8px 20px">Results</h4>
+                                <table id="assessments-table" class="table table-striped table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col" style="font-weight: 400; font-size: 14px">Assessment</th>
+                                            <th scope="col" style="font-weight: 400; font-size: 14px">Pass/Fail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-model="assessmentTable">
+                                        <tr ng-repeat="x in assessments">
+                                            <td>{{ x.assessment_name }}</td>
+                                            <td>{{ x.pass }}/{{ x.fail }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -87,7 +117,36 @@
                 <div class="row">
                     <div class="col">
                         <h4 style="font-weight:100">Notifications</h4>
-                        awe
+                        <h3 class="p-1" style="background:#85714D; color: white;">November</h3>
+                        <div class="row">
+                            <div class="col-3">
+                                <!-- date -->
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <div class="pt-2 pb-2 pl-1 pr-1 bg-dark"
+                                            style="border-radius: 8px; color:white; font-size: 24px;">1<br>5</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="text-uppercase mb-0"><strong>Faculty meeting</strong></h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <i class="fa fa-calendar-o"></i> Thursday
+                                        <i class="fa fa-clock-o"></i> 12:30 AM - 2:00 AM
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <i class="fa fa-location-arrow"></i> UG-206
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

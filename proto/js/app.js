@@ -123,23 +123,13 @@ app
     .then(function(response) {
 
         if (response.data.message === 'success') {
-            
-            // get subjects
-            $http.get('../api/basic/subject.php?user_id=' +
-                response.data.contents.user_id)
-            .then(function(responses) {
-                // subjects
-                $scope.subjects = responses.data.contents
-            })
 
-            // get lookup table data
-            $http.get('../api/basic/lookup.php')
-            .then(function(responsible) {
-                // lookups
-                $scope.utl = responsible.data.contents.user_type_lookup
-                $scope.ail = responsible.data.contents.assessment_info_lookup
-                $scope.aml = responsible.data.contents.assessment_medium_lookup
-                $scope.atl = responsible.data.contents.assessment_type_lookup
+            $('#profile-name').html('Weclome, ' + response.data.contents.user_name)
+
+            // get summary
+            $http.get('../api/basic/summary.php?user_id=' + response.data.contents.user_id)
+            .then(function(responses) {
+                $scope.assessments = responses.data.contents.assessments
             })
 
         }
