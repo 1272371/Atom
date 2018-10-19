@@ -68,13 +68,85 @@ app
     })
 })
 // controls and binds data for the home page
-.controller('HomeController', function($scope) {
+.controller('HomeController', function($scope, $http) {
+
+    /**
+     * set up user interface
+     */
     $scope.title = 'Home'
+
+    // init variables - change on resize
+    var iWinHeight = $(window).height()
+
+    // profile card card
+    var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
+    $('#profile-card').css('height', profileCardHeight)
+    // recent card card
+    var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
+    $('#recent-card').css('height', recentCardHeight)
+    // notifications card height
+    var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
+    $('#notification-card').css('height', notificationCardHeight)
+    // graph card height
+    var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
+    $('#graph-card').css('height', graphCardHeight)
 
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
+
+    $(window).on('resize', function() {
+        // window heigh changed on resize
+        var iWinHeight = $(window).height()
+
+        // profile card card
+        var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
+        $('#profile-card').css('height', profileCardHeight)
+        // recent card card
+        var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
+        $('#recent-card').css('height', recentCardHeight)
+        // notifications card height
+        var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
+        $('#notification-card').css('height', notificationCardHeight)
+        // graph card height
+        var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
+        $('#graph-card').css('height', graphCardHeight)
+    })
+//-----------------------------------------------------------------------------
+
+    /**
+     * get data base data
+     */
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+            
+            // get subjects
+            $http.get('../api/basic/subject.php?user_id=' +
+                response.data.contents.user_id)
+            .then(function(responses) {
+                // subjects
+                $scope.subjects = responses.data.contents
+            })
+
+            // get lookup table data
+            $http.get('../api/basic/lookup.php')
+            .then(function(responsible) {
+                // lookups
+                $scope.utl = responsible.data.contents.user_type_lookup
+                $scope.ail = responsible.data.contents.assessment_info_lookup
+                $scope.aml = responsible.data.contents.assessment_medium_lookup
+                $scope.atl = responsible.data.contents.assessment_type_lookup
+            })
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
 })
 
 /**
@@ -275,10 +347,12 @@ app
     $(window).on('resize', function() {
 
         // adjusts bottom-border of file preview card
-        var wheight = $(window).height() - $('#config-card').offset().top - 10;
-        var warea = $(window).height() - $('#display-area').offset().top - 20;
-        $('#config-card').css('height', wheight)
-        $('#display-area').css('height', warea)
+        if ($('#config-card').length === 1 && $('#display-area').length == 1) {
+            var wheight = $(window).height() - $('#config-card').offset().top - 10;
+            var warea = $(window).height() - $('#display-area').offset().top - 20;
+            $('#config-card').css('height', wheight)
+            $('#display-area').css('height', warea)
+        }
     })
 
 //-----------------------------------------------------------------------------
