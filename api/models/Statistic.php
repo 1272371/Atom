@@ -1,9 +1,5 @@
 <?php
 
-    $a = array('42', 14, 15);
-    echo $a[0] . 'aweawe';
-
-
     class Statistic {
 
         public function getAverage($data) {
@@ -19,7 +15,7 @@
                 for ($i = 0; $i < $length; $i++) {
 
                     // declare and check if it's numeric
-                    $xi = get_numeric($data[$i]);
+                    $xi = $this->get_numeric($data[$i]);
 
                     $Ex = $Ex + $xi;
                 }

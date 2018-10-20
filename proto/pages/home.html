@@ -85,24 +85,36 @@
                 </div>
             </div>
         </div>
-
         <!-- graph summary -->
         <div class="row">
             <div class="col">
+                <!-- graph card-->
                 <div id="graph-card" class="card mt-2 mr-1">
                     <div class="card-body">
+                        <!-- test name and date -->
                         <div class="row">
                             <div class="col">
                                 <!-- heading -->
                                 <div class="row">
                                     <div class="col">
-                                        <h4 id="summary-heading" style="font-weight:100">Recent : </h4>
+                                        <h4 id="recent-heading" style="font-weight:100">Recent : </h4>
                                     </div>
                                     <div class="col">
-                                        <h4 id="summary-date" style="font-weight:100; text-align: right"><i class="fa fa-table"></i> 12 September 2018</h4>
+                                        <h4 id="recent-date" style="font-weight:100; text-align: right"><i class="fa fa-table"></i></h4>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- average graph, pass/fail graph, risk graph -->
+                        <div class="row">
+                            <!-- learn more here : -->
+                            <!-- https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72 -->
+                            <!-- graph depicting latest test average -->
+                            <div id="graph-average" class="col"></div>
+                            <!-- graph depicting latest test pass/fail rate -->
+                            <div id="graph-passfail" class="col"></div>
+                            <!-- graph depicting latest results students at risk -->
+                            <div id="graph-risk" class="col"></div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +140,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-9">
+                            <div class="col-9 pl-0">
                                 <div class="row">
                                     <div class="col">
                                         <h4 class="text-uppercase mb-0"><strong>Faculty meeting</strong></h4>
@@ -137,7 +149,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <i class="fa fa-calendar-o"></i> Thursday
-                                        <i class="fa fa-clock-o"></i> 12:30 AM - 2:00 AM
+                                        <i class="fa fa-clock-o"></i> 12:30 AM - 2:00 PM
                                     </div>
                                 </div>
                                 <div class="row">

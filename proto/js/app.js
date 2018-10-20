@@ -129,7 +129,103 @@ app
             // get summary
             $http.get('../api/basic/summary.php?user_id=' + response.data.contents.user_id)
             .then(function(responses) {
+                // sets up results card
                 $scope.assessments = responses.data.contents.assessments
+                // heading
+                var heading = responses.data.contents.assessments[0].assessment_name
+                var aTotal = responses.data.contents.assessments[0].assessment_total
+                aTotal = aTotal.split('.') // in case of decimal number from database
+                $('#recent-heading').html('Recent : ' + heading + ' out of ' + aTotal[0])
+                // set date
+                var d = responses.data.contents.assessments[0].assessment_date.split('-')
+                var date = new Date(d[0], d[1], d[2])
+                d = date.toDateString()
+                date = d.substr(0, d.length - 5)
+                $('#recent-date').html('<i class="fa fa-table"></i> ' + date)
+
+                // learn more here : 
+                // https://medium.com/@heyoka/scratch-made-svg-donut-pie-charts-in-html5-2c587e935d72
+                
+                // donut chart core elements
+                var svg
+                var text
+                var svgTag = '<svg width="95%" height="95%" viewBox="0 0 42 42" class="donut">'
+                // donut hole gives illusion of hole without it it looks like pie chart
+                var donutHole = '<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>'
+                var donutRing = '<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954"' + 
+                'fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>'
+
+                // set up average graph
+                // color must change according to average
+                var ave = responses.data.contents.assessments[0].average / responses.data.contents.assessments[0].assessment_total * 100
+                ave = parseInt(ave)
+                var colour
+                // now colour
+                if (ave >= 75) {
+                    // cum laude dark green
+                    colour = '#338000c4'
+                }
+                else if (ave >= 50 && ave < 75) {
+                    //  average mark yellowish green
+                    colour = '#aad400c4'
+                }
+                else if (ave >= 35 && ave < 50) {
+                    // danger zone orange
+                    colour = '#ff7f2ac4'
+                }
+                else {
+                    // fail zone
+                    colour = '#800000c4'
+                }
+                var status = '<i class="fa fa-circle" style="margin-right:10px;color:' + colour + '"></i>'
+                $('#recent-date').html(status + ' ' + '<i class="fa fa-table"></i> ' + date)
+                var dash = 100 - ave
+                var averageStroke = ave + ' ' + dash
+                ave = responses.data.contents.assessments[0].average
+
+                // show one decimal point
+                ave = ave + ''
+                var deci = ave.split('.')
+
+                if (deci.length === 1) {
+                    ave = deci[0]
+                }
+                else {
+                    ave = deci[0] + '.' + deci[1].substr(0, 1)
+                }
+
+                var donutSegment = '<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"' +
+                'stroke="' + colour + '" stroke-width="3" stroke-dasharray="' + averageStroke + '" stroke-dashoffset="10"></circle>'
+                text = '<g class="chart-text"><text x="50%" y="50%" class="chart-number">' + 
+                ave + '</text><text x="50%" y="50%" class="chart-label">average</text></g>'
+                svg = svgTag + donutHole + donutRing + donutSegment + text + '</svg>'
+                $('#graph-average').html(svg)
+
+                // set up pass fail graph
+                var pass = responses.data.contents.assessments[0].pass
+                var fail = responses.data.contents.assessments[0].fail
+                var total = responses.data.contents.assessments[0].pass + responses.data.contents.assessments[0].fail
+                var passRate = responses.data.contents.assessments[0].pass / total * 100 + ''
+                passRate = parseInt(passRate)
+                var failRate = 100 - passRate
+
+                var donutSegmentPass = '<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"' +
+                'stroke="#217867c4" stroke-width="3"' + 
+                'stroke-dasharray="' + passRate + ' ' + failRate + '"' + 'stroke-dashoffset="80"></circle>'
+                var strokeDashOffset = 100 - passRate + 80
+                var donutSegmentFail = '<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent"' +
+                'stroke="#c83737c4" stroke-width="3"' + 
+                'stroke-dasharray="' + failRate + ' ' + passRate + '"' + 'stroke-dashoffset="' + strokeDashOffset + '"></circle>'
+                text = '<g class="chart-text"><text x="50%" y="50%" class="chart-number">' + 
+                pass + '/' + fail + '</text><text x="50%" y="50%" class="chart-label">pass-fail</text></g>'
+                svg = svgTag + donutHole + donutRing + donutSegmentPass + donutSegmentFail + text + '</svg>'
+                $('#graph-passfail').html(svg)
+
+                // set up risk graph
+                text = '<g class="chart-text"><text x="50%" y="50%" class="chart-number">' + 
+                'no</text><text x="50%" y="50%" class="chart-label">risk data</text></g>'
+                svg = svgTag + donutHole + donutRing + text + '</svg>'
+                $('#graph-risk').html(svg)
             })
 
         }

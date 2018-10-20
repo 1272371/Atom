@@ -1,10 +1,13 @@
 <?php
 
     header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
 
     include_once __DIR__ . '../../config/Database.php';
     include_once __DIR__ . '../../models/Basic.php';
     include_once __DIR__ . '../../models/Assessment.php';
+    include_once __DIR__ . '../../models/Mark.php';
+    include_once __DIR__ . '../../models/Statistic.php';
 
     // instanciate database and connect
     $database = new Database('127.0.0.1','risk','root','');
@@ -66,9 +69,13 @@
 
             // index
             $i = 0;
+            $getMarksByAssessmentId;
 
             while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                 extract($row);
+
+                // get marks by assessment id
+                if ($i == 0) $getMarksByAssessmentId = $assessment_id;
 
                 // pass rate array
                 $rate = $assessment->getPassRate($assessment_id, $assessment_total);
@@ -76,6 +83,8 @@
                 // assessment
                 $assessmentItem = array(
                     'assessment_name' => $assessment_name,
+                    'assessment_date' => $assessment_date,
+                    'assessment_total' => $assessment_total,
                     'pass' => $rate[0],
                     'fail' => $rate[1]
                 );
@@ -85,6 +94,18 @@
 
                 $i++;
             }
+
+            // get average of recent assessment
+            $mark = new Mark($db);
+            $statistic = new Statistic($db);
+
+            // get marks and data
+            $marks = $mark->getMarksByAssessmentId($getMarksByAssessmentId);
+            $average = $statistic->getAverage($marks);
+
+            // put average
+            $summaryArray['contents']['assessments'][0]['average'] = $average;
+
             echo json_encode($summaryArray);
 
         }
