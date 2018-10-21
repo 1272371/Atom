@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title and icon -->
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style>
+        .card:hover {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- container for bootstrap-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <p class="h1">Welcome to the Student Risk Analysis Dashboard</p>
+            </div>
+        </div>
+        <!-- hoverable options-->
+        <div id="row-height" class="row pt-5 pb-5" style="background:#003b5c">
+            <div class="col          ">
+                <div class="row">
+                    <!-- home -->
+                    <div class="col">
+                        <a href="./#!/" style="text-decoration:none; color: #323232">
+                            <div class="card stretch-card-top" style="cursor:pointer">
+                                <div class="card-body text-center">
+                                    <p class="h4 pb-3" style="font-weight:400">Home</p>
+                                    <img width="196px" src="../img/house.svg">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- grade book-->
+                    <div class="col">
+                        <a href="./#!/grade-book" style="text-decoration:none; color: #323232">
+                            <div class="card  stretch-card-top" style="cursor:pointer">
+                                <div class="card-body text-center">
+                                    <p class="h4 pb-3" style="font-weight:400">Grade Book</p>
+                                    <img width="196px" src="../img/books.svg">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- statistics -->
+                    <div class="col">
+                        <a href="./#!/statistics" style="text-decoration:none; color: #323232">
+                            <div class="card  stretch-card-top" style="cursor:pointer">
+                                <div class="card-body text-center">
+                                        <p class="h4 pb-3" style="font-weight:400">Statistics</p>
+                                        <img width="196px" src="../img/pie-chart.svg">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                    <!-- upload marks -->
+                    <div class="col">
+                            <a href="./#!/upload-marks" style="text-decoration:none; color: #323232">
+                                <div class="card stretch-card-bottom" style="cursor:pointer">
+                                    <div class="card-body text-center">
+                                        <p class="h4 pb-3" style="font-weight:400">Upload Marks</p>
+                                        <img width="196px" src="../img/upload.svg">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- grade book-->
+                        <div class="col">
+                            <!-- blank space-->
+                        </div>
+                        <!-- logout -->
+                        <div class="col">
+                            <a style="text-decoration:none; color: #323232">
+                                <div class="card pb-3 stretch-card-bottom" style="cursor:pointer">
+                                    <div class="card-body text-center">
+                                            <p class="h4" style="font-weight:400">Logout</p>
+                                            <img width="196px" src="../img/logout.svg">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+
+    <!-- card heights-->
+    <script>
+        // window height
+        var iWinHeight = $(window).height()
+
+        // heights of cards to window
+        var stretchTop = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+        $('.stretch-card-top').css('height', stretchTop)
+        var stretchBottom = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+        $('.stretch-card-bottom').css('height', stretchBottom)
+        var stretchRow = iWinHeight - $('#row-height').offset().top
+        $('#row-height').css('height', stretchRow)
+
+        $(window).on('resize', function() {
+            // window height
+            var iWinHeight = $(window).height()
+
+            // heights of cards to window
+            var stretchTop = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+            $('.stretch-card-top').css('height', stretchTop)
+            var stretchBottom = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+            $('.stretch-card-bottom').css('height', stretchBottom)
+            var stretchRow = iWinHeight - $('#row-height').offset().top
+            $('#row-height').css('height', stretchRow)
+
+            // also resize images
+            $('img').css('width', $('.stretch-card-top').width() * 0.45)
+        })
+    </script>
+</body>
+</html>

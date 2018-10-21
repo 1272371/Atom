@@ -124,7 +124,7 @@ app
 
         if (response.data.message === 'success') {
 
-            $('#profile-name').html('Weclome, ' + response.data.contents.user_name)
+            $('#profile-name').html('Welcome, ' + response.data.contents.user_name)
 
             // get summary
             $http.get('../api/basic/summary.php?user_id=' + response.data.contents.user_id)
