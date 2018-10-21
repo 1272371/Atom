@@ -10,12 +10,9 @@
          stopOnFailure="false"
          syntaxCheck="false"
          stderr="true">
-
     <testsuites>
         <testsuite name="phptests">
             <directory>tests/phpunit/api/*</directory>
-            <directory>tests/phpunit/dashboard/*</directory>
-            <directory>tests/phpunit/php/*</directory>
         </testsuite>
     </testsuites>
      <logging>
@@ -23,14 +20,12 @@
          <log type="coverage-html" target="coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
      </logging>
     <filter>
-        <whitelist>
-                <directory suffix=".php">./api</directory>
-                <directory suffix=".php">./dashboard</directory>
-            <directory suffix=".php">./php</directory>
+        <whitelist processUncoveredFilesFromWhitelist=" true">
+                <directory suffix=".php">./api/models</directory>
         </whitelist>
-        <blacklist>
+   <!--     <blacklist>
             <directory suffix=".css">./css</directory>
-        </blacklist>
+        </blacklist>-->
     </filter>
 </phpunit>
 
