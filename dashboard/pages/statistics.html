@@ -1,0 +1,43 @@
+<!-- navbar -->
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- toggle button -->
+    <!-- onmousedown="event.preventDefault()" prevents button from staying clicked -->
+    <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
+        <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand ml-3">{{ title }}</a>
+    <!-- drop down will be here-->
+    <button id="outline-button" ng-click="refresh()" type="button" class="ml-auto" type="button"
+        onmousedown="event.preventDefault()">Refresh</button>
+</nav>
+
+<!-- four pane layout-->
+<div class="row mt-2">
+    <div class="col pr-0">
+        <div class="card ml-2 mr-1 stretch-card-top">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+    <div class="col pl-0">
+        <div class="card mr-2 ml-1 stretch-card-top">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col pr-0">
+        <div class="card ml-2 mr-1 stretch-card-bottom">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+    <div class="col pl-0">
+        <div class="card mr-2 ml-1 stretch-card-bottom">
+            <div class="card-body">
+            </div>
+        </div>
+    </div>
+</div>

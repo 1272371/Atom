@@ -148,14 +148,13 @@
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Token.php">
       <class name="Token" namespace="global">
-        <metrics complexity="8" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="80" coveredstatements="0" elements="83" coveredelements="0"/>
+        <metrics complexity="8" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="82" coveredstatements="0" elements="85" coveredelements="0"/>
       </class>
-      <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="19" type="stmt" count="0"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="20" type="stmt" count="0"/>
       <line num="21" type="stmt" count="0"/>
-      <line num="26" type="method" name="setToken" visibility="public" complexity="4" crap="20" count="0"/>
-      <line num="28" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="27" type="method" name="setToken" visibility="public" complexity="4" crap="20" count="0"/>
       <line num="29" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
       <line num="31" type="stmt" count="0"/>
@@ -171,29 +170,29 @@
       <line num="41" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
       <line num="43" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="54" type="stmt" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
-      <line num="63" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="55" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="61" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
       <line num="67" type="stmt" count="0"/>
-      <line num="70" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
       <line num="71" type="stmt" count="0"/>
       <line num="72" type="stmt" count="0"/>
       <line num="73" type="stmt" count="0"/>
       <line num="74" type="stmt" count="0"/>
-      <line num="76" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
       <line num="77" type="stmt" count="0"/>
-      <line num="80" type="stmt" count="0"/>
+      <line num="78" type="stmt" count="0"/>
       <line num="81" type="stmt" count="0"/>
-      <line num="84" type="stmt" count="0"/>
+      <line num="82" type="stmt" count="0"/>
       <line num="85" type="stmt" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="89" type="stmt" count="0"/>
-      <line num="91" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <line num="88" type="stmt" count="0"/>
+      <line num="90" type="stmt" count="0"/>
       <line num="92" type="stmt" count="0"/>
       <line num="93" type="stmt" count="0"/>
       <line num="94" type="stmt" count="0"/>
@@ -202,8 +201,8 @@
       <line num="97" type="stmt" count="0"/>
       <line num="98" type="stmt" count="0"/>
       <line num="99" type="stmt" count="0"/>
-      <line num="101" type="method" name="getToken" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="103" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="102" type="method" name="getToken" visibility="public" complexity="3" crap="12" count="0"/>
       <line num="104" type="stmt" count="0"/>
       <line num="105" type="stmt" count="0"/>
       <line num="106" type="stmt" count="0"/>
@@ -221,19 +220,22 @@
       <line num="118" type="stmt" count="0"/>
       <line num="119" type="stmt" count="0"/>
       <line num="120" type="stmt" count="0"/>
-      <line num="123" type="stmt" count="0"/>
-      <line num="126" type="stmt" count="0"/>
-      <line num="129" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <line num="122" type="stmt" count="0"/>
+      <line num="125" type="stmt" count="0"/>
+      <line num="128" type="stmt" count="0"/>
       <line num="131" type="stmt" count="0"/>
-      <line num="134" type="stmt" count="0"/>
-      <line num="137" type="stmt" count="0"/>
-      <line num="140" type="stmt" count="0"/>
-      <line num="141" type="stmt" count="0"/>
+      <line num="133" type="stmt" count="0"/>
+      <line num="136" type="stmt" count="0"/>
+      <line num="139" type="stmt" count="0"/>
       <line num="142" type="stmt" count="0"/>
       <line num="143" type="stmt" count="0"/>
       <line num="144" type="stmt" count="0"/>
       <line num="145" type="stmt" count="0"/>
-      <metrics loc="145" ncloc="102" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="80" coveredstatements="0" elements="83" coveredelements="0"/>
+      <line num="146" type="stmt" count="0"/>
+      <line num="147" type="stmt" count="0"/>
+      <line num="148" type="stmt" count="0"/>
+      <metrics loc="148" ncloc="105" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="82" coveredstatements="0" elements="85" coveredelements="0"/>
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/User.php">
       <class name="User" namespace="global">
@@ -1969,45 +1971,6 @@
       <line num="164" type="stmt" count="0"/>
       <metrics loc="167" ncloc="86" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="0" elements="57" coveredelements="0"/>
     </file>
-    <file name="/opt/lampp/htdocs/Atom/php/Database/update.php">
-      <line num="3" type="stmt" count="0"/>
-      <line num="5" type="stmt" count="0"/>
-      <line num="7" type="stmt" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="54" type="stmt" count="0"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="63" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="0"/>
-      <line num="65" type="stmt" count="0"/>
-      <line num="67" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
-      <line num="69" type="stmt" count="0"/>
-      <line num="70" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <metrics loc="70" ncloc="43" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="0" elements="35" coveredelements="0"/>
-    </file>
     <file name="/opt/lampp/htdocs/Atom/php/Population/Populate.php">
       <class name="Populate" namespace="global">
         <metrics complexity="6" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="21" coveredelements="0"/>
@@ -2039,9 +2002,13 @@
       <metrics loc="0" ncloc="0" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <metrics files="37" loc="3399" ncloc="2803" classes="14" methods="39" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2083" coveredstatements="8" elements="2122" coveredelements="9"/>
 =======
     <metrics files="32" loc="2978" ncloc="2544" classes="12" methods="34" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1863" coveredstatements="8" elements="1897" coveredelements="9"/>
 >>>>>>> c16efb0a800b0f992ff8a33629aebe2247919516
+=======
+    <metrics files="36" loc="3360" ncloc="2791" classes="14" methods="39" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2074" coveredstatements="8" elements="2113" coveredelements="9"/>
+>>>>>>> e3a4b46b50e867c2df868c48048757e31117e963
   </project>
 </coverage>

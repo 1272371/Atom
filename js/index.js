@@ -44,7 +44,7 @@ $(document).ready(function() {
 /**
  * cosmetics
  */
-$('body,html').css('overflow-x','hidden');
+$('body,html').css('overflow-x','hidden')
 
 /**
  * functions
@@ -59,7 +59,7 @@ function Welcome() {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboardFirst.php';
+                window.location.href = 'dashboard/dashboard.html'
             }
         }
     });
@@ -80,17 +80,16 @@ function SignIn(username, password) {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboardFirst.php';
+                window.location.href = 'dashboard/dashboard.html'
             }
             else if (data.message === 'error') {
-                ResponseModal('Incorrect username or password, please try again');
+                ResponseModal('Incorrect username or password, please try again')
             }
         },
         error : function(xhr, data, errorThrown) {
-            console.log('something went wrong');
             console.log(xhr)
             console.log(data)
-            console.log(errorThrown)
+            console.log(errorThrown);
             ResponseModal(errorThrown)
         }
     });

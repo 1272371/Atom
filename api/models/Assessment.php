@@ -120,4 +120,75 @@
                 $this->ok = false;
             }
         }
+
+        // get latest results that are within current year
+        public function getSummary($courseArray) {
+
+            // start date and end date
+            $startDate = date('Y') . '-01-01';
+            $endDate = date('Y') . '-12-31';
+
+            $query = 'SELECT
+                assessment_id,
+                assessment_name,
+                assessment_date,
+                assessment_total
+                FROM assessment WHERE ';
+                
+            // append course id's
+            $length = count($courseArray);
+            for ($i = 0; $i < $length; $i++) {
+
+                $query .= '(course_id=' . $courseArray[$i] . ' AND ' .
+                'assessment_date BETWEEN \'' . $startDate . '\' AND \'' .
+                $endDate . '\') OR ';
+            }
+            $length -= 5;
+
+            // remove trailing OR
+            $query = substr($query, 0, $length);
+
+            // add ordering and limit
+            $query .= ' ORDER BY assessment_date DESC LIMIT 0,10';
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            return $statement;
+        }
+
+        // return array with 2 numbers pass rate and total students
+        public function getPassRate($assessment_id, $assessment_total) {
+
+            // query of students who passed the assessment
+            $query = 'SELECT mark_total FROM mark WHERE assessment_id=';
+            $query .= $assessment_id . ' AND mark_total >= ' . 0.5 * $assessment_total;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // pass rate
+            $pass = $statement->rowCount();
+
+            // query of students who didn't pass the assessment
+            $query = 'SELECT mark_total FROM mark WHERE assessment_id=';
+            $query .= $assessment_id . ' AND mark_total < ' . 0.5 * $assessment_total;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // fail rate
+            $fail = $statement->rowCount();
+
+            return array($pass, $fail);
+        }
     }
