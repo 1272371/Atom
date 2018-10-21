@@ -1,0 +1,141 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- toggle button -->
+    <!-- onmousedown="event.preventDefault()" prevents button from staying clicked -->
+    <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
+        <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand ml-3">{{ title }}</a>
+    <button id="outline-button" ng-click="publish()" type="button" class="ml-auto" type="button"
+        onmousedown="event.preventDefault()">Publish</button>
+</nav>
+
+<!-- drop file pop up -->
+<div id="drop-pop">DROP FILE HERE</div>
+
+<!-- target drop area -->
+<div id="target">
+    <div class="row">
+        <div class="col">
+            <!-- card for configurations -->
+            <div class="card m-2">
+                <div class="card-body ml-3 mr-3">
+                    <!-- configurations -->
+                    <div class="row">
+                        <div class="col">
+                            <!-- assessment header-->
+                            <div class="row">
+                                <div class="col p-0">
+                                    <h3 style="font-weight:100">New Assessment</h3>
+                                </div>
+                            </div>
+                            <!-- assessment form-->
+                            <div class="row">
+                                <div class="col p-0 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <!-- user input -->
+                                        <div class="row">
+                                            <!-- assessment name-->
+                                            <div class="col-6">
+                                                <input id="assessment-name" type="text" class="form-control"
+                                                    placeholder="Name">
+                                            </div>
+                                            <!-- assessment date-->
+                                            <div class="col-2">
+                                                    <input id="assessment-date" type="date" class="form-control"
+                                                        placeholder="yyyy-MM-dd">
+                                                </div>
+                                            <!-- assessment weight -->
+                                            <div class="col-2">
+                                                <input id="assessment-weight" type="text" class="form-control"
+                                                    placeholder="Weight" style="text-align:right">
+                                            </div>
+                                            <!-- assessment total -->
+                                            <div class="col-2">
+                                                <input id="assessment-total" type="text" class="form-control"
+                                                    placeholder="Total" style="text-align:right">
+                                            </div>
+                                        </div>
+                                        <!-- from database-->
+                                        <div class="row mt-3">
+                                            <div class="col mb-3">
+                                                <div id="drop-course-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedSubject" id="course-id">
+                                                            <option ng-repeat="x in subjects" value="{{ x.course_id }}">{{ x.course_name }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <div id="drop-ail-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedAIL" id="ail-id" class="form-control">
+                                                        <option ng-repeat="x in ail" value="{{ x.ail_id }}">{{ x.ail_name }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <div id="drop-aml-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedAML" id="aml-id" class="form-control">
+                                                        <option ng-repeat="x in aml" value="{{ x.aml_id }}">{{ x.aml_name }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <div id="drop-atl-id" class="dropdown-menu" style="width: 12vw;">
+                                                    <select ng-model="selectedATL" id="atl-id" class="form-control">
+                                                        <option ng-repeat="x in atl" value="{{ x.atl_id }}">{{ x.atl_name }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- file browser -->
+                    <div class="row mt-2">
+                        <div class="col p-0">
+                            <div class="custom-file m-0 mx-auto">
+                                <input id="file-input" type="file" class="custom-file-input" id="customFile">
+                                <label id="file-input-label" class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- card for preview -->
+            <div id="config-card" class="card ml-2 mr-2">
+                <div class="card-body ml-3 mr-3">
+                    <!-- file preview-->
+                    <div class="row">
+                        <div class="col p-0">
+                            <h3 style="font-weight:100">File Preview</h3>
+                        </div>
+                        <div class="col p-0">
+                            <p style="text-align:right; color: lightslategray">Use comma , separated csv file</p>
+                        </div>
+                    </div>
+                    <!-- text block -->
+                    <div class="row mt-3">
+                        <div id="display-area" class="col p-0"
+                            style="overflow-y: auto; border: 1.2px solid #323232">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Student Number</th>
+                                        <th scope="col">Mark</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

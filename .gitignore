@@ -21,6 +21,7 @@ dashboard/css/*._*
 dashboard/img/*._*
 dashboard/fonts/*._*
 dashboard/assets/*._*
+dashboard/*.nfs*
 
 api/*_*
 css/*_*

@@ -135,20 +135,18 @@
                         </div>
 
                         <div style="margin:30px">
-                            <select style="width:40%;">
+                            <select>
                                <?php
                                     include_once( 'uploadTest.php');
                                     TestingUpload::listAssignmentType();
                                 ?>
                             </select>
 
-
-
                             <input  placeholder="Name of Assignmnet" id="name" type="text" class="form-control" style="width:40%;float: right;" name="Name_of_Assignmnet">
                         </div>
 
                         <div style="margin:30px">
-                            <select style="width:40%;">
+                            <select>
                                <?php
                                     include_once( 'uploadTest.php');
                                    TestingUpload::listClasses();
@@ -160,11 +158,9 @@
                         </div>
 
                         <div style="margin:30px;padding-bottom: 10px">
-                            <select style="width:40%;">
-                            	 <?php
-                                    include_once( 'uploadTest.php');
-                                    TestingUpload::getMediums();
-                                ?>
+                            <select>
+                            	<option value="medium1">Medium 1</option>
+                            	<option value="medium2">Medium 2</option>
                             </select>
 
                             <input  placeholder="Total Available Marks" id="total" type="text" class="form-control" style="width:40%;float: right;" name="Total_Available_Marks">
@@ -209,7 +205,7 @@
                             </div>
                             <div class="content">
 
-                                <textarea cols="140" rows="10" name="mark" id="fileDisplayArea" style="width:100%"><?php $mark;?></textarea>
+                                <textarea cols="140" rows="10" name="mark" id="fileDisplayArea" ><?php $mark;?></textarea>
                                 <input type="submit" class="btn btn-primary" style="color: blue;border-color-color: blue" id="UploadButton"  value="Upload">
                                 </form>
 

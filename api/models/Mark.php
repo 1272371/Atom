@@ -54,4 +54,39 @@
             return $statement;
         }
 
+        // get array of marks for an assessment
+        public function getMarksByAssessmentId($assessmentId) {
+
+            // create query
+            $query = 'SELECT mark_total from mark where assessment_id=';
+            $query .= $assessmentId;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // row count
+            $num = $statement->rowCount();
+
+            if ($num > 0) {
+
+                // index and array
+                $i = 0;
+                $data = array();
+
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+                    // put into array
+                    $data[$i] = $row['mark_total'] + 0;
+                    $i++;
+                }
+                return $data;
+            }
+            else {
+                return 0;
+            }
+        }
+
     }
