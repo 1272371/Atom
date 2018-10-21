@@ -238,25 +238,88 @@ app
 /**
  * grade book view
  */
-.controller('GradeBookController', function($scope) {
+.controller('GradeBookController', function($scope, $http) {
     $scope.title = 'Grade Book'
 
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
+
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+            
+            // get subjects
+            console.log('user is signed in')
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
 })
 
 /**
  * statistics view
  */
-.controller('StatisticsController', function($scope) {
+.controller('StatisticsController', function($scope, $http) {
+
+    /**
+     * set up user interface
+     */
     $scope.title = 'Statistics'
 
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
+
+    $scope.refresh = function() {
+        console.log('clicked')
+    }
+
+    // init variables - change on resize
+    var iWinHeight = $(window).height()
+
+    // stretch top cards
+    var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+    $('.stretch-card-top').css('height', stretchTopCards)
+    // stretch bottom cards
+    var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+    $('.stretch-card-bottom').css('height', stretchBottomCards)
+
+    // stretch also when window is resized
+    $(window).on('resize', function() {
+        // graph/svg widths can also be resized here
+
+        // init variables - change on resize
+        var iWinHeight = $(window).height()
+
+        // stretch top cards
+        var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+        $('.stretch-card-top').css('height', stretchTopCards)
+        // stretch bottom cards
+        var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+        $('.stretch-card-bottom').css('height', stretchBottomCards)
+    })
+//-----------------------------------------------------------------------------
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+            
+            // get subjects
+            console.log('user is signed in')
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
 })
 
 /**
