@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1540147112">
-  <project timestamp="1540147112">
+<coverage generated="1540147739">
+  <project timestamp="1540147739">
     <file name="/opt/lampp/htdocs/Atom/api/models/Assessment.php">
       <class name="Assessment" namespace="global">
         <metrics complexity="13" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="0" elements="100" coveredelements="0"/>
