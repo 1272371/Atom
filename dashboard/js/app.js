@@ -1073,6 +1073,47 @@ app
      * set up view
      */
     $scope.title = 'Student Statistics'
+
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+
+            // student number
+            var url = window.location.href.split('=')
+            var student = url[1]
+            console.log(student)
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
+    // card heights
+    var iWinHeight = $(window).height()
+
+    // stretch top cards
+    var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+    $('.stretch-card-top').css('height', stretchTopCards)
+    // stretch bottom cards
+    var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+    $('.stretch-card-bottom').css('height', stretchBottomCards)
+
+    // stretch also when window is resized
+    $(window).on('resize', function() {
+        // graph/svg widths can also be resized here
+
+        // init variables - change on resize
+        var iWinHeight = $(window).height()
+
+        // stretch top cards
+        var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+        $('.stretch-card-top').css('height', stretchTopCards)
+        // stretch bottom cards
+        var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+        $('.stretch-card-bottom').css('height', stretchBottomCards)
+    })
 //-----------------------------------------------------------------------------
     /**
      * events
