@@ -19,6 +19,10 @@ app
         templateUrl: 'pages/upload-marks.html',
         controller: 'UploadMarksController'
     })
+    .when('/more-info', {
+        templateUrl: 'pages/more-info.html',
+        controller: 'MoreInfoController'
+    })
     .otherwise({redirectTo: '/'})
 })
 .run(function($rootScope, $location, $routeParams) {
@@ -239,21 +243,78 @@ app
  * grade book view
  */
 .controller('GradeBookController', function($scope, $http) {
+
+    // nav title
     $scope.title = 'Grade Book'
 
+    /**
+     * events
+     */
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
 
+    // table row clicked
+    $scope.table = function(events) {
+        // clicked on row and not on button column
+        if (events.target.cellIndex < 5) {
+            // get student number
+            var id = events.target.parentNode.children[0].innerHTML
+
+            // go to more info page with student number
+            window.location.href = './#!/more-info?student=' + id
+        }
+        else {
+
+        }
+    }
+    $scope.popup = function(events) {
+
+        console.log(events.target.parentNode.parentNode.children[0].innerHTML)
+    } 
+    /**
+     * set up initial user interface
+     */
+    // init variables - change on resize
+    var iWinHeight = $(window).height()
+
+    // stretch top card
+    var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
+    $('#grade-book-card').css('height', stretchGradeBookCard)
+
+    $(window).on('resize', function() {
+        // stretch on resize
+        var iWinHeight = $(window).height()
+
+        // stretch card
+        var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
+        $('#grade-book-card').css('height', stretchGradeBookCard)
+    })
+//-----------------------------------------------------------------------------
     // get variables from database
     $http.post('../api/signing/signed.php')
     .then(function(response) {
 
         if (response.data.message === 'success') {
-            
-            // get subjects
-            console.log('user is signed in')
+
+            // get user id
+            var userId = response.data.contents.user_id
+
+            // get records for table
+            $http.post('../api/marks/grades.php?user_id=' + userId)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    $scope.grades = responses.data.contents.grades
+                    $scope.enrolled = responses.data.contents.grades.length
+                }
+                else {
+                    // something went wrong
+                }
+            })
 
         }
         else {
@@ -968,4 +1029,16 @@ app
      * end of dragging functions
      */
 //-----------------------------------------------------------------------------
+})
+
+/**
+ * more info on student
+ */
+.controller('MoreInfoController', function($scope, $http) {
+
+    /**
+     * set up view
+     */
+    $scope.title = 'More Information'
+
 })

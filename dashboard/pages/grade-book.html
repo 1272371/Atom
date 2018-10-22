@@ -5,22 +5,62 @@
     <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
         <i class="fa fa-bars"></i>
     </button>
-    <a class="navbar-brand ml-3">{{ title }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Togglernavigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Team</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Wiki</a>
-            </li>
-        </ul>
-    </div>
+    <a class="navbar-brand ml-3 mr-auto">{{ title }}</a>
 </nav>
+
+<!---->
+<div class="row">
+    <div class="col">
+        <div id="grade-book-card" class="card m-2">
+            <div class="card-body p-0" style="overflow-x:hidden; overflow-y:auto">
+                <div class="row mt-3 ml-3 mr-3">
+                    <div class="col-2 p-0">
+                        <!-- class drop down -->
+                        <div class="nice-drop-down-menu">
+                            <select id="course-drop-down" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-2 p-0">
+                        <!-- year drop down -->
+                        <div class="nice-drop-down-menu ml-3">
+                            <select id="year-drop-down" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-8" style="text-align:right">
+                        <h4 style="font-weight:400">{{ enrolled }} enrolled students <i class="fa fa-user-o"></i></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-striped table-hover p-0 mt-3">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px">Id</th>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px">Name</th>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px">Surname</th>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px">Faculty</th>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px; text-align: center">Average (%)</th>
+                                    <th scope="col" style="font-weight: 400; font-size: 14px"></th>
+                                </tr>
+                            </thead>
+                            <!-- overflow will scroll-->
+                                <tbody ng-model="gradesTable">
+                                    <tr ng-click="table($event)" ng-repeat="x in grades">
+                                        <td>{{ x.user_id }}</td>
+                                        <td>{{ x.user_name }}</td>
+                                        <td>{{ x.user_surname }}</td>
+                                        <td>{{ x.faculty_name }}</td>
+                                        <td style="text-align:center">{{ x.average }}</td>
+                                        <td><button class="more-info-button" onmousedown="event.preventDefault()"
+                                                ng-click="popup($event)" type="button">
+                                                    <b>MORE INFO</b>
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -171,6 +171,38 @@ body {
     border-width: 0px;
 }
 
+/* more info button */
+tbody > tr > td > button.more-info-button {
+    color: #495057;
+    padding: 3px;
+    font-size: 0.65rem;
+    background: transparent;
+    border: 2px solid #495057;
+    border-radius: 4px;
+}
+
+tbody > tr > td > button.more-info-button:hover {
+    color: white;
+    background: #495057;
+}
+
+tbody > tr > td > button.more-info-button:active {
+    color: white;
+    background: #495057;
+}
+
+/* nice drop down */
+.nice-drop-down-menu {
+    color: #3472F7;
+    width: 10vw;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 3px solid #3472F7;
+    border-radius: 0.25rem;
+}
+
 /* drop down */
 .dropdown-menu {
     top: 0px;

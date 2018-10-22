@@ -89,4 +89,29 @@
             }
         }
 
+        // get array of marks for an assessment
+        public function getMarksByUserId($userId) {
+
+            // create query
+            $query = 'SELECT ROUND(AVG(mark_total)) as mark_total from mark where user_id=';
+            $query .= $userId;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // row count
+            $num = $statement->rowCount();
+
+            if ($num > 0) {
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                return $row['mark_total'];
+            }
+            else {
+                return 0;
+            }
+        }
+
     }
