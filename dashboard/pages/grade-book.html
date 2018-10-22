@@ -8,6 +8,26 @@
     <a class="navbar-brand ml-3 mr-auto">{{ title }}</a>
 </nav>
 
+<!-- pop up -->
+<div class="pop-up-thing" style="display: none; top: 10vh; position: absolute; z-index: 5000; background: white;
+    width: 384px; height: 70vh; border-radius: 32px; padding: 0;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4)">
+    <div style="display:block; width: 100%; background: #003b5c; height: 128px; border-top-left-radius: 32px;
+        border-top-right-radius: 32px; border-bottom: 16px solid #85714D; padding-top: 24px; padding-left: 24px">
+        <img src="../../img/faces/face-0.jpg" style="left:8px; top: 8px; width: 64px; height: 64px;
+            position: relative; border-radius: 50%; float: left;"><span id="span-student" style="margin-left: 32px; color: white;
+                font-size: 32px">#</span><br><span id="span-name" style="margin-left: 32px; color: white">Name Surname</span>
+    </div>
+    <p style="padding: 24px; font-size: 24px; font-weight: 300">
+        <span style="width: 100px"><b>ID Number : &emsp;</b></span><span>971224 4637 865</span><br>
+        <span style="width: 100px"><b>Birth Date : &emsp;</b></span><span>12 December 1997</span><br>
+        <span style="width: 100px"><b>High School : &emsp;</b></span><span>Dira Yalo Secondary</span><br>
+        <span style="width: 100px"><b>Enrollment Year : &emsp;</b></span><span>2016</span><br>
+        <p ng-click="close()" style="padding: 18px; margin: 16px; text-align:center; cursor:pointer; background: #003b5c;
+            border-radius: 8px; color: white; font-weight: 700; font-size: 22px;">CLOSE</p>
+    </p>
+</div>
+
 <!---->
 <div class="row">
     <div class="col">
@@ -52,7 +72,7 @@
                                         <td>{{ x.faculty_name }}</td>
                                         <td style="text-align:center">{{ x.average }}</td>
                                         <td><button class="more-info-button" onmousedown="event.preventDefault()"
-                                                ng-click="popup($event)" type="button">
+                                                ng-click="popup($event)" type="button"style="cursor: pointer;">
                                                     <b>MORE INFO</b>
                                         </button></td>
                                     </tr>

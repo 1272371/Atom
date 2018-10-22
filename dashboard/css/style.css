@@ -128,6 +128,32 @@ body {
     border-width: 0px;
 }
 
+.sidebar-collapse {
+    padding: 4px 18px;
+    color: #fff;
+    background: #003b5c;
+    border-radius: 50%;
+    border-width: 0px;
+    font-size: 24px;
+    font-weight: 900;
+
+    -webkit-transition: all 150ms ease-in;
+    -moz-transition: all 150ms ease-in;
+    -o-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
+    transition: all 150ms ease-in;
+}
+
+.sidebar-collapse:hover {
+    color: #fff;
+    background: #85714D;
+}
+
+.sidebar-collapse:active {
+    color: #fff;
+    background: #85714D;
+}
+
 #outline-button {
     padding: 8px 18px;
     color: #fff;

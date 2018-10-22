@@ -271,8 +271,41 @@ app
     }
     $scope.popup = function(events) {
 
-        console.log(events.target.parentNode.parentNode.children[0].innerHTML)
-    } 
+        // get row
+        var number = events.target.parentNode.parentNode.children[0].innerHTML
+
+        if (isNaN(number)) {
+            var row = events.path[3].innerText.split('	')
+            var student = row[0]
+            $('#span-student').html(student)
+            var name = row[1]
+            var surname = row[2]
+            $('#span-name').html(name + ' ' + surname)
+        }
+        else {
+            var row = events.path[2].innerText.split('	')
+            var student = row[0]
+            $('#span-student').html(student)
+            var name = row[1]
+            var surname = row[2]
+            $('#span-name').html(name + ' ' + surname)
+        }
+        // make visible inline-block
+        if ($('#sidebar').css('margin-left') === '-260px') {
+            // width 192
+            var width = ($(window).width())/2 - 192
+            $('.pop-up-thing').css('left', width + 'px')
+        }
+        else {
+
+            var width = ($(window).width() - 260)/2 + 260 - 192
+            $('.pop-up-thing').css('left', width + 'px')
+        }
+        $('.pop-up-thing').css('display', 'inline-block')
+    }
+    $scope.close = function() {
+        $('.pop-up-thing').css('display', 'none')
+    }
     /**
      * set up initial user interface
      */
@@ -1039,6 +1072,12 @@ app
     /**
      * set up view
      */
-    $scope.title = 'More Information'
-
+    $scope.title = 'Student Statistics'
+//-----------------------------------------------------------------------------
+    /**
+     * events
+     */
+    $scope.back = function() {
+        window.location.href = './#!/grade-book'
+    }
 })
