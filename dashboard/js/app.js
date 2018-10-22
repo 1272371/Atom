@@ -104,18 +104,21 @@ app
         // window heigh changed on resize
         var iWinHeight = $(window).height()
 
-        // profile card card
-        var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
-        $('#profile-card').css('height', profileCardHeight)
-        // recent card card
-        var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
-        $('#recent-card').css('height', recentCardHeight)
-        // notifications card height
-        var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
-        $('#notification-card').css('height', notificationCardHeight)
-        // graph card height
-        var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
-        $('#graph-card').css('height', graphCardHeight)
+        if ($scope.title.toLowerCase() === 'home') {
+
+            // profile card card
+            var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
+            $('#profile-card').css('height', profileCardHeight)
+            // recent card card
+            var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
+            $('#recent-card').css('height', recentCardHeight)
+            // notifications card height
+            var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
+            $('#notification-card').css('height', notificationCardHeight)
+            // graph card height
+            var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
+            $('#graph-card').css('height', graphCardHeight)
+        }
     })
 //-----------------------------------------------------------------------------
 
@@ -306,6 +309,7 @@ app
     $scope.close = function() {
         $('.pop-up-thing').css('display', 'none')
     }
+
     /**
      * set up initial user interface
      */
@@ -320,9 +324,11 @@ app
         // stretch on resize
         var iWinHeight = $(window).height()
 
-        // stretch card
-        var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
-        $('#grade-book-card').css('height', stretchGradeBookCard)
+        if ($('#grade-book-card').length > 0) {
+            // stretch card
+            var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
+            $('#grade-book-card').css('height', stretchGradeBookCard)
+        }
     })
 //-----------------------------------------------------------------------------
     // get variables from database
@@ -333,12 +339,36 @@ app
 
             // get user id
             var userId = response.data.contents.user_id
+            $scope.user = response.data.contents.user_id
 
             // get records for table
             $http.post('../api/marks/grades.php?user_id=' + userId)
             .then(function(responses) {
 
                 if (responses.data.message === 'success') {
+
+                    // set up drop downs
+                    var courses = responses.data.contents.courses
+
+                    // options
+                    var options = ''
+
+                    for (i = 0; i < courses.length; i++) {
+
+                        if (i === 0) {
+                            // option
+                            options += '<option selected value="' + courses[i]['course_id'] + '">'
+                            options += courses[0]['course_name']
+                            options += '</option>'
+                        }
+                        else {
+                            // option
+                            options += '<option value="' + courses[i]['course_id'] + '">'
+                            options += courses[i]['course_name']
+                            options += '</option>'
+                        }
+                    }
+                    $('#course-drop-down').html(options)
 
                     // set scopes for table
                     $scope.grades = responses.data.contents.grades
@@ -353,6 +383,50 @@ app
         else {
             window.location.href = '../'
         }
+    })
+    $('#course-drop-down').on('change', function() {
+        // values
+        var id = $scope.user
+        var course = $('#course-drop-down').val()
+        var year = $('#year-drop-down').val()
+
+        // get records for table
+        var url = '../api/marks/grades.php?user_id=' + id + '&course_id=' + course + '&year=' + year
+        $http.post(url)
+        .then(function(responses) {
+
+            if (responses.data.message === 'success') {
+
+                // set scopes for table
+                $scope.grades = responses.data.contents.grades
+                $scope.enrolled = responses.data.contents.grades.length
+            }
+            else {
+                // something went wrong
+            }
+        })
+    })
+    $('#year-drop-down').on('change', function() {
+        // values
+        var id = $scope.user
+        var course = $('#course-drop-down').val()
+        var year = $('#year-drop-down').val()
+
+        // get records for table
+        var url = '../api/marks/grades.php?user_id=' + id + '&course_id=' + course + '&year=' + year
+        $http.post(url)
+        .then(function(responses) {
+
+            if (responses.data.message === 'success') {
+
+                // set scopes for table
+                $scope.grades = responses.data.contents.grades
+                $scope.enrolled = responses.data.contents.grades.length
+            }
+            else {
+                // something went wrong
+            }
+        })
     })
 })
 
@@ -391,13 +465,16 @@ app
 
         // init variables - change on resize
         var iWinHeight = $(window).height()
-
-        // stretch top cards
-        var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
-        $('.stretch-card-top').css('height', stretchTopCards)
-        // stretch bottom cards
-        var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
-        $('.stretch-card-bottom').css('height', stretchBottomCards)
+        var title = $scope.title.toLowerCase()
+        // if on statistics page
+        if (title ==='statistics') {
+            // stretch top cards
+            var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+            $('.stretch-card-top').css('height', stretchTopCards)
+            // stretch bottom cards
+            var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+            $('.stretch-card-bottom').css('height', stretchBottomCards)
+        }
     })
 //-----------------------------------------------------------------------------
     // get variables from database
@@ -1082,8 +1159,8 @@ app
 
             // student number
             var url = window.location.href.split('=')
+            // use to get database request
             var student = url[1]
-            console.log(student)
 
         }
         else {
@@ -1107,12 +1184,14 @@ app
         // init variables - change on resize
         var iWinHeight = $(window).height()
 
-        // stretch top cards
-        var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
-        $('.stretch-card-top').css('height', stretchTopCards)
-        // stretch bottom cards
-        var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
-        $('.stretch-card-bottom').css('height', stretchBottomCards)
+        if ($('.stretch-card-top').length > 0) {
+            // stretch top cards
+            var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+            $('.stretch-card-top').css('height', stretchTopCards)
+            // stretch bottom cards
+            var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+            $('.stretch-card-bottom').css('height', stretchBottomCards)
+        }
     })
 //-----------------------------------------------------------------------------
     /**

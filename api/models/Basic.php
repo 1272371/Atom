@@ -66,17 +66,13 @@
                 FROM
                 subject s
                 WHERE
-                s.course_id = ?
+                s.course_id =' . $this->course_id . '
                 AND
-                s.subject_enrollmentyear = ?';
+                s.subject_enrollmentyear =' . $this->subject_enrollmentyear;
 
             // prepare query
             $statement = $this->conn->prepare($query);
-
-            // bind id
-            $statement->bindParam(1, $this->course_id);
-            $statement->bindParam(2, $this->subject_enrollmentyear);
-
+            
             // execute query
             $statement->execute();
 

@@ -218,14 +218,17 @@ tbody > tr > td > button.more-info-button:active {
 
 /* nice drop down */
 .nice-drop-down-menu {
-    color: #3472F7;
-    width: 10vw;
+    color: #323232;
     height: calc(2.25rem + 2px);
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border: 3px solid #3472F7;
+    border: 3px solid #323232;
     border-radius: 0.25rem;
+}
+
+.nice-drop-down-menu select {
+    display: none; /* hide original select */
 }
 
 /* drop down */
@@ -261,7 +264,7 @@ tbody > tr > td > button.more-info-button:active {
     position: absolute;
     content: "";
     top: 14px;
-    right: 10px;
+    right: 32px;
     width: 0;
     height: 0;
     border: 6px solid transparent;

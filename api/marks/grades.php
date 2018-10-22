@@ -70,9 +70,49 @@
                 $gradesArray['contents']['grades'] = array();
 
                 // check if year and course id is set
-                if (isset($_GET['assessment_date']) && isset($_GET['course_id'])) {
+                if (isset($_GET['year']) && isset($_GET['course_id'])) {
 
+                    // default course lowest id get all students registered for current year
+                    $basic->course_id = $_GET['course_id'];
+                    $basic->subject_enrollmentyear = $_GET['year'];
 
+                    // call function
+                    $results = $basic->getStudents();
+
+                    // number of results
+                    $num = $results->rowCount();
+
+                    // iterator
+                    $i = 0;
+
+                    while ($rows = $results->fetch(PDO::FETCH_ASSOC)) {
+                        extract($rows);
+
+                        // set user id
+                        $user->user_id = $user_id;
+
+                        // call function
+                        $user->getUser();
+
+                        // get average
+                        $average = $mark->getMarksByUserId($user_id);
+
+                        $userItem = array(
+                            'user_id' => $user_id,
+                            'user_name' => $user->user_name,
+                            'user_surname' => $user->user_surname,
+                            'faculty_name' => $user->faculty_name,
+                            'average' => $average
+                        );
+
+                        // push
+                        $gradesArray['contents']['grades'][$i] = $userItem;
+
+                        // iterate
+                        $i++;
+                    }
+                    // print
+                    echo json_encode($gradesArray);
                 }
                 else {
                     // default course lowest id get all students registered for current year
