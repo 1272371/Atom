@@ -129,13 +129,12 @@ body {
 }
 
 .sidebar-collapse {
-    padding: 4px 18px;
+    padding: 6px 18px;
     color: #fff;
     background: #003b5c;
-    border-radius: 50%;
+    border-radius: 4px;
     border-width: 0px;
-    font-size: 24px;
-    font-weight: 900;
+    font-size: 14px;
 
     -webkit-transition: all 150ms ease-in;
     -moz-transition: all 150ms ease-in;
