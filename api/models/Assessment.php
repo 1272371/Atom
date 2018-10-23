@@ -191,4 +191,67 @@
 
             return array($pass, $fail);
         }
+
+        // get min and max date for assessment by course id
+        public function getMinMaxYear($course_id) {
+
+            // minimum year
+            $query = 'SELECT MIN(assessment_date) FROM assessment WHERE course_id=' . $course_id;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // pass rate
+            $counter = $statement->rowCount();
+
+            // array for min max year
+            $yearRange = array();
+
+            if ($counter > 0) {
+
+                // get columns
+                $row = $statement->fetch(PDO::FETCH_NUM);
+
+                // split
+                $splitter = explode('-', $row[0]);
+                // set
+                $yearRange[0] = $splitter[0] + 0;
+            }
+            else {
+                $yearRange[0] = date('Y');
+            }
+
+            // maximum year
+            $query = 'SELECT MAX(assessment_date) FROM assessment WHERE course_id=' . $course_id;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            // pass rate
+            $counter = $statement->rowCount();
+
+            if ($counter > 0) {
+
+                // get columns
+                $row = $statement->fetch(PDO::FETCH_NUM);
+
+                // split
+                $splitter = explode('-', $row[0]);
+
+                // set
+                $yearRange[1] = $splitter[0] + 0;
+            }
+            else {
+                $yearRange[1] = date('Y');
+            }
+
+            // return array
+            return $yearRange;
+        }
     }

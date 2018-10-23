@@ -11,13 +11,13 @@
     $database = new Database('127.0.0.1','risk','root','');
     $db = $database->connect();
 
-    // instantiate user object
+    // instantiate basic object
     $basic = new Basic($db);
 
     // get id from url
     $basic->user_id = isset($_GET['user_id']) ? $_GET['user_id'] : die();
 
-    // get user
+    // get subjects
     $result = $basic->getSubjects();
 
     $num = $result->rowCount();

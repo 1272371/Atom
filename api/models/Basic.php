@@ -16,6 +16,7 @@
 
         // subject properties
         public $subject_name;
+        public $subject_enrollmentyear;
 
         // course properties
         public $course_id;
@@ -58,6 +59,28 @@
 
             return $statement;
         }
+        public function getStudents() {
+
+            $query = 'SELECT
+                s.user_id
+                FROM
+                subject s
+                WHERE
+                s.course_id =' . $this->course_id . '
+                AND
+                s.subject_enrollmentyear =' . $this->subject_enrollmentyear;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+            
+            // execute query
+            $statement->execute();
+
+            return $statement;
+        }
+
+        // get array of students
+
 
         // get all lookups
         public function getLookups() {
