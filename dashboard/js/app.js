@@ -25,7 +25,7 @@ app
     })
     .otherwise({redirectTo: '/'})
 })
-.run(function($rootScope, $location, $routeParams) {
+.run(function($rootScope, $location, $routeParams, $http) {
 
     // after page loaded successfully
     $rootScope.$on('$routeChangeSuccess', function() {
@@ -64,7 +64,13 @@ app
         // logout button
         document.getElementById('logout-button')
         .addEventListener('click', function() {
-            console.log('awe')
+
+            $http.post('../api/signing/logout.php')
+            .then(function(response) {
+                if (response.data.message === 'success') {
+                    window.location.href = '../'
+                }
+            })
         })
 
         window.onresize = function() {

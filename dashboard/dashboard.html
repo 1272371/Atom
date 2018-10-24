@@ -88,7 +88,7 @@
                         <!-- logout -->
                         <div class="col">
                             <a style="text-decoration:none; color: #323232">
-                                <div class="card pb-3 stretch-card-bottom" style="cursor:pointer">
+                                <div id="logout-button" class="card pb-3 stretch-card-bottom" style="cursor:pointer">
                                     <div class="card-body text-center">
                                             <p class="h4" style="font-weight:400">Logout</p>
                                             <img width="196px" src="../img/logout.svg">
@@ -108,6 +108,13 @@
 
     <!-- card heights-->
     <script>
+        // check if user is signed in otherwise redirect
+        $.post('../api/signing/signed.php', function(response) {
+                if (response.message === 'error') {
+                    window.location.href = '../'
+                }
+            })
+
         // window height
         var iWinHeight = $(window).height()
 
@@ -133,6 +140,16 @@
 
             // also resize images
             $('img').css('width', $('.stretch-card-top').width() * 0.45)
+        })
+
+        document.getElementById('logout-button')
+        .addEventListener('click', function() {
+            // log out
+            $.post('../api/signing/logout.php', function(response) {
+                if (response.message === 'success') {
+                    window.location.href = '../'
+                }
+            })
         })
     </script>
 </body>
