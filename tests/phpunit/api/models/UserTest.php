@@ -5,7 +5,7 @@
  * Date: 2018/10/03
  * Time: 11:38 PM
  */
-require __DIR__ .'/../../../../api/autoload.php';
+include_once __DIR__ .'../../../../../api/models/User.php';
 class UserTest extends PHPUnit\Framework\TestCase
 {
     /**

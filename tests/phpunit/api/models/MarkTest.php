@@ -6,8 +6,7 @@
  * Time: 11:36 PM
  */
 
-require __DIR__ .'/../../../../api/autoload.php';
-include_once __DIR__ .'../../../../../api/marks/get.php';
+include_once __DIR__ .'../../../../../api/models/Mark.php';
 class MarkTest extends PHPUnit\Framework\TestCase
 {
     private $db='';
