@@ -25,7 +25,7 @@ app
     })
     .otherwise({redirectTo: '/'})
 })
-.run(function($rootScope, $location, $routeParams) {
+.run(function($rootScope, $location, $routeParams, $http) {
 
     // after page loaded successfully
     $rootScope.$on('$routeChangeSuccess', function() {
@@ -57,6 +57,68 @@ app
             $('li').attr('class', '')
             $('#upload-marks-tab').attr('class', 'active')
         }
+
+        /**
+         * event listeners
+         */
+        // logout button
+        document.getElementById('logout-button')
+        .addEventListener('click', function() {
+
+            $http.post('../api/signing/logout.php')
+            .then(function(response) {
+                if (response.data.message === 'success') {
+                    window.location.href = '../'
+                }
+            })
+        })
+
+        window.onresize = function() {
+
+            // handle card heights and resizing
+            var scope = $rootScope.title.toLowerCase()
+
+            // get window height
+            var iWinHeight = $(window).height()
+
+            if (scope === 'home') {
+                // adjust home page card heights
+                var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
+                $('#profile-card').css('height', profileCardHeight)
+                var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
+                $('#recent-card').css('height', recentCardHeight)
+                var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
+                $('#notification-card').css('height', notificationCardHeight)
+                var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
+                $('#graph-card').css('height', graphCardHeight)
+            }
+            else if (scope === 'grade book') {
+                // adjust grade book page card heights
+                var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
+                $('#grade-book-card').css('height', stretchGradeBookCard)
+            }
+            else if (scope === 'statistics') {
+                // adjust statistics page card heights
+                var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+                $('.stretch-card-top').css('height', stretchTopCards)
+                var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+                $('.stretch-card-bottom').css('height', stretchBottomCards)
+            }
+            else if (scope === 'upload marks') {
+                // adjust upload marks page card heights
+                var wheight = $(window).height() - $('#config-card').offset().top - 10;
+                var warea = $(window).height() - $('#display-area').offset().top - 20;
+                $('#config-card').css('height', wheight)
+                $('#display-area').css('height', warea)
+            }
+            else if (scope === 'student statistics') {
+                // adjust statistics page card heights
+                var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
+                $('.stretch-card-top').css('height', stretchTopCards)
+                var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
+                $('.stretch-card-bottom').css('height', stretchBottomCards)
+            }
+        }
     })
     //
     $rootScope.$on('$routeChangeStart', function() {
@@ -72,12 +134,13 @@ app
     })
 })
 // controls and binds data for the home page
-.controller('HomeController', function($scope, $http) {
+.controller('HomeController', function($scope, $http, $rootScope) {
 
     /**
      * set up user interface
      */
     $scope.title = 'Home'
+    $rootScope.title = 'Home'
 
     // init variables - change on resize
     var iWinHeight = $(window).height()
@@ -99,27 +162,6 @@ app
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
-
-    $(window).on('resize', function() {
-        // window heigh changed on resize
-        var iWinHeight = $(window).height()
-
-        if ($scope.title.toLowerCase() === 'home') {
-
-            // profile card card
-            var profileCardHeight = 0.5 * (iWinHeight - $('#profile-card').offset().top - 10)
-            $('#profile-card').css('height', profileCardHeight)
-            // recent card card
-            var recentCardHeight = 0.5 * (iWinHeight - $('#recent-card').offset().top - 10)
-            $('#recent-card').css('height', recentCardHeight)
-            // notifications card height
-            var notificationCardHeight = iWinHeight - $('#notification-card').offset().top - 10
-            $('#notification-card').css('height', notificationCardHeight)
-            // graph card height
-            var graphCardHeight = iWinHeight - $('#graph-card').offset().top - 10
-            $('#graph-card').css('height', graphCardHeight)
-        }
-    })
 //-----------------------------------------------------------------------------
 
     /**
@@ -245,10 +287,11 @@ app
 /**
  * grade book view
  */
-.controller('GradeBookController', function($scope, $http) {
+.controller('GradeBookController', function($scope, $http, $rootScope) {
 
     // nav title
     $scope.title = 'Grade Book'
+    $rootScope.title = 'Grade Book'
 
     /**
      * events
@@ -268,29 +311,25 @@ app
             // go to more info page with student number
             window.location.href = './#!/more-info?student=' + id
         }
-        else {
-
-        }
     }
+
     $scope.popup = function(events) {
 
         // get row
         var number = events.target.parentNode.parentNode.children[0].innerHTML
 
         if (isNaN(number)) {
-            var row = events.path[3].innerText.split('	')
-            var student = row[0]
+            var student = events.target.parentNode.parentNode.parentNode.children[0].innerHTML
             $('#span-student').html(student)
-            var name = row[1]
-            var surname = row[2]
+            var name = events.target.parentNode.parentNode.parentNode.children[1].innerHTML
+            var surname = events.target.parentNode.parentNode.parentNode.children[2].innerHTML
             $('#span-name').html(name + ' ' + surname)
         }
         else {
-            var row = events.path[2].innerText.split('	')
-            var student = row[0]
+            var student = events.target.parentNode.parentNode.children[0].innerHTML
             $('#span-student').html(student)
-            var name = row[1]
-            var surname = row[2]
+            var name = events.target.parentNode.parentNode.children[1].innerHTML
+            var surname = events.target.parentNode.parentNode.children[2].innerHTML
             $('#span-name').html(name + ' ' + surname)
         }
         // make visible inline-block
@@ -319,17 +358,6 @@ app
     // stretch top card
     var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
     $('#grade-book-card').css('height', stretchGradeBookCard)
-
-    $(window).on('resize', function() {
-        // stretch on resize
-        var iWinHeight = $(window).height()
-
-        if ($('#grade-book-card').length > 0) {
-            // stretch card
-            var stretchGradeBookCard = iWinHeight - $('#grade-book-card').offset().top - 10
-            $('#grade-book-card').css('height', stretchGradeBookCard)
-        }
-    })
 //-----------------------------------------------------------------------------
     // get variables from database
     $http.post('../api/signing/signed.php')
@@ -384,6 +412,7 @@ app
             window.location.href = '../'
         }
     })
+
     $('#course-drop-down').on('change', function() {
         // values
         var id = $scope.user
@@ -433,12 +462,13 @@ app
 /**
  * statistics view
  */
-.controller('StatisticsController', function($scope, $http) {
+.controller('StatisticsController', function($scope, $http, $rootScope) {
 
     /**
      * set up user interface
      */
     $scope.title = 'Statistics'
+    $rootScope.title = 'Statistics'
 
     // toggle sidebar on click
     $scope.sidebar = function() {
@@ -458,24 +488,6 @@ app
     // stretch bottom cards
     var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
     $('.stretch-card-bottom').css('height', stretchBottomCards)
-
-    // stretch also when window is resized
-    $(window).on('resize', function() {
-        // graph/svg widths can also be resized here
-
-        // init variables - change on resize
-        var iWinHeight = $(window).height()
-        var title = $scope.title.toLowerCase()
-        // if on statistics page
-        if (title ==='statistics') {
-            // stretch top cards
-            var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
-            $('.stretch-card-top').css('height', stretchTopCards)
-            // stretch bottom cards
-            var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
-            $('.stretch-card-bottom').css('height', stretchBottomCards)
-        }
-    })
 //-----------------------------------------------------------------------------
     // get variables from database
     $http.post('../api/signing/signed.php')
@@ -496,11 +508,13 @@ app
 /**
  * upload marks view
  */
-.controller('UploadMarksController', function($scope, $http, $timeout) {
+.controller('UploadMarksController', function($scope, $http, $timeout, $rootScope) {
 
     /**
      * set up user interface
      */
+    $scope.title = 'Upload Marks'
+    $rootScope.title = 'Upload Marks'
     // get variables from database
     $http.post('../api/signing/signed.php')
     .then(function(response) {
@@ -530,8 +544,6 @@ app
             window.location.href = '../'
         }
     })
-
-    $scope.title = 'Upload Marks'
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
     }
@@ -663,16 +675,6 @@ app
             //then close all select boxes
             document.addEventListener('click', closeAllSelect)
         }, 500)
-    })
-    $(window).on('resize', function() {
-
-        // adjusts bottom-border of file preview card
-        if ($('#config-card').length === 1 && $('#display-area').length == 1) {
-            var wheight = $(window).height() - $('#config-card').offset().top - 10;
-            var warea = $(window).height() - $('#display-area').offset().top - 20;
-            $('#config-card').css('height', wheight)
-            $('#display-area').css('height', warea)
-        }
     })
 
 //-----------------------------------------------------------------------------
@@ -1144,12 +1146,13 @@ app
 /**
  * more info on student
  */
-.controller('MoreInfoController', function($scope, $http) {
+.controller('MoreInfoController', function($scope, $http, $rootScope) {
 
     /**
      * set up view
      */
     $scope.title = 'Student Statistics'
+    $rootScope.title = 'Student Statistics'
 
     // get variables from database
     $http.post('../api/signing/signed.php')
@@ -1176,23 +1179,6 @@ app
     // stretch bottom cards
     var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
     $('.stretch-card-bottom').css('height', stretchBottomCards)
-
-    // stretch also when window is resized
-    $(window).on('resize', function() {
-        // graph/svg widths can also be resized here
-
-        // init variables - change on resize
-        var iWinHeight = $(window).height()
-
-        if ($('.stretch-card-top').length > 0) {
-            // stretch top cards
-            var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
-            $('.stretch-card-top').css('height', stretchTopCards)
-            // stretch bottom cards
-            var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
-            $('.stretch-card-bottom').css('height', stretchBottomCards)
-        }
-    })
 //-----------------------------------------------------------------------------
     /**
      * events

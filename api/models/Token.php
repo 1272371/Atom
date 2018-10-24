@@ -99,6 +99,7 @@
             }
         }
 
+        // get token and the user who owns it
         public function getToken() {
 
             $query = 'SELECT
@@ -145,5 +146,26 @@
                 $this->user_type = $row['user_type'];
                 $this->utl_id = $row['utl_id'];
             }
+        }
+
+        // delete token by user id
+        public function deleteToken() {
+            $this->ok = false;
+            // delete query
+            $query = 'DELETE FROM token WHERE user_id=' . $this->user_id;
+
+            // prepare query
+            $statement = $this->conn->prepare($query);
+
+            // execute query
+            $statement->execute();
+
+            if ($statement && $statement->rowCount() > 0) {
+
+                // statement executed properly with results
+                $this->ok = true;
+            }
+
+            return $this->ok;
         }
     }
