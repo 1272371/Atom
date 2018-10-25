@@ -15,13 +15,36 @@ class MarkTest extends PHPUnit\Framework\TestCase
     private $user = 'root';
     private $user_='admin';
     private $pass = '';
+    private $mark;
+    private $conn;
     /**
      * @covers Mark::get
      */
     public function testGet()
     {
-        $db = new Database($this->host, $this->dbname, $this->user, $this->pass);
-        $mark = new Mark($this->$db);
-        $this->assertNotEmpty($mark->get());
+        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
+        $this->db=$this->conn->connect();
+        $this->mark = new Mark($this->db);
+        $this->assertNotEmpty($this->mark->get());
+    }
+
+    public function testGetMarksByAssessmentId()
+    {
+        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
+        $this->db=$this->conn->connect();
+        $this->mark = new Mark($this->db);
+        $this->assertNotEmpty($this->mark->get());
+        $id = $this->mark->course_id;
+        $this->assertNotEmpty($this->mark->getMarksByAssessmentId($id));
+    }
+
+    public function testGetMarksByUserId()
+    {
+
+    }
+
+    public function test__construct()
+    {
+
     }
 }

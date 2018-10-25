@@ -42,6 +42,7 @@ class BasicTest extends \PHPUnit\Framework\TestCase
         $conn = new Database($this->host, $this->name, $this->user, $this->pass);
         $this->db=$conn->connect();
         $this->basic = new Basic($this->db);
+        $this->basic->getSubjects();
         $this->assertNotEmpty($this->basic->getStudents());
     }
     /**
