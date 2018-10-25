@@ -78,10 +78,7 @@
 
             return $statement;
         }
-
         // get array of students
-
-
         // get all lookups
         public function getLookups() {
 

@@ -30,7 +30,10 @@ class UserTest extends PHPUnit\Framework\TestCase
      */
     public function testGetUser()
     {
-
+        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
+        $this->db=$conn->connect();
+        $this->userTesting = new User($this->db);
+        $this->assertNotEmpty($this->userTesting->getUser());
     }
     /**
      * @covers User::get
