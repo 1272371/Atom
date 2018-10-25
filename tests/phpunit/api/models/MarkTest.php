@@ -7,16 +7,21 @@
  */
 
 include_once __DIR__ .'../../../../../api/models/Mark.php';
+include_once __DIR__ .'../../../../../api/config/Database.php';
 class MarkTest extends PHPUnit\Framework\TestCase
 {
-    private $db='';
+    private $host = '127.0.0.1';
+    private $dbname = 'risk';
+    private $user = 'root';
+    private $user_='admin';
+    private $pass = '';
     /**
      * @covers Mark::get
      */
     public function testGet()
     {
-/*        $mark = new Mark($this->db);
-        $results = $mark->get();
-        $this->assertNotEmpty($results);*/
+        $db = new Database($this->host, $this->dbname, $this->user, $this->pass);
+        $mark = new Mark($this->$db);
+        $this->assertNotEmpty($mark->get());
     }
 }
