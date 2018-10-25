@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1540423867">
-  <project timestamp="1540423867">
+<coverage generated="1540426622">
+  <project timestamp="1540426622">
     <file name="/opt/lampp/htdocs/Atom/api/config/Database.php">
       <class name="Database" namespace="global">
         <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="15" coveredelements="15"/>
@@ -201,24 +201,24 @@
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Statistic.php">
       <class name="Statistic" namespace="global">
-        <metrics complexity="5" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="15" coveredelements="0"/>
+        <metrics complexity="5" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="15" coveredelements="15"/>
       </class>
-      <line num="5" type="method" name="getAverage" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="7" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="30" type="method" name="get_numeric" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="35" ncloc="31" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="15" coveredelements="0"/>
+      <line num="5" type="method" name="getAverage" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="7" type="stmt" count="1"/>
+      <line num="11" type="stmt" count="1"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <line num="20" type="stmt" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <line num="23" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="30" type="method" name="get_numeric" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <metrics loc="35" ncloc="31" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="15" coveredelements="15"/>
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Token.php">
       <class name="Token" namespace="global">
@@ -309,6 +309,6 @@
       <line num="112" type="stmt" count="0"/>
       <metrics loc="114" ncloc="84" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="25" coveredelements="0"/>
     </file>
-    <metrics files="7" loc="871" ncloc="567" classes="7" methods="25" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="241" coveredstatements="13" elements="266" coveredelements="15"/>
+    <metrics files="7" loc="871" ncloc="567" classes="7" methods="25" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="241" coveredstatements="26" elements="266" coveredelements="30"/>
   </project>
 </coverage>

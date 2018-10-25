@@ -7,7 +7,6 @@
  * Time: 6:42 PM
  */
 include_once __DIR__ .'../../../../../api/models/Assessment.php';
-include_once __DIR__ .'../../../../../api/config/Database.php';
 
 class AssessmentTest extends PHPUnit\Framework\TestCase
 {
@@ -17,40 +16,39 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
      * Date: 2018/10/03
      * Time: 11:32 PM
      */
-
-    private $host = '127.0.0.1';
-    private $name = 'risk';
-    private $user = 'root';
-    private $user_='admin';
-    private $pass = '';
-    /**
-     * @covers Database::connect
-     */
+    private $db = 'risk';
+    private $courseArray = ['e'];
     /**
      * @covers Assessment::addAssessment
      */
     public function testAddAssessment()
     {
-        $database = new Database($this->host, $this->name, $this->user, $this->pass);
-        $this->assertNotEmpty($database->connect());
+        $assessment = new Assessment($this->db);
+        $this->assertNotEmpty($assessment->AddAssessment());
     }
-    public function testFailConnect()
-    {
-        $database = new Database($this->host,$this->name,$this->user_,$this->pass);
-        $conn=$database->connect();
-        if($conn instanceof \Exception){
-            throw $conn;
-        }
-        $this->assertNull($conn);
-    }
-
+    /**
+     * @covers Assessment::getPassRate
+     */
     public function testGetPassRate()
     {
 
     }
+    /**
+     * @covers Assessment::getSummary
+     */
 
     public function testGetSummary()
     {
+        $assessment = new Assessment($this->db);
+        $this->assertNotEmpty($assessment->getSummary($this->courseArray));
+    }
+    /**
+     * @covers Assessment::getMinMaxYear
+     */
 
+    public function testgetMinMaxYear()
+    {
+        $assessment = new Assessment($this->db);
+        $this->assertNotEmpty($assessment->getMinMaxYear());
     }
 }
