@@ -23,26 +23,33 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
     private $user_='admin';
     private $pass = '';
     private $db = 'risk';
-    private $courseArray = [1,2,3];
+    private $courseArray = [1];
+    public $assessment;
     /**
-     * @covers Assessment::addAssessment
+     * @covers Assessment::getMinMaxYear
      */
-    public function testAddAssessment()
+
+    public function testgetMinMaxYear()
     {
-        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
-        $this->db=$this->conn->connect();
-        $assessment = new Assessment($this->db);
-        $this->assertNotEmpty($assessment->AddAssessment());
+        AssessmentTest::init();
+        $this->assertNotNull($this->assessment->getMinMaxYear($this->assessment->course_id));
+    }
+
+    /**
+     * @covers Assessment::__constructor
+     */
+    public function test__construct()
+    {
+        AssessmentTest::init();
+        $this->assertNull($this->assessment->__construct($this->db));
     }
     /**
      * @covers Assessment::getPassRate
      */
     public function testGetPassRate()
     {
-        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
-        $this->db=$this->conn->connect();
-        $assessment = new Assessment($this->db);
-        $this->assertNotEmpty($assessment->getPassRate(1,60));
+        AssessmentTest::init();
+        $this->assertNotEmpty($this->assessment->getPassRate(1,60));
     }
     /**
      * @covers Assessment::getSummary
@@ -50,33 +57,31 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
 
     public function testGetSummary()
     {
-        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
-        $this->db=$this->conn->connect();
-        $assessment = new Assessment($this->db);
-        $this->assertNotEmpty($assessment->getSummary($this->courseArray));
-    }
-    /**
-     * @covers Assessment::getMinMaxYear
-     */
-
-    public function testgetMinMaxYear()
-    {
-        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
-        $this->db=$this->conn->connect();
-        $assessment = new Assessment($this->db);
-        $course_id =$assessment->course_id;
-        $this->assertNull($assessment->getMinMaxYear($course_id));
+        AssessmentTest::init();
+        $this->assertNotEmpty($this->assessment->getSummary($this->courseArray));
     }
 
     /**
-     * @covers Assessment::__constructor
+     * @covers Assessment::addAssessment
      */
-public function test__construct()
+    public function testAddAssessment()
     {
+        AssessmentTest::init();
+        $this->assertNotEmpty($this->assessment->AddAssessment());
+    }
+    public function init(){
         $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
         $this->db=$this->conn->connect();
-        $assessment = new Assessment($this->db);
-        $this->assertNull($assessment->__construct($this->db));
+        $this->assessment = new Assessment($this->db);
+        $this->assessment->assessment_name="Exam";
+        $this->assessment->assessment_weight =60;
+        $this->assessment->assessment_total=90;
+        $this->assessment->assessment_date='2013-05-05';
+        $this->assessment->course_id=1;
+        $this->assessment->assessment_id=3;
+        $this->assessment->ail_id=1;
+        $this->assessment->aml_id=1;
+        $this->assessment->atl_id = 2;
+        $this->assessment->csv_id =["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
     }
-
 }
