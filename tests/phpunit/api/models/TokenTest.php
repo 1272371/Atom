@@ -12,20 +12,19 @@ include_once __DIR__ .'../../../../../api/config/Database.php';
 class TokenTest extends \PHPUnit\Framework\TestCase
 {
     private $host = '127.0.0.1';
-    private $name = 'risk';
+    private $dbname = 'risk';
     private $user = 'root';
+    private $user_ = 'admin';
     private $pass = '';
+    private $db = '';
     private $token;
-    private $db;
 
     /**
      * @covers Token::setToken
      */
     public function testSetToken()
     {
-        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
-        $this->db=$conn->connect();
-        $this->token = new Token($this->db);
+        TokenTest::init_Token();
         $this->assertNull( $this->token->setToken());
 
     }
@@ -35,8 +34,8 @@ class TokenTest extends \PHPUnit\Framework\TestCase
      */
     public function testDeleteToken()
     {
-        $this->token = new Token($this->db);
-        $this->assertTrue( $this->token->deleteToken());
+        TokenTest::init_Token();
+        $this->assertFalse( $this->token->deleteToken());
     }
 
     /**
@@ -44,8 +43,8 @@ class TokenTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetToken()
     {
-        $this->token = new Token($this->db);
-        $this->assertNotEmpty($this->token->getToken());
+        TokenTest::init_Token();
+        $this->assertNull($this->token->getToken());
     }
 
     /**
@@ -53,7 +52,19 @@ class TokenTest extends \PHPUnit\Framework\TestCase
      */
     public function test__construct()
     {
-        $this->token = new Token($this->db);
+        TokenTest::init_Token();
         $this->assertFalse($this->token->ok);
     }
+
+        public function init_Token(){
+            $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
+            $this->db = $this->conn->connect();
+            $this->token = new Token($this->db);
+            $this->token->user_id=500594;
+            $this->token->user_name="Michael";
+            $this->token->user_type="Chaphole";
+            $this->token->user_surname="Chaphole";
+            $this->token->user_password="xxxxxx";
+            $this->token->utl_id=1;
+        }
 }
