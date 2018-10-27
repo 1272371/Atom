@@ -20,9 +20,7 @@ class UserTest extends PHPUnit\Framework\TestCase
      */
     public function test__construct()
     {
-        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
-        $this->db=$conn->connect();
-        $this->userTesting = new User($this->db);
+        UserTest::init_User();
         $this->assertNull($this->userTesting-> __construct($this->db));
     }
     /**
@@ -30,16 +28,27 @@ class UserTest extends PHPUnit\Framework\TestCase
      */
     public function testGetUser()
     {
-        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
-        $this->db=$conn->connect();
-        $this->userTesting = new User($this->db);
-        $this->assertNotEmpty($this->userTesting->getUser());
+        UserTest::init_User();
+        $this->assertNull($this->userTesting->getUser());
     }
     /**
      * @covers User::get
      */
     public function testGet()
     {
-
+        UserTest::init_User();
+        $this->assertNotEmpty($this->userTesting->get());
+    }
+    public function init_User(){
+        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
+        $this->db=$conn->connect();
+        $this->userTesting = new User($this->db);
+        $this->userTesting->user_id=500594;
+        $this->userTesting->user_name="Michael";
+        $this->userTesting->user_surname="Chaphole";
+        $this->userTesting->user_password;
+        $this->userTesting->user_yearofstudy=null;
+        $this->userTesting->faculty_name=5;
+        $this->userTesting->user_type="student";
     }
 }
