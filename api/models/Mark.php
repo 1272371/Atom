@@ -4,7 +4,6 @@
 
         // database stuff
         private $conn;
-
         // properties
         public $user_id;
         public $user_name;
