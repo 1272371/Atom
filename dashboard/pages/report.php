@@ -14,7 +14,7 @@ $pdf->SetFont('Helvetica','I',30);
 
 
 // Insert a logo in the top-left corner at 300 dpi
-$pdf->Image('../wits-logo1.jpg',70,10,-1200);
+$pdf->Image('../img/wits-logo1.jpg',70,10,-1200);
 
 // Title
 $pdf->SetXY(53,60);
