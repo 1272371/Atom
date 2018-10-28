@@ -64,7 +64,9 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
     public function testAddAssessment()
     {
         AssessmentTest::init();
-        $this->assertNotEmpty($this->assessment->AddAssessment());
+        $this->assertNull($this->assessment->AddAssessment());
+        AssessmentTest::initf();
+        $this->assertNull($this->assessment->AddAssessment());
     }
 
     public function init()
@@ -81,6 +83,22 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
         $this->assessment->ail_id = 1;
         $this->assessment->aml_id = 1;
         $this->assessment->atl_id = 2;
-        $this->assessment->csv_id = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
+        $this->assessment->csv = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
+    }
+    public function initf()
+    {
+        $this->conn = new Database($this->host, $this->dbname, $this->user, $this->pass);
+        $this->db = $this->conn->connect();
+        $this->assessment = new Assessment($this->db);
+        $this->assessment->assessment_name = "Exam";
+        $this->assessment->assessment_weight = "s";
+        $this->assessment->assessment_total = 90;
+        $this->assessment->assessment_date = '2013-05-05';
+        $this->assessment->course_id = 1;
+        $this->assessment->assessment_id = 3;
+        $this->assessment->ail_id = 1;
+        $this->assessment->aml_id = 1;
+        $this->assessment->atl_id = 2;
+        $this->assessment->csv = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv",""];
     }
 }

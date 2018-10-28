@@ -67,5 +67,6 @@ class TokenTest extends \PHPUnit\Framework\TestCase
             $this->token->user_surname="Chaphole";
             $this->token->user_password="password";
             $this->token->utl_id=1;
+            $this->token->token ='1b05deca94adec3f37314e76e5de72ad3d1a01a0';
         }
 }
