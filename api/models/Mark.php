@@ -4,7 +4,6 @@
 
         // database stuff
         private $conn;
-
         // properties
         public $user_id;
         public $user_name;
@@ -18,7 +17,6 @@
         public function __construct($db) {
             $this->conn = $db;
         }
-
         // get users
         public function get() {
 
@@ -53,7 +51,6 @@
 
             return $statement;
         }
-
         // get array of marks for an assessment
         public function getMarksByAssessmentId($assessmentId) {
 
@@ -88,7 +85,6 @@
                 return 0;
             }
         }
-
         // get array of marks for an assessment
         public function getMarksByUserId($userId) {
 

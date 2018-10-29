@@ -4,7 +4,6 @@
 
         // database stuff
         private $conn;
-
         // properties
         public $ok;
         public $assessment_id;
