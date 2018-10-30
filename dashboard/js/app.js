@@ -142,6 +142,10 @@ app
     $scope.title = 'Home'
     $rootScope.title = 'Home'
 
+    $scope.report = function() {
+        console.log('clicked')
+    }
+
     // init variables - change on resize
     var iWinHeight = $(window).height()
 
