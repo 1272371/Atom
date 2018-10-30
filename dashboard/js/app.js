@@ -292,7 +292,7 @@ app
     // nav title
     $scope.title = 'Grade Book'
     $rootScope.title = 'Grade Book'
-
+    
     /**
      * events
      */
@@ -435,6 +435,7 @@ app
             }
         })
     })
+
     $('#year-drop-down').on('change', function() {
         // values
         var id = $scope.user
@@ -470,6 +471,17 @@ app
     $scope.title = 'Statistics'
     $rootScope.title = 'Statistics'
 
+    $scope.student='Student Info'
+    $rootScope.student= 'Statistics'
+
+    $scope.courses='Students Courses'
+    $rootScope.courses= 'Statistics'
+
+    $scope.average='Students Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.risk='Students Risk'
+    $rootScope.risk ='Statistics'
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
@@ -1154,17 +1166,52 @@ app
     $scope.title = 'Student Statistics'
     $rootScope.title = 'Student Statistics'
 
+    $scope.student='Student Info'
+    $rootScope.student= 'Statistics'
+
+    $scope.courses='Students Courses'
+    $rootScope.courses= 'Statistics'
+
+    $scope.average='Students Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.risk='Students Risk'
+    $rootScope.risk ='Statistics'
     // get variables from database
+    student=""
     $http.post('../api/signing/signed.php')
     .then(function(response) {
-
         if (response.data.message === 'success') {
 
             // student number
             var url = window.location.href.split('=')
-            // use to get database request
-            var student = url[1]
+            // use to get database reques
+            student = url[1]
+            //console.log(student)
+            $http.get('../api/stats/data.php?student=student&student_nr='+student).then(function(res){
+                //console.log(res.data)
+                $('#student_info').html(`<p>
+                                            <center>Student Number:`+res.data.user_id+`</center>
+                                        </p>
+                                        <p>
+                                            <center>Name:`+res.data.user_name+`</center>
+                                        </p>
+                                        <p>
+                                            <center>Surname:`+res.data.user_surname+`</center>
+                                        </p>
+                                    `)
+            })
+            $http.get('../api/stats/data.php?courses=courses&student_nr='+student).then(function(res){
+                console.log(res.data)
+                var course_name
 
+            })
+            $http.get('../api/stats/data.php?average=average&student_nr='+student).then(function(res){
+                console.log(res.data)
+                avg=parseInt(res.data.average)
+                console.log(avg)
+                //google.charts.setOnLoadCallback(drawChart(avg))
+            })
         }
         else {
             window.location.href = '../'
@@ -1172,7 +1219,7 @@ app
     })
     // card heights
     var iWinHeight = $(window).height()
-
+    //console.log(student)
     // stretch top cards
     var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
     $('.stretch-card-top').css('height', stretchTopCards)
@@ -1187,3 +1234,34 @@ app
         window.location.href = './#!/grade-book'
     }
 })
+/*
+google.charts.load('current',{'packages':['corechart','gauge']})
+//google.load('visualization',{packages: ['imagechart']})
+function drawChart(avg)
+{
+    var data = google.visualization.arrayToDataTable([
+        ['Aggregate Average','Percentage'],
+        ['Aggregate Average',avg],
+        ['Remaining %',100-avg]
+    ])
+
+    var options = {title:'Aggregate Average Of The Students Courses'}
+
+    var chart = new google.visualization.PieChart(document.getElementById('student_average'))
+    chart.draw(data,options)
+}
+
+function drawColumnChart(avg)
+{
+    var data = google.visualization.arrayToDataTable([
+        ['Aggregate Average','Percentage'],
+        ['Aggregate Average',avg],
+        ['Remaining %',100-avg]
+    ])
+
+    var options = {title:'Aggregate Average Of The Students Courses'}
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('student_courses'))
+    chart.draw(data,options)
+}
+*/
