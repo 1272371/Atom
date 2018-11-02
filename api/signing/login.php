@@ -25,8 +25,9 @@
 
             $ldap_dn = "DS\ ".$_POST["username"]."+".$_POST["password"]."";
 	        $ldap_password = $_POST["password"];
-
-            $ldap_con = ldap_connect("ldap://ss.wits.ac.za/;ldap://146.141.8.201");
+	        //host for students : ldap://ss.wits.ac.za/;ldap://146.141.8.201
+            //host for staff : ldap://ds.wits.ac.za/;ldap://146.141.128.150
+            $ldap_con = ldap_connect("ldap://ds.wits.ac.za/;ldap://146.141.128.150");
             ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
             // get user
@@ -43,7 +44,7 @@
                     $GLOBALS['user_name'] = $token->user_name;
                     $GLOBALS['user_surname'] = $token->user_surname;
                 }else{
-
+                    //this is the insert into db part
                     //instantiate new
                     $user = new User($db);
                     //Set values
@@ -64,9 +65,7 @@
                         echo json_encode(array('message' => 'error'));
                     }
 
-                    $token->user_id ="1234567";
-                    $token->user_password = "password";
-                    $token->setToken();
+
                     http_response_code(200);
                     $GLOBALS['user_id'] = $token->user_id;
                     $GLOBALS['user_type'] = $token->user_type;
