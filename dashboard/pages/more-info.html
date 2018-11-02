@@ -15,12 +15,20 @@
     <div class="col pr-0">
         <div class="card ml-2 mr-1 stretch-card-top">
             <div class="card-body">
+                <h5>{{student}}</h5>
+                <div id="student_info" class="ct-chart container"></div>
             </div>
         </div>
     </div>
     <div class="col pl-0">
         <div class="card mr-2 ml-1 stretch-card-top">
             <div class="card-body">
+                <h5>{{courses}}</h5>
+                <div id="student_courses" class="ct-chart container"></div>
+                <div class="container">
+                    <ul class="list-group" id="course_list">
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -29,12 +37,16 @@
     <div class="col pr-0">
         <div class="card ml-2 mr-1 stretch-card-bottom">
             <div class="card-body">
+                <h5>{{average}}</h5>
+                <div id="student_average" class="ct-chart ct-golden-section container" style="ct-series-a .ct-slice-pie {fill: #02d750;}"></div>
             </div>
         </div>
     </div>
     <div class="col pl-0">
         <div class="card mr-2 ml-1 stretch-card-bottom">
             <div class="card-body">
+                <h5>{{risk}}</h5>
+                <div id="student_risk" class="ct-chart container"></div>
             </div>
         </div>
     </div>

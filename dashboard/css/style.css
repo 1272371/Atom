@@ -411,3 +411,11 @@ tbody > tr > td > button.more-info-button:active {
         margin-left: 0px;
     }
 }
+
+g.ct-series.ct-series-b path.ct-slice-pie{
+    fill:#f0bb4f;
+}
+
+g.ct-series.ct-series-a path.ct-slice-pie{
+    fill: #089545;
+}

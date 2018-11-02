@@ -292,7 +292,7 @@ app
     // nav title
     $scope.title = 'Grade Book'
     $rootScope.title = 'Grade Book'
-
+    
     /**
      * events
      */
@@ -435,6 +435,7 @@ app
             }
         })
     })
+
     $('#year-drop-down').on('change', function() {
         // values
         var id = $scope.user
@@ -470,6 +471,17 @@ app
     $scope.title = 'Statistics'
     $rootScope.title = 'Statistics'
 
+    $scope.student='Student Info'
+    $rootScope.student= 'Statistics'
+
+    $scope.courses='Students Courses'
+    $rootScope.courses= 'Statistics'
+
+    $scope.average='Students Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.risk='Students Risk'
+    $rootScope.risk ='Statistics'
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
@@ -1154,17 +1166,86 @@ app
     $scope.title = 'Student Statistics'
     $rootScope.title = 'Student Statistics'
 
+    $scope.student='Student Info'
+    $rootScope.student= 'Statistics'
+
+    $scope.courses='Students Courses'
+    $rootScope.courses= 'Statistics'
+
+    $scope.average='Students Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.risk='Students Risk'
+    $rootScope.risk ='Statistics'
     // get variables from database
+    student=""
     $http.post('../api/signing/signed.php')
     .then(function(response) {
-
         if (response.data.message === 'success') {
 
             // student number
             var url = window.location.href.split('=')
-            // use to get database request
-            var student = url[1]
+            // use to get database reques
+            student = url[1]
+            //console.log(student)
+            $http.get('../api/more_info/data.php?student=student&student_nr='+student).then(function(res){
+                //console.log(res.data)
+                $('#student_info').html(`<p>
+                                            <center>Student Number:`+res.data.user_id+`</center>
+                                        </p>
+                                        <p>
+                                            <center>Name:`+res.data.user_name+`</center>
+                                        </p>
+                                        <p>
+                                            <center>Surname:`+res.data.user_surname+`</center>
+                                        </p>
+                                    `)
+            })
+            $http.get('../api/more_info/data.php?courses=courses&student_nr='+student).then(function(res){
+                var course_names=[]
+                var marks=[]
+                res.data.forEach(function(element){
+                    course_names.push(element.course)
+                    marks.push(parseInt(element.mark_total))
+                })
+                //course_names.push('')
+                //marks.push(100)
+                new Chartist.Bar('#student_courses', {
+                  labels: course_names,
+                  series: marks
+                }, {
+                  distributeSeries: true
+                });
 
+                for(i=0;i<marks.length;i++)
+                {
+                    if(marks>=50)
+                    {
+                        $('#course_list').html(`<li class="list-group-item" style="color:green;font-weight: 300;">`+course_names[i]+` (`+marks[i]+`%)</li>`)
+                    }
+                    else
+                    {
+                        $('#course_list').html(`<li class="list-group-item" style="color:red;font-weight: 300;">`+course_names[i]+` (`+marks[i]+`%)</li>`)
+                    }    
+                }
+
+            })
+            $http.get('../api/more_info/data.php?average=average&student_nr='+student).then(function(res){
+                var avg=parseInt(res.data[0].average)
+                not_average=100-avg
+                $scope.average+=' ('+avg+'%)'
+                var data = {
+                  series: [avg,100-avg]
+                };
+
+                var sum = function(a, b) { return a + b };
+
+                new Chartist.Pie('#student_average', data, {
+                  labelInterpolationFnc: function(value) {
+                    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                  }
+                });
+            })
         }
         else {
             window.location.href = '../'
@@ -1172,7 +1253,7 @@ app
     })
     // card heights
     var iWinHeight = $(window).height()
-
+    //console.log(student)
     // stretch top cards
     var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
     $('.stretch-card-top').css('height', stretchTopCards)
