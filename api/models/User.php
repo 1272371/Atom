@@ -6,6 +6,7 @@
         private $conn;
 
         // properties
+        public $ok;
         public $user_id;
         public $user_name;
         public $user_surname;
@@ -17,6 +18,7 @@
         // user constructor
         public function __construct($db) {
             $this->conn = $db;
+            $this->ok = false;
         }
 
         // get users
@@ -110,6 +112,24 @@
             $statement->execute();
 
             return $statement;
+        }
+
+        public function addUser(){
+            $query = 'INSERT INTO user (user_id,user_name,user_surname,user_password,user_yearofstudy,faculty_name,user_type) ';
+            $query = $query . 'VALUES (' . $this->user_id . ', "' . $this->user_name .
+                '", "' . $this->user_surname . '", "' . $this->user_password  .'", ' . $this->user_yearofstudy .
+                ', ' . $this->faculty_name . ', ' . $this->user_type . ')';
+
+            try {
+
+                // prepare statement
+                $statement = $this->conn->prepare($query);
+                // execute statement
+                $this->ok = $statement->execute();
+
+            } catch (PDOException $e) {
+                $this->ok = false;
+            }
         }
 
     }
