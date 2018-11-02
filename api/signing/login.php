@@ -23,16 +23,16 @@
             $token->user_id =$_POST['username'];
             $token->user_password = $_POST['password'];
 
-            $ldap_dn = "uid=".$_POST["username"].",dc=example,dc=com";
+            $ldap_dn = "DS\ ".$_POST["username"]."+".$_POST["password"]."";
 	        $ldap_password = $_POST["password"];
 
-            $ldap_con = ldap_connect("ldap.forumsys.com");
+            $ldap_con = ldap_connect("ldap://ss.wits.ac.za/;ldap://146.141.8.201");
             ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
             // get user
             $token->setToken();
             //$token->ok
-            if (@ldap_bind($ldap_con,$ldap_dn,$ldap_password ) || $token->ok) {
+            if (@ldap_bind($ldap_con,$ldap_dn) || $token->ok) {
                 // response
 
                 if($token->ok) {
@@ -64,7 +64,9 @@
                         echo json_encode(array('message' => 'error'));
                     }
 
-
+                    $token->user_id ="1234567";
+                    $token->user_password = "password";
+                    $token->setToken();
                     http_response_code(200);
                     $GLOBALS['user_id'] = $token->user_id;
                     $GLOBALS['user_type'] = $token->user_type;
