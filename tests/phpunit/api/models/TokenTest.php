@@ -18,7 +18,6 @@ class TokenTest extends \PHPUnit\Framework\TestCase
     private $pass = '';
     private $db = '';
     private $token;
-    private $conn ;
 
     /**
      * @covers Token::setToken
@@ -65,8 +64,7 @@ class TokenTest extends \PHPUnit\Framework\TestCase
             $this->token->user_name="Michael";
             $this->token->user_type="Chaphole";
             $this->token->user_surname="Chaphole";
-            $this->token->user_password="password";
+            $this->token->user_password="xxxxxx";
             $this->token->utl_id=1;
-            $this->token->token ='1b05deca94adec3f37314e76e5de72ad3d1a01a0';
         }
 }

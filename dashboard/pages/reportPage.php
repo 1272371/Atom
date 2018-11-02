@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
+      <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="../css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>

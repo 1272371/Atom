@@ -20,7 +20,9 @@ class BasicTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetLookups()
     {
-        BasicTest::initBasic();
+        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
+        $this->db=$conn->connect();
+        $this->basic = new Basic($this->db);
         $this->assertNull( $this->basic->getLookups());
     }
     /**
@@ -28,14 +30,18 @@ class BasicTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetSubjects()
     {
-        BasicTest::initBasic();
+        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
+        $this->db=$conn->connect();
+        $this->basic = new Basic($this->db);
         $this->assertNotEmpty($this->basic->getSubjects());
     }
     /**
      * @covers Basic::getStudents
      */
     public function testGetStudents() {
-        BasicTest::initBasic();
+        $conn = new Database($this->host, $this->name, $this->user, $this->pass);
+        $this->db=$conn->connect();
+        $this->basic = new Basic($this->db);
         $this->basic->getSubjects();
         $this->assertNotEmpty($this->basic->getStudents());
     }
@@ -44,14 +50,9 @@ class BasicTest extends \PHPUnit\Framework\TestCase
      */
     public function test__construct()
     {
-        BasicTest::initBasic();
-        $this->assertNull($this->basic->__construct($this->db));
-    }
-    public function initBasic(){
         $conn = new Database($this->host, $this->name, $this->user, $this->pass);
         $this->db=$conn->connect();
         $this->basic = new Basic($this->db);
-        $this->basic->course_id=1;
-        $this->basic->subject_enrollmentyear=2013;
+        $this->assertNull($this->basic->__construct($this->db));
     }
 }
