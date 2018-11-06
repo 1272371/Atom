@@ -119,6 +119,7 @@
         if (empty($_GET)){
             $course= "1";
             $assessment = "1";
+            $date = "2013";
         } else {
             $course_id = $_GET['course'];
             if ($course_id=="bco"){
@@ -127,6 +128,7 @@
                 $course = 2;
             }
             $assessment = $_GET['assessment'];
+            $date = $_GET['date'];
         }
         
         //BCO 1
@@ -138,7 +140,7 @@
         //$assignment=1;
 
         foreach ($markArray["content"][$course]["assessments"][$assessment]["data"] as $student){
-        	if ( !($student["0"] == "S")){
+        	if ( !($student["0"] == "S") && strpos($markArray["content"][$course]["assessments"][$assessment]["assessment_date"], $date) !== false ){
         		//print_r( $student["0"]) . "\n";
 
         		if ($student["0"]["percent"] < 50){

@@ -130,6 +130,30 @@
                                     </div>
                               </form>
 
+                              <h4 style="margin-left: 46%">Date</h4>
+
+		                        <div style="margin:30px;padding-bottom: 10px">
+		                            <select style="margin-left: 45%" id="date">
+		                            	 <?php
+						            		$link = mysqli_connect("localhost","root","", "risk");
+
+		                                    if (mysqli_connect_error()){
+		                                        die ("Error!");
+		                                    }
+
+		                                    $query = "SELECT DISTINCT subject_enrollmentyear FROM subject"; 
+
+		                                    $result= mysqli_query($link, $query);
+		                                    $count=0;
+		                                    while ($row = mysqli_fetch_array($result)){
+		                                    	
+		                                    	echo "<option value='".$row['subject_enrollmentyear']."'>".$row['subject_enrollmentyear']."</option>";
+		                                        
+		                                    }
+		                                ?>
+		                            </select>
+		                        </div>
+
                               <h4 style="margin-left: 43%">Assessment</h4>
 
                                 <form>
@@ -172,9 +196,12 @@
                                         var course = document.querySelector('input[name="course"]:checked').value;
                                         
                                         var assessment = document.querySelector('input[name="assessment"]:checked').value;
+
+                                        var dateSelector = document.getElementById("date");
+                                        var date = dateSelector.options[dateSelector.selectedIndex].value;
                                         
                                         if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
-	                                        window.location="specificReport.php?course="+course+"&assessment="+assessment;
+	                                        window.location="specificReport.php?course="+course+"&assessment="+assessment+"&date="+date;
 	                                    } else{
 	                                    	alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
 	                                    }
