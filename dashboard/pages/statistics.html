@@ -13,34 +13,66 @@
 </nav>
 
 <!-- four pane layout-->
-<div class="row mt-2">
-    <div class="col pr-0">
-        <div class="card ml-2 mr-1 stretch-card-top">
-            <div class="card-body">
-                <h5>{{student}}</h5>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col pr-0">
+            <div class="card ml-2 mr-1 stretch-card-top">
+                <div class="card-body">
+                    <center><h5>{{student}}</h5></center>
+                    <p>Staff ID: {{staff_id}}</p>
+                    <p>Name: {{name}}</p>
+                    <p>Surname: {{surname}}</p>
+                    <p>Faculty: {{faculty}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col pl-0" id="courses">
+            <div class="card mr-2 ml-1 stretch-card-top">
+                <div class="card-body">
+                    <h5>{{courses}}</h5>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col pl-0">
-        <div class="card mr-2 ml-1 stretch-card-top">
-            <div class="card-body">
-                <h5>{{courses}}</h5>
+    <div class="row mt-2">
+        <div class="col pr-0" id="plot1">
+            <div class="card ml-2 mr-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average}}</h5></center>
+                    <center><p id="course1"></p></center>
+                    <div id="figure1" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col pl-0" id="plot2">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average2}}</h5></center>
+                    <center><p id="course2"></p></center>
+                    <div id="figure2" class="ct-chart container"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row mt-2">
-    <div class="col pr-0">
-        <div class="card ml-2 mr-1 stretch-card-bottom">
-            <div class="card-body">
-                <h5>{{average}}</h5>
+
+    <div class="row mt-2">
+        <div class="col pl-0" id="plot3">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average3}}</h5></center>
+                    <center><p id="course3"></p></center>
+                    <div id="figure3" class="ct-chart container"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col pl-0">
-        <div class="card mr-2 ml-1 stretch-card-bottom">
-            <div class="card-body">
-                <h5>{{risk}}</h5>
+
+        <div class="col pl-0" id="plot4">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average4}}</h5></center>
+                    <center><p id="course4"></p></center>
+                    <div id="figure4" class="ct-chart container"></div>
+                </div>
             </div>
         </div>
     </div>

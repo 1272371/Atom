@@ -468,44 +468,20 @@ app
     /**
      * set up user interface
      */
-    $scope.title = 'Lecturer'
-    $rootScope.title = 'Lecturer'
+    $scope.title = 'Statistics'
+    $rootScope.title = 'Statistics'
 
-    $scope.student='Lecturer Info'
+    $scope.student='Student Info'
     $rootScope.student= 'Statistics'
 
-    $scope.courses='Courses Taught'
+    $scope.courses='Students Courses'
     $rootScope.courses= 'Statistics'
 
-    $scope.average='Course Average'
+    $scope.average='Students Average'
     $rootScope.average = 'Statistics'
 
-
-    $scope.average1='Course Average'
-    $rootScope.average = 'Statistics'
-
-    $scope.average2='Course Average'
-    $rootScope.average = 'Statistics'
-
-    $scope.average3='Course Average'
-    $rootScope.average = 'Statistics'
-
-
-    $scope.average4='Course Average'
-    $rootScope.average = 'Statistics'
-
-    $scope.staff_id=''
-    $rootScope.staff_id = ''
-
-    $('#courses').hide()
-    $('#plot1').hide()
-    $('#plot2').hide()
-    $('#plot3').hide()
-    $('#plot4').hide()
-    /*
     $scope.risk='Students Risk'
     $rootScope.risk ='Statistics'
-    */
     // toggle sidebar on click
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
@@ -526,116 +502,14 @@ app
     $('.stretch-card-bottom').css('height', stretchBottomCards)
 //-----------------------------------------------------------------------------
     // get variables from database
-    var user
     $http.post('../api/signing/signed.php')
     .then(function(response) {
+
         if (response.data.message === 'success') {
+            
             // get subjects
-            user=response.data.contents.user_id
-            console.log(user)
-
-            $http.get('../api/stats/get.php?lecturer='+user+'&type=average').then(function(res){
-                console.log(res.data)
-                res.data.forEach(function(element,index){
-
-                    if(index==0)
-                    {
-                        $('#plot1').show()
-                        var avg=parseInt(element.average)
-                        not_average=100-avg
-                        $('#course1').html(element.course_name+` (`+avg+`% average)`)
-
-                        var data = {
-                          series: [avg,100-avg]
-                        };
-
-                        var sum = function(a, b) { return a + b };
-
-                        
-                        new Chartist.Pie('#figure1', data, {
-                          labelInterpolationFnc: function(value) {
-                            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                          }
-                        });
-                    }
-
-                    if(index==1)
-                    {
-                        $('#plot2').show()
-                        var avg=parseInt(element.average)
-                        not_average=100-avg
-                        $('#course2').html(element.course_name+` (`+avg+`% average)`)
-                        var data = {
-                          series: [avg,100-avg]
-                        };
-
-                        var sum = function(a, b) { return a + b };
-
-                        
-                        new Chartist.Pie('#figure2', data, {
-                          labelInterpolationFnc: function(value) {
-                            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                          }
-                        });
-                    }
-
-                    if(index==2)
-                    {
-                        $('#plot3').show()
-                        var avg=parseInt(element.average)
-                        not_average=100-avg
-                        $('#course3').html(element.course_name+` (`+avg+`% average)`)
-                        var data = {
-                          series: [avg,100-avg]
-                        };
-
-                        var sum = function(a, b) { return a + b };
-
-                        
-                        new Chartist.Pie('#figure3', data, {
-                          labelInterpolationFnc: function(value) {
-                            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                          }
-                        });
-                    }
-
-                    if(index==3)
-                    {
-                        $('#plot4').show()
-                        var avg=parseInt(element.average)
-                        not_average=100-avg
-                        $('#course4').html(element.course_name+` (`+avg+`% average)`)
-                        var data = {
-                          series: [avg,100-avg]
-                        };
-
-                        var sum = function(a, b) { return a + b };
-
-                        
-                        new Chartist.Pie('#figure4', data, {
-                          labelInterpolationFnc: function(value) {
-                            return Math.round(value / data.series.reduce(sum) * 100) + '%';
-                          }
-                        });
-                    }
-                })
-                                
-            })
-
-            $http.get('../api/stats/get.php?lecturer='+user+'&type=info').then(function(res){
-                    $scope.staff_id =res.data.user_id 
-                    $rootScope.staff_id =res.data.user_id 
-
-                    $scope.name =res.data.user_name 
-                    $rootScope.name =res.data.user_name
-
-                    $scope.surname =res.data.user_surname 
-                    $rootScope.surname =res.data.user_surname
-
-                    $scope.faculty =res.data.faculty_name 
-                    $rootScope.faculty =res.data.faculty_name
-            })
             console.log('user is signed in')
+
         }
         else {
             window.location.href = '../'
