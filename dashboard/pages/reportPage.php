@@ -33,7 +33,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.wits.ac.za" class="simple-text">
-                    <img src="assets/img/wits-logo.png">
+                    <img src="../wits-logo.png">
                 </a>
             </div>
             
@@ -66,7 +66,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../index.php">
+                    <a>
+                        <i class='pe-7s-paperclip'></i>
+                        <p>Report</p>
+                    </a>
+                </li>
+                <li>
+                    <a>
                         <i class="pe-7s-power"></i>
                         <p>Logout</p>
                     </a>
@@ -80,10 +86,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                       
                     </button>
                     <a class="navbar-brand" href="#">Generate Report</a>
                 </div>
@@ -95,7 +98,7 @@
         <div class="content" style="background-color: white">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12" style="max-height: 400px;overflow:scroll">
+                    <div class="col-md-12" style="overflow:scroll">
                         <div class="card">
                             <div class="content">
                                 
