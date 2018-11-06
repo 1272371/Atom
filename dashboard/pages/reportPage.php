@@ -153,13 +153,14 @@
                                         echo "<div style='margin-left: 44%'>";
                                         echo "<label class='radio-inline'>";
                                         if ($count==0){
-                                        echo "<input type='radio' name='assessment' checked value=".$row['assessment_id'].">";
+                                        echo ($count+1)." <input type='radio' name='assessment' checked value=".$row['assessment_id'].">";
                                         } else{
-                                            echo "<input type='radio' name='assessment' value=".$row['assessment_id'].">";
+                                            echo ($count+1)." <input type='radio' name='assessment' value=".$row['assessment_id'].">";
                                         }
                                         echo $row['assessment_name'];
                                         echo "</label>";
                                         echo "</div>";
+                                        $count++;
                                     }
                                 ?>
                               </form>
@@ -172,7 +173,11 @@
                                         
                                         var assessment = document.querySelector('input[name="assessment"]:checked').value;
                                         
-                                        window.location="specificReport.php?course="+course+"&assessment="+assessment;
+                                        if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
+	                                        window.location="specificReport.php?course="+course+"&assessment="+assessment;
+	                                    } else{
+	                                    	alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
+	                                    }
 
                                         
                                         /*$('input[type=radio][name=course]').change(function() {
