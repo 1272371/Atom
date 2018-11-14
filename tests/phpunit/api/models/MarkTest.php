@@ -32,6 +32,7 @@ class MarkTest extends PHPUnit\Framework\TestCase
     {
         MarkTest::initMark();
         $this->assertNotEmpty($this->mark->get());
+
     }
 
     /**
@@ -41,6 +42,7 @@ class MarkTest extends PHPUnit\Framework\TestCase
     {
         MarkTest::initMark();
         $this->assertNotEmpty($this->mark->getMarksByAssessmentId(1));
+        $this->assertEmpty($this->mark->getMarksByAssessmentId(-1));
     }
     /**
      * @covers Mark::getMarksByUserId
@@ -49,6 +51,7 @@ class MarkTest extends PHPUnit\Framework\TestCase
     {
         MarkTest::initMark();
         $this->assertEquals(74,$this->mark->getMarksByUserId($this->mark->user_id));
+        $this->assertEquals(0,$this->mark->getMarksByUserId(100000000000000000000000000001));
     }
     public function initMark(){
         // database stuff
@@ -64,5 +67,4 @@ class MarkTest extends PHPUnit\Framework\TestCase
         $this->mark->course_id=1;
         $this->mark->course_name="Basic Computer Organisation";
     }
-
 }

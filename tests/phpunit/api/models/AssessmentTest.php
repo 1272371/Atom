@@ -81,6 +81,6 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
         $this->assessment->ail_id = 1;
         $this->assessment->aml_id = 1;
         $this->assessment->atl_id = 2;
-        $this->assessment->csv_id = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
+        $this->assessment->csv = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
     }
 }
