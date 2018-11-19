@@ -35,7 +35,7 @@ class TokenTest extends \PHPUnit\Framework\TestCase
     public function testDeleteToken()
     {
         TokenTest::init_Token();
-        $this->assertFalse( $this->token->deleteToken());
+        $this->assertTrue( $this->token->deleteToken());
     }
 
     /**
@@ -64,7 +64,8 @@ class TokenTest extends \PHPUnit\Framework\TestCase
             $this->token->user_name="Michael";
             $this->token->user_type="Chaphole";
             $this->token->user_surname="Chaphole";
-            $this->token->user_password="xxxxxx";
+            $this->token->user_password="password";
             $this->token->utl_id=1;
+            $this->token->token = "1b05deca94adec3f37314e76e5de72ad3d1a01a0";
         }
 }

@@ -64,7 +64,9 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
     public function testAddAssessment()
     {
         AssessmentTest::init();
-        $this->assertNotEmpty($this->assessment->AddAssessment());
+        $this->assertNull($this->assessment->AddAssessment());
+        $this->assessment->course_id = 7;
+        $this->assertNull($this->assessment->AddAssessment());
     }
 
     public function init()
@@ -82,5 +84,6 @@ class AssessmentTest extends PHPUnit\Framework\TestCase
         $this->assessment->aml_id = 1;
         $this->assessment->atl_id = 2;
         $this->assessment->csv = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv"];
+        //$this->assessment->csv = ["/opt/lampp/htdocs/Atom/csv/COMS1015-BCO-2013.csv","/opt/lampp/htdocs/Atom/csv/AAFinalMarks2017.xls","/opt/lampp/htdocs/Atom/csv/BCOFinalMarks2018.xlsx"];
     }
 }

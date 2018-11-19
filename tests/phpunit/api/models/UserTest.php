@@ -39,6 +39,21 @@ class UserTest extends PHPUnit\Framework\TestCase
         UserTest::init_User();
         $this->assertNotEmpty($this->userTesting->get());
     }
+
+    /**
+     * @covers User::getUsersByName
+     */
+public  function testGetUsersByName(){
+    UserTest::init_User();
+    $this->assertNotEmpty($this->userTesting->getUsersByName());
+}
+    /**
+     * @covers User::addUser
+     */
+    public  function testAddUser(){
+        UserTest::init_User();
+        $this->assertNull($this->userTesting->addUser());
+    }
     public function init_User(){
         $conn = new Database($this->host, $this->name, $this->user, $this->pass);
         $this->db=$conn->connect();
@@ -50,5 +65,6 @@ class UserTest extends PHPUnit\Framework\TestCase
         $this->userTesting->user_yearofstudy=null;
         $this->userTesting->faculty_name=5;
         $this->userTesting->user_type="student";
+
     }
 }
