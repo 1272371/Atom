@@ -27,6 +27,10 @@ app
     	templateUrl: 'pages/reportPage.php',
         controller: 'reportPageController'
     })
+    .when('/admin', {
+    	templateUrl: 'pages/admin.html',
+        controller: 'adminController'
+    })
     .otherwise({redirectTo: '/'})
 })
 .run(function($rootScope, $location, $routeParams, $http) {
@@ -1399,8 +1403,15 @@ app
     }
 })
 .controller('reportPageController', function($scope, $http, $rootScope) {
-	$scope.title = 'Student Statistics'
-    $rootScope.title = 'Student Statistics'
+	$scope.title = 'Report Page'
+    $rootScope.title = 'Report Page'
+    console.log('ghvjh')
+
+
+})
+.controller('adminController', function($scope, $http, $rootScope) {
+	$scope.title = 'Admin'
+    $rootScope.title = 'Admin'
     console.log('ghvjh')
 
 
