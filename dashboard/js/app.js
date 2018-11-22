@@ -93,6 +93,20 @@ app
             })
         })
 
+        // get variables from database
+        $http.post('../api/signing/signed.php')
+        .then(function(response) {
+
+            if (response.data.message === 'success') {
+                if (response.data.contents.user_type === 'developer') {
+
+                }
+                else {
+                    $('#admin-tab').css('display', 'none')
+                }
+            }
+        })
+
         window.onresize = function() {
 
             // handle card heights and resizing
@@ -1436,15 +1450,29 @@ app
 
         if (response.data.message === 'success') {
 
-
-
         }
         else {
             window.location.href = '../'
         }
     })
+
     $scope.sidebar = function() {
         $('#sidebar').toggleClass('active')
+    }
+
+    $scope.check = function() {
+        var course = document.querySelector('input[name="course"]:checked').value;
+                            
+        var assessment = document.querySelector('input[name="assessment"]:checked').value;
+
+        var dateSelector = document.getElementById("date");
+        var date = dateSelector.options[dateSelector.selectedIndex].value;
+        
+        if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
+            window.location="pages/specificReport.php?course="+course+"&assessment="+assessment+"&date="+date;
+        } else{
+            alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
+        }
     }
 
 	$scope.title = 'Report Page'

@@ -80,7 +80,7 @@ function SignIn(username, password) {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboard.html'
+                window.location.href = 'dashboard/index.html'
             }
             else if (data.message === 'error') {
                 ResponseModal('Incorrect username or password, please try again')

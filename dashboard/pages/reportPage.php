@@ -88,50 +88,7 @@
                             }
                         ?>
                     </form>
-                    <button type="button" onclick="check()" class="btn btn-primary" style="margin:10px;">Generate</button>       
-                    <script>
-                        function check(){
-                            var course = document.querySelector('input[name="course"]:checked').value;
-                            
-                            var assessment = document.querySelector('input[name="assessment"]:checked').value;
-
-                            var dateSelector = document.getElementById("date");
-                            var date = dateSelector.options[dateSelector.selectedIndex].value;
-                            
-                            if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
-                                window.location="specificReport.php?course="+course+"&assessment="+assessment+"&date="+date;
-                            } else{
-                                alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
-                            }
-
-                            
-                            /*$('input[type=radio][name=course]').change(function() {
-                            if (this.value == 'none') {
-                                alert("none");
-                                    document.write("none");
-                            }
-                            else if (this.value == 'bco') {
-                                alert("bco");
-                                document.write("bco");
-                            } 
-                            else if (this.value == 'iap') {
-                                alert("iap");
-                                document.write("iap");
-                            });*/
-                        
-                        }
-                        
-                        /*$('input[type=radio][name=type1]').change(function() {
-                        if (this.value == 'general') {
-                            alert("Allot Thai Gayo Bhai");
-                        }
-                        else if (this.value == 'specific') {
-                            alert("Transfer Thai Gayo");
-                        }
-                        });*/
-
-                        
-                    </script>
+                    <button id="btnbtn" type="button" ng-click="check()" class="btn btn-primary" style="margin:10px;">Generate</button>
                 </div>
         </div>
     </div>
