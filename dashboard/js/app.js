@@ -23,6 +23,10 @@ app
         templateUrl: 'pages/more-info.html',
         controller: 'MoreInfoController'
     })
+    .when('/reportPage', {
+    	templateUrl: 'pages/reportPage.php',
+        controller: 'reportPageController'
+    })
     .otherwise({redirectTo: '/'})
 })
 .run(function($rootScope, $location, $routeParams, $http) {
@@ -1393,4 +1397,11 @@ app
     $scope.back = function() {
         window.location.href = './#!/grade-book'
     }
+})
+.controller('reportPageController', function($scope, $http, $rootScope) {
+	$scope.title = 'Student Statistics'
+    $rootScope.title = 'Student Statistics'
+    console.log('ghvjh')
+
+
 })

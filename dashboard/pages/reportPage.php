@@ -13,73 +13,23 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-      <link href="../css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="./css/bootstrap.css" rel="stylesheet" />
+      <link href="./css/pe-icon-7-stroke.css" rel="stylesheet" />
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="../css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="./css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="./css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="blue">
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://www.wits.ac.za" class="simple-text">
-                    <img src="../wits-logo.png">
-                </a>
-            </div>
-            
-
-            <ul class="nav">
-                <li class="active">
-                    <a>
-                        <i class="pe-7s-graph"></i>
-                        <p>Home</p>
-                    </a>
-                </li>
-                
-                <li>
-                    <a>
-                        <i class='pe-7s-note2'></i>
-                        <p>Grade Book</p>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class='pe-7s-graph3'></i>
-                        <p>Statistics</p>
-                    </a>
-                    
-                </li>
-                <li>
-                    <a>
-                        <i class='pe-7s-cloud-upload'></i>
-                        <p>Upload</p>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class='pe-7s-paperclip'></i>
-                        <p>Report</p>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="pe-7s-power"></i>
-                        <p>Logout</p>
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
+    
 
     <div class="main-panel" style="background-color: white">
         <nav class="navbar navbar-default navbar-fixed">
