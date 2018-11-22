@@ -122,6 +122,11 @@ app
                 var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
                 $('.stretch-card-bottom').css('height', stretchBottomCards)
             }
+            else if (scope === 'report') {
+                // adjust grade book page card heights
+                var stretchReportCard = iWinHeight - $('#report-card').offset().top - 10
+                $('#report-card').css('height', stretchReportCard)
+            }
         }
     })
     //
@@ -1399,9 +1404,31 @@ app
     }
 })
 .controller('reportPageController', function($scope, $http, $rootScope) {
-	$scope.title = 'Student Statistics'
-    $rootScope.title = 'Student Statistics'
-    console.log('ghvjh')
+    
+    // title
+    $scope.title = 'Report'
+    $rootScope.title = 'Report'
 
+    // stretch card
+    var card = $('#report-card')
+    var height = $(window).height() - card.offset().top - 10
+    card.css('height', height)
+
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+
+
+
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
+    $scope.sidebar = function() {
+        $('#sidebar').toggleClass('active')
+    }
 
 })
