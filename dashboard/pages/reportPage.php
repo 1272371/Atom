@@ -74,7 +74,7 @@
                             $count=0;
                             while ($row = mysqli_fetch_array($result)){
 
-                                echo "<div style='margin-left: 44%'>";
+                                echo "<div>";
                                 echo "<label class='radio-inline'>";
                                 if ($count==0){
                                 echo ($count+1)." <input type='radio' name='assessment' checked value=".$row['assessment_id'].">";
@@ -88,7 +88,7 @@
                             }
                         ?>
                     </form>
-                    <button type="button" onclick="check()" class="btn btn-primary">Generate</button>       
+                    <button type="button" onclick="check()" class="btn btn-primary" style="margin:10px;">Generate</button>       
                     <script>
                         function check(){
                             var course = document.querySelector('input[name="course"]:checked').value;
