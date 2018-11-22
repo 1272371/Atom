@@ -114,8 +114,8 @@
             return $statement;
         }
 
-        public function addUser(){
-            $query = 'INSERT INTO user (user_id,user_name,user_surname,user_password,user_yearofstudy,faculty_name,user_type) ';
+        public function addUser($db){
+           /* $query = 'INSERT INTO user (user_id,user_name,user_surname,user_password,user_yearofstudy,faculty_name,user_type) ';
             $query = $query . 'VALUES (' . $this->user_id . ', "' . $this->user_name .
                 '", "' . $this->user_surname . '", "' . $this->user_password  .'", ' . $this->user_yearofstudy .
                 ', ' . $this->faculty_name . ', ' . $this->user_type . ')';
@@ -129,7 +129,24 @@
 
             } catch (PDOException $e) {
                 $this->ok = false;
+            }*/
+            /*$connet = mysqli_connect($db);
+            if ($connet->connect_error) {
+                die("Connection failed: " . $connet->connect_error);
             }
+            $sql = 'INSERT INTO user (user_id,user_name,user_surname,user_password,faculty_id,utl_id)
+            VALUES ('. $this->user_id . ', "' . $this->user_name .
+                '", "' . $this->user_surname . '"," ' . $this->user_password  .'", ' . $this->faculty_name . ', ' . $this->user_type . ')';
+
+            if (mysqli_query($sql)) {
+
+
+            } else {
+
+            }
+
+            mysqli_close($connet);*/
+
         }
 
     }
