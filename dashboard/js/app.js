@@ -27,6 +27,22 @@ app
     	templateUrl: 'pages/reportPage.php',
         controller: 'reportPageController'
     })
+    .when('/admin', {
+    	templateUrl: 'pages/admin.html',
+        controller: 'adminController'
+    })
+    .when('/about', {
+    	templateUrl: 'pages/about.html',
+        controller: 'aboutController'
+    })
+    .when('/team', {
+    	templateUrl: 'pages/team.html',
+        controller: 'teamController'
+    })
+    .when('/wiki', {
+    	templateUrl: 'pages/wiki.html',
+        controller: 'wikiController'
+    })
     .otherwise({redirectTo: '/'})
 })
 .run(function($rootScope, $location, $routeParams, $http) {
@@ -1431,4 +1447,27 @@ app
         $('#sidebar').toggleClass('active')
     }
 
+	$scope.title = 'Report Page'
+    $rootScope.title = 'Report Page'
+    console.log('ghvjh')
+})
+.controller('adminController', function($scope, $http, $rootScope) {
+	$scope.title = 'Admin'
+    $rootScope.title = 'Admin'
+    console.log('ghvjh')
+})
+.controller('teamController', function($scope, $http, $rootScope) {
+	$scope.title = 'Team'
+    $rootScope.title = 'Team'
+    console.log('ghvjh')
+})
+.controller('aboutController', function($scope, $http, $rootScope) {
+	$scope.title = 'About'
+    $rootScope.title = 'About'
+    console.log('ghvjh')
+})
+.controller('wikiController', function($scope, $http, $rootScope) {
+	$scope.title = 'Wiki'
+    $rootScope.title = 'Wiki'
+    console.log('ghvjh')
 })
