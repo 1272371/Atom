@@ -1484,10 +1484,32 @@ app
         //alert($scope.getCheckedBoxes("course"));
         var courses = $scope.getCheckedBoxes("course");
 
-        if (courses.length ==0){
+        //var radios = document.getElementsByName('user');
+
+        /*for (var i = 0, length = radios.length; i < length; i++){
+            if (radios[i].checked){
+                // do whatever you want with the checked radio
+               // alert(radios[i].value);
+                // only one radio can be logically checked, don't check the rest
+                break;
+            }
+        }*/
+
+        //read value of radio button
+        //alert($("input[name='user']:checked").val());
+
+        //get bool, if radio button is checked
+        var userSelected = (typeof $("input[name='user']:checked").val() != 'undefined');
+
+        var user = $("input[name='user']:checked").val();
+
+      
+        if (userSelected == false){
+            alert("Please select a lecturer to assign:");
+        } else if (courses.length ==0){
             alert("Please select a course(s)");
         } else{
-
+            //assign lecturer to course
         }
         /*var course = document.querySelector('input[name="course"]:checked').value;
                             
@@ -1503,6 +1525,10 @@ app
         }*/
 
 
+    }
+
+    $scope.atLeastOneRadio = function(){
+        return ($('input[type=radio]:checked').size() > 0);
     }
 
     $scope.getCheckedBoxes = function(checkboxName){

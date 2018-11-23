@@ -52,7 +52,7 @@
                                         $result2= mysqli_query($link, $query2);
 
                                         while ($row2 = mysqli_fetch_array($result2)) {
-                                            echo "<input type='checkbox' name='course' value=".$row2['course_code']." id=".$row2['course_code']."><label for=".$row2['course_code'].">".$row2['course_code']."</label><br>";
+                                            echo "<input type='checkbox' name='course' value=".$row2['course_code']." id=".$row2['course_code']."><label for=".$row2['course_code'].">  ".$row2['course_code']."</label><br>";
                                         }
                                     ?>
                                 
