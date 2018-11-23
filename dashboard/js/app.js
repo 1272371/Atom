@@ -28,7 +28,7 @@ app
         controller: 'reportPageController'
     })
     .when('/admin', {
-    	templateUrl: 'pages/admin.html',
+    	templateUrl: 'pages/admin.php',
         controller: 'adminController'
     })
     .when('/about', {
@@ -1477,25 +1477,20 @@ app
 
 	$scope.title = 'Report Page'
     $rootScope.title = 'Report Page'
-    console.log('ghvjh')
 })
 .controller('adminController', function($scope, $http, $rootScope) {
 	$scope.title = 'Admin'
     $rootScope.title = 'Admin'
-    console.log('ghvjh')
 })
 .controller('teamController', function($scope, $http, $rootScope) {
 	$scope.title = 'Team'
     $rootScope.title = 'Team'
-    console.log('ghvjh')
 })
 .controller('aboutController', function($scope, $http, $rootScope) {
 	$scope.title = 'About'
     $rootScope.title = 'About'
-    console.log('ghvjh')
 })
 .controller('wikiController', function($scope, $http, $rootScope) {
 	$scope.title = 'Wiki'
     $rootScope.title = 'Wiki'
-    console.log('ghvjh')
 })
