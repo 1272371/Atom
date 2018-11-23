@@ -1479,6 +1479,44 @@ app
     $rootScope.title = 'Report Page'
 })
 .controller('adminController', function($scope, $http, $rootScope) {
+
+    $scope.assign = function() {
+        //alert($scope.getCheckedBoxes("course"));
+        var courses = $scope.getCheckedBoxes("course");
+
+        if (courses.length ==0){
+            alert("Please select a course(s)");
+        } else{
+
+        }
+        /*var course = document.querySelector('input[name="course"]:checked').value;
+                            
+        var assessment = document.querySelector('input[name="assessment"]:checked').value;
+
+        var dateSelector = document.getElementById("date");
+        var date = dateSelector.options[dateSelector.selectedIndex].value;
+        
+        if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
+            window.location="pages/specificReport.php?course="+course+"&assessment="+assessment+"&date="+date;
+        } else{
+            alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
+        }*/
+
+
+    }
+
+    $scope.getCheckedBoxes = function(checkboxName){
+        var checkboxes = document.querySelectorAll('input[name="course"]:checked'), values = [];
+        Array.prototype.forEach.call(checkboxes, function(el) {
+        values.push(el.value);
+    });
+    return values;
+    }
+
+    $scope.sidebar = function() {
+        $('#sidebar').toggleClass('active')
+    }
+
 	$scope.title = 'Admin'
     $rootScope.title = 'Admin'
 })
