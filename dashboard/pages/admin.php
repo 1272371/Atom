@@ -25,9 +25,13 @@
                                     die ("Error!");
                                 }
 
-                                $query = "SELECT * FROM user WHERE utl_id=2";
+                                $query2 = "SELECT user.user_id, user.user_name, user.user_surname,user.utl_id, subject.user_id FROM user LEFT JOIN subject ON user.user_id = subject.user_id WHERE user.utl_id=2";
+
+                                $query = "SELECT * FROM user WHERE utl_id=2 AND user_id NOT IN (SELECT user_id FROM subject)";
+
 
                                 $result = mysqli_query($link, $query);
+                                $result2 = mysqli_query($link, $query2);
 
                                 while ($row = mysqli_fetch_array($result)){
                                     echo "<input type='radio' name='user' value=".$row['user_id']."> ".$row['user_name']." ".$row['user_surname'].", ".$row['user_id']."<br>";
@@ -47,12 +51,14 @@
                                             die ("Error!");
                                         }
 
-                                        $query2 = "SELECT DISTINCT * FROM course";
+                                        $query = "SELECT DISTINCT * FROM course";
                                         
-                                        $result2= mysqli_query($link, $query2);
+                                        $result= mysqli_query($link, $query);
 
-                                        while ($row2 = mysqli_fetch_array($result2)) {
-                                            echo "<input type='checkbox' name='course' value=".$row2['course_code']." id=".$row2['course_code']."><label for=".$row2['course_code'].">  ".$row2['course_code']."</label><br>";
+
+
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            echo "<input type='checkbox' name='course' value=".$row['course_code']." id=".$row['course_code']."><label for=".$row['course_code'].">  ".$row['course_code']."</label><br>";
                                         }
                                     ?>
                                 
@@ -64,6 +70,51 @@
                 </div class="row">
                     <button type="button" ng-click="assign()" class="btn btn-primary">Assign</button>
 
+                    <?php
+                        
+                        if (empty($_GET)){
+                           echo "empty";
+                        } else {
+                            $course_id = $_GET['courses'];
+                            $user = $_GET['user'];
+                            echo ($user);
+                            echo ($course_id);
+                        }
+
+                        $link = mysqli_connect("localhost","root","", "risk");
+
+                        if (mysqli_connect_error()){
+                            die ("Error!");
+                        }
+
+                        $query = "INSERT INTO 'user' ('subject_id', 'subject_enrollmentyear', 'course_id', 'user_id') VALUES (NULL, 2018, )";
+                        
+                        mysqli_query($link, $query);
+
+                        /*$('.button').click(function() {
+
+                            $.ajax({
+                              type: "POST",
+                              url: "admin.php",
+                              data: { name: "John" }
+                            }).done(function( msg ) {
+                              alert( "Data Saved: " + msg );
+                            });    
+
+                        });*/
+
+                        /*function assignUser(){
+                        if (empty($_GET)){
+                           alert("empty");
+                        } else {
+                            $course_id = $_GET['course_id'];
+                            $user = $_GET['user'];
+                            alert($user);
+                            alert($course_id);
+                        }
+                        }*/
+
+                    ?>
                    
                 </div>
             </div>

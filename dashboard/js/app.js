@@ -1509,22 +1509,12 @@ app
         } else if (courses.length ==0){
             alert("Please select a course(s)");
         } else{
-            //assign lecturer to course
+            
+            //SEND DATA TO ADMIN.PHP
+
+            //window.location.href = "./#!/admin?user="+user+"&courses="+courses;
+
         }
-        /*var course = document.querySelector('input[name="course"]:checked').value;
-                            
-        var assessment = document.querySelector('input[name="assessment"]:checked').value;
-
-        var dateSelector = document.getElementById("date");
-        var date = dateSelector.options[dateSelector.selectedIndex].value;
-        
-        if ((course=="bco" && assessment <19)||(course=="iap" && assessment >=19)){
-            window.location="pages/specificReport.php?course="+course+"&assessment="+assessment+"&date="+date;
-        } else{
-            alert ("Please Select a valid valid assessment and course combination (BCO: assessment < 18; IAP: assessment > 18)");
-        }*/
-
-
     }
 
     $scope.atLeastOneRadio = function(){
