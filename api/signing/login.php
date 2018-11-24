@@ -19,20 +19,31 @@
             $token = new Token($db);
 
             // get id from url
-            $token->user_id = $_POST['username'];
-            $token->user_password = $_POST['password'];
             $user_id = $_POST["username"];
             $user_password =  $_POST["password"];
-            $ldap_dn = "DS\ ".$_POST["username"]."+".$_POST["password"]."";
+
+            $check = 'a';
+            $pos = strpos($user_id, $check);
+            if($pos === false){
+                $user_idt = $user_id;
+            }else{
+                $user_idt =str_replace("a","",$user_id);
+            }
+
+            $token->user_id = intval($user_idt);
+            $token->user_password = $user_password;
+
+
 	        //host for students : ldap://ss.wits.ac.za/;ldap://146.141.8.201
-            //host for staff : ldap://ds.wits.ac.za/;ldap://146.141.128.150
             $ldap_con = ldap_connect("ldap://ss.wits.ac.za/;ldap://146.141.8.201");
+
+            //host for staff : ldap://ds.wits.ac.za/;ldap://146.141.128.150
+            //$ldap_con = ldap_connect("ldap://ds.wits.ac.za/;ldap://146.141.128.150");
             ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
             // get user
             $token->setToken();
-            //$token->ok
-            //@ldap_bind($ldap_con,$ldap_dn) ||
+
             if ( @ldap_bind($ldap_con,$user_id,$user_password) ||$token->ok) {
                 // response
 
@@ -69,7 +80,7 @@
                         die("Connection failed: " . $connet->connect_error);
                     }*/
                     $sql = 'INSERT INTO user (user_id,user_name,user_surname,user_password,faculty_id,utl_id)
-                            VALUES ('. $user_id . ', "' . $user_name .
+                            VALUES ('. $user_idt . ', "' . $user_name .
                             '", "' . $user_surname . '","'.password_hash($user_password,PASSWORD_DEFAULT).'", ' . $faculty_name . ', ' . $user_type . ')';
                     mysqli_query($connect,$sql);
                     mysqli_close($connect);
