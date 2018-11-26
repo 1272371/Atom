@@ -1,22 +1,6 @@
 <?php
 	header('Content-Type: application/json');
 	require("../config/DB.php");
-
-	/*
-	$query = 'SELECT * FROM user';
-
-	$stmt = $pdo->query($query);
-
-	$response = '[';
-	while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-	{
-		$response .= '{"student":"'.htmlspecialchars($row['user_id']).'","name":"'.htmlspecialchars($row['user_name']).'","user_surname":"'.htmlspecialchars($row['user_surname']).'"},';
-	}
-	$response = substr($response,0,strlen($response)-1);
-	$response .= ']';
-
-	echo $response;
-	*/
 	
 	if($_SERVER['REQUEST_METHOD']=='POST')
 	{

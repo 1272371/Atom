@@ -1480,14 +1480,26 @@ app
 	$scope.title = 'Report Page'
     $rootScope.title = 'Report Page'
 })
+
 .controller('adminController', function($scope, $http, $rootScope) {
     $scope.title = 'Admin'
     $rootScope.title = 'Admin'
 
     $http.get('../api/admin/get.php?type=lecturer').then(function(response){
-	console.log(response.data)
+
+        response.data.forEach(function(element){
+            $('#list').append(` "<input type='radio' name='user' value="`+element.user_id+`" data-id="`+element.user_id+`"> "`+element.user_name+`" "`+element.user_surname+`", "`+element.user_id+`<br>`)
+        })	
+    })
+
+    $http.get('../api/admin/get.php?type=teach').then(function(response){
+
+        response.data.forEach(function(element){
+            $('#course_list').append(`"<input type='checkbox' name='course' value="`+element.course_code+`" data-teach="`+.element.course_code.+`"><label for="`+element.course_code+`">  "`+element.course_code+`"</label><br>`)
+        })
     })
 })
+
 .controller('wikiController', function($scope, $http, $rootScope) {
 
     // set scope variables
