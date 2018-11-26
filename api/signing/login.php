@@ -22,6 +22,11 @@
             $user_id = $_POST["username"];
             $user_password =  $_POST["password"];
 
+            if (empty($_POST["username"]) || empty($_POST["password"])) {
+                echo json_encode(array('message' => 'error'));
+                die;
+            }
+
             $check = 'a';
             $pos = strpos($user_id, $check);
             if($pos === false){
@@ -66,7 +71,7 @@
                     //Staff Context
                     //$ldapcontext = "ou=wits university,dc=ds,dc=wits,dc=ac,dc=za";
 
-                    $sr=ldap_search($ldap_con_student, $ldapcontext, $ldapfilter, $ldapjustthese)or die ("Error in search query: ".ldap_error($ldap_con_student));
+                    $sr=ldap_search($ldap_con_student, $ldapcontext, $ldapfilter, $ldapjustthese); //or die ("Error in search query: ".ldap_error($ldap_con_student));
                     $info = ldap_get_entries($ldap_con_student, $sr);
 
                     //Set values
@@ -105,7 +110,7 @@
                     //Staff Context
                     $ldapcontext = "ou=wits university,dc=ds,dc=wits,dc=ac,dc=za";
 
-                    $sr=ldap_search($ldap_con_staff, $ldapcontext, $ldapfilter, $ldapjustthese)or die ("Error in search query: ".ldap_error($ldap_con_staff));
+                    $sr=ldap_search($ldap_con_staff, $ldapcontext, $ldapfilter, $ldapjustthese);//or die ("Error in search query: ".ldap_error($ldap_con_staff));
                     $info = ldap_get_entries($ldap_con_staff, $sr);
 
                     //Set values
@@ -135,13 +140,13 @@
             }
             else {
                 // couldn't login
-                http_response_code(400);
+                http_response_code(200);
                 echo json_encode(array('message' => 'error'));
             }
         }
         else {
             // couldn't login
-            http_response_code(400);
+            http_response_code(200);
             echo json_encode(array('message' => 'error'));
         }
     }

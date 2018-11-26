@@ -98,6 +98,13 @@ function SignIn(username, password) {
 /**
  * events
  */
+// sign in
 $('#sign-in-button').click(function() {
     SignIn()
 });
+document.addEventListener('keyup', function(event) {
+    event.preventDefault()
+    if (event.keyCode === 13) {
+        SignIn()
+    }
+})

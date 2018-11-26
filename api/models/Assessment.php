@@ -54,16 +54,10 @@
                 'assessment_date="' . $this->assessment_date . '" AND ' .
                 'atl_id=' . $this->atl_id . ' AND ' . 'course_id=' . $this->course_id . ' LIMIT 0, 1';
 
-                try {
-
-                    // prepare statement
-                    $statement = $this->conn->prepare($query);
-                    // execute statement
-                    $this->ok = $statement->execute();
-    
-                } catch (PDOException $e) {
-                    $this->ok = false;
-                }
+                // prepare statement
+                $statement = $this->conn->prepare($query);
+                // execute statement
+                $this->ok = $statement->execute();
 
                 if ($this->ok) {
 
