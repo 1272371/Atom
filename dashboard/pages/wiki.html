@@ -1,52 +1,313 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-
-<body>
-<nav class="w3-bar w3-black">
-    <a href="#home" class="w3-button w3-bar-item">Home</a>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- toggle button -->
+    <!-- onmousedown="event.preventDefault()" prevents button from staying clicked -->
+    <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
+        <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand ml-3 mr-auto">{{ title }}</a>
 </nav>
-<section class="w3-container w3-content w3-center" style="max-width:600px">
-    <h2 class="w3-wide">ATOM</h2>
-    <p class="w3-opacity"><i>COMS 3009 project</i></p>
-    This is is a web based application allowing lecturers to view students in their classes
-    , view their respective marks and run a prediction algorithm to tell whether the student is
-    at risk of failure so that systems can be put in place to prevent said student from failing.
-</section>
 
-<section class="w3-container w3-content w3-center" style="max-width:600px">
-    <p class="w3-justify">
-        <p>
-</section>
-
-</section>
-<section class="w3-container w3-content w3-center" style="max-width:600px">
-    <h2 class="w3-wide">Contributers</h2>
-</section>
-<section class="w3-row-padding w3-center w3-light-grey">
-    <article class="w3-third">
-        <p>Suliman Momoniat(Scrum Master)</p>
-        <img src="img/team/Suliman.jpg" alt="Suliman" style="width:100%">
-
-    </article>
-    <article class="w3-third">
-        <p>Ntsiki</p>
-        <img src="img/faces/face-1.jpg" alt="Ntsiki" style="width:100%">
-    </article>
-    <article class="w3-third">
-        <p>Lesego Seritili</p>
-        <img src="img/faces/face-1.jpg" alt="Lesego" style="width:100%">
-    </article>
-    <article class="w3-third">
-        <p>Peace</p>
-        <img src="img/faces/face-1.jpg" alt="Peace" style="width:100%">
-    </article>
-    <article class="w3-third">
-        <p>Kyren Reddy</p>
-        <img src="img/faces/face-1.jpg" alt="Kyren" style="width:100%">
-    </article>
-</section>
-</body>
-</html>
+<!-- card -->
+<div class="row">
+    <div class="col">
+            <div id="wiki-card" class="card m-2">
+                    <div class="card-body p-8" style="overflow-x:hidden; overflow-y:auto">
+                            <h2 id="welcometotheatomwiki">Welcome to the Atom wiki!</h2><hr>
+                            <p>This is is a web based application allowing lecturers to view students in their classes, view their respective marks and run a prediction algorithm to tell whether the student is at risk of failure so that systems can be put in place to prevent said student from failing. </p>
+                            
+                            <h1 id="architecture">Architecture</h1><hr>
+                            
+                            <p>This application will follow a client-server model. The server will hold the actual website and the code that links to the machine learning algorithm, the plotting tools and the database. When the user opens the website they will be greeted by a login screen resembling the Wits Sakai system. We will be using restful API to connect theweb browser to the server. They will need to put in their username and password (should be linked to the Wits system so as to allow lecturers to use their Sakai login details). Once successfully logged in, they will be redirected to the dashboard. </p>
+                            
+                            <p>There is a feature which allows the user to upload a CSV file to the website and have that data be added to our database. This section of the website will follow a layered system as there will be the outer layer which is the User Interface itself, then a layer lower which will be the User being able to see what the data looks like on our system and then a lower layer which verifies that all the necessary data has been inputted (our system and database verification for the business rules and following proper table structure) and only once all these checks return positive, will the data actually be uploaded to the database. We use this system because it is:</p>
+                            
+                            <ul>
+                            <li>Testable (We can test each layer of the verification process)</li>
+                            
+                            <li>Easy to assign roles to components such as the data verification, file format verification etc.</li>
+                            
+                            <li>Maintainable </li>
+                            
+                            <li>Easy to update layers separately</li>
+                            </ul>
+                            
+                            <h1 id="architecture-1">Architecture</h1><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/RISK%20%20Architecture.png" alt="" /></p>
+                            
+                            <h1 id="processview">Process View</h1><hr>
+                            
+                            <h2 id="dashboard">Dashboard</h2><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/Lecturer.png" alt="" /></p>
+                            
+                            <h2 id="upload">Upload</h2><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/LatestUpload.png" alt="" /></p>
+                            
+                            <h1 id="developmentview">Development View</h1><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/Risk%20Component%20Diagram.png" alt="" /></p>
+                            
+                            <h1 id="physicalview">Physical View</h1><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/Deployment.png" alt="" /></p>
+                            
+                            <h1 id="logicalview">Logical View</h1><hr>
+                            
+                            <h2 id="system">System</h2><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/Logical%20View.png" alt="" /></p>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/general%20activity%20diagram.jpeg" alt="" /></p>
+                            
+                            <h3 id="upload-1">Upload</h3>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/upload%20activity.jpeg" alt="" /></p>
+                            
+                            <h3 id="statistics">Statistics</h3>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/statistics%20activity.jpeg" alt="" /></p>
+                            
+                            <h2 id="gradebook">Grade Book</h2><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/grade%20book%20activity.jpeg" alt="" /></p>
+                            
+                            <h2 id="report">Report</h2><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/report%20activity.jpeg" alt="" /></p>
+                            
+                            <h2 id="statediagrams">State Diagrams</h2><hr>
+                            
+                            <h3 id="login">Login</h3>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/login%20state%20diagram.jpeg" alt="" /></p>
+                            
+                            <h3 id="grade">Grade</h3>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/grade%20state%20diagram.jpeg" alt="" /></p>
+                            
+                            <h1 id="usersystemrequirements">User System Requirements</h1><hr>
+                            
+                            <ul>
+                            <li>Working device which has an active internet connection and a working browser (Google Chrome)</li>
+                            
+                            <li>Sufficient RAM to be able to process the data (Minimum of 1GB)</li>
+                            </ul>
+                            
+                            <p><img class="img-fluid"src="../img/dashboard_snapshots/dashboardFirstPage.png" alt="" /></p>
+                            
+                            <p><img class="img-fluid"src="../img/dashboard_snapshots/dashboard.png" alt="" /></p>
+                            
+                            <p>Here they will be able to select from 3 tabs on the left side menu: Dashboard, Grade Book, Statistics. On the dashboard page the user will see a block showing information about the currently selected student, then another block with their marks, then another block to allow the user to select a new student (Need to fix). Underneath all this will be a graph plotting the prediction for the current student. </p>
+                            
+                            <p><img class="img-fluid"src="../img/dashboard_snapshots/grade_book.png" alt="" /></p>
+                            
+                            <p>In the Grade Book the user will be able to see the marks of students within a particular class. </p>
+                            
+                            <p><img class="img-fluid"src="../img/dashboard_snapshots/stats.png" alt="" /></p>
+                            
+                            <p>On the Statistics page the user will see graphical representations of the classes marks that they select etc.</p>
+                            
+                            <p><img class="img-fluid"src="../img/dashboard_snapshots/uploadPage.png" alt="" /></p>
+                            
+                            <p>On the upload page the user will be able to upload new marks to the database.</p>
+                            
+                            <h1 id="databaseschema">Database Schema</h1><hr>
+                            
+                            <p><img class="img-fluid"src="../img/diagrams/database%20schema.jpeg" alt="" /></p>
+                            
+                            <h1 id="usecases">Use Cases</h1><hr>
+                            
+                            <h2 id="loginpage">Login Page</h2><hr>
+                            
+                            <h3 id="description">Description</h3>
+                            
+                            <p>This is a page that the user will use to log into the system. Once the user enters the correct cre</p>
+                            
+                            <h3 id="trigger">Trigger</h3>
+                            
+                            <p>The user enters a username and password in the relevant boxes on top of the screen.</p>
+                            
+                            <h3 id="primaryactor">Primary Actor</h3>
+                            
+                            <p>The lecturer that is using the system.</p>
+                            
+                            <h3 id="stakeholders">Stakeholders</h3>
+                            
+                            <p>The developers who will monitor and update the system and who will maintain the database.</p>
+                            
+                            <h3 id="preconditions">Preconditions</h3>
+                            
+                            <p>The user must have an account on the system and must have internet access and a functioning browser (Mozilla Firefox or Google Chrome).</p>
+                            
+                            <h3 id="mainsuccessscenario">Main Success Scenario</h3>
+                            
+                            <p>The user enters the correct login username and password and will then be redirected to the dashboard page.</p>
+                            
+                            <h3 id="exceptions">Exceptions</h3>
+                            
+                            <p>The user will not be able to log in.</p>
+                            
+                            <h2 id="dashboardpage">Dashboard Page</h2><hr>
+                            
+                            <h3 id="description-1">Description</h3>
+                            
+                            <p>This is the page where the user will be able to view the summary and details of a selected student. They will be able to see the student's name, their faculty and latest marks. There will also be a class list which can be viewed. At the bottom of the page we will have our predictor graph which will predict the students future marks.</p>
+                            
+                            <h3 id="trigger-1">Trigger</h3>
+                            
+                            <p>Once the correct details have been entered in the login page they will be redirected here where they can view all the necessary details.</p>
+                            
+                            <h3 id="primaryactor-1">Primary Actor</h3>
+                            
+                            <p>The lecturer that is using the system.</p>
+                            
+                            <h3 id="stakeholders-1">Stakeholders</h3>
+                            
+                            <p>The developers who will monitor and update the system and who will maintain the database.</p>
+                            
+                            <h3 id="preconditions-1">Preconditions</h3>
+                            
+                            <p>The user must have an account on the system and correctly enter these details in the login page. They  must have internet access and a functioning browser (Mozilla Firefox or Google Chrome).</p>
+                            
+                            <h3 id="mainsuccessscenario-1">Main Success Scenario</h3>
+                            
+                            <p>The user will successfully be able to view the desired details.</p>
+                            
+                            <h3 id="exceptions-1">Exceptions</h3>
+                            
+                            <p>If the required details to view are not in the database then the user will not be able to view anything.</p>
+                            
+                            <h2 id="gradebookpage">Grade Book Page</h2><hr>
+                            
+                            <h3 id="description-2">Description</h3>
+                            
+                            <p>This is a page where the user will be able to view the class list and view other classes. They will also be bale to select students from here to load into the dashboard and view the predictor for that student.</p>
+                            
+                            <h3 id="trigger-2">Trigger</h3>
+                            
+                            <p>They come here by pressing the button on the sidebar on the Dashboard page or the Statistics page.</p>
+                            
+                            <h3 id="primaryactor-2">Primary Actor</h3>
+                            
+                            <p>The lecturer that is using the system.</p>
+                            
+                            <h3 id="stakeholders-2">Stakeholders</h3>
+                            
+                            <p>The developers who will monitor and update the system and who will maintain the database.</p>
+                            
+                            <h3 id="preconditions-2">Preconditions</h3>
+                            
+                            <p>The user needs to be logged in.</p>
+                            
+                            <h3 id="mainsuccessscenario-2">Main Success Scenario</h3>
+                            
+                            <p>They should see students from the relevant classes and be able to select the students.</p>
+                            
+                            <h3 id="exceptions-2">Exceptions</h3>
+                            
+                            <p>If the required details to view are not in the database then the user will not be able to view anything.</p>
+                            
+                            <h2 id="statisticspage">Statistics Page</h2><hr>
+                            
+                            <h3 id="description-3">Description</h3>
+                            
+                            <p>This is a page where the user will be able to view a visual representation of class data.</p>
+                            
+                            <h3 id="trigger-3">Trigger</h3>
+                            
+                            <p>They come here by pressing the button on the sidebar on the Dashboard page or the Grade Book page.</p>
+                            
+                            <h3 id="primaryactor-3">Primary Actor</h3>
+                            
+                            <p>The lecturer that is using the system.</p>
+                            
+                            <h3 id="stakeholders-3">Stakeholders</h3>
+                            
+                            <p>The developers who will monitor and update the system and who will maintain the database.</p>
+                            
+                            <h3 id="preconditions-3">Preconditions</h3>
+                            
+                            <p>The user needs to be logged in.</p>
+                            
+                            <h3 id="mainsuccessscenario-3">Main Success Scenario</h3>
+                            
+                            <p>The user should be able to see pie charts and possibly other graphs describing the statistics of the relevant class.</p>
+                            
+                            <h3 id="exceptions-3">Exceptions</h3>
+                            
+                            <p>If the required details to view are not in the database then the user will not be able to view anything.</p>
+                            
+                            <h2 id="uploadpage">Upload Page</h2><hr>
+                            
+                            <h3 id="description-4">Description</h3>
+                            
+                            <p>This is a page where the user will be able to upload marks to the system.</p>
+                            
+                            <h3 id="trigger-4">Trigger</h3>
+                            
+                            <p>They come here by pressing the button on the sidebar on the Dashboard, Statistics on Grade Book page.</p>
+                            
+                            <h3 id="primaryactor-4">Primary Actor</h3>
+                            
+                            <p>The lecturer that is using the system.</p>
+                            
+                            <h3 id="stakeholders-4">Stakeholders</h3>
+                            
+                            <p>The developers who will monitor and update the system and who will maintain the database.</p>
+                            
+                            <h3 id="preconditions-4">Preconditions</h3>
+                            
+                            <p>The user needs to be logged in.</p>
+                            
+                            <h3 id="mainsuccessscenario-4">Main Success Scenario</h3>
+                            
+                            <p>They should see students from the relevant classes and be able to select the students.</p>
+                            
+                            <h3 id="exceptions-4">Exceptions</h3>
+                            
+                            <p>If the CSV file is in the wrong format then the user will not be able to upload the file.</p>
+                            
+                            <h1 id="designpages">Design Pages</h1><hr>
+                            
+                            <ul>
+                            <li>There is only one type of user that will be using this application and thus there will be only one view</li>
+                            </ul>
+                            
+                            <h2 id="login-1">Login</h2><hr>
+                            
+                            <p>An attempt to mimic the look of the Sakai login</p>
+                            
+                            <h2 id="homepage">Homepage</h2><hr>
+                            
+                            <h3 id="dashboard-1">Dashboard</h3>
+                            
+                            <p>This page is designed in a block view format</p>
+                            
+                            <ul>
+                            <li>A block with basic information of the student  </li>
+                            
+                            <li>A block with a student's latest marks</li>
+                            
+                            <li>A block with a class list</li>
+                            
+                            <li>A block with the predictor graph</li>
+                            </ul>
+                            
+                            <h3 id="gradebook-1">Grade book</h3>
+                            
+                            <p>Marks of students displayed in a spread sheet format</p>
+                            
+                            <h3 id="statistics-1">Statistics</h3>
+                            
+                            <p>Visual representation of the class data(ie Pie charts, etc.)</p>
+                            
+                            <h3 id="upload-2">Upload</h3>
+                            
+                            <p>Allows lecturer to upload marks to the database</p>
+                    </div>
+            </div>
+    </div>
+</div>

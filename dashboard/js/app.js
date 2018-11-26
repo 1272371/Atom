@@ -31,14 +31,6 @@ app
     	templateUrl: 'pages/admin.php',
         controller: 'adminController'
     })
-    .when('/about', {
-    	templateUrl: 'pages/about.html',
-        controller: 'aboutController'
-    })
-    .when('/team', {
-    	templateUrl: 'pages/team.html',
-        controller: 'teamController'
-    })
     .when('/wiki', {
     	templateUrl: 'pages/wiki.html',
         controller: 'wikiController'
@@ -100,7 +92,6 @@ app
         // get variables from database
         $http.post('../api/signing/signed.php')
         .then(function(response) {
-            console.log('awe')
             if (response.data.message === 'success') {
                 if (response.data.contents.user_type === 'developer') {
                     $('#admin-tab').css('display', 'block')
@@ -160,6 +151,11 @@ app
                 // adjust grade book page card heights
                 var stretchReportCard = iWinHeight - $('#report-card').offset().top - 10
                 $('#report-card').css('height', stretchReportCard)
+            }
+            else if (scope === 'wiki') {
+                // stretch top card
+                var stretchGradeBookCard = iWinHeight - $('#wiki-card').offset().top - 10
+                $('#wiki-card').css('height', stretchGradeBookCard)
             }
         }
     })
@@ -1540,15 +1536,41 @@ app
 	$scope.title = 'Admin'
     $rootScope.title = 'Admin'
 })
-.controller('teamController', function($scope, $http, $rootScope) {
-	$scope.title = 'Team'
-    $rootScope.title = 'Team'
-})
-.controller('aboutController', function($scope, $http, $rootScope) {
-	$scope.title = 'About'
-    $rootScope.title = 'About'
-})
 .controller('wikiController', function($scope, $http, $rootScope) {
+
+    // set scope variables
 	$scope.title = 'Wiki'
     $rootScope.title = 'Wiki'
+
+    // set up GUI
+    /**
+     * set up initial user interface
+     */
+    
+    /**
+     * events
+     */
+    // toggle sidebar on click
+    $scope.sidebar = function() {
+        $('#sidebar').toggleClass('active')
+    }
+
+    // init variables - change on resize
+    var iWinHeight = $(window).height()
+
+    // stretch top card
+    var stretchGradeBookCard = iWinHeight - $('#wiki-card').offset().top - 10
+    $('#wiki-card').css('height', stretchGradeBookCard)
+
+    // get variables from database
+    $http.post('../api/signing/signed.php')
+    .then(function(response) {
+
+        if (response.data.message === 'success') {
+            //
+        }
+        else {
+            window.location.href = '../'
+        }
+    })
 })
