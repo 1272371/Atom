@@ -59,7 +59,7 @@ function Welcome() {
             
             if (data.message === 'success') {
                 // redirect to dashboard
-                window.location.href = 'dashboard/dashboard.html'
+                window.location.href = 'dashboard/index.html'
             }
         }
     });
