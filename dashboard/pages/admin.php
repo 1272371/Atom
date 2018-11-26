@@ -1,17 +1,19 @@
-
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- toggle button -->
+    <!-- onmousedown="event.preventDefault()" prevents button from staying clicked -->
+    <button onmousedown="event.preventDefault()" ng-click="sidebar()" id="sidebarCollapse" type="button">
+        <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand ml-3 mr-auto">{{ title }}</a>
+</nav>
 
 <div class="container-fluid" style="overflow:auto;">
     <!-- two column layout -->
-    <div class="col pl-0 ml-1 mr-1">
+    <div class="col pl-0 ml-1 mr-1 mt-2">
         <!-- summary -->
         <div id="recent-card" class="card">
             <div class="card-body p-0" style="overflow:auto;">
-                <div class="row">
-                    <div class="col">
-                        <h4 style="font-weight:100; padding: 20px 20px 8px 20px">Admin</h4>
-                    </div>
-                    
-                </div>
 
                 <div class="row" style="overflow:auto;">
                     <div class="col">
