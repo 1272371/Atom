@@ -1479,62 +1479,12 @@ app
     $rootScope.title = 'Report Page'
 })
 .controller('adminController', function($scope, $http, $rootScope) {
-
-    $scope.assign = function() {
-        //alert($scope.getCheckedBoxes("course"));
-        var courses = $scope.getCheckedBoxes("course");
-
-        //var radios = document.getElementsByName('user');
-
-        /*for (var i = 0, length = radios.length; i < length; i++){
-            if (radios[i].checked){
-                // do whatever you want with the checked radio
-               // alert(radios[i].value);
-                // only one radio can be logically checked, don't check the rest
-                break;
-            }
-        }*/
-
-        //read value of radio button
-        //alert($("input[name='user']:checked").val());
-
-        //get bool, if radio button is checked
-        var userSelected = (typeof $("input[name='user']:checked").val() != 'undefined');
-
-        var user = $("input[name='user']:checked").val();
-
-      
-        if (userSelected == false){
-            alert("Please select a lecturer to assign:");
-        } else if (courses.length ==0){
-            alert("Please select a course(s)");
-        } else{
-            
-            //SEND DATA TO ADMIN.PHP
-
-            //window.location.href = "./#!/admin?user="+user+"&courses="+courses;
-
-        }
-    }
-
-    $scope.atLeastOneRadio = function(){
-        return ($('input[type=radio]:checked').size() > 0);
-    }
-
-    $scope.getCheckedBoxes = function(checkboxName){
-        var checkboxes = document.querySelectorAll('input[name="course"]:checked'), values = [];
-        Array.prototype.forEach.call(checkboxes, function(el) {
-        values.push(el.value);
-    });
-    return values;
-    }
-
-    $scope.sidebar = function() {
-        $('#sidebar').toggleClass('active')
-    }
-
-	$scope.title = 'Admin'
+    $scope.title = 'Admin'
     $rootScope.title = 'Admin'
+
+    $http.get('../api/admin/get.php?type=lecturer').then(function(response){
+	console.log(response.data)
+    })
 })
 .controller('wikiController', function($scope, $http, $rootScope) {
 
