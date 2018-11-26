@@ -26,78 +26,13 @@
                          <div class="card" style="margin:10px">
                             <h5>Select courses that the lecturer teaches:</h5>
                             <form id="course_list">
-                                    <?php
-                                        $link = mysqli_connect("localhost","root","", "risk");
-
-                                        if (mysqli_connect_error()){
-                                            die ("Error!");
-                                        }
-
-                                        $query = "SELECT DISTINCT * FROM course";
-                                        
-                                        $result= mysqli_query($link, $query);
-
-
-
-                                        while ($row = mysqli_fetch_array($result)) {
-                                            echo "<input type='checkbox' name='course' value=".$row['course_code']." id=".$row['course_code']."><label for=".$row['course_code'].">  ".$row['course_code']."</label><br>";
-                                        }
-                                    ?>
-                                
                             </form>
                         </div>
                     </div>
                 </div>
                 
                 </div class="row">
-                    <button type="button" ng-click="assign()" class="btn btn-primary">Assign</button>
-
-                    <?php
-                        
-                        if (empty($_GET)){
-                           echo "empty";
-                        } else {
-                            $course_id = $_GET['courses'];
-                            $user = $_GET['user'];
-                            echo ($user);
-                            echo ($course_id);
-                        }
-
-                        $link = mysqli_connect("localhost","root","", "risk");
-
-                        if (mysqli_connect_error()){
-                            die ("Error!");
-                        }
-
-                        $query = "INSERT INTO 'user' ('subject_id', 'subject_enrollmentyear', 'course_id', 'user_id') VALUES (NULL, 2018, )";
-                        
-                        mysqli_query($link, $query);
-
-                        /*$('.button').click(function() {
-
-                            $.ajax({
-                              type: "POST",
-                              url: "admin.php",
-                              data: { name: "John" }
-                            }).done(function( msg ) {
-                              alert( "Data Saved: " + msg );
-                            });    
-
-                        });*/
-
-                        /*function assignUser(){
-                        if (empty($_GET)){
-                           alert("empty");
-                        } else {
-                            $course_id = $_GET['course_id'];
-                            $user = $_GET['user'];
-                            alert($user);
-                            alert($course_id);
-                        }
-                        }*/
-
-                    ?>
-                   
+                    <button type="button" ng-click="assign()" class="btn btn-primary">Assign</button>                   
                 </div>
             </div>
         </div>

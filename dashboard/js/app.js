@@ -859,6 +859,25 @@ app
      * form handling
      */
     // user clicks publish
+    $scope.assign = function(){
+        
+        var lecturer = $(".lecturer").val()
+        $(".tick").each(function()
+        {
+            if($(this).is(':checked'))
+            {
+                var course_code=$(this).val();
+                // Do stuff with checked box
+                $http.post('../api/admin/post.php?lecturer='+lecturer+'&course_code='+course_code).then(function(res){
+                    console.log(res.data)
+                })
+            }
+            else
+            {
+                // Checkbox isn't checked
+            }
+        })
+    }
     $scope.publish = function() {
 
         // form variables
@@ -1488,12 +1507,11 @@ app
     $http.get('../api/admin/get.php?type=lecturer').then(function(response){
 
         response.data.forEach(function(element){
-            $('#list').append(` "<input type='radio' name='user' value="`+element.user_id+`" data-id="`+element.user_id+`"> "`+element.user_name+`" "`+element.user_surname+`", "`+element.user_id+`<br>`)
+            $('#list').append(` "<input type='radio' name='user' class="lecturer" value="`+element.user_id+`" id="`+element.user_id+`"> "`+element.user_name+`" "`+element.user_surname+`", "`+element.user_id+`<br>`)
         })	
     })
 
     $http.get('../api/admin/get.php?type=teach').then(function(response){
-
         response.data.forEach(function(element){
             $('#course_list').append(`"<input type='checkbox' name='course' value="`+element.course_code+`" data-teach="`+.element.course_code.+`"><label for="`+element.course_code+`">  "`+element.course_code+`"</label><br>`)
         })
