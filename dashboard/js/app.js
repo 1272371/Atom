@@ -99,7 +99,7 @@ app
 
             if (response.data.message === 'success') {
                 if (response.data.contents.user_type === 'developer') {
-
+                    $('#admin-tab').css('display', 'block')
                 }
                 else {
                     $('#admin-tab').css('display', 'none')
