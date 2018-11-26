@@ -77,6 +77,10 @@ app
             $('li').attr('class', '')
             $('#upload-marks-tab').attr('class', 'active')
         }
+        else if (path === 'admin') {
+            $('li').attr('class', '')
+            $('#admin-tab').attr('class', 'active')
+        }
 
         /**
          * event listeners
@@ -96,7 +100,7 @@ app
         // get variables from database
         $http.post('../api/signing/signed.php')
         .then(function(response) {
-
+            console.log('awe')
             if (response.data.message === 'success') {
                 if (response.data.contents.user_type === 'developer') {
                     $('#admin-tab').css('display', 'block')
