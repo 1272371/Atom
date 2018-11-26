@@ -1386,10 +1386,12 @@ app
                 {
                     if(marks>=50)
                     {
+                        $('#student_risk').html(`<center><img class="img-fluid" src="img/safe.png" width="250" height="250"></center>`)
                         $('#course_list').html(`<li class="list-group-item" style="color:green;font-weight: 300;">`+course_names[i]+` (`+marks[i]+`%)</li>`)
                     }
                     else
                     {
+                        $('#student_risk').html(`<center><img class="img-fluid" src="img/risk.jpg" width="250" height="250"></center>`)
                         $('#course_list').html(`<li class="list-group-item" style="color:red;font-weight: 300;">`+course_names[i]+` (`+marks[i]+`%)</li>`)
                     }    
                 }
