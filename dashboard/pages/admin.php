@@ -25,16 +25,16 @@
                                     die ("Error!");
                                 }
 
-                                $query2 = "SELECT user.user_id, user.user_name, user.user_surname,user.utl_id, subject.user_id FROM user LEFT JOIN subject ON user.user_id = subject.user_id WHERE user.utl_id=2";
+                                //$query2 = "SELECT user.user_id, user.user_name, user.user_surname,user.utl_id, subject.user_id FROM user LEFT JOIN subject ON user.user_id = subject.user_id WHERE user.utl_id=2";
 
                                 $query = "SELECT * FROM user WHERE utl_id=2 AND user_id NOT IN (SELECT user_id FROM subject)";
 
 
                                 $result = mysqli_query($link, $query);
-                                $result2 = mysqli_query($link, $query2);
+                                //$result2 = mysqli_query($link, $query2);
 
                                 while ($row = mysqli_fetch_array($result)){
-                                    echo "<input type='radio' name='user' value=".$row['user_id']."> ".$row['user_name']." ".$row['user_surname'].", ".$row['user_id']."<br>";
+                                    echo "<input type='radio' name='user' value=".$row['user_id']." data-id=".$row['user_id']."> ".$row['user_name']." ".$row['user_surname'].", ".$row['user_id']."<br>";
                                 }
                                 ?>
                            </form>  
