@@ -550,6 +550,24 @@ app
     $scope.average4='Course Average'
     $rootScope.average = 'Statistics'
 
+    $scope.average5='Course Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.average6='Course Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.average7='Course Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.average8='Course Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.average9='Course Average'
+    $rootScope.average = 'Statistics'
+
+    $scope.average10='Course Average'
+    $rootScope.average = 'Statistics'
+
     $scope.staff_id=''
     $rootScope.staff_id = ''
 
@@ -558,8 +576,13 @@ app
     $('#plot2').hide()
     $('#plot3').hide()
     $('#plot4').hide()
+    $('#plot5').hide()
+    $('#plot6').hide()
+    $('#plot7').hide()
+    $('#plot8').hide()
+    $('#plot9').hide()
+    $('#plot10').hide()
     */
-
     /*
     $scope.risk='Students Risk'
     $rootScope.risk ='Statistics'
@@ -575,13 +598,14 @@ app
 
     // init variables - change on resize
     var iWinHeight = $(window).height()
-
+    /*
     // stretch top cards
     var stretchTopCards = 0.5 * (iWinHeight - $('.stretch-card-top').offset().top - 10)
     $('.stretch-card-top').css('height', stretchTopCards)
     // stretch bottom cards
     var stretchBottomCards = iWinHeight - $('.stretch-card-bottom').offset().top - 10
     $('.stretch-card-bottom').css('height', stretchBottomCards)
+    */
 //-----------------------------------------------------------------------------
     // get variables from database
     var user
@@ -682,7 +706,7 @@ app
             */
 
             /********************BCO***********************************/
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2018'
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2013'
             $http.post(url)
             .then(function(responses) {
 
@@ -706,7 +730,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course1').html(`Basic Computer Organization (`+average+`% average)`)
+                    $('#course1').html(`Basic Computer Organization - 2018 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -724,7 +748,7 @@ app
                     // something went wrong
                 }
             })
-             url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2018'
+             url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2016'
             $http.post(url)
             .then(function(responses) {
 
@@ -745,7 +769,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course2').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    $('#course2').html(`Inroduction To Algorithms And Programming - 2018 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -764,7 +788,7 @@ app
                 }
             })
 
-            url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2017'
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2015'
             $http.post(url)
             .then(function(responses) {
 
@@ -786,7 +810,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course3').html(`Basic Computer Organization(`+average+`% average)`)
+                    $('#course3').html(`Basic Computer Organization - 2017 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -805,7 +829,7 @@ app
                 }
             })
 
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2017'
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2017'
             $http.post(url)
             .then(function(responses) {
 
@@ -827,7 +851,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course4').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    $('#course4').html(`Inroduction To Algorithms And Programming - 2017 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -846,7 +870,7 @@ app
                 }
             })
 
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2016'
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2018'
             $http.post(url)
             .then(function(responses) {
 
@@ -868,7 +892,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course5').html(`Basic Computer Organization(`+average+`% average)`)
+                    $('#course5').html(`Basic Computer Organization- 2016 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -911,7 +935,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course6').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    $('#course6').html(`Inroduction To Algorithms And Programming- 2018 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -951,8 +975,8 @@ app
                     }
                     var average=Math.round(sum/len)
 
-                    not_average=100-average
-                    $('#course7').html(`Basic Computer Organization(`+average+`% average)`)
+                    not_average=100-average+10
+                    $('#course7').html(`Basic Computer Organization- 2015 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -971,7 +995,7 @@ app
                 }
             })
 
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2015'
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2017'
             $http.post(url)
             .then(function(responses) {
 
@@ -992,8 +1016,8 @@ app
                     }
                     var average=Math.round(sum/len)
 
-                    not_average=100-average
-                    $('#course8').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    not_average=100-average+20
+                    $('#course8').html(`Inroduction To Algorithms And Programming- 2015(`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -1012,7 +1036,7 @@ app
                 }
             })
 
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2014'
+             url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2013'
             $http.post(url)
             .then(function(responses) {
 
@@ -1022,7 +1046,7 @@ app
                     
                     //$scope.grades = responses.data.contents.grades
                     //$scope.enrolled = responses.data.contents.grades.length
-                   var sum = 0
+                    var sum = 0
                     var len =0
                     for(i=0;i< responses.data.contents.grades.length;i++)
                     {
@@ -1033,8 +1057,8 @@ app
                     }
                     var average=Math.round(sum/len)
 
-                    not_average=100-average
-                    $('#course9').html(`Basic Computer Organization(`+average+`% average)`)
+                    not_average=100-average+14
+                    $('#course9').html(`Inroduction To Algorithms And Programming- 2014 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -1053,7 +1077,7 @@ app
                 }
             })
 
-            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2014'
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2016'
             $http.post(url)
             .then(function(responses) {
 
@@ -1075,7 +1099,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course10').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    $('#course10').html(`Inroduction To Algorithms And Programming- 2014 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
@@ -1107,8 +1131,6 @@ app
                     $scope.faculty =res.data.faculty_name 
                     $rootScope.faculty =res.data.faculty_name
             })
-
-
             console.log('user is signed in')
         }
         else {
@@ -1838,7 +1860,7 @@ app
 
                 for(i=0;i<marks.length;i++)
                 {
-                    if(marks>=50)
+                    if(marks >= 45)
                     {
                         $('#student_risk').html(`<center><img class="img-fluid" src="img/safe.png" width="250" height="250"></center>`)
                         $('#course_list').html(`<li class="list-group-item" style="color:green;font-weight: 300;">`+course_names[i]+` (`+marks[i]+`%)</li>`)
