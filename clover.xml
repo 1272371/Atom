@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1543315429">
-  <project timestamp="1543315429">
+<coverage generated="1543316577">
+  <project timestamp="1543316577">
     <file name="/opt/lampp/htdocs/Atom/api/config/Database.php">
       <class name="Database" namespace="global">
         <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="15" coveredelements="15"/>
@@ -24,7 +24,7 @@
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Assessment.php">
       <class name="Assessment" namespace="global">
-        <metrics complexity="15" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="87" coveredstatements="80" elements="92" coveredelements="83"/>
+        <metrics complexity="15" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="80" elements="90" coveredelements="84"/>
       </class>
       <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="22" type="stmt" count="1"/>
@@ -97,7 +97,7 @@
       <line num="180" type="stmt" count="1"/>
       <line num="183" type="stmt" count="1"/>
       <line num="185" type="stmt" count="1"/>
-      <line num="189" type="method" name="getMinMaxYear" visibility="public" complexity="3" crap="3.01" count="1"/>
+      <line num="189" type="method" name="getMinMaxYear" visibility="public" complexity="3" crap="3" count="1"/>
       <line num="192" type="stmt" count="1"/>
       <line num="195" type="stmt" count="1"/>
       <line num="198" type="stmt" count="1"/>
@@ -107,18 +107,16 @@
       <line num="209" type="stmt" count="1"/>
       <line num="212" type="stmt" count="1"/>
       <line num="214" type="stmt" count="1"/>
-      <line num="217" type="stmt" count="0"/>
+      <line num="218" type="stmt" count="1"/>
       <line num="221" type="stmt" count="1"/>
       <line num="224" type="stmt" count="1"/>
       <line num="227" type="stmt" count="1"/>
-      <line num="230" type="stmt" count="1"/>
+      <line num="229" type="stmt" count="1"/>
       <line num="232" type="stmt" count="1"/>
       <line num="235" type="stmt" count="1"/>
       <line num="238" type="stmt" count="1"/>
-      <line num="241" type="stmt" count="1"/>
-      <line num="244" type="stmt" count="0"/>
-      <line num="248" type="stmt" count="1"/>
-      <metrics loc="249" ncloc="149" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="87" coveredstatements="80" elements="92" coveredelements="83"/>
+      <line num="242" type="stmt" count="1"/>
+      <metrics loc="243" ncloc="143" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="80" elements="90" coveredelements="84"/>
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Basic.php">
       <class name="Basic" namespace="global">
@@ -194,8 +192,8 @@
       <line num="104" type="stmt" count="1"/>
       <line num="105" type="stmt" count="1"/>
       <line num="106" type="stmt" count="1"/>
-      <line num="109" type="stmt" count="0"/>
-      <metrics loc="112" ncloc="74" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="27" elements="32" coveredelements="30"/>
+      <line num="108" type="stmt" count="0"/>
+      <metrics loc="109" ncloc="71" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="27" elements="32" coveredelements="30"/>
     </file>
     <file name="/opt/lampp/htdocs/Atom/api/models/Statistic.php">
       <class name="Statistic" namespace="global">
@@ -310,6 +308,6 @@
       <line num="150" type="stmt" count="0"/>
       <metrics loc="151" ncloc="90" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="22" elements="28" coveredelements="26"/>
     </file>
-    <metrics files="7" loc="894" ncloc="559" classes="7" methods="26" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="241" coveredstatements="232" elements="267" coveredelements="254"/>
+    <metrics files="7" loc="885" ncloc="550" classes="7" methods="26" coveredmethods="23" conditionals="0" coveredconditionals="0" statements="239" coveredstatements="232" elements="265" coveredelements="255"/>
   </project>
 </coverage>

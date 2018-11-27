@@ -50,8 +50,10 @@ class MarkTest extends PHPUnit\Framework\TestCase
     public function testGetMarksByUserId()
     {
         MarkTest::initMark();
+        //test existing user
         $this->assertEquals(74,$this->mark->getMarksByUserId($this->mark->user_id));
-        $this->assertEquals(0,$this->mark->getMarksByUserId(100000000000000000000000000001));
+        //test non existing user
+        $this->assertEquals(0,$this->mark->getMarksByUserId(-1));
     }
     public function initMark(){
         // database stuff
