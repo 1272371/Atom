@@ -314,6 +314,19 @@ app
                 'no</text><text x="50%" y="50%" class="chart-label">risk data</text></g>'
                 svg = svgTag + donutHole + donutRing + text + '</svg>'
                 $('#graph-risk').html(svg)
+
+                /*var img = document.createElement("img");
+
+                if(ave >= 45){
+                    document.getElementById('student_risk').src = "img/safe.png";
+                }else{
+                    img.src = "img/risk.jpg";
+                }
+                var cube  = document.getElementById("student_risk");
+                cube.src = "img/risk.jpg";
+                cube.setAttribute('src ',"img/risk.jpg");
+                cube.appendChild(img);*/
+
             })
 
         }
