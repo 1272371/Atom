@@ -935,7 +935,7 @@ app
                     var average=Math.round(sum/len)
 
                     not_average=100-average
-                    $('#course6').html(`Inroduction To Algorithms And Programming- 2018 (`+average+`% average)`)
+                    $('#course6').html(`Inroduction To Algorithms And Programming- 2016 (`+average+`% average)`)
                     var data = {
                       series: [average,100-average]
                     };
