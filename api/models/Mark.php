@@ -105,9 +105,6 @@
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 return $row['mark_total'];
             }
-            else {
-                return 0;
-            }
         }
 
     }
