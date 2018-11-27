@@ -213,9 +213,6 @@
                 // set
                 $yearRange[0] = $splitter[0] + 0;
             }
-            else {
-                $yearRange[0] = date('Y');
-            }
 
             // maximum year
             $query = 'SELECT MAX(assessment_date) FROM assessment WHERE course_id=' . $course_id;
@@ -239,9 +236,6 @@
 
                 // set
                 $yearRange[1] = $splitter[0] + 0;
-            }
-            else {
-                $yearRange[1] = date('Y');
             }
 
             // return array
