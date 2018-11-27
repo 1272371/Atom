@@ -28,7 +28,7 @@ app
         controller: 'reportPageController'
     })
     .when('/admin', {
-    	templateUrl: 'pages/admin.php',
+    	templateUrl: 'pages/admin.html',
         controller: 'adminController'
     })
     .when('/wiki', {
@@ -72,6 +72,10 @@ app
         else if (path === 'admin') {
             $('li').attr('class', '')
             $('#admin-tab').attr('class', 'active')
+        }
+        else if(path === 'reportPage'){
+            $('li').attr('class', '')
+            $('#report-tab').attr('class', 'active')
         }
 
         /**

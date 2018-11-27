@@ -21,4 +21,9 @@ def predict(course, marks):
 if __name__ == '__main__':
     course = sys.argv[1]
     marks = [float(sys.argv[i]) for i in range(2, len(sys.argv))]
-    print(predict(course, marks))
+    if(predict(course, marks) >= 50 ):
+        print("safe")
+    else:
+        print("risk")
+
+
