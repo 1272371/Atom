@@ -14,6 +14,26 @@
 
 <!-- four pane layout-->
 <div class="container">
+        <!--
+            <div id="grade-book-card" class="card m-2">
+                <div class="card-body p-0" style="overflow-x:hidden; overflow-y:auto">
+                    <div class="row mt-3 ml-3 mr-3">
+                        <div class="col-2 p-0">
+                            <select class="nice-drop-down-menu" id="course-drop-down" style="width: 12vw;"></select>
+                        </div>
+                        <div class="col-2 p-0">
+                            <select class="nice-drop-down-menu" id="year-drop-down" style="width: 12vw;">
+                                <option selected value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
     <div class="row mt-2">
         <div class="col pr-0">
             <div class="card ml-2 mr-1 stretch-card-top">
@@ -23,13 +43,6 @@
                     <p>Name: {{name}}</p>
                     <p>Surname: {{surname}}</p>
                     <p>Faculty: {{faculty}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col pl-0" id="courses">
-            <div class="card mr-2 ml-1 stretch-card-top">
-                <div class="card-body">
-                    <h5>{{courses}}</h5>
                 </div>
             </div>
         </div>
@@ -75,5 +88,68 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col pl-0" id="plot5">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average5}}</h5></center>
+                    <center><p id="course5"></p></center>
+                    <div id="figure5" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col pl-0" id="plot6">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average6}}</h5></center>
+                    <center><p id="course6"></p></center>
+                    <div id="figure6" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="row mt-2">
+        <div class="col pl-0" id="plot7">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average7}}</h5></center>
+                    <center><p id="course7"></p></center>
+                    <div id="figure7" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col pl-0" id="plot8">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average8}}</h5></center>
+                    <center><p id="course8"></p></center>
+                    <div id="figure8" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="row mt-2">
+        <div class="col pl-0" id="plot9">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average9}}</h5></center>
+                    <center><p id="course9"></p></center>
+                    <div id="figure9" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col pl-0" id="plot10">
+            <div class="card mr-2 ml-1 stretch-card-bottom">
+                <div class="card-body">
+                    <center><h5>{{average10}}</h5></center>
+                    <center><p id="course10"></p></center>
+                    <div id="figure10" class="ct-chart container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

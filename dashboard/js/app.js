@@ -536,11 +536,13 @@ app
     $scope.staff_id=''
     $rootScope.staff_id = ''
 
-    $('#courses').hide()
+    /*
     $('#plot1').hide()
     $('#plot2').hide()
     $('#plot3').hide()
     $('#plot4').hide()
+    */
+
     /*
     $scope.risk='Students Risk'
     $rootScope.risk ='Statistics'
@@ -572,7 +574,7 @@ app
             // get subjects
             user=response.data.contents.user_id
             console.log(user)
-
+            /*
             $http.get('../api/stats/get.php?lecturer='+user+'&type=average').then(function(res){
                 console.log(res.data)
                 res.data.forEach(function(element,index){
@@ -660,7 +662,421 @@ app
                 })
                                 
             })
+            */
 
+            /********************BCO***********************************/
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2018'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len = 0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            //console.log(element.average)
+                            sum = sum + parseInt(element.average)
+                            len = len + 1
+                        })
+                    }
+                    //console.log(sum)
+                    //var len = responses.data.contents.grades.length*10
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course1').html(`Basic Computer Organization (`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure1', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+             url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2018'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course2').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure2', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2017'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course3').html(`Basic Computer Organization(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure3', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2017'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course4').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure4', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2016'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course5').html(`Basic Computer Organization(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure5', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+
+            /********************IAP***********************************/
+            url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2016'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course6').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure6', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+             url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2015'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course7').html(`Basic Computer Organization(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure7', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2015'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course8').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure8', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=1&year=2014'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                   var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course9').html(`Basic Computer Organization(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure9', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+
+            var url = '../api/marks/grades.php?user_id=' + user + '&course_id=2&year=2014'
+            $http.post(url)
+            .then(function(responses) {
+
+                if (responses.data.message === 'success') {
+
+                    // set scopes for table
+                    
+                    //$scope.grades = responses.data.contents.grades
+                    //$scope.enrolled = responses.data.contents.grades.length
+                    var sum = 0
+                    var len =0
+                    for(i=0;i< responses.data.contents.grades.length;i++)
+                    {
+                        responses.data.contents.grades.forEach(function(element){
+                            sum = sum + parseInt(element.average)
+                            len = len+1
+                        })
+                    }
+                    var average=Math.round(sum/len)
+
+                    not_average=100-average
+                    $('#course10').html(`Inroduction To Algorithms And Programming(`+average+`% average)`)
+                    var data = {
+                      series: [average,100-average]
+                    };
+
+                    var sum = function(a, b) { return a + b };
+
+                    
+                    new Chartist.Pie('#figure10', data, {
+                      labelInterpolationFnc: function(value) {
+                        return Math.round(value / data.series.reduce(sum) * 100) + '%';
+                      }
+                    });
+                }
+                else {
+                    // something went wrong
+                }
+            })
+    
             $http.get('../api/stats/get.php?lecturer='+user+'&type=info').then(function(res){
                     $scope.staff_id =res.data.user_id 
                     $rootScope.staff_id =res.data.user_id 
@@ -674,6 +1090,8 @@ app
                     $scope.faculty =res.data.faculty_name 
                     $rootScope.faculty =res.data.faculty_name
             })
+
+
             console.log('user is signed in')
         }
         else {
@@ -860,7 +1278,7 @@ app
      */
     // user clicks publish
     $scope.assign = function(){
-        
+
         var lecturer = $(".lecturer").val()
         $(".tick").each(function()
         {
@@ -1513,7 +1931,7 @@ app
 
     $http.get('../api/admin/get.php?type=teach').then(function(response){
         response.data.forEach(function(element){
-            $('#course_list').append(`"<input type='checkbox' name='course' value="`+element.course_code+`" data-teach="`+.element.course_code.+`"><label for="`+element.course_code+`">  "`+element.course_code+`"</label><br>`)
+            $('#course_list').append(`"<input type='checkbox' name='course' value="`+element.course_code+`" data-teach="`+element.course_code+`"><label for="`+element.course_code+`">`+element.course_code+`"</label><br>`)
         })
     })
 })

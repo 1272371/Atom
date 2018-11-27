@@ -1,7 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	require("../config/DB.php");
-
+	require("../../connect/DB.php");
 	/*
 	$query = 'SELECT * FROM user';
 

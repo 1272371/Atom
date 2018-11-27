@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	require("../config/DB.php");
+	require("../../connect/DB.php");
 
 	if($_SERVER['REQUEST_METHOD']=='GET')
 	{	
@@ -22,6 +22,21 @@
 		}
 		elseif(isset($_GET['type']) && $_GET['type']=='teach')
 		{
+
+			$query = "SELECT DISTINCT * FROM course";
+			$stmt = $pdo->query($query);
+
+			$response = '[';
+			while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+			{
+				$response .= '{"user_id":"'.$row['course_code'].'"},';
+			}
+			$response = substr($response,0,strlen($response)-1);
+			$response .= ']';
+
+			http_response_code(200);
+			echo $response;
+
 			/*
 				$query = "SELECT * FROM user WHERE utl_id=2 AND user_id NOT IN (SELECT user_id FROM subject)";
 				$stmt = $pdo->query($query);

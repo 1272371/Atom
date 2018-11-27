@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	require("../config/DB.php");
+	require("../../connect/DB.php");
 	
 	if($_SERVER['REQUEST_METHOD']=='POST')
 	{
